@@ -385,11 +385,11 @@ body.page-id-380881 .infometry-home-test {
 .infometry-home-test .infometry-capabilities-head h2 { margin-bottom: 0; color: #fff; font-size: clamp(24px, 2vw, 31px); line-height: 1.3; font-weight: 800; }
 .infometry-home-test .infometry-value-grid { position: relative; display: flex; overflow-x: auto; overscroll-behavior-inline: contain; scrollbar-width: none; }
 .infometry-home-test .infometry-value-grid::-webkit-scrollbar { display: none; }
-.infometry-home-test .infometry-value-grid article { display: grid; min-width: 0; grid-template-columns: 56px 1fr; gap: 17px; align-items: center; padding: 0 clamp(18px, 2.2vw, 31px); flex: 0 0 clamp(260px, 25%, 360px); border-right: 1px solid rgba(255,255,255,.2); }
+.infometry-home-test .infometry-value-grid article { display: grid; min-width: 0; grid-template-columns: 50px 1fr; gap: 12px; align-items: center; padding: 0 clamp(14px, 1.4vw, 20px); flex: 0 0 clamp(260px, 25%, 360px); border-right: 1px solid rgba(255,255,255,.2); }
 .infometry-home-test .infometry-value-grid article:first-child { padding-left: 15px; }
 .infometry-home-test .infometry-value-grid article:last-child { border-right: 0; }
 .infometry-home-test .infometry-value-grid svg { width: 49px; height: 49px; color: #fff; stroke-width: 1.5; }
-.infometry-home-test .infometry-value-grid h3 { margin-bottom: 4px; color: #fff; font-size: 15.5px; line-height: 1.4; font-weight: 800; }
+.infometry-home-test .infometry-value-grid h3 { margin-bottom: 6px; color: #fff; font-size: clamp(16px, 1.15vw, 18px); line-height: 1.35; font-weight: 800; white-space: nowrap; }
 .infometry-home-test .infometry-value-grid p { margin-bottom: 0; color: rgba(255,255,255,.9); font-size: 13.5px; line-height: 1.6; font-weight: 500; }
 
 .infometry-home-test .infometry-industries { padding: 42px 0 32px; background: linear-gradient(#fff, #fafbff); }
