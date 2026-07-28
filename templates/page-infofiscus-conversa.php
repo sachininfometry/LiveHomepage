@@ -504,7 +504,7 @@ $other_products = array(
 				</table>
 			</div>
 			<div class="icp-section-action">
-				<a class="icp-button icp-button-primary" href="<?php echo esc_url( $demo_url ); ?>">Book a Demo</a>
+				<a class="icp-button icp-button-primary" href="#icp-demo-form" data-icp-demo-trigger>Book a Demo</a>
 			</div>
 		</div>
 	</section>
