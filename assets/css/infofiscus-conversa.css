@@ -10166,6 +10166,40 @@ body .infometry-conversa-product .icp-architecture-flow b {
   }
 }
 
+/* Keep every challenge card visibly separate with fully rounded corners. */
+body .infometry-conversa-product .icp-problem .icp-four {
+  gap: 16px !important;
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+}
+body .infometry-conversa-product .icp-problem .icp-soft-card,
+body .infometry-conversa-product .icp-problem .icp-soft-card:nth-child(n) {
+  overflow: hidden !important;
+  border: 1px solid rgba(125,184,255,.22) !important;
+  border-radius: 18px !important;
+}
+body .infometry-conversa-product .icp-problem .icp-soft-card:nth-child(1) {
+  border-color: rgba(72,174,255,.38) !important;
+  background: linear-gradient(145deg,rgba(20,76,162,.88),rgba(7,37,102,.82)) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.1),0 14px 32px rgba(4,27,85,.22) !important;
+}
+@media (max-width: 980px) {
+  body .infometry-conversa-product .icp-problem .icp-soft-card,
+  body .infometry-conversa-product .icp-problem .icp-soft-card:nth-child(n) {
+    border: 1px solid rgba(125,184,255,.22) !important;
+    border-radius: 18px !important;
+  }
+}
+@media (max-width: 620px) {
+  body .infometry-conversa-product .icp-problem .icp-four {
+    gap: 12px !important;
+  }
+  body .infometry-conversa-product .icp-problem .icp-soft-card,
+  body .infometry-conversa-product .icp-problem .icp-soft-card:nth-child(n) {
+    border-radius: 14px !important;
+  }
+}
+
 /* Final CTA redesign. */
 body .infometry-conversa-product .icp-final-cta {
   position: relative !important;
