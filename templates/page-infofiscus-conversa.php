@@ -100,9 +100,9 @@ $faqs = array(
 );
 
 $other_products = array(
-	array( 'icon' => 'nodes', 'title' => 'Informatica Connectors', 'copy' => 'Pre-built, no-code connectors for fast, secure, and scalable data movement across enterprise systems.' ),
-	array( 'icon' => 'database', 'title' => 'INFOFISCUS Snowflake Native Apps', 'copy' => 'Native Snowflake applications that accelerate analytics, integration, and operational reporting.' ),
-	array( 'icon' => 'chart', 'title' => 'Pre-Built Analytics Apps', 'copy' => 'Ready-to-use analytics solutions for IDMC and Matillion that reduce implementation time.' ),
+	array( 'class' => 'is-informatica', 'logo' => 'informatica-product-mark.png', 'title' => 'Informatica Connectors', 'button' => 'Informatica Connectors', 'url' => home_url( '/product/informatica-connectors/' ), 'copy' => 'Pre-built, no-code connectors for fast, secure, and scalable data movement across enterprise systems.' ),
+	array( 'class' => 'is-snowflake', 'logo' => 'snowflake-product-mark.png', 'title' => 'INFOFISCUS Snowflake Native Apps', 'button' => 'Snowflake Native Apps', 'url' => home_url( '/product/snowflake-native-apps/' ), 'copy' => 'Native Snowflake applications that accelerate analytics, integration, and operational reporting.' ),
+	array( 'class' => 'is-analytics-apps', 'icon' => 'chart', 'title' => 'Pre-Built Analytics Apps', 'button' => 'Pre-Built Analytics Apps', 'url' => home_url( '/product/pre-built-analytics-apps-for-idmc-and-matillion/' ), 'copy' => 'Ready-to-use analytics solutions for IDMC and Matillion that reduce implementation time.' ),
 );
 ?>
 
@@ -606,11 +606,17 @@ $other_products = array(
 			</div>
 			<div class="icp-card-grid icp-other-grid">
 				<?php foreach ( $other_products as $product ) : ?>
-					<article class="icp-feature-card">
-						<span class="icp-icon"><svg><use href="#icp-i-<?php echo esc_attr( $product['icon'] ); ?>"></use></svg></span>
+					<article class="icp-feature-card <?php echo esc_attr( $product['class'] ); ?>">
+						<span class="icp-icon">
+							<?php if ( ! empty( $product['logo'] ) ) : ?>
+								<img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/' . $product['logo'] ); ?>" alt="<?php echo esc_attr( $product['title'] ); ?> logo">
+							<?php else : ?>
+								<svg><use href="#icp-i-<?php echo esc_attr( $product['icon'] ); ?>"></use></svg>
+							<?php endif; ?>
+						</span>
 						<h3><?php echo esc_html( $product['title'] ); ?></h3>
 						<p><?php echo esc_html( $product['copy'] ); ?></p>
-						<a class="icp-text-link" href="<?php echo esc_url( $contact_url ); ?>">Read More</a>
+						<a class="icp-text-link" href="<?php echo esc_url( $product['url'] ); ?>"><?php echo esc_html( $product['button'] ); ?></a>
 					</article>
 				<?php endforeach; ?>
 			</div>

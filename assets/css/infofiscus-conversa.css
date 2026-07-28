@@ -10402,15 +10402,21 @@ body .infometry-conversa-product .icp-other-grid .icp-feature-card {
 }
 
 body .infometry-conversa-product .icp-other-grid .icp-feature-card:nth-child(2) {
-  --product-accent: #0caeaa;
-  --product-accent-2: #35d6c2;
-  --product-tint: #eafaf7;
+  --product-accent: #29b5e8;
+  --product-accent-2: #63c8ed;
+  --product-tint: #eaf9ff;
 }
 
 body .infometry-conversa-product .icp-other-grid .icp-feature-card:nth-child(3) {
   --product-accent: #6959e8;
   --product-accent-2: #9a75f2;
   --product-tint: #f1efff;
+}
+
+body .infometry-conversa-product .icp-other-grid .icp-feature-card.is-informatica {
+  --product-accent: #ff4f00;
+  --product-accent-2: #ff8a34;
+  --product-tint: #fff2eb;
 }
 
 body .infometry-conversa-product .icp-other-grid .icp-feature-card::before {
@@ -10444,6 +10450,18 @@ body .infometry-conversa-product .icp-other-grid .icp-icon {
 body .infometry-conversa-product .icp-other-grid .icp-icon svg {
   width: 25px !important;
   height: 25px !important;
+}
+
+body .infometry-conversa-product .icp-other-grid .icp-icon img {
+  display: block !important;
+  width: 42px !important;
+  height: 42px !important;
+  object-fit: contain !important;
+}
+
+body .infometry-conversa-product .icp-other-grid .icp-feature-card.is-informatica .icp-icon,
+body .infometry-conversa-product .icp-other-grid .icp-feature-card.is-snowflake .icp-icon {
+  background: #fff !important;
 }
 
 body .infometry-conversa-product .icp-other-grid h3 {
