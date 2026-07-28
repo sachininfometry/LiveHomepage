@@ -249,8 +249,20 @@ $other_products = array(
 				<?php endforeach; ?>
 			</div>
 			<div class="icp-llm-panel"><span class="icp-strip-heading">LLMs Supported</span><div class="icp-llm-list" aria-label="Supported large language models">
-				<?php foreach ( $supported_llms as $llm ) : ?><span><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/' . $llm['file'] ); ?>" alt="<?php echo esc_attr( $llm['name'] ); ?> logo"></span><?php endforeach; ?>
-				<?php foreach ( $supported_llms as $llm ) : ?><span aria-hidden="true"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/' . $llm['file'] ); ?>" alt=""></span><?php endforeach; ?>
+				<?php foreach ( $supported_llms as $llm ) : ?>
+					<?php
+					$llm_logo_path = INFOMETRY_CT_PATH . 'assets/images/' . $llm['file'];
+					$llm_logo_ver  = is_readable( $llm_logo_path ) ? (string) filemtime( $llm_logo_path ) : INFOMETRY_CT_VERSION;
+					?>
+					<span><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/' . $llm['file'] . '?v=' . $llm_logo_ver ); ?>" alt="<?php echo esc_attr( $llm['name'] ); ?> logo"></span>
+				<?php endforeach; ?>
+				<?php foreach ( $supported_llms as $llm ) : ?>
+					<?php
+					$llm_logo_path = INFOMETRY_CT_PATH . 'assets/images/' . $llm['file'];
+					$llm_logo_ver  = is_readable( $llm_logo_path ) ? (string) filemtime( $llm_logo_path ) : INFOMETRY_CT_VERSION;
+					?>
+					<span aria-hidden="true"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/' . $llm['file'] . '?v=' . $llm_logo_ver ); ?>" alt=""></span>
+				<?php endforeach; ?>
 			</div></div>
 		</div>
 	</section>
