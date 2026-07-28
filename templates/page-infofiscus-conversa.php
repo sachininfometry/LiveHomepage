@@ -142,7 +142,7 @@ $other_products = array(
 					<p class="icp-hero-text">INFOFISCUS Conversa gives every team instant, governed answers from enterprise data—no SQL, no dashboard bottlenecks.</p>
 					<div class="icp-actions">
 						<a class="icp-button icp-button-primary" href="#icp-demo-form" data-icp-demo-trigger>Request a Demo <span aria-hidden="true">→</span></a>
-						<a class="icp-button icp-button-secondary" href="#icp-intro"><span class="icp-play-dot">▶</span> Watch Product Tour</a>
+						<a class="icp-button icp-button-secondary" href="https://app.supademo.com/demo/cmrpbnvrk00aozw0jd3ao0z6v?utm_source=link" target="_blank" rel="noopener noreferrer"><span class="icp-play-dot">▶</span> Watch Product Tour</a>
 					</div>
 					<div class="icp-hero-icons" aria-label="Conversa platform strengths">
 						<span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5h16v10.5H9l-5 3.5z"></path><circle cx="9" cy="10.8" r=".8"></circle><circle cx="12" cy="10.8" r=".8"></circle><circle cx="15" cy="10.8" r=".8"></circle></svg><b>Natural<br>Language</b></span>
