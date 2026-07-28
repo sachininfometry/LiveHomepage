@@ -632,7 +632,7 @@ $other_products = array(
 				<p>Experience the power of conversational analytics.</p>
 			</div>
 			<a class="icp-button icp-button-primary" href="#icp-demo-form" data-icp-demo-trigger>Request a Live Demo</a>
-			<a class="icp-button icp-button-secondary" href="<?php echo esc_url( $contact_url ); ?>">Talk to an Expert</a>
+			<a class="icp-button icp-button-secondary" href="#icp-demo-form" data-icp-demo-trigger>Talk to an Expert</a>
 		</div>
 	</section>
 
