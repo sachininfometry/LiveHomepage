@@ -10182,6 +10182,79 @@ body .infometry-conversa-product .icp-problem .icp-soft-card:nth-child(n) {
   }
 }
 
+/* Match the homepage footer typography, logo scale, spacing and contrast. */
+body .infometry-conversa-product .icp-product-footer {
+  font-family: "Open Sans", "Segoe UI", Arial, sans-serif !important;
+}
+body .infometry-conversa-product .icp-footer-connect h3,
+body .infometry-conversa-product .icp-footer-links h3 {
+  margin-bottom: 18px !important;
+  color: #fff !important;
+  font-size: 20px !important;
+  font-weight: 800 !important;
+  line-height: 1.3 !important;
+  text-shadow: none !important;
+}
+body .infometry-conversa-product .icp-footer-connect img {
+  display: block !important;
+  width: 320px !important;
+  max-width: 100% !important;
+  height: 86px !important;
+  margin: -5px 0 12px !important;
+  object-fit: contain !important;
+  object-position: left center !important;
+}
+body .infometry-conversa-product .icp-footer-connect p {
+  max-width: 370px !important;
+  margin-bottom: 18px !important;
+  color: #e2e8ff !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  line-height: 1.7 !important;
+}
+body .infometry-conversa-product .icp-footer-links a {
+  margin-bottom: 11px !important;
+  color: #edf2ff !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  line-height: 1.55 !important;
+  text-shadow: none !important;
+  transition: color .2s ease, transform .2s ease !important;
+}
+body .infometry-conversa-product .icp-footer-links a:hover {
+  color: #66c5ff !important;
+  text-shadow: none !important;
+  transform: translateX(3px) !important;
+}
+body .infometry-conversa-product .icp-footer-contact {
+  padding: 11px 17px !important;
+  font-size: 14px !important;
+  font-weight: 800 !important;
+}
+body .infometry-conversa-product .icp-footer-bottom {
+  margin-top: 40px !important;
+  padding-top: 21px !important;
+  border-top-color: rgba(255,255,255,.18) !important;
+}
+body .infometry-conversa-product .icp-footer-bottom p {
+  color: #cbd5f5 !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+}
+@media (max-width: 700px) {
+  body .infometry-conversa-product .icp-footer-connect h3,
+  body .infometry-conversa-product .icp-footer-links h3 {
+    font-size: 18px !important;
+  }
+  body .infometry-conversa-product .icp-footer-connect p,
+  body .infometry-conversa-product .icp-footer-links a {
+    font-size: 14px !important;
+  }
+  body .infometry-conversa-product .icp-footer-bottom p {
+    font-size: 13px !important;
+  }
+}
+
 /* Final CTA redesign. */
 body .infometry-conversa-product .icp-final-cta {
   position: relative !important;
