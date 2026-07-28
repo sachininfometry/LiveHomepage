@@ -8961,6 +8961,7 @@ body .infometry-conversa-product .icp-demo-form .icp-demo-form-head {
 
 body .infometry-conversa-product .icp-demo-form .icp-demo-preferences {
   order: 2 !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
 }
 
 body .infometry-conversa-product .icp-demo-form .wpforms-field-container {
@@ -11007,6 +11008,21 @@ body .infometry-conversa-product .icp-demo-form input {
   font-size: 15px !important;
 }
 
+body .infometry-conversa-product .icp-demo-form select {
+  width: 100% !important;
+  flex: 0 0 100% !important;
+  height: 54px !important;
+  margin: 0 !important;
+  padding: 0 38px 0 16px !important;
+  border: 1px solid #cfddf0 !important;
+  border-radius: 12px !important;
+  color: #102b50 !important;
+  background-color: #f6f9ff !important;
+  font-family: "Open Sans", "Segoe UI", Arial, sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+}
+
 body .infometry-conversa-product .icp-demo-form > .icp-button {
   min-height: 54px !important;
   margin-top: 4px !important;
@@ -11037,6 +11053,10 @@ body .infometry-conversa-product .icp-demo-form > .icp-button {
 
   body .infometry-conversa-product .icp-demo-calendar {
     padding: 18px 14px !important;
+  }
+
+  body .infometry-conversa-product .icp-demo-form .icp-demo-preferences {
+    grid-template-columns: 1fr !important;
   }
 }
 

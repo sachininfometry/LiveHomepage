@@ -14,7 +14,7 @@ get_header();
 
 $demo_url    = apply_filters( 'infometry_conversa_demo_url', home_url( '/infofiscus-analytics-sign-up-for-demo/' ) );
 $contact_url = apply_filters( 'infometry_conversa_contact_url', home_url( '/contact-us/' ) );
-$customers_url = apply_filters( 'infometry_conversa_customers_url', home_url( '/company/customers-partners/' ) );
+$customers_url = apply_filters( 'infometry_conversa_customers_url', 'https://www.infometry.net/company/customers-partners/' );
 
 $problems = array(
 	array( 'icon' => 'gauge', 'title' => 'Dashboard Overload', 'copy' => 'Teams spend more time searching for reports than making decisions.' ),

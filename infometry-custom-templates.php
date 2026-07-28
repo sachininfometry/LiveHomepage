@@ -199,6 +199,18 @@ function infometry_ct_render_conversa_form_fields( $form_data, $form ) {
 			<?php esc_html_e( 'Preferred Demo Time', 'infometry-custom-templates' ); ?> <span>*</span>
 			<input type="time" name="infometry_conversa[preferred_demo_time]" data-icp-demo-time required>
 		</label>
+		<label>
+			<?php esc_html_e( 'US Time Zone', 'infometry-custom-templates' ); ?> <span>*</span>
+			<select name="infometry_conversa[preferred_demo_timezone]" data-icp-demo-timezone required>
+				<option value="America/New_York"><?php esc_html_e( 'Eastern Time (ET)', 'infometry-custom-templates' ); ?></option>
+				<option value="America/Chicago"><?php esc_html_e( 'Central Time (CT)', 'infometry-custom-templates' ); ?></option>
+				<option value="America/Denver"><?php esc_html_e( 'Mountain Time (MT)', 'infometry-custom-templates' ); ?></option>
+				<option value="America/Phoenix"><?php esc_html_e( 'Arizona Time (MST)', 'infometry-custom-templates' ); ?></option>
+				<option value="America/Los_Angeles"><?php esc_html_e( 'Pacific Time (PT)', 'infometry-custom-templates' ); ?></option>
+				<option value="America/Anchorage"><?php esc_html_e( 'Alaska Time (AKT)', 'infometry-custom-templates' ); ?></option>
+				<option value="Pacific/Honolulu"><?php esc_html_e( 'Hawaii Time (HT)', 'infometry-custom-templates' ); ?></option>
+			</select>
+		</label>
 	</div>
 	<label class="icp-demo-company">
 		<?php esc_html_e( 'Company', 'infometry-custom-templates' ); ?>
@@ -232,11 +244,13 @@ function infometry_ct_add_conversa_fields_to_notification( $email, $fields, $ent
 
 	$date    = isset( $details['preferred_demo_date'] ) ? sanitize_text_field( $details['preferred_demo_date'] ) : '';
 	$time    = isset( $details['preferred_demo_time'] ) ? sanitize_text_field( $details['preferred_demo_time'] ) : '';
+	$timezone = isset( $details['preferred_demo_timezone'] ) ? sanitize_text_field( $details['preferred_demo_timezone'] ) : '';
 	$company = isset( $details['company'] ) ? sanitize_text_field( $details['company'] ) : '';
 
 	$extra = '<h3>' . esc_html__( 'Demo preferences', 'infometry-custom-templates' ) . '</h3>';
 	$extra .= '<p><strong>' . esc_html__( 'Preferred Demo Date:', 'infometry-custom-templates' ) . '</strong> ' . esc_html( $date ?: 'Not provided' ) . '<br>';
 	$extra .= '<strong>' . esc_html__( 'Preferred Demo Time:', 'infometry-custom-templates' ) . '</strong> ' . esc_html( $time ?: 'Not provided' ) . '<br>';
+	$extra .= '<strong>' . esc_html__( 'US Time Zone:', 'infometry-custom-templates' ) . '</strong> ' . esc_html( $timezone ?: 'Not provided' ) . '<br>';
 	$extra .= '<strong>' . esc_html__( 'Company:', 'infometry-custom-templates' ) . '</strong> ' . esc_html( $company ?: 'Not provided' ) . '</p>';
 
 	$email['message'] .= $extra;

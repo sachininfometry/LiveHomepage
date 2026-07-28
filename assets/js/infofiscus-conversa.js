@@ -6,6 +6,23 @@
     return;
   }
 
+  var customersPartnersUrl = 'https://www.infometry.net/company/customers-partners/';
+  root.querySelectorAll('.icp-customers .icp-logo-slide').forEach(function (logo) {
+    if (logo.tagName === 'A') {
+      logo.href = customersPartnersUrl;
+      return;
+    }
+
+    var logoLink = document.createElement('a');
+    logoLink.className = logo.className;
+    logoLink.href = customersPartnersUrl;
+    logoLink.setAttribute('aria-label', 'View Infometry customers and partners');
+    while (logo.firstChild) {
+      logoLink.appendChild(logo.firstChild);
+    }
+    logo.replaceWith(logoLink);
+  });
+
   var demoForm = root.querySelector('#wpforms-form-379751, .icp-demo-form');
   if (demoForm) {
     demoForm.classList.add('icp-demo-form');
