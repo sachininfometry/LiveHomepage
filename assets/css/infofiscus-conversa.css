@@ -10338,7 +10338,7 @@ body .infometry-conversa-product .icp-query-brand-mark img {
 /* Premium, colour-balanced Other Products cards. */
 body .infometry-conversa-product .icp-other-products {
   position: relative !important;
-  padding: 76px 0 82px !important;
+  padding: 48px 0 38px !important;
   overflow: hidden !important;
   background:
     radial-gradient(circle at 10% 14%, rgba(28, 175, 232, .1), transparent 30%),
@@ -10385,8 +10385,8 @@ body .infometry-conversa-product .icp-other-grid .icp-feature-card {
   --product-tint: #eaf7ff;
   position: relative !important;
   display: flex !important;
-  min-height: 330px !important;
-  padding: 32px 30px 28px !important;
+  min-height: 300px !important;
+  padding: 28px 30px 25px !important;
   overflow: hidden !important;
   flex-direction: column !important;
   align-items: flex-start !important;
@@ -10436,9 +10436,9 @@ body .infometry-conversa-product .icp-other-grid .icp-feature-card::after {
 
 body .infometry-conversa-product .icp-other-grid .icp-icon {
   display: grid !important;
-  width: 58px !important;
-  height: 58px !important;
-  margin: 0 0 25px !important;
+  width: 64px !important;
+  height: 64px !important;
+  margin: 0 0 20px !important;
   place-items: center !important;
   border: 1px solid color-mix(in srgb, var(--product-accent) 24%, #dce7f5) !important;
   border-radius: 17px !important;
@@ -10454,8 +10454,8 @@ body .infometry-conversa-product .icp-other-grid .icp-icon svg {
 
 body .infometry-conversa-product .icp-other-grid .icp-icon img {
   display: block !important;
-  width: 42px !important;
-  height: 42px !important;
+  width: 48px !important;
+  height: 48px !important;
   object-fit: contain !important;
 }
 
@@ -10468,7 +10468,7 @@ body .infometry-conversa-product .icp-other-grid h3 {
   min-height: 0 !important;
   margin: 0 0 12px !important;
   color: #0b2148 !important;
-  font-size: 21px !important;
+  font-size: 23px !important;
   line-height: 1.28 !important;
   text-align: left !important;
 }
@@ -10477,15 +10477,15 @@ body .infometry-conversa-product .icp-other-grid p {
   max-width: 390px !important;
   margin: 0 0 24px !important;
   color: #53657d !important;
-  font-size: 14px !important;
-  line-height: 1.7 !important;
+  font-size: 16px !important;
+  line-height: 1.62 !important;
   text-align: left !important;
 }
 
 body .infometry-conversa-product .icp-other-grid .icp-text-link {
-  min-height: 38px !important;
+  min-height: 42px !important;
   margin-top: auto !important;
-  padding: 9px 14px !important;
+  padding: 10px 15px !important;
   gap: 8px !important;
   align-items: center !important;
   border: 1px solid color-mix(in srgb, var(--product-accent) 24%, #dce6f3) !important;
@@ -10493,6 +10493,11 @@ body .infometry-conversa-product .icp-other-grid .icp-text-link {
   color: var(--product-accent) !important;
   background: rgba(255, 255, 255, .72) !important;
   box-shadow: 0 7px 17px rgba(22, 59, 112, .07) !important;
+  font-size: 14px !important;
+}
+
+body .infometry-conversa-product .icp-other-products + .icp-final-cta {
+  padding-top: 32px !important;
 }
 
 body .infometry-conversa-product .icp-other-grid .icp-text-link::after {
@@ -10515,11 +10520,15 @@ body .infometry-conversa-product .icp-other-grid .icp-text-link::after {
 
 @media (max-width: 760px) {
   body .infometry-conversa-product .icp-other-products {
-    padding: 60px 0 66px !important;
+    padding: 42px 0 34px !important;
   }
   body .infometry-conversa-product .icp-other-grid .icp-feature-card {
     min-height: 0 !important;
     padding: 28px 24px 25px !important;
+  }
+
+  body .infometry-conversa-product .icp-other-products + .icp-final-cta {
+    padding-top: 28px !important;
   }
 }
 
