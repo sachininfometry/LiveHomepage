@@ -8964,6 +8964,10 @@ body .infometry-conversa-product .icp-demo-form .icp-demo-preferences {
   grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
 }
 
+body .infometry-conversa-product .icp-demo-form .icp-demo-preferences label {
+  white-space: nowrap !important;
+}
+
 body .infometry-conversa-product .icp-demo-form .wpforms-field-container {
   display: grid !important;
   order: 3 !important;

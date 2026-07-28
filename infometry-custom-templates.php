@@ -191,16 +191,16 @@ function infometry_ct_render_conversa_form_fields( $form_data, $form ) {
 	</div>
 	<div class="icp-form-row icp-demo-preferences">
 		<label>
-			<?php esc_html_e( 'Preferred Demo Date', 'infometry-custom-templates' ); ?>
+			<?php esc_html_e( 'Demo Date', 'infometry-custom-templates' ); ?>
 			<input type="hidden" name="infometry_conversa[preferred_demo_date]" data-icp-demo-date value="">
 			<input type="text" data-icp-demo-date-display readonly required>
 		</label>
 		<label>
-			<?php esc_html_e( 'Preferred Demo Time', 'infometry-custom-templates' ); ?> <span>*</span>
+			<?php esc_html_e( 'Demo Time', 'infometry-custom-templates' ); ?> <span>*</span>
 			<input type="time" name="infometry_conversa[preferred_demo_time]" data-icp-demo-time required>
 		</label>
 		<label>
-			<?php esc_html_e( 'US Time Zone', 'infometry-custom-templates' ); ?> <span>*</span>
+			<?php esc_html_e( 'Time Zone', 'infometry-custom-templates' ); ?> <span>*</span>
 			<select name="infometry_conversa[preferred_demo_timezone]" data-icp-demo-timezone required>
 				<option value="America/New_York"><?php esc_html_e( 'Eastern Time (ET)', 'infometry-custom-templates' ); ?></option>
 				<option value="America/Chicago"><?php esc_html_e( 'Central Time (CT)', 'infometry-custom-templates' ); ?></option>
