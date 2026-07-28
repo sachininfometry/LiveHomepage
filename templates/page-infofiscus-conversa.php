@@ -14,6 +14,7 @@ get_header();
 
 $demo_url    = apply_filters( 'infometry_conversa_demo_url', home_url( '/infofiscus-analytics-sign-up-for-demo/' ) );
 $contact_url = apply_filters( 'infometry_conversa_contact_url', home_url( '/contact-us/' ) );
+$customers_url = apply_filters( 'infometry_conversa_customers_url', home_url( '/company/customers-partners/' ) );
 
 $problems = array(
 	array( 'icon' => 'gauge', 'title' => 'Dashboard Overload', 'copy' => 'Teams spend more time searching for reports than making decisions.' ),
@@ -569,13 +570,13 @@ $other_products = array(
 				<div class="icp-logo-track">
 					<?php for ( $i = 0; $i < 2; $i++ ) : ?>
 						<?php foreach ( $customer_logos as $customer ) : ?>
-							<span class="icp-logo-slide">
+							<a class="icp-logo-slide" href="<?php echo esc_url( $customers_url ); ?>" aria-label="View Infometry customers and partners">
 								<?php
 								$customer_logo_path = INFOMETRY_CT_PATH . 'assets/images/' . $customer['file'];
 								$customer_logo_ver  = is_readable( $customer_logo_path ) ? (string) filemtime( $customer_logo_path ) : INFOMETRY_CT_VERSION;
 								?>
 								<img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/' . $customer['file'] . '?v=' . $customer_logo_ver ); ?>" alt="<?php echo esc_attr( $customer['name'] ); ?> logo">
-							</span>
+							</a>
 						<?php endforeach; ?>
 					<?php endfor; ?>
 				</div>
