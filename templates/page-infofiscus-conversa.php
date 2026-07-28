@@ -141,7 +141,7 @@ $other_products = array(
 					<h1 id="icp-hero-title">Ask Anything.<br>Get Insights.<br><span>Drive Results.</span></h1>
 					<p class="icp-hero-text">INFOFISCUS Conversa gives every team instant, governed answers from enterprise data—no SQL, no dashboard bottlenecks.</p>
 					<div class="icp-actions">
-						<a class="icp-button icp-button-primary" href="<?php echo esc_url( $demo_url ); ?>">Request a Demo <span aria-hidden="true">→</span></a>
+						<a class="icp-button icp-button-primary" href="#icp-demo-form" data-icp-demo-trigger>Request a Demo <span aria-hidden="true">→</span></a>
 						<a class="icp-button icp-button-secondary" href="#icp-intro"><span class="icp-play-dot">▶</span> Watch Product Tour</a>
 					</div>
 					<div class="icp-hero-icons" aria-label="Conversa platform strengths">
@@ -624,7 +624,7 @@ $other_products = array(
 				<h2 id="icp-final-title">Turn questions into better business outcomes.</h2>
 				<p>Experience the power of conversational analytics.</p>
 			</div>
-			<a class="icp-button icp-button-primary" href="<?php echo esc_url( $demo_url ); ?>">Request a Live Demo</a>
+			<a class="icp-button icp-button-primary" href="#icp-demo-form" data-icp-demo-trigger>Request a Live Demo</a>
 			<a class="icp-button icp-button-secondary" href="<?php echo esc_url( $contact_url ); ?>">Talk to an Expert</a>
 		</div>
 	</section>

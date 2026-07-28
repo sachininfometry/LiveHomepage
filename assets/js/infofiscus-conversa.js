@@ -323,7 +323,10 @@
   }
 
   root.querySelectorAll('[data-icp-demo-trigger]').forEach(function (button) {
-    button.addEventListener('click', focusDemoForm);
+    button.addEventListener('click', function (event) {
+      event.preventDefault();
+      focusDemoForm();
+    });
   });
 
   root.querySelectorAll('.icp-capability-carousel').forEach(function (carousel) {
