@@ -10182,6 +10182,230 @@ body .infometry-conversa-product .icp-problem .icp-soft-card:nth-child(n) {
   }
 }
 
+body .infometry-conversa-product .icp-chart-view-tabs {
+  display: inline-flex !important;
+  margin-top: 15px !important;
+  padding: 4px !important;
+  gap: 3px !important;
+  border: 1px solid rgba(103, 197, 255, .25) !important;
+  border-radius: 9px !important;
+  background: rgba(3, 25, 70, .42) !important;
+}
+
+body .infometry-conversa-product .icp-chart-view-tabs button {
+  min-width: 62px !important;
+  min-height: 30px !important;
+  padding: 6px 11px !important;
+  border: 0 !important;
+  border-radius: 6px !important;
+  color: rgba(211, 235, 255, .72) !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  cursor: pointer !important;
+}
+
+body .infometry-conversa-product .icp-chart-view-tabs button:hover {
+  color: #fff !important;
+  background: rgba(42, 148, 226, .18) !important;
+}
+
+body .infometry-conversa-product .icp-chart-view-tabs button.is-active {
+  color: #062253 !important;
+  background: linear-gradient(135deg, #78e8ff, #4db9ff) !important;
+  box-shadow: 0 5px 14px rgba(42, 190, 244, .24) !important;
+}
+
+body .infometry-conversa-product .icp-finance-chart:has(.icp-chart-view-tabs) .icp-chart-card-line {
+  height: 220px !important;
+  margin-top: 10px !important;
+}
+
+body .infometry-conversa-product .icp-informed-bars rect {
+  fill: url("#icp-chart-bar-gradient") #38bdf8 !important;
+  opacity: .82 !important;
+  stroke: rgba(139, 232, 255, .55) !important;
+  stroke-width: 1 !important;
+}
+
+body .infometry-conversa-product .icp-informed-chart.is-bar .icp-chart-point-group circle {
+  display: none !important;
+}
+
+body .infometry-conversa-product .icp-informed-chart .icp-chart-area-strong {
+  fill: rgba(66, 176, 255, .42) !important;
+}
+
+body .infometry-conversa-product .icp-informed-chart .icp-chart-baseline {
+  fill: none !important;
+  stroke: #ffcf67 !important;
+  stroke-width: 2 !important;
+  stroke-dasharray: 6 5 !important;
+}
+
+body .infometry-conversa-product .icp-informed-chart .icp-chart-legend text {
+  fill: rgba(226, 242, 255, .82) !important;
+  font-family: "Open Sans", sans-serif !important;
+  font-size: 6.5px !important;
+  font-weight: 800 !important;
+  letter-spacing: .05em !important;
+}
+
+body .infometry-conversa-product .icp-informed-chart .icp-chart-legend circle {
+  fill: #4fdcff !important;
+}
+
+body .infometry-conversa-product .icp-informed-chart .icp-chart-legend path {
+  fill: none !important;
+  stroke: #ffcf67 !important;
+  stroke-width: 2 !important;
+  stroke-dasharray: 4 3 !important;
+}
+
+@media (max-width: 620px) {
+  body .infometry-conversa-product .icp-chart-view-tabs {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    width: 100% !important;
+  }
+
+  body .infometry-conversa-product .icp-chart-view-tabs button {
+    min-width: 0 !important;
+    padding-inline: 6px !important;
+  }
+}
+
+/* Clear question-to-answer story: two columns with an information-rich chart. */
+@media (min-width: 901px) {
+  body .infometry-conversa-product .icp-use-panel.is-active {
+    min-height: 0 !important;
+    padding: 28px !important;
+    grid-template-columns: minmax(320px, .78fr) minmax(560px, 1.45fr) !important;
+    grid-template-areas:
+      "copy chart"
+      "copy kpis" !important;
+    gap: 18px 22px !important;
+    align-items: stretch !important;
+  }
+
+  body .infometry-conversa-product .icp-finance-kpis {
+    height: auto !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    grid-template-rows: auto !important;
+  }
+}
+
+body .infometry-conversa-product .icp-finance-copy {
+  padding: 24px !important;
+}
+
+body .infometry-conversa-product .icp-finance-copy li {
+  min-height: 39px !important;
+  padding-top: 7px !important;
+  padding-bottom: 7px !important;
+}
+
+body .infometry-conversa-product .icp-finance-chart {
+  min-height: 385px !important;
+  padding: 28px 24px 20px !important;
+}
+
+body .infometry-conversa-product .icp-chart-card-line {
+  height: 260px !important;
+  margin-top: 16px !important;
+}
+
+body .infometry-conversa-product .icp-chart-card-line svg {
+  overflow: visible !important;
+}
+
+body .infometry-conversa-product .icp-informed-chart .icp-chart-grid path {
+  fill: none !important;
+  stroke: rgba(130, 196, 255, .16) !important;
+  stroke-width: 1 !important;
+}
+
+body .infometry-conversa-product .icp-informed-chart .icp-chart-axis text,
+body .infometry-conversa-product .icp-informed-chart .icp-chart-period {
+  fill: rgba(207, 232, 255, .7) !important;
+  font-family: "Open Sans", sans-serif !important;
+  font-size: 8px !important;
+  font-weight: 700 !important;
+  letter-spacing: .04em !important;
+  text-anchor: middle !important;
+}
+
+body .infometry-conversa-product .icp-informed-chart .icp-chart-axis text {
+  text-anchor: start !important;
+}
+
+body .infometry-conversa-product .icp-informed-chart .icp-chart-value {
+  fill: #fff !important;
+  font-family: "Open Sans", sans-serif !important;
+  font-size: 8px !important;
+  font-weight: 800 !important;
+  text-anchor: middle !important;
+}
+
+body .infometry-conversa-product .icp-informed-chart .icp-chart-event-line {
+  fill: none !important;
+  stroke: rgba(255, 200, 83, .58) !important;
+  stroke-width: 1.2 !important;
+  stroke-dasharray: 4 4 !important;
+}
+
+body .infometry-conversa-product .icp-informed-chart .icp-chart-event-label {
+  fill: #ffd46e !important;
+  font-family: "Open Sans", sans-serif !important;
+  font-size: 7px !important;
+  font-weight: 900 !important;
+  letter-spacing: .08em !important;
+}
+
+body .infometry-conversa-product .icp-informed-chart .icp-chart-points circle {
+  fill: #f7feff !important;
+  stroke: #4fdcff !important;
+  stroke-width: 3 !important;
+}
+
+body .infometry-conversa-product .icp-finance-kpis article,
+body .infometry-conversa-product .icp-finance-kpis article:nth-child(2),
+body .infometry-conversa-product .icp-finance-kpis article:nth-child(3) {
+  min-height: 118px !important;
+  padding: 17px 18px !important;
+}
+
+@media (max-width: 900px) {
+  body .infometry-conversa-product .icp-finance-chart {
+    min-height: 355px !important;
+  }
+
+  body .infometry-conversa-product .icp-chart-card-line {
+    height: 245px !important;
+  }
+}
+
+@media (max-width: 620px) {
+  body .infometry-conversa-product .icp-finance-copy {
+    padding: 19px 15px !important;
+  }
+
+  body .infometry-conversa-product .icp-finance-chart {
+    min-height: 310px !important;
+    padding: 24px 14px 15px !important;
+  }
+
+  body .infometry-conversa-product .icp-chart-card-line {
+    height: 210px !important;
+  }
+
+  body .infometry-conversa-product .icp-informed-chart .icp-chart-value {
+    font-size: 7px !important;
+  }
+}
+
 /* Match the homepage footer typography, logo scale, spacing and contrast. */
 body .infometry-conversa-product .icp-product-footer {
   font-family: "Open Sans", "Segoe UI", Arial, sans-serif !important;
@@ -12191,6 +12415,324 @@ body .infometry-conversa-product .icp-hero-business-signals span svg {
   filter: drop-shadow(0 0 7px rgba(71, 181, 255, .28));
 }
 
+body .infometry-conversa-product .icp-problem-action {
+  display: flex !important;
+  width: 100% !important;
+  margin: 30px auto 0 !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+body .infometry-conversa-product .icp-problem .icp-problem-learn {
+  display: inline-flex !important;
+  width: auto !important;
+  min-width: 164px !important;
+  min-height: 48px !important;
+  margin: 0 auto !important;
+  padding: 13px 23px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  border: 1px solid rgba(117, 211, 255, .58) !important;
+  border-radius: 11px !important;
+  color: #fff !important;
+  background: linear-gradient(112deg, #693bff 0%, #176ff5 57%, #12acd5 100%) !important;
+  box-shadow: 0 13px 30px rgba(13, 65, 191, .34), inset 0 1px 0 rgba(255, 255, 255, .24) !important;
+  font-size: 14px !important;
+  font-weight: 800 !important;
+  letter-spacing: .01em !important;
+}
+
+body .infometry-conversa-product .icp-problem .icp-problem-learn span {
+  font-size: 18px;
+  line-height: 1;
+  transition: transform .2s ease;
+}
+
+body .infometry-conversa-product .icp-problem .icp-problem-learn:hover {
+  color: #fff !important;
+  border-color: rgba(164, 229, 255, .85) !important;
+  background: linear-gradient(112deg, #7950ff 0%, #2585ff 57%, #19bfdf 100%) !important;
+  box-shadow: 0 16px 34px rgba(13, 65, 191, .42), 0 0 22px rgba(35, 190, 241, .16) !important;
+  transform: translateY(-2px);
+}
+
+body .infometry-conversa-product .icp-problem .icp-problem-learn:hover span {
+  transform: translateX(3px);
+}
+
+/* Reference-led Industry Use Cases: tab rail with business story and product proof. */
+body .infometry-conversa-product .icp-use-case-panel {
+  overflow: visible !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+body .infometry-conversa-product .icp-use-case-panel:hover {
+  border: 0 !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+body .infometry-conversa-product .icp-tabs {
+  display: grid !important;
+  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  border: 1px solid #1688cf !important;
+  border-bottom-color: #1688cf !important;
+  background: #fff !important;
+}
+
+body .infometry-conversa-product .icp-tabs button {
+  min-height: 52px !important;
+  padding: 13px 14px !important;
+  border: 0 !important;
+  color: #1f2937 !important;
+  background: #fff !important;
+  font-size: 13px !important;
+  font-weight: 750 !important;
+}
+
+body .infometry-conversa-product .icp-tabs button.is-active {
+  color: #087fc4 !important;
+  background: #fff !important;
+  box-shadow: inset 0 3px #1688cf, inset 1px 0 #1688cf, inset -1px 0 #1688cf !important;
+}
+
+body .infometry-conversa-product .icp-use-panel.is-active {
+  display: grid !important;
+  min-height: 520px !important;
+  padding: 32px 34px !important;
+  grid-template-columns: minmax(330px, .92fr) minmax(460px, 1.08fr) !important;
+  grid-template-areas:
+    "copy chart"
+    "copy kpis" !important;
+  gap: 18px 34px !important;
+  align-items: start !important;
+  border: 1px solid #1688cf !important;
+  border-top: 0 !important;
+  background: #fff !important;
+  box-shadow: none !important;
+  overflow: hidden !important;
+}
+
+body .infometry-conversa-product .icp-use-panel.is-active::before {
+  display: none !important;
+  content: none !important;
+}
+
+body .infometry-conversa-product .icp-finance-copy {
+  grid-area: copy !important;
+  align-self: start !important;
+  padding: 6px 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+body .infometry-conversa-product .icp-use-icon {
+  display: none !important;
+}
+
+body .infometry-conversa-product .icp-finance-copy h3 {
+  margin: 0 0 14px !important;
+  color: #111827 !important;
+  font-size: clamp(23px, 2vw, 31px) !important;
+  line-height: 1.2 !important;
+}
+
+body .infometry-conversa-product .icp-finance-copy p {
+  max-width: 600px !important;
+  color: #263750 !important;
+  font-size: 14.5px !important;
+  font-weight: 550 !important;
+  line-height: 1.65 !important;
+}
+
+body .infometry-conversa-product .icp-use-query {
+  display: grid !important;
+  margin: 20px 0 16px !important;
+  padding: 15px 16px 16px 18px !important;
+  gap: 6px !important;
+  border: 1px solid #c8e3f6 !important;
+  border-left: 4px solid #0aa7df !important;
+  border-radius: 8px !important;
+  background: linear-gradient(110deg, #f0faff, #f7f8ff) !important;
+}
+
+body .infometry-conversa-product .icp-use-query span {
+  color: #087fc4 !important;
+  font-size: 10px !important;
+  font-weight: 850 !important;
+  letter-spacing: .11em !important;
+  text-transform: uppercase !important;
+}
+
+body .infometry-conversa-product .icp-use-query strong {
+  color: #10284b !important;
+  font-size: 15px !important;
+  font-weight: 800 !important;
+  line-height: 1.45 !important;
+}
+
+body .infometry-conversa-product .icp-finance-copy .icp-use-answer {
+  margin: 0 !important;
+  color: #314761 !important;
+  font-size: 13.5px !important;
+  line-height: 1.65 !important;
+}
+
+body .infometry-conversa-product .icp-finance-copy .icp-use-answer b {
+  color: #10284b !important;
+  font-weight: 850 !important;
+}
+
+body .infometry-conversa-product .icp-finance-copy ul {
+  gap: 7px !important;
+  margin-top: 16px !important;
+}
+
+body .infometry-conversa-product .icp-finance-copy li {
+  min-height: 0 !important;
+  padding: 5px 0 5px 24px !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  color: #14243c !important;
+  background: transparent !important;
+  font-size: 13.5px !important;
+  font-weight: 750 !important;
+  line-height: 1.4 !important;
+}
+
+body .infometry-conversa-product .icp-finance-copy li::before {
+  content: "“" !important;
+  left: 0 !important;
+  top: 2px !important;
+  display: block !important;
+  width: auto !important;
+  height: auto !important;
+  color: #0788cf !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  font-size: 22px !important;
+  font-weight: 900 !important;
+}
+
+body .infometry-conversa-product .icp-finance-chart {
+  grid-area: chart !important;
+  min-height: 322px !important;
+  padding: 42px 18px 16px !important;
+  border: 1px solid #d7e5f4 !important;
+  border-radius: 4px !important;
+  background: linear-gradient(180deg, #f8fbff, #fff) !important;
+  box-shadow: none !important;
+}
+
+body .infometry-conversa-product .icp-finance-chart::before {
+  content: "CONVERSA INSIGHT" !important;
+  top: 12px !important;
+  right: 14px !important;
+  padding: 4px 7px !important;
+  border-color: #c5dff2 !important;
+  color: #087fc4 !important;
+  background: #eef8ff !important;
+}
+
+body .infometry-conversa-product .icp-finance-chart h4 {
+  color: #14243c !important;
+  font-size: 16px !important;
+}
+
+body .infometry-conversa-product .icp-finance-chart > p {
+  margin: 5px 0 0 !important;
+  color: #60748e !important;
+  font-size: 11.5px !important;
+  font-weight: 600 !important;
+  line-height: 1.45 !important;
+}
+
+body .infometry-conversa-product .icp-finance-chart h4::after {
+  color: #61758d !important;
+}
+
+body .infometry-conversa-product .icp-chart-card-line {
+  height: 205px !important;
+  margin-top: 14px !important;
+  border-color: #dce8f4 !important;
+  border-radius: 3px !important;
+  background:
+    linear-gradient(180deg, transparent 0 24%, #e7eef6 25%, transparent 26% 49%, #e7eef6 50%, transparent 51% 74%, #e7eef6 75%, transparent 76%),
+    #fff !important;
+}
+
+body .infometry-conversa-product .icp-chart-line {
+  stroke: #0b87d1 !important;
+  filter: none !important;
+}
+
+body .infometry-conversa-product .icp-finance-kpis {
+  grid-area: kpis !important;
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 10px !important;
+}
+
+body .infometry-conversa-product .icp-finance-kpis article,
+body .infometry-conversa-product .icp-finance-kpis article:nth-child(2) {
+  min-height: 102px !important;
+  padding: 13px 15px !important;
+  border: 1px solid #d9e7f4 !important;
+  border-radius: 4px !important;
+  background: #f8fbff !important;
+  box-shadow: none !important;
+}
+
+body .infometry-conversa-product .icp-finance-kpis article::after {
+  display: none !important;
+  content: none !important;
+}
+
+body .infometry-conversa-product .icp-finance-kpis strong {
+  font-size: 21px !important;
+}
+
+body .infometry-conversa-product .icp-finance-kpis span {
+  font-size: 10px !important;
+}
+
+body .infometry-conversa-product .icp-finance-kpis small {
+  font-size: 10.5px !important;
+}
+
+@media (max-width: 900px) {
+  body .infometry-conversa-product .icp-tabs {
+    overflow-x: auto !important;
+    grid-template-columns: repeat(5, minmax(145px, 1fr)) !important;
+  }
+
+  body .infometry-conversa-product .icp-use-panel.is-active {
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-template-areas:
+      "copy"
+      "chart"
+      "kpis" !important;
+    padding: 24px !important;
+  }
+}
+
+@media (max-width: 560px) {
+  body .infometry-conversa-product .icp-use-panel.is-active {
+    padding: 18px 14px !important;
+  }
+
+  body .infometry-conversa-product .icp-finance-kpis {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+
 body .infometry-conversa-product .icp-hero .icp-actions {
   margin-top: 31px !important;
 }
@@ -12347,5 +12889,526 @@ body .infometry-conversa-product .icp-architecture-flow .icp-answer-outputs {
 
   body .infometry-conversa-product .icp-architecture-flow .icp-answer-outputs {
     grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+
+/* Premium industry analytics presentation: business context, live insight and KPI proof. */
+@media (min-width: 1101px) {
+  body .infometry-conversa-product .icp-use-panel.is-active {
+    min-height: 570px !important;
+    padding: 28px !important;
+    grid-template-columns: minmax(330px, .9fr) minmax(470px, 1.45fr) minmax(215px, .68fr) !important;
+    grid-template-areas: "copy chart kpis" !important;
+    gap: 20px !important;
+    align-items: stretch !important;
+    border: 1px solid #d4e7f7 !important;
+    border-top: 0 !important;
+    border-radius: 0 0 22px 22px !important;
+    background:
+      radial-gradient(circle at 70% 8%, rgba(103, 88, 255, .09), transparent 27%),
+      linear-gradient(145deg, #f8fcff 0%, #f2f8ff 58%, #f8f7ff 100%) !important;
+    box-shadow: 0 18px 45px rgba(17, 57, 105, .1) !important;
+  }
+}
+
+body .infometry-conversa-product .icp-finance-copy {
+  position: relative !important;
+  min-width: 0 !important;
+  height: 100% !important;
+  padding: 24px 22px !important;
+  border: 1px solid #cee3f4 !important;
+  border-radius: 18px !important;
+  background:
+    radial-gradient(circle at 100% 0, rgba(48, 127, 255, .11), transparent 34%),
+    linear-gradient(155deg, #fff 0%, #f1f9ff 100%) !important;
+  box-shadow: 0 14px 32px rgba(32, 76, 123, .08) !important;
+}
+
+body .infometry-conversa-product .icp-finance-copy::before {
+  content: "BUSINESS INSIGHT" !important;
+  display: inline-flex !important;
+  margin-bottom: 12px !important;
+  color: #2474dc !important;
+  font-size: 9px !important;
+  font-weight: 900 !important;
+  letter-spacing: .13em !important;
+}
+
+body .infometry-conversa-product .icp-finance-copy h3 {
+  margin: 0 0 15px !important;
+  color: #061b46 !important;
+  font-size: clamp(24px, 2vw, 30px) !important;
+  line-height: 1.15 !important;
+}
+
+body .infometry-conversa-product .icp-use-query {
+  margin: 0 0 15px !important;
+  padding: 14px 15px !important;
+  border-color: #cfe3f5 !important;
+  border-left: 4px solid #1b98eb !important;
+  border-radius: 10px !important;
+  background: rgba(255, 255, 255, .88) !important;
+  box-shadow: 0 7px 18px rgba(24, 79, 130, .06) !important;
+}
+
+body .infometry-conversa-product .icp-use-query strong {
+  font-size: 13.5px !important;
+}
+
+body .infometry-conversa-product .icp-finance-copy .icp-use-answer {
+  font-size: 12.5px !important;
+  line-height: 1.58 !important;
+}
+
+body .infometry-conversa-product .icp-finance-copy ul {
+  margin-top: 15px !important;
+  gap: 8px !important;
+}
+
+body .infometry-conversa-product .icp-finance-copy li {
+  min-height: 43px !important;
+  padding: 9px 10px 9px 39px !important;
+  align-items: center !important;
+  border: 1px solid #d8e7f4 !important;
+  border-radius: 9px !important;
+  background: rgba(255, 255, 255, .9) !important;
+  box-shadow: 0 6px 15px rgba(24, 72, 116, .045) !important;
+  font-size: 11.5px !important;
+  line-height: 1.35 !important;
+}
+
+body .infometry-conversa-product .icp-finance-copy li::before {
+  content: "✓" !important;
+  position: absolute !important;
+  left: 12px !important;
+  top: 50% !important;
+  display: grid !important;
+  width: 18px !important;
+  height: 18px !important;
+  place-items: center !important;
+  color: #fff !important;
+  border-radius: 50% !important;
+  background: linear-gradient(145deg, #1abbe5, #137ae8) !important;
+  box-shadow: 0 4px 10px rgba(19, 126, 225, .25) !important;
+  font-size: 10px !important;
+  transform: translateY(-50%) !important;
+}
+
+body .infometry-conversa-product .icp-finance-chart {
+  position: relative !important;
+  min-width: 0 !important;
+  min-height: 100% !important;
+  padding: 30px 24px 22px !important;
+  border: 1px solid rgba(79, 163, 255, .42) !important;
+  border-radius: 18px !important;
+  background:
+    radial-gradient(circle at 90% 15%, rgba(35, 182, 232, .17), transparent 26%),
+    radial-gradient(circle at 75% 100%, rgba(102, 68, 255, .25), transparent 35%),
+    linear-gradient(145deg, #061c4c 0%, #0a3573 58%, #2a216e 100%) !important;
+  box-shadow: 0 18px 35px rgba(5, 30, 79, .22), inset 0 1px rgba(255, 255, 255, .08) !important;
+}
+
+body .infometry-conversa-product .icp-finance-chart::before {
+  content: "LIVE ANALYTICS" !important;
+  top: 20px !important;
+  right: 20px !important;
+  border: 1px solid rgba(73, 211, 255, .34) !important;
+  border-radius: 999px !important;
+  color: #8de9ff !important;
+  background: rgba(14, 114, 177, .24) !important;
+  letter-spacing: .12em !important;
+}
+
+body .infometry-conversa-product .icp-finance-chart h4 {
+  max-width: 68% !important;
+  color: #fff !important;
+  font-size: 20px !important;
+}
+
+body .infometry-conversa-product .icp-finance-chart h4::after {
+  display: block !important;
+  margin-top: 10px !important;
+  color: #66caff !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+}
+
+body .infometry-conversa-product .icp-finance-chart > p {
+  max-width: 78% !important;
+  color: rgba(213, 234, 255, .78) !important;
+  font-size: 11px !important;
+}
+
+body .infometry-conversa-product .icp-chart-card-line {
+  height: 350px !important;
+  margin-top: 20px !important;
+  border: 1px solid rgba(94, 190, 255, .22) !important;
+  border-radius: 13px !important;
+  background:
+    linear-gradient(180deg, transparent 0 24%, rgba(121, 190, 255, .13) 25%, transparent 26% 49%, rgba(121, 190, 255, .13) 50%, transparent 51% 74%, rgba(121, 190, 255, .13) 75%, transparent 76%),
+    rgba(16, 56, 121, .46) !important;
+  box-shadow: inset 0 1px rgba(255, 255, 255, .05) !important;
+}
+
+body .infometry-conversa-product .icp-chart-line {
+  stroke: #4fdcff !important;
+  stroke-width: 4 !important;
+  filter: drop-shadow(0 0 7px rgba(59, 213, 255, .38)) !important;
+}
+
+body .infometry-conversa-product .icp-chart-area {
+  fill: rgba(76, 151, 255, .3) !important;
+}
+
+body .infometry-conversa-product .icp-finance-kpis {
+  height: 100% !important;
+  grid-template-columns: minmax(0, 1fr) !important;
+  grid-template-rows: repeat(3, minmax(0, 1fr)) !important;
+  gap: 14px !important;
+}
+
+body .infometry-conversa-product .icp-finance-kpis article,
+body .infometry-conversa-product .icp-finance-kpis article:nth-child(2),
+body .infometry-conversa-product .icp-finance-kpis article:nth-child(3) {
+  position: relative !important;
+  min-height: 0 !important;
+  padding: 24px 20px !important;
+  justify-content: center !important;
+  border: 1px solid #d2e5f5 !important;
+  border-top: 4px solid #18afe4 !important;
+  border-radius: 18px !important;
+  background:
+    radial-gradient(circle at 100% 100%, rgba(45, 170, 239, .1), transparent 36%),
+    linear-gradient(155deg, #fff, #f2faff) !important;
+  box-shadow: 0 12px 26px rgba(24, 69, 116, .08) !important;
+}
+
+body .infometry-conversa-product .icp-finance-kpis article:nth-child(2) {
+  border-top-color: #7b60ec !important;
+  background:
+    radial-gradient(circle at 100% 100%, rgba(120, 86, 235, .1), transparent 36%),
+    linear-gradient(155deg, #fff, #f7f5ff) !important;
+}
+
+body .infometry-conversa-product .icp-finance-kpis article:nth-child(3) {
+  border-top-color: #19b9a6 !important;
+  background:
+    radial-gradient(circle at 100% 100%, rgba(25, 185, 166, .1), transparent 36%),
+    linear-gradient(155deg, #fff, #f3fffc) !important;
+}
+
+body .infometry-conversa-product .icp-finance-kpis span {
+  color: #29496f !important;
+  font-size: 9.5px !important;
+  font-weight: 900 !important;
+  letter-spacing: .1em !important;
+}
+
+body .infometry-conversa-product .icp-finance-kpis strong {
+  margin-top: 10px !important;
+  color: #061b46 !important;
+  font-size: 27px !important;
+}
+
+body .infometry-conversa-product .icp-finance-kpis small {
+  margin-top: 10px !important;
+  color: #1478b8 !important;
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  line-height: 1.35 !important;
+}
+
+@media (min-width: 901px) and (max-width: 1100px) {
+  body .infometry-conversa-product .icp-use-panel.is-active {
+    grid-template-columns: minmax(300px, .85fr) minmax(420px, 1.15fr) !important;
+    grid-template-areas:
+      "copy chart"
+      "kpis kpis" !important;
+  }
+
+  body .infometry-conversa-product .icp-finance-kpis {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    grid-template-rows: auto !important;
+  }
+}
+
+@media (max-width: 900px) {
+  body .infometry-conversa-product .icp-finance-copy,
+  body .infometry-conversa-product .icp-finance-chart {
+    height: auto !important;
+  }
+
+  body .infometry-conversa-product .icp-chart-card-line {
+    height: 280px !important;
+  }
+
+  body .infometry-conversa-product .icp-finance-kpis {
+    height: auto !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    grid-template-rows: auto !important;
+  }
+}
+
+@media (max-width: 620px) {
+  body .infometry-conversa-product .icp-finance-copy {
+    padding: 20px 16px !important;
+  }
+
+  body .infometry-conversa-product .icp-finance-chart {
+    padding: 26px 16px 16px !important;
+  }
+
+  body .infometry-conversa-product .icp-chart-card-line {
+    height: 220px !important;
+  }
+
+  body .infometry-conversa-product .icp-finance-kpis {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+
+/* Refined insight card: clearer hierarchy without repetitive checkbox styling. */
+body .infometry-conversa-product .icp-finance-copy {
+  overflow: hidden !important;
+  padding: 27px 25px 24px !important;
+  border-color: #c9e0f2 !important;
+  background:
+    radial-gradient(circle at 100% 0, rgba(90, 103, 255, .1), transparent 31%),
+    linear-gradient(150deg, #fff 0%, #f4faff 62%, #f7f6ff 100%) !important;
+  box-shadow: 0 16px 36px rgba(26, 71, 116, .09) !important;
+}
+
+body .infometry-conversa-product .icp-finance-copy::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 0 auto !important;
+  display: block !important;
+  height: 4px !important;
+  background: linear-gradient(90deg, #16b8e7, #227df4 55%, #745bed) !important;
+}
+
+body .infometry-conversa-product .icp-finance-copy::before {
+  margin: 0 0 11px 52px !important;
+  color: #1976d2 !important;
+}
+
+body .infometry-conversa-product .icp-finance-copy h3 {
+  position: relative !important;
+  min-height: 42px !important;
+  margin: -2px 0 20px !important;
+  padding-left: 52px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+body .infometry-conversa-product .icp-finance-copy h3::before {
+  content: "↗" !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 50% !important;
+  display: grid !important;
+  width: 40px !important;
+  height: 40px !important;
+  place-items: center !important;
+  color: #fff !important;
+  border: 1px solid rgba(255, 255, 255, .4) !important;
+  border-radius: 12px !important;
+  background: linear-gradient(145deg, #17bce8, #2a75f3 58%, #7059ec) !important;
+  box-shadow: 0 9px 20px rgba(35, 117, 226, .24) !important;
+  font-size: 19px !important;
+  transform: translateY(-50%) !important;
+}
+
+body .infometry-conversa-product .icp-use-query {
+  position: relative !important;
+  margin-bottom: 13px !important;
+  padding: 15px 16px 15px 18px !important;
+  border: 1px solid #cfe4f4 !important;
+  border-left: 0 !important;
+  border-radius: 11px !important;
+  background: rgba(255, 255, 255, .82) !important;
+  box-shadow: 0 8px 20px rgba(26, 77, 125, .055) !important;
+}
+
+body .infometry-conversa-product .icp-use-query::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 auto 0 0 !important;
+  width: 4px !important;
+  border-radius: 11px 0 0 11px !important;
+  background: linear-gradient(#18bbe5, #277cf2) !important;
+}
+
+body .infometry-conversa-product .icp-finance-copy .icp-use-answer {
+  margin: 0 !important;
+  padding: 14px 15px !important;
+  border-radius: 10px !important;
+  color: #3b506b !important;
+  background: linear-gradient(105deg, rgba(227, 244, 255, .84), rgba(240, 239, 255, .76)) !important;
+  font-size: 12.5px !important;
+  line-height: 1.58 !important;
+}
+
+body .infometry-conversa-product .icp-finance-copy .icp-use-answer b {
+  display: block !important;
+  margin-bottom: 3px !important;
+  color: #0878c4 !important;
+  font-size: 10px !important;
+  letter-spacing: .09em !important;
+  text-transform: uppercase !important;
+}
+
+body .infometry-conversa-product .icp-finance-copy ul {
+  counter-reset: insight-driver !important;
+  margin-top: 15px !important;
+  gap: 0 !important;
+  border-top: 1px solid #d8e7f3 !important;
+}
+
+body .infometry-conversa-product .icp-finance-copy li {
+  counter-increment: insight-driver !important;
+  min-height: 49px !important;
+  padding: 12px 4px 12px 43px !important;
+  border: 0 !important;
+  border-bottom: 1px solid #d8e7f3 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  font-size: 11.5px !important;
+}
+
+body .infometry-conversa-product .icp-finance-copy li::before {
+  content: "0" counter(insight-driver) !important;
+  left: 3px !important;
+  top: 50% !important;
+  display: block !important;
+  width: 27px !important;
+  height: auto !important;
+  color: #1689dc !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  font-size: 10px !important;
+  font-weight: 900 !important;
+  letter-spacing: .07em !important;
+  transform: translateY(-50%) !important;
+}
+
+@media (max-width: 620px) {
+  body .infometry-conversa-product .icp-finance-copy {
+    padding: 23px 17px 20px !important;
+  }
+
+  body .infometry-conversa-product .icp-finance-copy::before {
+    margin-left: 47px !important;
+  }
+
+  body .infometry-conversa-product .icp-finance-copy h3 {
+    padding-left: 47px !important;
+    font-size: 23px !important;
+  }
+
+  body .infometry-conversa-product .icp-finance-copy h3::before {
+    width: 36px !important;
+    height: 36px !important;
+  }
+}
+
+body .infometry-conversa-product .icp-finance-chart .icp-chart-card-line {
+  height: 225px !important;
+}
+
+body .infometry-conversa-product .icp-chart-context {
+  display: grid !important;
+  margin-top: 13px !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 10px !important;
+}
+
+body .infometry-conversa-product .icp-chart-context article {
+  position: relative !important;
+  min-height: 78px !important;
+  padding: 12px 14px 12px 40px !important;
+  border: 1px solid rgba(92, 192, 255, .2) !important;
+  border-radius: 10px !important;
+  background: rgba(7, 35, 86, .42) !important;
+  box-shadow: inset 0 1px rgba(255, 255, 255, .04) !important;
+}
+
+body .infometry-conversa-product .icp-chart-context article::before {
+  content: "✓" !important;
+  position: absolute !important;
+  left: 13px !important;
+  top: 14px !important;
+  display: grid !important;
+  width: 18px !important;
+  height: 18px !important;
+  place-items: center !important;
+  color: #05265a !important;
+  border-radius: 6px !important;
+  background: linear-gradient(145deg, #75e7ff, #4babff) !important;
+  font-size: 10px !important;
+  font-weight: 900 !important;
+}
+
+body .infometry-conversa-product .icp-chart-context article:nth-child(2)::before {
+  content: "→" !important;
+  color: #fff !important;
+  background: linear-gradient(145deg, #846cff, #4e78f7) !important;
+}
+
+body .infometry-conversa-product .icp-chart-context span {
+  display: block !important;
+  margin-bottom: 5px !important;
+  color: #67d7ff !important;
+  font-size: 8px !important;
+  font-weight: 900 !important;
+  letter-spacing: .11em !important;
+  text-transform: uppercase !important;
+}
+
+body .infometry-conversa-product .icp-chart-context article:nth-child(2) span {
+  color: #a9a1ff !important;
+}
+
+body .infometry-conversa-product .icp-chart-context strong {
+  display: block !important;
+  color: rgba(239, 248, 255, .9) !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  line-height: 1.45 !important;
+}
+
+@media (max-width: 620px) {
+  body .infometry-conversa-product .icp-finance-chart .icp-chart-card-line {
+    height: 205px !important;
+  }
+
+  body .infometry-conversa-product .icp-chart-context {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+
+body .infometry-conversa-product .icp-finance-chart::before {
+  content: "" !important;
+  top: 19px !important;
+  right: 20px !important;
+  width: 142px !important;
+  height: 38px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: url("../images/infofiscus-conversa-table-logo.png") center / contain no-repeat !important;
+  box-shadow: none !important;
+  filter: grayscale(1) brightness(0) invert(1) drop-shadow(0 5px 10px rgba(1, 15, 50, .2)) !important;
+  opacity: .96 !important;
+}
+
+@media (max-width: 620px) {
+  body .infometry-conversa-product .icp-finance-chart::before {
+    top: 18px !important;
+    right: 14px !important;
+    width: 112px !important;
+    height: 31px !important;
   }
 }

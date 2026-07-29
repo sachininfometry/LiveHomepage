@@ -315,6 +315,7 @@ $other_products = array(
 					</article>
 				<?php endforeach; ?>
 			</div>
+			<div class="icp-problem-action"><a class="icp-button icp-problem-learn" href="#icp-demo-form" data-icp-demo-trigger>Learn More <span aria-hidden="true">→</span></a></div>
 		</div>
 	</section>
 
@@ -322,7 +323,7 @@ $other_products = array(
 		<div class="icp-shell">
 			<div class="icp-section-heading icp-center">
 				<h2 id="icp-capabilities-title">INFOFISCUS Conversa Platform Capabilities</h2>
-				<p>Enterprise conversational analytics built for trusted, secure, and faster decisions.</p>
+				<p>AI-Powered Conversational analytics built for trusted, secure, and faster decisions.</p>
 			</div>
 			<div class="icp-capability-carousel" aria-label="Platform capabilities carousel">
 				<div class="icp-card-grid icp-capability-grid">
@@ -390,7 +391,7 @@ $other_products = array(
 			</div>
 			<div class="icp-use-case-panel" data-icp-use-cases>
 				<div class="icp-tabs" aria-label="Industry tabs">
-					<button class="is-active" type="button" data-icp-use-tab="finance">Finance</button>
+					<button class="is-active" type="button" data-icp-use-tab="finance">Finance (FP&amp;A)</button>
 					<button type="button" data-icp-use-tab="sales">Sales</button>
 					<button type="button" data-icp-use-tab="operations">Operations</button>
 					<button type="button" data-icp-use-tab="marketing">Marketing</button>
@@ -399,52 +400,57 @@ $other_products = array(
 				<div class="icp-use-panel is-active" data-icp-use-panel="finance">
 					<div class="icp-finance-copy">
 						<span class="icp-use-icon"><svg><use href="#icp-i-bank"></use></svg></span>
-						<h3>Finance</h3>
-						<p>Analyze profitability, cash flow, and forecasts with trusted conversational insights.</p>
-						<ul><li>Profitability and cash flow</li><li>Budget variance insights</li><li>Forecasting and KPI monitoring</li></ul>
+						<h3>Finance (FP&amp;A)</h3>
+						<div class="icp-use-query"><span>Business Question</span><strong>Why did net profit improve this quarter, and which drivers contributed most?</strong></div>
+						<p class="icp-use-answer"><b>Conversa found:</b> Net profit increased 11.8% as stronger enterprise pricing and lower fulfillment costs offset a 3.1% rise in operating expenses.</p>
+						<ul><li>Enterprise gross margin improved by 4.2 points</li><li>Logistics cost per order declined by 6.7%</li><li>North America contributed 58% of profit growth</li></ul>
 					</div>
-					<div class="icp-finance-chart"><h4>Net Profit Trend</h4><div class="icp-chart-card-line" data-chart="finance"></div></div>
-					<div class="icp-finance-kpis"><article><span>Gross Margin</span><strong>31.6%</strong><small>Up 4.2% vs Prior Period</small></article><article><span>EBITDA</span><strong>$34.2M</strong><small>Up 12.7% vs Prior Period</small></article></div>
+					<div class="icp-finance-chart"><h4>Net Profit Trend</h4><p>Quarterly profit accelerated after pricing changes introduced in April.</p><div class="icp-chart-card-line" data-chart="finance"></div></div>
+					<div class="icp-finance-kpis"><article><span>Net Profit</span><strong>$18.6M</strong><small>Up 11.8% vs Prior Quarter</small></article><article><span>Gross Margin</span><strong>31.6%</strong><small>Up 4.2 pts vs Prior Quarter</small></article><article><span>EBITDA</span><strong>$34.2M</strong><small>Up 12.7% vs Prior Quarter</small></article></div>
 				</div>
 				<div class="icp-use-panel" data-icp-use-panel="sales">
 					<div class="icp-finance-copy">
 						<span class="icp-use-icon"><svg><use href="#icp-i-chart"></use></svg></span>
 						<h3>Sales</h3>
-						<p>Analyze pipeline performance, revenue trends, and quota attainment in real time.</p>
-						<ul><li>Pipeline health and win-rate trends</li><li>Revenue by region and sales channel</li><li>Account risk and next-best actions</li></ul>
+						<div class="icp-use-query"><span>Business Question</span><strong>Why did pipeline conversion improve, and where should sales focus next?</strong></div>
+						<p class="icp-use-answer"><b>Conversa found:</b> Win rate rose to 42.8% because enterprise opportunities moved faster through solution validation, while mid-market deals remain the largest growth gap.</p>
+						<ul><li>Enterprise win rate increased by 8.4 points</li><li>Sales cycle shortened by 12 days</li><li>$3.6M mid-market pipeline needs executive action</li></ul>
 					</div>
-					<div class="icp-finance-chart"><h4>Pipeline Conversion</h4><div class="icp-chart-card-line" data-chart="sales"></div></div>
-					<div class="icp-finance-kpis"><article><span>Win Rate</span><strong>42.8%</strong><small>Up 8.4% vs Prior Period</small></article><article><span>Pipeline</span><strong>$18.7M</strong><small>Up 15.1% vs Prior Period</small></article></div>
+					<div class="icp-finance-chart"><h4>Pipeline Conversion Trend</h4><p>Conversion improved for three consecutive quarters, led by enterprise deals.</p><div class="icp-chart-card-line" data-chart="sales"></div></div>
+					<div class="icp-finance-kpis"><article><span>Win Rate</span><strong>42.8%</strong><small>Up 8.4 pts vs Prior Quarter</small></article><article><span>Qualified Pipeline</span><strong>$18.7M</strong><small>Up 15.1% vs Prior Quarter</small></article><article><span>Sales Cycle</span><strong>46 Days</strong><small>12 days faster than last quarter</small></article></div>
 				</div>
 				<div class="icp-use-panel" data-icp-use-panel="operations">
 					<div class="icp-finance-copy">
 						<span class="icp-use-icon"><svg><use href="#icp-i-nodes"></use></svg></span>
 						<h3>Operations</h3>
-						<p>Monitor production, inventory, and supply chain performance to improve efficiency.</p>
-						<ul><li>Inventory and fulfillment insights</li><li>Capacity and utilization analysis</li><li>Exception monitoring and alerts</li></ul>
+						<div class="icp-use-query"><span>Business Question</span><strong>What is driving fulfillment delays, and which process should we fix first?</strong></div>
+						<p class="icp-use-answer"><b>Conversa found:</b> West-region delays are concentrated in two distribution centers where picking congestion and late carrier handoffs account for 71% of missed SLAs.</p>
+						<ul><li>DC-04 contributes 43% of delayed orders</li><li>Average picking time is 18 minutes above target</li><li>Evening carrier capacity is short by 14%</li></ul>
 					</div>
-					<div class="icp-finance-chart"><h4>Fulfillment Efficiency</h4><div class="icp-chart-card-line" data-chart="operations"></div></div>
-					<div class="icp-finance-kpis"><article><span>Cycle Time</span><strong>18%</strong><small>Improvement this quarter</small></article><article><span>On-Time SLA</span><strong>96.4%</strong><small>Up 5.8% vs Prior Period</small></article></div>
+					<div class="icp-finance-chart"><h4>On-Time Fulfillment Trend</h4><p>Service levels recovered after carrier capacity was reallocated in week six.</p><div class="icp-chart-card-line" data-chart="operations"></div></div>
+					<div class="icp-finance-kpis"><article><span>On-Time SLA</span><strong>96.4%</strong><small>Up 5.8 pts over six weeks</small></article><article><span>Order Cycle Time</span><strong>2.8 Days</strong><small>18% faster over six weeks</small></article><article><span>Backlog</span><strong>1,240</strong><small>Down 22% since peak week</small></article></div>
 				</div>
 				<div class="icp-use-panel" data-icp-use-panel="marketing">
 					<div class="icp-finance-copy">
 						<span class="icp-use-icon"><svg><use href="#icp-i-spark"></use></svg></span>
 						<h3>Marketing</h3>
-						<p>Measure campaign performance, engagement, and ROI to optimize marketing investment.</p>
-						<ul><li>Campaign performance and ROI</li><li>Lead conversion and attribution</li><li>Audience and channel analytics</li></ul>
+						<div class="icp-use-query"><span>Business Question</span><strong>Why did customer engagement drop last week, and what should we change?</strong></div>
+						<p class="icp-use-answer"><b>Conversa found:</b> Engagement declined 18% because email click-through fell after send times shifted later, while paid social and webinar engagement remained stable.</p>
+						<ul><li>Email generated 74% of the total engagement decline</li><li>Evening sends underperformed morning sends by 21%</li><li>Returning customers showed the largest drop</li></ul>
 					</div>
-					<div class="icp-finance-chart"><h4>Campaign ROI</h4><div class="icp-chart-card-line" data-chart="marketing"></div></div>
-					<div class="icp-finance-kpis"><article><span>MQL Growth</span><strong>28%</strong><small>Up 9.6% vs Prior Period</small></article><article><span>ROAS</span><strong>4.3X</strong><small>Up 13.2% vs Prior Period</small></article></div>
+					<div class="icp-finance-chart"><h4>Weekly Engagement Trend</h4><p>The sharp decline begins after the email schedule changed on Wednesday.</p><div class="icp-chart-card-line" data-chart="marketing"></div></div>
+					<div class="icp-finance-kpis"><article><span>Engagement Rate</span><strong>24.8%</strong><small>Down 18% vs Previous Week</small></article><article><span>Email CTR</span><strong>2.9%</strong><small>Down 21% after timing change</small></article><article><span>Campaign ROAS</span><strong>4.3X</strong><small>Stable vs Previous Week</small></article></div>
 				</div>
 				<div class="icp-use-panel" data-icp-use-panel="hr">
 					<div class="icp-finance-copy">
 						<span class="icp-use-icon"><svg><use href="#icp-i-users"></use></svg></span>
 						<h3>Human Resources</h3>
-						<p>Analyze workforce trends, hiring performance, and employee engagement.</p>
-						<ul><li>Hiring and time-to-fill analytics</li><li>Attrition and engagement insights</li><li>Workforce planning and skills gaps</li></ul>
+						<div class="icp-use-query"><span>Business Question</span><strong>Why is regrettable attrition increasing, and which teams need attention?</strong></div>
+						<p class="icp-use-answer"><b>Conversa found:</b> Attrition is concentrated in engineering and customer success employees with 18–30 months of tenure, driven by promotion delays and manager changes.</p>
+						<ul><li>Engineering accounts for 39% of regrettable exits</li><li>Employees awaiting promotion are 2.4× more likely to leave</li><li>Three managers show elevated team-level risk</li></ul>
 					</div>
-					<div class="icp-finance-chart"><h4>Hiring Velocity</h4><div class="icp-chart-card-line" data-chart="hr"></div></div>
-					<div class="icp-finance-kpis"><article><span>Time to Fill</span><strong>22%</strong><small>Faster than prior period</small></article><article><span>Retention</span><strong>91.8%</strong><small>Up 3.4% vs Prior Period</small></article></div>
+					<div class="icp-finance-chart"><h4>Regrettable Attrition Trend</h4><p>Risk increased after manager changes and peaked among mid-tenure employees.</p><div class="icp-chart-card-line" data-chart="hr"></div></div>
+					<div class="icp-finance-kpis"><article><span>Retention</span><strong>91.8%</strong><small>Down 2.1 pts vs Prior Quarter</small></article><article><span>Regrettable Attrition</span><strong>6.4%</strong><small>Up 1.7 pts vs Prior Quarter</small></article><article><span>Time to Fill</span><strong>34 Days</strong><small>22% faster than Prior Quarter</small></article></div>
 				</div>
 			</div>
 		</div>

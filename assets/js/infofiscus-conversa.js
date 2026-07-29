@@ -68,31 +68,129 @@
     });
   });
 
-  function chartSvg(name) {
-    if (name === 'sales') {
-      return '<svg class="icp-chart-bars" viewBox="0 0 360 150" aria-hidden="true"><g class="icp-chart-grid"><path d="M16 34H346M16 72H346M16 110H346"/></g><g class="icp-bar-set"><rect x="32" y="88" width="30" height="46" rx="6"/><rect x="82" y="65" width="30" height="69" rx="6"/><rect x="132" y="77" width="30" height="57" rx="6"/><rect x="182" y="43" width="30" height="91" rx="6"/><rect x="232" y="54" width="30" height="80" rx="6"/><rect x="282" y="24" width="30" height="110" rx="6"/></g><path class="icp-chart-target" d="M22 70H330"/><g class="icp-chart-labels"><text x="37" y="146">JAN</text><text x="87" y="146">FEB</text><text x="137" y="146">MAR</text><text x="187" y="146">APR</text><text x="237" y="146">MAY</text><text x="287" y="146">JUN</text></g></svg>';
+  function chartSvg(name, type) {
+    var charts = {
+      finance: {
+        labels: ["Q1 '25", "Q2 '25", "Q3 '25", "Q4 '25", "Q1 '26", "Q2 '26"],
+        values: ['$14.8M', '$15.6M', '$15.4M', '$16.9M', '$17.8M', '$18.6M'],
+        y: [126, 106, 111, 73, 50, 30],
+        axis: ['$19M', '$17M', '$15M'],
+        event: 'PRICING CHANGE',
+        eventIndex: 3
+      },
+      sales: {
+        labels: ["Q1 '25", "Q2 '25", "Q3 '25", "Q4 '25", "Q1 '26", "Q2 '26"],
+        values: ['34.4%', '36.1%', '35.7%', '39.2%', '41.0%', '42.8%'],
+        y: [126, 108, 113, 76, 56, 36],
+        axis: ['44%', '39%', '34%'],
+        event: 'NEW QUALIFICATION',
+        eventIndex: 3
+      },
+      operations: {
+        labels: ['W1', 'W2', 'W3', 'W4', 'W5', 'W6'],
+        values: ['88.2%', '89.6%', '91.1%', '90.4%', '93.2%', '96.4%'],
+        y: [126, 112, 96, 104, 72, 35],
+        axis: ['97%', '92%', '87%'],
+        event: 'CAPACITY REALLOCATED',
+        eventIndex: 4
+      },
+      marketing: {
+        labels: ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'],
+        values: ['31.5%', '30.8%', '29.9%', '26.2%', '24.1%', '24.8%'],
+        y: [42, 49, 57, 93, 116, 108],
+        axis: ['32%', '28%', '24%'],
+        event: 'SEND TIME CHANGED',
+        eventIndex: 2
+      },
+      hr: {
+        labels: ["Q1 '25", "Q2 '25", "Q3 '25", "Q4 '25", "Q1 '26", "Q2 '26"],
+        values: ['4.7%', '4.9%', '5.1%', '5.6%', '6.0%', '6.4%'],
+        y: [124, 114, 103, 78, 57, 38],
+        axis: ['6.5%', '5.5%', '4.5%'],
+        event: 'MANAGER CHANGES',
+        eventIndex: 3
+      }
+    };
+    var config = charts[name] || charts.finance;
+    var xs = [54, 112, 170, 228, 286, 344];
+    var path = xs.map(function (x, index) { return (index ? 'L' : 'M') + x + ' ' + config.y[index]; }).join(' ');
+    var area = path + ' L344 146 L54 146 Z';
+    var eventX = xs[config.eventIndex];
+    var points = xs.map(function (x, index) {
+      return '<g class="icp-chart-point-group"><circle cx="' + x + '" cy="' + config.y[index] + '" r="5"></circle><text class="icp-chart-value" x="' + x + '" y="' + (config.y[index] - 12) + '">' + config.values[index] + '</text><text class="icp-chart-period" x="' + x + '" y="166">' + config.labels[index] + '</text></g>';
+    }).join('');
+    var baselinePath = xs.map(function (x, index) {
+      var baselineY = Math.max(28, Math.min(132, config.y[index] + (index < config.eventIndex ? 2 : 18)));
+      return (index ? 'L' : 'M') + x + ' ' + baselineY;
+    }).join(' ');
+    var bars = xs.map(function (x, index) {
+      return '<rect x="' + (x - 16) + '" y="' + config.y[index] + '" width="32" height="' + (146 - config.y[index]) + '" rx="5"></rect>';
+    }).join('');
+    var typeMarkup = '<path class="icp-chart-line" d="' + path + '"></path><g class="icp-chart-points">' + points + '</g>';
+    if (type === 'bar') {
+      typeMarkup = '<g class="icp-informed-bars">' + bars + '</g><g class="icp-chart-points">' + points + '</g>';
+    } else if (type === 'area') {
+      typeMarkup = '<path class="icp-chart-area icp-chart-area-strong" d="' + area + '"></path><path class="icp-chart-line" d="' + path + '"></path><g class="icp-chart-points">' + points + '</g>';
+    } else if (type === 'comparison') {
+      typeMarkup = '<g class="icp-chart-legend"><circle cx="55" cy="13" r="3"></circle><text x="62" y="16">ACTUAL</text><path d="M112 13H126"></path><text x="132" y="16">WITHOUT ACTION</text></g><path class="icp-chart-baseline" d="' + baselinePath + '"></path><path class="icp-chart-line" d="' + path + '"></path><g class="icp-chart-points">' + points + '</g>';
     }
-
-    if (name === 'operations') {
-      return '<svg class="icp-chart-mixed" viewBox="0 0 360 150" aria-hidden="true"><g class="icp-chart-grid"><path d="M16 34H346M16 72H346M16 110H346"/></g><g class="icp-bar-set icp-bar-set-cyan"><rect x="30" y="78" width="34" height="56" rx="5"/><rect x="82" y="58" width="34" height="76" rx="5"/><rect x="134" y="68" width="34" height="66" rx="5"/><rect x="186" y="39" width="34" height="95" rx="5"/><rect x="238" y="48" width="34" height="86" rx="5"/><rect x="290" y="28" width="34" height="106" rx="5"/></g><path class="icp-chart-line icp-chart-line-gold" d="M47 91 L99 80 L151 88 L203 58 L255 65 L307 42"/><g class="icp-chart-points icp-chart-points-gold"><circle cx="47" cy="91" r="4"/><circle cx="99" cy="80" r="4"/><circle cx="151" cy="88" r="4"/><circle cx="203" cy="58" r="4"/><circle cx="255" cy="65" r="4"/><circle cx="307" cy="42" r="4"/></g></svg>';
-    }
-
-    if (name === 'marketing') {
-      return '<svg class="icp-chart-grouped" viewBox="0 0 360 150" aria-hidden="true"><g class="icp-chart-grid"><path d="M16 34H346M16 72H346M16 110H346"/></g><g class="icp-group-bars"><g><rect x="35" y="76" width="18" height="58" rx="5"/><rect class="alt" x="55" y="48" width="18" height="86" rx="5"/></g><g><rect x="105" y="64" width="18" height="70" rx="5"/><rect class="alt" x="125" y="35" width="18" height="99" rx="5"/></g><g><rect x="175" y="83" width="18" height="51" rx="5"/><rect class="alt" x="195" y="54" width="18" height="80" rx="5"/></g><g><rect x="245" y="52" width="18" height="82" rx="5"/><rect class="alt" x="265" y="20" width="18" height="114" rx="5"/></g></g><g class="icp-chart-labels"><text x="35" y="146">SOCIAL</text><text x="105" y="146">EMAIL</text><text x="175" y="146">SEARCH</text><text x="245" y="146">EVENTS</text></g></svg>';
-    }
-
-    if (name === 'hr') {
-      return '<svg class="icp-chart-radial" viewBox="0 0 360 150" aria-hidden="true"><g transform="translate(95 75) rotate(-90)"><circle class="icp-ring-base" r="51"/><circle class="icp-ring-value" r="51"/></g><text class="icp-ring-number" x="95" y="72">91.8%</text><text class="icp-ring-caption" x="95" y="91">RETENTION</text><g class="icp-radial-stats"><rect x="182" y="28" width="150" height="38" rx="10"/><rect x="182" y="82" width="150" height="38" rx="10"/><text x="198" y="45">ENGAGEMENT</text><text class="value" x="310" y="51">84%</text><text x="198" y="99">TIME TO FILL</text><text class="value" x="295" y="105">-22%</text></g></svg>';
-    }
-
-    var path = 'M10 112 L56 88 L102 96 L148 58 L194 68 L250 26 L300 44 L344 18';
-    var area = path + ' L344 134 L10 134 Z';
-    var points = path.match(/\d+\s+\d+/g) || [];
-    return '<svg viewBox="0 0 360 150" aria-hidden="true"><path class="icp-chart-area" d="' + area + '"></path><path class="icp-chart-line" d="' + path + '"></path><g class="icp-chart-points">' + points.map(function (point) { var xy = point.split(/\s+/); return '<circle cx="' + xy[0] + '" cy="' + xy[1] + '" r="4"></circle>'; }).join('') + '</g></svg>';
+    return '<svg class="icp-informed-chart is-' + (type || 'line') + '" viewBox="0 0 380 180" role="img" aria-label="' + name + ' ' + (type || 'line') + ' chart with values by period"><g class="icp-chart-grid"><path d="M46 40H360M46 88H360M46 136H360"/></g><g class="icp-chart-axis"><text x="4" y="44">' + config.axis[0] + '</text><text x="4" y="92">' + config.axis[1] + '</text><text x="4" y="140">' + config.axis[2] + '</text></g><path class="icp-chart-event-line" d="M' + eventX + ' 20V146"></path><text class="icp-chart-event-label" x="' + Math.min(eventX + 7, 270) + '" y="27">' + config.event + '</text>' + (type === 'line' || !type ? '<path class="icp-chart-area" d="' + area + '"></path>' : '') + typeMarkup + '</svg>';
   }
 
+  var chartOutputs = {
+    finance: {
+      takeaway: 'Pricing and fulfillment efficiency generated 82% of the quarter’s profit improvement.',
+      action: 'Protect enterprise pricing and extend logistics savings across other regions.'
+    },
+    sales: {
+      takeaway: 'Enterprise deals are converting faster, while mid-market pipeline remains the largest growth gap.',
+      action: 'Prioritize executive support for the $3.6M mid-market pipeline at risk.'
+    },
+    operations: {
+      takeaway: 'Two distribution centers account for 71% of missed service-level commitments.',
+      action: 'Add evening carrier capacity and reduce picking congestion at DC-04 first.'
+    },
+    marketing: {
+      takeaway: 'Email timing caused 74% of the engagement decline; other channels remained stable.',
+      action: 'Restore morning sends and run a segmented timing test for returning customers.'
+    },
+    hr: {
+      takeaway: 'Mid-tenure engineering and customer success employees carry the highest exit risk.',
+      action: 'Accelerate promotion reviews and launch targeted manager interventions.'
+    }
+  };
+
   root.querySelectorAll('.icp-chart-card-line[data-chart]').forEach(function (chart) {
-    chart.innerHTML = chartSvg(chart.getAttribute('data-chart'));
+    var chartName = chart.getAttribute('data-chart');
+    var output = chartOutputs[chartName] || chartOutputs.finance;
+    var controls = document.createElement('div');
+    controls.className = 'icp-chart-view-tabs';
+    controls.setAttribute('role', 'tablist');
+    controls.setAttribute('aria-label', 'Choose chart view');
+    controls.innerHTML = [
+      ['line', 'Line'],
+      ['bar', 'Bar'],
+      ['area', 'Area'],
+      ['comparison', 'Compare']
+    ].map(function (item, index) {
+      return '<button type="button" role="tab" data-chart-view="' + item[0] + '" aria-selected="' + (index === 0 ? 'true' : 'false') + '" class="' + (index === 0 ? 'is-active' : '') + '">' + item[1] + '</button>';
+    }).join('');
+    chart.parentNode.insertBefore(controls, chart);
+    chart.innerHTML = chartSvg(chartName, 'line');
+    var footer = document.createElement('div');
+    footer.className = 'icp-chart-context';
+    footer.innerHTML = '<article><span>Key Takeaway</span><strong>' + output.takeaway + '</strong></article><article><span>Recommended Action</span><strong>' + output.action + '</strong></article>';
+    chart.parentNode.insertBefore(footer, chart.nextSibling);
+    controls.addEventListener('click', function (event) {
+      var button = event.target.closest('[data-chart-view]');
+      if (!button) return;
+      Array.prototype.slice.call(controls.querySelectorAll('button')).forEach(function (item) {
+        var active = item === button;
+        item.classList.toggle('is-active', active);
+        item.setAttribute('aria-selected', active ? 'true' : 'false');
+      });
+      chart.innerHTML = chartSvg(chartName, button.getAttribute('data-chart-view'));
+    });
   });
 
   root.querySelectorAll('.icp-comparison-table-wrap').forEach(function (wrap) {
