@@ -17,10 +17,10 @@ $contact_url = apply_filters( 'infometry_conversa_contact_url', home_url( '/cont
 $customers_url = apply_filters( 'infometry_conversa_customers_url', 'https://www.infometry.net/company/customers-partners/' );
 
 $problems = array(
-	array( 'icon' => 'gauge', 'title' => 'Dashboard Overload', 'copy' => 'Teams spend more time searching for reports than making decisions.' ),
-	array( 'icon' => 'chart', 'title' => 'Slow Analytics', 'copy' => 'Waiting on analysts delays business-critical decisions.' ),
-	array( 'icon' => 'bolt', 'title' => 'SQL Dependency', 'copy' => 'Business users rely on technical teams for every new question.' ),
-	array( 'icon' => 'shield', 'title' => 'Inconsistent Metrics', 'copy' => 'Different reports produce different answers, reducing trust.' ),
+	array( 'icon' => 'api', 'title' => 'SQL & Technical Dependency', 'copy' => 'Exploring data often requires SQL knowledge or access to technical tools' ),
+	array( 'icon' => 'brain', 'title' => 'Shallow, Predefined Reporting', 'copy' => 'Reports only show predefined metrics and lack <strong>deep insights</strong> or <strong>root cause analysis</strong>' ),
+	array( 'icon' => 'trend', 'title' => 'No Predictive Guidance', 'copy' => 'Reports lack recommendations and do not provide forward-looking predictions' ),
+	array( 'icon' => 'analyst', 'title' => 'Analyst Bottlenecks', 'copy' => 'Decision-makers must wait for analysts to interpret and deliver answers' ),
 );
 
 $capabilities = array(
@@ -270,7 +270,11 @@ $other_products = array(
 
 	<section class="icp-intro" id="icp-intro" aria-labelledby="icp-intro-title">
 		<div class="icp-shell icp-intro-grid">
-			<div class="icp-intro-showcase-head"><p class="icp-kicker">Enterprise AI. Trusted Insights.</p><h2 id="icp-intro-title">Ask Questions. Find Root Causes. Act Faster.</h2><p>Conversa combines conversational AI, semantic understanding, and enterprise governance to deliver trusted insights, KPI explanations, root causes, and recommendations from your cloud data warehouse.</p></div>
+			<div class="icp-intro-showcase-head">
+				<p class="icp-kicker">Enterprise AI. Trusted Insights.</p>
+				<h2 id="icp-intro-title">Meet INFOFISCUS Conversa™: A Conversational Analytics Platform</h2>
+				<p><strong>INFOFISCUS Conversa™</strong> is an <strong>enterprise conversational analytics</strong> and no-code decision intelligence platform that enables executives, operational managers, and analysts to <strong>chat with their data</strong> and get <strong>AI-driven insights instantly.</strong></p>
+			</div>
 			<div class="icp-intro-video-frame icp-architecture-frame">
 				<div class="icp-intro-video-bar"><span><i></i><i></i><i></i></span><strong>Conversa Intelligence Architecture</strong><small>Governed analytics</small></div>
 				<div class="icp-architecture" aria-label="INFOFISCUS Conversa architecture from governed context to trusted answer">
@@ -295,22 +299,21 @@ $other_products = array(
 					</div>
 				</div>
 			</div>
-			<div class="icp-intro-value-row"><article><span><svg><use href="#icp-i-chat"></use></svg></span><div><strong>Natural Language</strong><small>Ask business questions naturally without SQL.</small></div></article><article><span><svg><use href="#icp-i-trust"></use></svg></span><div><strong>Semantic Answers</strong><small>Get consistent answers from governed metrics.</small></div></article><article><span><svg><use href="#icp-i-trend"></use></svg></span><div><strong>Decision Intelligence</strong><small>Understand trends, drivers, and next actions.</small></div></article></div>
+			<div class="icp-intro-value-row"><article><span><svg><use href="#icp-i-chat"></use></svg></span><div><strong>Natural Language</strong><small><b>State-of-the-art LLMs</b> translate business questions into optimized SQL using advanced natural language analytics.</small></div></article><article><span><svg><use href="#icp-i-trust"></use></svg></span><div><strong>Semantic Intelligence</strong><small>A domain-aware semantic layer delivers root causes, key drivers, KPIs, and visualizations from live data.</small></div></article><article><span><svg><use href="#icp-i-trend"></use></svg></span><div><strong>Decision Intelligence</strong><small>Eliminate dashboards, SQL, and manual analysis to reduce analyst dependency and accelerate <b>AI-driven decisions</b>.</small></div></article></div>
 		</div>
 	</section>
 
 	<section class="icp-problem" aria-labelledby="icp-problem-title">
 		<div class="icp-shell">
 			<div class="icp-section-heading icp-center">
-				<h2 id="icp-problem-title">Why Traditional Business Intelligence Slows Decisions</h2>
-				<p>Dashboards, SQL, and manual reporting prevent teams from getting timely answers.</p>
+				<h2 id="icp-problem-title">80% of business questions never get answered in time because…</h2>
 			</div>
 			<div class="icp-card-grid icp-four">
 				<?php foreach ( $problems as $problem ) : ?>
 					<article class="icp-soft-card">
 						<span class="icp-icon"><svg><use href="#icp-i-<?php echo esc_attr( $problem['icon'] ); ?>"></use></svg></span>
 						<h3><?php echo esc_html( $problem['title'] ); ?></h3>
-						<p><?php echo esc_html( $problem['copy'] ); ?></p>
+						<p><?php echo wp_kses( $problem['copy'], array( 'strong' => array() ) ); ?></p>
 					</article>
 				<?php endforeach; ?>
 			</div>
