@@ -276,25 +276,25 @@ $other_products = array(
 				<p><strong>INFOFISCUS Conversa™</strong> is an <strong>enterprise conversational analytics</strong> and no-code decision intelligence platform that enables executives, operational managers, and analysts to <strong>chat with their data</strong> and get <strong>AI-driven insights instantly.</strong></p>
 			</div>
 			<div class="icp-intro-video-frame icp-architecture-frame">
-				<div class="icp-intro-video-bar"><span><i></i><i></i><i></i></span><strong>Conversa Intelligence Architecture</strong><small>Governed analytics</small></div>
-				<div class="icp-architecture" aria-label="INFOFISCUS Conversa architecture from governed context to trusted answer">
+				<div class="icp-intro-video-bar"><span><i></i><i></i><i></i></span><strong>Business Decision Journey</strong><small>From question to action</small></div>
+				<div class="icp-architecture" aria-label="INFOFISCUS Conversa business journey from question to decision-ready insight">
 					<div class="icp-architecture-query"><span class="icp-query-brand-mark"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/infometry-mark-white.png' ); ?>" alt="" aria-hidden="true"></span><span>Why did customer engagement drop last week?</span></div>
 					<div class="icp-architecture-grid">
 						<div class="icp-architecture-sources">
-							<small>Governed context</small>
-							<span>Data dictionary</span><span>Semantic definitions</span><span>Business rules</span><span>Metric definitions</span><span>Decision history</span><span>Table descriptions</span>
+							<small>Business context</small>
+							<span>Customer segments</span><span>Campaign reach</span><span>Engagement KPIs</span><span>Channel trends</span><span>Prior-week baseline</span><span>Engagement target</span>
 						</div>
 						<div class="icp-architecture-engine">
 							<div class="icp-engine-orb"><svg><use href="#icp-i-nodes"></use></svg></div>
-							<strong>Conversa Intelligence Engine</strong>
-							<small>Business Ontology + Context + LLM/SLM + Governance = Accuracy</small>
+							<strong>Conversa Decision Intelligence</strong>
+							<small>KPIs + Business Context + Key Drivers + Recommendations = Action</small>
 						</div>
 						<div class="icp-architecture-flow">
-							<article><b>1</b><span>Query received</span></article>
-							<article><b>2</b><span>Interpret intent and resolve entities</span></article>
-							<article><b>3</b><span>Apply semantic and business context</span></article>
-							<article><b>4</b><span>Generate governed SQL and analysis</span></article>
-							<article class="is-answer"><b>5</b><span>Deliver a trusted answer</span><i></i></article>
+							<article><b>1</b><span>Compare engagement with the prior week</span></article>
+							<article><b>2</b><span>Break down the decline by channel and segment</span></article>
+							<article><b>3</b><span>Identify the biggest drop in email engagement</span></article>
+							<article><b>4</b><span>Find the key driver: lower click-through rate</span></article>
+							<article class="is-answer"><b>5</b><span>Decision-ready outputs</span><div class="icp-answer-outputs"><span><em>Executive Summary</em><small>Engagement down 18%</small></span><span><em>Visualization</em><small>Weekly trend by channel</small></span><span><em>Recommended Action</em><small>Optimize email timing</small></span></div></article>
 						</div>
 					</div>
 				</div>
