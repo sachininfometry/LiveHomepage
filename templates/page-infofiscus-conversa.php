@@ -24,14 +24,14 @@ $problems = array(
 );
 
 $capabilities = array(
-	array( 'icon' => 'chat', 'class' => 'is-natural-language', 'kicker' => 'Conversational Analytics', 'title' => 'Natural Language to SQL Engine', 'copy' => 'Turn business questions into optimized SQL using semantic context and live enterprise data.', 'benefits' => array( 'Understand business intent', 'Generate optimized SQL', 'Query live enterprise data' ), 'tags' => array( 'Natural Language', 'Live Data' ) ),
-	array( 'icon' => 'brain', 'class' => 'is-ai-insights', 'kicker' => 'AI Intelligence', 'title' => 'Multi-Model AI Analytics', 'copy' => 'Use OpenAI, Claude, Gemini, and enterprise models across conversational analytics workloads.', 'benefits' => array( 'Choose the right AI model', 'Analyze complex questions', 'Deliver flexible insights' ), 'tags' => array( 'Multi-Model AI', 'Trusted Answers' ) ),
-	array( 'icon' => 'chart', 'class' => 'is-connectivity', 'kicker' => 'Advanced Intelligence', 'title' => 'Advanced Analytics', 'copy' => 'Uncover trends, root causes, and business drivers beyond traditional dashboards and reports.', 'benefits' => array( 'Detect trends and anomalies', 'Explain root causes', 'Surface business drivers' ), 'tags' => array( 'Root Cause', 'Trend Analysis' ) ),
-	array( 'icon' => 'spark', 'class' => 'is-governance', 'kicker' => 'Enterprise Knowledge', 'title' => 'AI Document Intelligence', 'copy' => 'Search PDFs, contracts, and documents to discover trusted enterprise knowledge instantly.', 'benefits' => array( 'Search enterprise documents', 'Find trusted knowledge', 'Summarize key information' ), 'tags' => array( 'Document AI', 'Enterprise Search' ) ),
-	array( 'icon' => 'nodes', 'class' => 'is-visuals', 'kicker' => 'Trusted Data', 'title' => 'Semantic Layer for Trusted Data', 'copy' => 'Keep metrics consistent with semantic models, business definitions, and governed relationships.', 'benefits' => array( 'Standardize business metrics', 'Apply shared definitions', 'Deliver consistent answers' ), 'tags' => array( 'Semantic Models', 'Governed Metrics' ) ),
-	array( 'icon' => 'lock', 'class' => 'is-sql', 'kicker' => 'Secure Analytics', 'title' => 'Security and Governance', 'copy' => 'Protect data with role-based access, encryption, audit trails, and secure warehouse connections.', 'benefits' => array( 'Enforce role-based access', 'Maintain audit trails', 'Secure warehouse access' ), 'tags' => array( 'Enterprise Security', 'Governance' ) ),
-	array( 'icon' => 'monitor', 'class' => 'is-monitoring', 'kicker' => 'Native Experience', 'title' => 'Native Desktop Application', 'copy' => 'Access secure, high-performance conversational analytics on Windows and macOS.', 'benefits' => array( 'Use a native application', 'Work securely on desktop', 'Support Windows and macOS' ), 'tags' => array( 'Native Desktop', 'Secure Access' ) ),
-	array( 'icon' => 'bolt', 'class' => 'is-automation', 'kicker' => 'Business Efficiency', 'title' => 'Cost Optimization & Faster Insights', 'copy' => 'Reduce reporting costs, remove bottlenecks, and accelerate decisions across teams.', 'benefits' => array( 'Reduce reporting effort', 'Remove analytics bottlenecks', 'Accelerate decisions' ), 'tags' => array( 'Cost Optimization', 'Faster Insights' ) ),
+	array( 'icon' => 'chat', 'class' => 'is-natural-language', 'kicker' => 'Conversational Analytics', 'title' => 'Natural Language to SQL Engine', 'copy' => 'Translate complex business questions into optimized SQL on live data with a domain-aware engine that combines advanced natural language analytics and a semantic layer.', 'benefits' => array( 'Understand terminology, KPIs, and business logic', 'Generate optimized SQL on live enterprise data', 'Deliver context-rich insights without writing SQL' ), 'tags' => array( 'Advanced NLP', 'Less Analyst Work' ) ),
+	array( 'icon' => 'brain', 'class' => 'is-ai-insights', 'kicker' => 'AI Intelligence', 'title' => 'Multi-Model AI Analytics', 'copy' => 'Route conversational analytics workloads across OpenAI, Claude, Gemini, and approved enterprise models to answer complex business questions with flexible, governed AI responses.', 'benefits' => array( 'Choose the right AI model', 'Analyze complex questions', 'Deliver flexible insights' ), 'tags' => array( 'Multi-Model AI', 'Trusted Answers' ) ),
+	array( 'icon' => 'chart', 'class' => 'is-connectivity', 'kicker' => 'Advanced Intelligence', 'title' => 'Advanced Analytics', 'copy' => 'Apply advanced, LLM-driven analysis to enterprise data to uncover patterns, key drivers, and deeper insights with business context beyond basic reporting.', 'benefits' => array( 'Detect patterns and important trends', 'Identify key drivers and root causes', 'Support informed, data-driven decisions' ), 'tags' => array( 'LLM Insights', 'Business Context' ) ),
+	array( 'icon' => 'spark', 'class' => 'is-governance', 'kicker' => 'Enterprise Knowledge', 'title' => 'AI-Powered Document Intelligence', 'copy' => 'Ask questions across PDFs, contracts, manuals, and knowledge bases using semantic search that unifies structured and unstructured enterprise information.', 'benefits' => array( 'Retrieve insights across enterprise documents', 'Unify structured and unstructured information', 'Find answers faster with less manual research' ), 'tags' => array( 'Semantic Search', 'Document AI' ) ),
+	array( 'icon' => 'nodes', 'class' => 'is-visuals', 'kicker' => 'Trusted Data', 'title' => 'Semantic Layer for Trusted Data', 'copy' => 'Create a unified, domain-aware view by mapping business terms, KPIs, and relationships to underlying sources with consistent definitions and business context.', 'benefits' => array( 'Map business terms, KPIs, and relationships', 'Interpret every question in business context', 'Deliver accurate and trusted insights' ), 'tags' => array( 'Domain-Aware', 'Consistent Metrics' ) ),
+	array( 'icon' => 'lock', 'class' => 'is-sql', 'kicker' => 'Secure Analytics', 'title' => 'Enterprise Security and Governance', 'copy' => 'Operate directly on enterprise cloud data warehouses with strict governance and secure queries that keep data in place while streamlining enterprise infrastructure.', 'benefits' => array( 'Enforce single sign-on and role-based access', 'Maintain encryption and detailed audit trails', 'Support authorized access and compliance' ), 'tags' => array( 'Enterprise Security', 'Data Governance' ) ),
+	array( 'icon' => 'monitor', 'class' => 'is-monitoring', 'kicker' => 'Native Experience', 'title' => 'Native Desktop Application', 'copy' => 'Use a secure, high-performance native desktop experience to access governed conversational analytics efficiently across Windows and macOS business environments.', 'benefits' => array( 'Use a native application', 'Work securely on desktop', 'Support Windows and macOS' ), 'tags' => array( 'Native Desktop', 'Secure Access' ) ),
+	array( 'icon' => 'bolt', 'class' => 'is-automation', 'kicker' => 'Business Efficiency', 'title' => 'Cost Optimization & Faster Insights', 'copy' => 'Reduce reporting effort and platform costs, remove recurring analytics bottlenecks, and help business teams reach trusted decisions faster at enterprise scale.', 'benefits' => array( 'Reduce reporting effort', 'Remove analytics bottlenecks', 'Accelerate decisions' ), 'tags' => array( 'Cost Optimization', 'Faster Insights' ) ),
 );
 
 $steps = array(
@@ -143,7 +143,7 @@ $other_products = array(
 					<div class="icp-hero-business-value">
 						<strong>Move from business questions to measurable action.</strong>
 						<p>Conversa explains KPI changes, reveals the drivers behind performance, and recommends what your team should do next—using governed enterprise data.</p>
-						<div class="icp-hero-business-signals"><span><svg><use href="#icp-i-chart"></use></svg>Explain KPI Changes</span><span><svg><use href="#icp-i-brain"></use></svg>Find Business Drivers</span><span><svg><use href="#icp-i-path"></use></svg>Prioritize Actions</span></div>
+						<div class="icp-hero-business-signals"><span><svg><use href="#icp-i-chart"></use></svg><b>Explain KPI<br>Changes</b></span><span><svg><use href="#icp-i-brain"></use></svg><b>Find Business<br>Drivers</b></span><span><svg><use href="#icp-i-path"></use></svg><b>Prioritize<br>Actions</b></span></div>
 					</div>
 					<div class="icp-actions">
 						<a class="icp-button icp-button-primary" href="#icp-demo-form" data-icp-demo-trigger>Request a Demo <span aria-hidden="true">→</span></a>
@@ -322,7 +322,7 @@ $other_products = array(
 	<section class="icp-capabilities" id="icp-capabilities" aria-labelledby="icp-capabilities-title">
 		<div class="icp-shell">
 			<div class="icp-section-heading icp-center">
-				<h2 id="icp-capabilities-title">INFOFISCUS Conversa Platform Capabilities</h2>
+				<h2 id="icp-capabilities-title">INFOFISCUS Conversa Conversational Analytics Platform Capabilities</h2>
 				<p>AI-Powered Conversational analytics built for trusted, secure, and faster decisions.</p>
 			</div>
 			<div class="icp-capability-carousel" aria-label="Platform capabilities carousel">
@@ -349,6 +349,7 @@ $other_products = array(
 					<?php endforeach; ?>
 				</div>
 			</div>
+			<div class="icp-capability-action"><a class="icp-button icp-button-primary" href="#icp-demo-form" data-icp-demo-trigger>Learn More <span aria-hidden="true">→</span></a></div>
 		</div>
 	</section>
 
@@ -381,6 +382,7 @@ $other_products = array(
 				<div class="icp-shift-row"><article class="icp-shift-problem"><span><svg><use href="#icp-i-database"></use></svg></span><div><small>Before Conversa</small><h3>Knowledge Bottlenecks</h3><p>Business knowledge stays trapped with specialists.</p></div></article><div class="icp-shift-flow" aria-hidden="true"><i></i><b>→</b></div><article class="icp-shift-result"><span><svg><use href="#icp-i-users"></use></svg></span><div><small>With Conversa</small><h3>Self-Service Analytics</h3><p>Everyone can explore trusted enterprise insights.</p></div></article></div>
 				<div class="icp-shift-row"><article class="icp-shift-problem"><span><svg><use href="#icp-i-gauge"></use></svg></span><div><small>Before Conversa</small><h3>Disconnected Decisions</h3><p>Teams rely on inconsistent reports and assumptions.</p></div></article><div class="icp-shift-flow" aria-hidden="true"><i></i><b>→</b></div><article class="icp-shift-result"><span><svg><use href="#icp-i-trust"></use></svg></span><div><small>With Conversa</small><h3>Business Alignment</h3><p>Shared metrics create organization-wide consistency.</p></div></article></div>
 			</div>
+			<div class="icp-journey-action"><a class="icp-button icp-button-primary" href="#icp-demo-form" data-icp-demo-trigger>Try Conversa <span aria-hidden="true">→</span></a></div>
 		</div>
 	</section>
 
@@ -453,6 +455,7 @@ $other_products = array(
 					<div class="icp-finance-kpis"><article><span>Retention</span><strong>91.8%</strong><small>Down 2.1 pts vs Prior Quarter</small></article><article><span>Regrettable Attrition</span><strong>6.4%</strong><small>Up 1.7 pts vs Prior Quarter</small></article><article><span>Time to Fill</span><strong>34 Days</strong><small>22% faster than Prior Quarter</small></article></div>
 				</div>
 			</div>
+			<div class="icp-journey-action icp-use-case-action"><a class="icp-button icp-button-primary" href="#icp-demo-form" data-icp-demo-trigger>Try Conversa <span aria-hidden="true">→</span></a></div>
 		</div>
 	</section>
 
@@ -474,6 +477,7 @@ $other_products = array(
 					</article>
 				<?php endforeach; ?>
 			</div>
+			<div class="icp-journey-action icp-persona-action"><a class="icp-button icp-button-primary" href="#icp-demo-form" data-icp-demo-trigger>See Conversa for Your Team <span aria-hidden="true">→</span></a></div>
 		</div>
 	</section>
 

@@ -490,7 +490,7 @@ body .infometry-conversa-product .icp-comparison-simple .icp-status,body .infome
         <div class="icp-hero-copy">
           <p class="icp-eyebrow">Conversation Analytics Platform for Enterprise</p>
           <h1 id="icp-hero-title">Ask Questions.<br>Find Causes.<br><span>Drive Decisions.</span></h1>
-          <div class="icp-hero-business-value"><strong>Move from business questions to measurable action.</strong><p>Conversa explains KPI changes, reveals the drivers behind performance, and recommends what your team should do next—using governed enterprise data.</p><div class="icp-hero-business-signals"><span><svg><use href="#icp-i-chart"></use></svg>Explain KPI Changes</span><span><svg><use href="#icp-i-brain"></use></svg>Find Business Drivers</span><span><svg><use href="#icp-i-path"></use></svg>Prioritize Actions</span></div></div>
+          <div class="icp-hero-business-value"><strong>Move from business questions to measurable action.</strong><p>Conversa explains KPI changes, reveals the drivers behind performance, and recommends what your team should do next—using governed enterprise data.</p><div class="icp-hero-business-signals"><span><svg><use href="#icp-i-chart"></use></svg><b>Explain KPI<br>Changes</b></span><span><svg><use href="#icp-i-brain"></use></svg><b>Find Business<br>Drivers</b></span><span><svg><use href="#icp-i-path"></use></svg><b>Prioritize<br>Actions</b></span></div></div>
           <div class="icp-actions"><a class="icp-button icp-button-primary" href="#icp-demo-form" data-icp-demo-trigger>Request a Demo <span aria-hidden="true">→</span></a><a class="icp-button icp-button-secondary" href="https://app.supademo.com/demo/cmrpbnvrk00aozw0jd3ao0z6v?utm_source=link" target="_blank" rel="noopener noreferrer"><span class="icp-play-dot">▶</span> Watch Product Tour</a></div>
         </div>
         <div class="icp-hero-slider" data-icp-hero-slider aria-label="INFOFISCUS Conversa product preview carousel">
@@ -523,7 +523,7 @@ body .infometry-conversa-product .icp-comparison-simple .icp-status,body .infome
 
   <section class="icp-problem"><div class="icp-shell"><div class="icp-section-heading icp-center"><h2>80% of business questions never get answered in time because…</h2></div><div class="icp-card-grid icp-four"><article class="icp-soft-card"><span class="icp-icon"><svg><use href="#icp-i-api"></use></svg></span><h3>SQL &amp; Technical Dependency</h3><p>Exploring data often requires SQL knowledge or access to technical tools</p></article><article class="icp-soft-card"><span class="icp-icon"><svg><use href="#icp-i-brain"></use></svg></span><h3>Shallow, Predefined Reporting</h3><p>Reports only show predefined metrics and lack <strong>deep insights</strong> or <strong>root cause analysis</strong></p></article><article class="icp-soft-card"><span class="icp-icon"><svg><use href="#icp-i-trend"></use></svg></span><h3>No Predictive Guidance</h3><p>Reports lack recommendations and do not provide forward-looking predictions</p></article><article class="icp-soft-card"><span class="icp-icon"><svg><use href="#icp-i-analyst"></use></svg></span><h3>Analyst Bottlenecks</h3><p>Decision-makers must wait for analysts to interpret and deliver answers</p></article></div><div class="icp-problem-action"><a class="icp-button icp-problem-learn" href="#icp-demo-form" data-icp-demo-trigger>Learn More <span aria-hidden="true">→</span></a></div></div></section>
 
-  <section class="icp-capabilities" id="icp-capabilities"><div class="icp-shell"><div class="icp-section-heading icp-center"><h2>INFOFISCUS Conversa Platform Capabilities</h2><p>AI-Powered Conversational analytics built for trusted, secure, and faster decisions.</p></div><div class="icp-capability-carousel" aria-label="Platform capabilities carousel"><div class="icp-card-grid icp-capability-grid">
+  <section class="icp-capabilities" id="icp-capabilities"><div class="icp-shell"><div class="icp-section-heading icp-center"><h2>INFOFISCUS Conversa Conversational Analytics Platform Capabilities</h2><p>AI-Powered Conversational analytics built for trusted, secure, and faster decisions.</p></div><div class="icp-capability-carousel" aria-label="Platform capabilities carousel"><div class="icp-card-grid icp-capability-grid">
     <article class="icp-feature-card"><span class="icp-icon"><svg><use href="#icp-i-chat"></use></svg></span><span class="icp-feature-kicker">Conversational Analytics</span><h3>Natural Language to SQL Engine</h3><p>Turn business questions into optimized SQL using semantic context and live enterprise data.</p><div class="icp-feature-tags"><span>Natural Language</span><span>Instant Answers</span></div><a href="#icp-demo-form">Explore Analytics →</a></article>
     <article class="icp-feature-card"><span class="icp-icon"><svg><use href="#icp-i-brain"></use></svg></span><span class="icp-feature-kicker">AI Intelligence</span><h3>Multi-Model AI Analytics</h3><p>Use OpenAI, Claude, Gemini, and enterprise models across conversational analytics workloads.</p><div class="icp-feature-tags"><span>Smart Summary</span><span>Root Cause</span></div><a href="#icp-demo-form">Explore Insights →</a></article>
     <article class="icp-feature-card"><span class="icp-icon"><svg><use href="#icp-i-nodes"></use></svg></span><span class="icp-feature-kicker">Unified Data</span><h3>Advanced Analytics</h3><p>Uncover trends, root causes, and business drivers beyond traditional dashboards and reports.</p><div class="icp-feature-tags"><span>Multi-Source</span><span>Live Data</span></div><a href="#icp-demo-form">Explore Connectivity →</a></article>
@@ -593,20 +593,38 @@ if (demoPreferences && !demoPreferences.querySelector('[data-icp-demo-timezone]'
 }
 </script>
 <script>
+var capabilityContent = [
+  { kicker: 'Conversational Analytics', title: 'Natural Language to SQL Engine', copy: 'Translate complex business questions into optimized SQL on live data with a domain-aware engine that combines advanced natural language analytics and a semantic layer.', tags: ['Advanced NLP', 'Less Analyst Work'] },
+  { kicker: 'AI Intelligence', title: 'Multi-Model AI Analytics', copy: 'Route conversational analytics workloads across OpenAI, Claude, Gemini, and approved enterprise models to answer complex business questions with flexible, governed AI responses.', tags: ['Multi-Model AI', 'Trusted Answers'] },
+  { kicker: 'Advanced Intelligence', title: 'Advanced Analytics', copy: 'Apply advanced, LLM-driven analysis to enterprise data to uncover patterns, key drivers, and deeper insights with business context beyond basic reporting.', tags: ['LLM Insights', 'Business Context'] },
+  { kicker: 'Enterprise Knowledge', title: 'AI-Powered Document Intelligence', copy: 'Ask questions across PDFs, contracts, manuals, and knowledge bases using semantic search that unifies structured and unstructured enterprise information.', tags: ['Semantic Search', 'Document AI'] },
+  { kicker: 'Trusted Data', title: 'Semantic Layer for Trusted Data', copy: 'Create a unified, domain-aware view by mapping business terms, KPIs, and relationships to underlying sources with consistent definitions and business context.', tags: ['Domain-Aware', 'Consistent Metrics'] },
+  { kicker: 'Secure Analytics', title: 'Enterprise Security and Governance', copy: 'Operate directly on enterprise cloud data warehouses with strict governance and secure queries that keep data in place while streamlining enterprise infrastructure.', tags: ['Enterprise Security', 'Data Governance'] },
+  { kicker: 'Native Experience', title: 'Native Desktop Application', copy: 'Use a secure, high-performance native desktop experience to access governed conversational analytics efficiently across Windows and macOS business environments.', tags: ['Native Desktop', 'Secure Access'] },
+  { kicker: 'Business Efficiency', title: 'Cost Optimization & Faster Insights', copy: 'Reduce reporting effort and platform costs, remove recurring analytics bottlenecks, and help business teams reach trusted decisions faster at enterprise scale.', tags: ['Cost Optimization', 'Faster Insights'] }
+];
 document.querySelectorAll('.icp-capabilities .icp-feature-card').forEach(function (card, index) {
   var capabilityClasses = ['is-natural-language', 'is-ai-insights', 'is-connectivity', 'is-governance', 'is-visuals', 'is-sql', 'is-monitoring', 'is-automation'];
   var capabilityBenefits = [
-    ['Understand business intent', 'Answer follow-up questions', 'Deliver governed responses'],
-    ['Summarize key changes', 'Explain root causes', 'Recommend next actions'],
-    ['Connect multiple sources', 'Query live enterprise data', 'Scale across platforms'],
-    ['Standardize business metrics', 'Apply role-based access', 'Maintain trusted definitions'],
-    ['Generate clear visuals', 'Explore trends interactively', 'Drill into business drivers'],
-    ['Review generated SQL', 'Validate every answer', 'Support audit readiness'],
-    ['Track critical KPIs', 'Detect meaningful changes', 'Notify teams proactively'],
-    ['Embed secure analytics', 'Automate repeatable actions', 'Integrate business workflows']
+    ['Understand terminology, KPIs, and business logic', 'Generate optimized SQL on live enterprise data', 'Deliver context-rich insights without writing SQL'],
+    ['Choose the right AI model', 'Analyze complex business questions', 'Deliver flexible and trusted insights'],
+    ['Detect patterns and important trends', 'Identify key drivers and root causes', 'Support informed, data-driven decisions'],
+    ['Retrieve insights across enterprise documents', 'Unify structured and unstructured information', 'Find answers faster with less manual research'],
+    ['Map business terms, KPIs, and relationships', 'Interpret every question in business context', 'Deliver accurate and trusted insights'],
+    ['Enforce single sign-on and role-based access', 'Maintain encryption and detailed audit trails', 'Support authorized access and compliance'],
+    ['Use a native desktop application', 'Work securely with high performance', 'Support Windows and macOS'],
+    ['Reduce reporting effort and costs', 'Remove analytics bottlenecks', 'Accelerate decisions across teams']
   ];
+  var content = capabilityContent[index % capabilityContent.length];
   card.classList.add(capabilityClasses[index % capabilityClasses.length]);
+  var kicker = card.querySelector('.icp-feature-kicker');
+  var title = card.querySelector('h3');
+  var copy = card.querySelector('p');
   var tags = card.querySelector('.icp-feature-tags');
+  if (kicker) kicker.textContent = content.kicker;
+  if (title) title.textContent = content.title;
+  if (copy) copy.textContent = content.copy;
+  if (tags) tags.innerHTML = content.tags.map(function (tag) { return '<span>' + tag + '</span>'; }).join('');
   if (tags && !card.querySelector('.icp-feature-benefits')) {
     var list = document.createElement('ul');
     list.className = 'icp-feature-benefits';
@@ -618,6 +636,34 @@ document.querySelectorAll('.icp-capabilities .icp-feature-card').forEach(functio
     card.insertBefore(list, tags);
   }
 });
+var capabilitySection = document.querySelector('.icp-capabilities .icp-shell');
+if (capabilitySection && !capabilitySection.querySelector('.icp-capability-action')) {
+  var capabilityAction = document.createElement('div');
+  capabilityAction.className = 'icp-capability-action';
+  capabilityAction.innerHTML = '<a class="icp-button icp-button-primary" href="#icp-demo-form" data-icp-demo-trigger>Learn More <span aria-hidden="true">→</span></a>';
+  capabilitySection.appendChild(capabilityAction);
+}
+var journeySection = document.querySelector('.icp-outcome-journey .icp-shell');
+if (journeySection && !journeySection.querySelector('.icp-journey-action')) {
+  var journeyAction = document.createElement('div');
+  journeyAction.className = 'icp-journey-action';
+  journeyAction.innerHTML = '<a class="icp-button icp-button-primary" href="#icp-demo-form" data-icp-demo-trigger>Try Conversa <span aria-hidden="true">→</span></a>';
+  journeySection.appendChild(journeyAction);
+}
+var useCaseSection = document.querySelector('.icp-use-cases .icp-shell');
+if (useCaseSection && !useCaseSection.querySelector('.icp-use-case-action')) {
+  var useCaseAction = document.createElement('div');
+  useCaseAction.className = 'icp-journey-action icp-use-case-action';
+  useCaseAction.innerHTML = '<a class="icp-button icp-button-primary" href="#icp-demo-form" data-icp-demo-trigger>Try Conversa <span aria-hidden="true">→</span></a>';
+  useCaseSection.appendChild(useCaseAction);
+}
+var personaSection = document.querySelector('.icp-personas .icp-shell');
+if (personaSection && !personaSection.querySelector('.icp-persona-action')) {
+  var personaAction = document.createElement('div');
+  personaAction.className = 'icp-journey-action icp-persona-action';
+  personaAction.innerHTML = '<a class="icp-button icp-button-primary" href="#icp-demo-form" data-icp-demo-trigger>See Conversa for Your Team <span aria-hidden="true">→</span></a>';
+  personaSection.appendChild(personaAction);
+}
 document.querySelectorAll('.icp-personas .icp-persona-card').forEach(function (card, index) {
   var personaClasses = ['is-executive', 'is-business-user', 'is-data-analyst', 'is-finance-team', 'is-it-data'];
   card.classList.add(personaClasses[index]);
