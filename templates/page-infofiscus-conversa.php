@@ -337,16 +337,6 @@ $other_products = array(
 							<div class="icp-feature-tags"><?php foreach ( $capability['tags'] as $tag ) : ?><span><?php echo esc_html( $tag ); ?></span><?php endforeach; ?></div>
 						</article>
 					<?php endforeach; ?>
-					<?php foreach ( $capabilities as $capability ) : ?>
-						<article class="icp-feature-card <?php echo esc_attr( $capability['class'] ); ?>" aria-hidden="true">
-							<span class="icp-icon"><svg><use href="#icp-i-<?php echo esc_attr( $capability['icon'] ); ?>"></use></svg></span>
-							<span class="icp-feature-kicker"><?php echo esc_html( $capability['kicker'] ); ?></span>
-							<h3><?php echo esc_html( $capability['title'] ); ?></h3>
-							<p><?php echo esc_html( $capability['copy'] ); ?></p>
-							<ul class="icp-feature-benefits"><?php foreach ( $capability['benefits'] as $benefit ) : ?><li><?php echo esc_html( $benefit ); ?></li><?php endforeach; ?></ul>
-							<div class="icp-feature-tags"><?php foreach ( $capability['tags'] as $tag ) : ?><span><?php echo esc_html( $tag ); ?></span><?php endforeach; ?></div>
-						</article>
-					<?php endforeach; ?>
 				</div>
 			</div>
 			<div class="icp-capability-action"><a class="icp-button icp-button-primary" href="#icp-demo-form" data-icp-demo-trigger>Learn More <span aria-hidden="true">→</span></a></div>

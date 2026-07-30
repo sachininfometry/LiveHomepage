@@ -452,6 +452,7 @@
     var scrollStart = 0;
     var resumeAt = 0;
     var previousFrame = performance.now();
+    var autoDirection = 1;
 
     if (!track) {
       return;
@@ -461,19 +462,16 @@
     carousel.setAttribute('tabindex', '0');
     carousel.setAttribute('aria-label', 'Platform capabilities. Drag or swipe horizontally to browse.');
 
-    function loopPoint() {
-      return track.scrollWidth / 2;
+    function maximumScroll() {
+      return Math.max(0, track.scrollWidth - carousel.clientWidth);
     }
 
-    function normalizeScroll() {
-      var midpoint = loopPoint();
-      if (!midpoint) {
-        return;
-      }
-      if (carousel.scrollLeft >= midpoint) {
-        carousel.scrollLeft -= midpoint;
-      } else if (carousel.scrollLeft < 0) {
-        carousel.scrollLeft += midpoint;
+    function updateAutoDirection() {
+      var maximum = maximumScroll();
+      if (carousel.scrollLeft >= maximum - 1) {
+        autoDirection = -1;
+      } else if (carousel.scrollLeft <= 1) {
+        autoDirection = 1;
       }
     }
 
@@ -500,7 +498,7 @@
         dragged = true;
       }
       carousel.scrollLeft = scrollStart - delta;
-      normalizeScroll();
+      updateAutoDirection();
     });
 
     function finishDrag(event) {
@@ -542,15 +540,26 @@
         left: event.key === 'ArrowRight' ? 300 : -300,
         behavior: 'smooth'
       });
+      autoDirection = event.key === 'ArrowRight' ? 1 : -1;
       resumeAt = performance.now() + 1600;
     });
 
     function autoScroll(now) {
       var elapsed = Math.min(now - previousFrame, 40);
+      var maximum = maximumScroll();
+      var nextScroll;
       previousFrame = now;
-      if (!dragging && now >= resumeAt && !carousel.matches(':hover') && document.visibilityState === 'visible') {
-        carousel.scrollLeft += elapsed * 0.035;
-        normalizeScroll();
+      if (maximum > 0 && !dragging && now >= resumeAt && !carousel.matches(':hover') && document.visibilityState === 'visible') {
+        nextScroll = carousel.scrollLeft + (elapsed * 0.035 * autoDirection);
+        if (nextScroll >= maximum) {
+          carousel.scrollLeft = maximum;
+          autoDirection = -1;
+        } else if (nextScroll <= 0) {
+          carousel.scrollLeft = 0;
+          autoDirection = 1;
+        } else {
+          carousel.scrollLeft = nextScroll;
+        }
       }
       window.requestAnimationFrame(autoScroll);
     }
