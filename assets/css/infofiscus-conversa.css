@@ -13674,3 +13674,79 @@ body .infometry-conversa-product .icp-persona-action {
 body .infometry-conversa-product .icp-persona-action .icp-button {
   min-width: 238px !important;
 }
+
+/* Windows 150% display scaling only; 125% keeps the approved desktop layout. */
+@media (min-width: 701px) and (min-resolution: 1.4dppx) and (max-resolution: 1.6dppx) {
+  body .infometry-conversa-product .icp-hero {
+    min-height: auto !important;
+  }
+
+  body .infometry-conversa-product .icp-hero .icp-hero-grid {
+    min-height: 0 !important;
+    height: auto !important;
+    padding: clamp(70px, 7vw, 92px) 0 104px !important;
+    gap: clamp(28px, 3vw, 40px) !important;
+  }
+
+  body .infometry-conversa-product .icp-hero-copy h1 {
+    max-width: 100% !important;
+    font-size: clamp(40px, 3.6vw, 46px) !important;
+    line-height: 1.08 !important;
+    white-space: nowrap !important;
+  }
+
+  body .infometry-conversa-product .icp-hero-copy {
+    width: 100% !important;
+    max-width: 520px !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  body .infometry-conversa-product .icp-hero-business-value > strong {
+    font-size: clamp(14px, 1.2vw, 16px) !important;
+  }
+
+  body .infometry-conversa-product .icp-hero-business-value > p {
+    font-size: clamp(12.5px, 1.08vw, 14px) !important;
+    line-height: 1.55 !important;
+  }
+
+  body .infometry-conversa-product > .icp-hero-strip {
+    margin-top: 0 !important;
+    background: linear-gradient(180deg, #f7f9ff 0%, #fff 100%) !important;
+  }
+
+  body .infometry-conversa-product .icp-capabilities .icp-feature-tags {
+    min-height: 31px !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 6px !important;
+  }
+
+  body .infometry-conversa-product .icp-capabilities .icp-feature-card {
+    flex: 0 0 280px !important;
+  }
+
+  body .infometry-conversa-product .icp-capabilities .icp-feature-tags span {
+    width: 100% !important;
+    min-height: 29px !important;
+    padding-inline: 4px !important;
+    font-size: 10px !important;
+  }
+
+  body .infometry-conversa-product .icp-architecture-flow {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@container conversa-architecture (max-width: 760px) {
+  body .infometry-conversa-product .icp-architecture-flow {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+}
+
+@container conversa-architecture (max-width: 480px) {
+  body .infometry-conversa-product .icp-architecture-flow {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
