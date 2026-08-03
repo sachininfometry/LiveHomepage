@@ -13862,15 +13862,15 @@ body .infometry-conversa-product .icp-hero-slide img {
 /* Large desktop / 125% scaling: use the available canvas instead of looking undersized. */
 @media (min-width: 1150px) and (min-resolution: 1.11dppx) and (max-resolution: 1.39dppx) {
   body .infometry-conversa-product > .icp-hero > .icp-shell {
-    width: min(calc(100% - 40px), 1780px) !important;
-    max-width: 1780px !important;
+    width: min(calc(100% - 48px), 1440px) !important;
+    max-width: 1440px !important;
   }
 
   body .infometry-conversa-product .icp-hero .icp-hero-grid {
     min-height: clamp(690px, 45vw, 790px) !important;
     padding: clamp(118px, 7vw, 138px) 0 clamp(58px, 4vw, 76px) !important;
-    grid-template-columns: minmax(450px, .65fr) minmax(0, 1.6fr) !important;
-    gap: clamp(20px, 2vw, 34px) !important;
+    grid-template-columns: minmax(450px, .65fr) minmax(0, 1.35fr) !important;
+    gap: clamp(28px, 2.4vw, 38px) !important;
   }
 
   body .infometry-conversa-product .icp-hero-copy {
@@ -13925,8 +13925,8 @@ body .infometry-conversa-product .icp-hero-slide img {
   }
 
   body .infometry-conversa-product .icp-hero-slider {
-    width: min(100%, 760px) !important;
-    max-width: 760px !important;
+    width: min(100%, 800px) !important;
+    max-width: 800px !important;
     justify-self: center !important;
   }
 }
@@ -13997,9 +13997,9 @@ body .infometry-conversa-product .icp-hero-slide img {
   }
 
   body .infometry-conversa-product .icp-hero-slider {
-    width: min(100%, 900px) !important;
-    max-width: 900px !important;
-    justify-self: center !important;
+    width: 100% !important;
+    max-width: 1120px !important;
+    justify-self: start !important;
   }
 }
 
