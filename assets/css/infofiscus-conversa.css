@@ -13798,7 +13798,7 @@ body .infometry-conversa-product .icp-hero-slider {
   min-height: 0 !important;
   max-height: none !important;
   padding: 0 !important;
-  aspect-ratio: var(--icp-hero-ratio, 1556 / 1011) !important;
+  aspect-ratio: 1556 / 1011 !important;
   justify-self: center !important;
 }
 
@@ -13817,7 +13817,7 @@ body .infometry-conversa-product .icp-hero-slide img {
   max-width: 100% !important;
   max-height: 100% !important;
   object-fit: contain !important;
-  object-position: center !important;
+  object-position: center top !important;
 }
 
 /* Fluid two-column hero for scaled laptops and medium desktop windows. */
@@ -13830,7 +13830,7 @@ body .infometry-conversa-product .icp-hero-slide img {
   body .infometry-conversa-product .icp-hero .icp-hero-grid {
     min-height: 0 !important;
     height: auto !important;
-    padding: clamp(128px, 11vw, 150px) 0 clamp(64px, 7vw, 92px) !important;
+    padding: clamp(128px, 11vw, 150px) 0 clamp(32px, 4vw, 52px) !important;
     grid-template-columns: minmax(330px, .82fr) minmax(0, 1.18fr) !important;
     gap: clamp(24px, 3vw, 38px) !important;
   }
@@ -13858,7 +13858,7 @@ body .infometry-conversa-product .icp-hero-slide img {
 @media (min-width: 1101px) and (max-height: 800px) {
   body .infometry-conversa-product .icp-hero .icp-hero-grid {
     padding-top: 128px !important;
-    padding-bottom: clamp(48px, 7vh, 68px) !important;
+    padding-bottom: 24px !important;
   }
 
   body .infometry-conversa-product .icp-hero-copy h1 {
@@ -13896,7 +13896,7 @@ body .infometry-conversa-product .icp-hero-slide img {
     height: auto !important;
     min-height: 0 !important;
     max-height: none !important;
-    aspect-ratio: var(--icp-hero-ratio, 1556 / 1011) !important;
+    aspect-ratio: 1556 / 1011 !important;
   }
 
   body .infometry-conversa-product .icp-demo-form-grid {
