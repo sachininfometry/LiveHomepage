@@ -13786,6 +13786,40 @@ body .infometry-conversa-product iframe {
   max-width: 100% !important;
 }
 
+/* The banner follows its rendered column instead of a fixed desktop frame. */
+body .infometry-conversa-product .icp-hero .icp-hero-grid > * {
+  min-width: 0 !important;
+}
+
+body .infometry-conversa-product .icp-hero-slider {
+  width: 100% !important;
+  max-width: 780px !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  padding: 0 !important;
+  aspect-ratio: 1556 / 1011 !important;
+  justify-self: center !important;
+}
+
+body .infometry-conversa-product .icp-hero-slide {
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 0 !important;
+  overflow: hidden !important;
+}
+
+body .infometry-conversa-product .icp-hero-slide img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
 @media (max-width: 1100px) {
   body .infometry-conversa-product .icp-hero .icp-hero-grid {
     grid-template-columns: minmax(0, 1fr) !important;
@@ -13804,7 +13838,7 @@ body .infometry-conversa-product iframe {
     height: auto !important;
     min-height: 0 !important;
     max-height: none !important;
-    aspect-ratio: 870 / 565 !important;
+    aspect-ratio: 1556 / 1011 !important;
   }
 
   body .infometry-conversa-product .icp-demo-form-grid {
