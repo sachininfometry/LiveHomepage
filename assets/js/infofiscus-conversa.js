@@ -73,7 +73,7 @@
     }
 
     timezoneControl.setAttribute('data-icp-demo-timezone', '');
-    timezoneLabel = 'Local Time — ' + timezone + ' (UTC' + offsetSign + offsetHours + ':' + offsetRemainder + ')';
+    timezoneLabel = timezone + ' (UTC' + offsetSign + offsetHours + ':' + offsetRemainder + ')';
 
     if (timezoneControl.tagName === 'SELECT') {
       timezoneOption = Array.prototype.find.call(timezoneControl.options, function (option) {

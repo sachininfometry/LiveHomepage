@@ -8988,7 +8988,7 @@ body .infometry-conversa-product .icp-demo-form .icp-demo-form-head {
 
 body .infometry-conversa-product .icp-demo-form .icp-demo-preferences {
   order: 2 !important;
-  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 0.9fr) minmax(250px, 1.25fr) !important;
 }
 
 body .infometry-conversa-product .icp-demo-form .icp-demo-preferences label {
@@ -11800,6 +11800,12 @@ body .infometry-conversa-product .icp-demo-form select {
   font-family: "Open Sans", "Segoe UI", Arial, sans-serif !important;
   font-size: 15px !important;
   font-weight: 700 !important;
+  text-overflow: ellipsis !important;
+}
+
+body .infometry-conversa-product .icp-demo-form [data-icp-demo-timezone] {
+  font-size: 14px !important;
+  letter-spacing: -0.01em !important;
 }
 
 body .infometry-conversa-product .icp-demo-form > .icp-button {
