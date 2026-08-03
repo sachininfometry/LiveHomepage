@@ -13876,6 +13876,7 @@ body .infometry-conversa-product .icp-hero-slide img {
 
   body .infometry-conversa-product .icp-hero-copy {
     max-width: 590px !important;
+    margin-top: 24px !important;
   }
 
   body .infometry-conversa-product .icp-hero-copy .icp-eyebrow {
