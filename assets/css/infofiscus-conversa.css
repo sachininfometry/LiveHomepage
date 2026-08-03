@@ -13808,6 +13808,14 @@ body .infometry-conversa-product .icp-hero-slide {
   height: 100% !important;
   min-width: 0 !important;
   overflow: hidden !important;
+  border: 1px solid rgba(255, 255, 255, .9) !important;
+  border-radius: 8px !important;
+  transform: none !important;
+  transition: opacity .7s ease, visibility .7s ease !important;
+}
+
+body .infometry-conversa-product .icp-hero-slide.is-active {
+  transform: none !important;
 }
 
 body .infometry-conversa-product .icp-hero-slide img {
@@ -13816,8 +13824,10 @@ body .infometry-conversa-product .icp-hero-slide img {
   height: 100% !important;
   max-width: 100% !important;
   max-height: 100% !important;
-  object-fit: contain !important;
-  object-position: center top !important;
+  object-fit: fill !important;
+  object-position: center !important;
+  border: 0 !important;
+  border-radius: 0 !important;
 }
 
 /* Fluid two-column hero for scaled laptops and medium desktop windows. */
