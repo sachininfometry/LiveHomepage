@@ -40,6 +40,62 @@
     }
   }
 
+  function detectDemoTimezone() {
+    var timezone = 'UTC';
+    var offsetMinutes = -new Date().getTimezoneOffset();
+    var offsetSign = offsetMinutes >= 0 ? '+' : '-';
+    var offsetHours = String(Math.floor(Math.abs(offsetMinutes) / 60)).padStart(2, '0');
+    var offsetRemainder = String(Math.abs(offsetMinutes) % 60).padStart(2, '0');
+    var timezoneControl;
+    var timezoneOption;
+    var timezoneLabel;
+
+    try {
+      timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || timezone;
+    } catch (error) {
+      timezone = 'UTC';
+    }
+
+    if (!demoForm) {
+      return;
+    }
+
+    timezoneControl = demoForm.querySelector('[data-icp-demo-timezone], select[name*="timezone" i], input[name*="timezone" i]');
+    if (!timezoneControl) {
+      timezoneControl = Array.prototype.find.call(demoForm.querySelectorAll('select, input'), function (field) {
+        var fieldGroup = field.closest('label, .wpforms-field');
+        return fieldGroup && /time\s*zone/i.test(fieldGroup.textContent || '');
+      });
+    }
+
+    if (!timezoneControl) {
+      return;
+    }
+
+    timezoneControl.setAttribute('data-icp-demo-timezone', '');
+    timezoneLabel = 'Local Time — ' + timezone + ' (UTC' + offsetSign + offsetHours + ':' + offsetRemainder + ')';
+
+    if (timezoneControl.tagName === 'SELECT') {
+      timezoneOption = Array.prototype.find.call(timezoneControl.options, function (option) {
+        return option.value === timezone;
+      });
+      if (!timezoneOption) {
+        timezoneOption = new Option(timezoneLabel, timezone, true, true);
+        timezoneControl.insertBefore(timezoneOption, timezoneControl.firstChild);
+      } else {
+        timezoneOption.textContent = timezoneLabel;
+      }
+      timezoneControl.value = timezone;
+    } else {
+      timezoneControl.value = timezone;
+    }
+
+    timezoneControl.dataset.detectedTimezone = timezone;
+    timezoneControl.setAttribute('aria-label', 'Time Zone: ' + timezoneLabel);
+  }
+
+  detectDemoTimezone();
+
   var demoHeading = root.querySelector('.icp-demo-form-section .icp-section-heading');
   if (demoHeading) {
     var demoTitle = demoHeading.querySelector('h2');
@@ -452,7 +508,6 @@
     var scrollStart = 0;
     var resumeAt = 0;
     var previousFrame = performance.now();
-    var autoDirection = 1;
 
     if (!track) {
       return;
@@ -464,15 +519,6 @@
 
     function maximumScroll() {
       return Math.max(0, track.scrollWidth - carousel.clientWidth);
-    }
-
-    function updateAutoDirection() {
-      var maximum = maximumScroll();
-      if (carousel.scrollLeft >= maximum - 1) {
-        autoDirection = -1;
-      } else if (carousel.scrollLeft <= 1) {
-        autoDirection = 1;
-      }
     }
 
     carousel.addEventListener('pointerdown', function (event) {
@@ -498,7 +544,6 @@
         dragged = true;
       }
       carousel.scrollLeft = scrollStart - delta;
-      updateAutoDirection();
     });
 
     function finishDrag(event) {
@@ -540,25 +585,22 @@
         left: event.key === 'ArrowRight' ? 300 : -300,
         behavior: 'smooth'
       });
-      autoDirection = event.key === 'ArrowRight' ? 1 : -1;
       resumeAt = performance.now() + 1600;
     });
+
+    carousel.addEventListener('wheel', function () {
+      resumeAt = performance.now() + 1600;
+    }, { passive: true });
 
     function autoScroll(now) {
       var elapsed = Math.min(now - previousFrame, 40);
       var maximum = maximumScroll();
-      var nextScroll;
       previousFrame = now;
-      if (maximum > 0 && !dragging && now >= resumeAt && !carousel.matches(':hover') && document.visibilityState === 'visible') {
-        nextScroll = carousel.scrollLeft + (elapsed * 0.035 * autoDirection);
-        if (nextScroll >= maximum) {
-          carousel.scrollLeft = maximum;
-          autoDirection = -1;
-        } else if (nextScroll <= 0) {
+      if (maximum > 0 && !dragging && now >= resumeAt && document.visibilityState === 'visible') {
+        if (carousel.scrollLeft >= maximum - 0.5) {
           carousel.scrollLeft = 0;
-          autoDirection = 1;
         } else {
-          carousel.scrollLeft = nextScroll;
+          carousel.scrollLeft = Math.min(maximum, carousel.scrollLeft + (elapsed * 0.035));
         }
       }
       window.requestAnimationFrame(autoScroll);
