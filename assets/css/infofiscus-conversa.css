@@ -13830,7 +13830,7 @@ body .infometry-conversa-product .icp-hero-slide img {
   body .infometry-conversa-product .icp-hero .icp-hero-grid {
     min-height: 0 !important;
     height: auto !important;
-    padding: clamp(54px, 6vw, 78px) 0 clamp(64px, 7vw, 92px) !important;
+    padding: clamp(128px, 11vw, 150px) 0 clamp(64px, 7vw, 92px) !important;
     grid-template-columns: minmax(330px, .82fr) minmax(0, 1.18fr) !important;
     gap: clamp(24px, 3vw, 38px) !important;
   }
@@ -13857,7 +13857,7 @@ body .infometry-conversa-product .icp-hero-slide img {
 /* Short laptop screens: scale the whole first viewport, not just its image. */
 @media (min-width: 1101px) and (max-height: 800px) {
   body .infometry-conversa-product .icp-hero .icp-hero-grid {
-    padding-top: clamp(38px, 5vh, 54px) !important;
+    padding-top: 128px !important;
     padding-bottom: clamp(48px, 7vh, 68px) !important;
   }
 
