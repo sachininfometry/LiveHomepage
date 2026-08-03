@@ -407,7 +407,7 @@
       }
 
       if (selectedDateText) {
-        selectedDateText.textContent = 'Selected: ' + formatDemoDate(selectedDemoDate);
+        selectedDateText.innerHTML = '<span>Selected demo date</span><strong>' + formatDemoDate(selectedDemoDate) + '</strong>';
       }
     }
 
