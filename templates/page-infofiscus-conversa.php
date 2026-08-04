@@ -141,8 +141,8 @@ $other_products = array(
 					<p class="icp-eyebrow">Conversation Analytics Platform for Enterprise</p>
 					<h1 id="icp-hero-title">Ask Questions.<br>Find Causes.<br><span>Drive Decisions.</span></h1>
 					<div class="icp-hero-business-value">
-						<strong>Move from business questions to measurable action.</strong>
-						<p>AI-powered conversational analytics platform that lets teams query enterprise data in plain English. Turn questions into SQL and get instant insights without dashboards.</p>
+						<strong>Stop Searching Reports and Start Finding Root Causes</strong>
+						<p>AI-powered conversational analytics platform that lets teams query enterprise data in plain English. Turn questions into SQL and get instant insights without searching through dashboards.</p>
 						<div class="icp-hero-business-signals"><span><svg><use href="#icp-i-chart"></use></svg><b>Explain KPI<br>Changes</b></span><span><svg><use href="#icp-i-brain"></use></svg><b>Find Business<br>Drivers</b></span><span><svg><use href="#icp-i-path"></use></svg><b>Prioritize<br>Actions</b></span></div>
 					</div>
 					<div class="icp-actions">
@@ -297,7 +297,7 @@ $other_products = array(
 					</div>
 				</div>
 			</div>
-			<div class="icp-intro-value-row"><article><span><svg><use href="#icp-i-chat"></use></svg></span><div><strong>Natural Language</strong><small><b>State-of-the-art LLMs</b> translate business questions into optimized SQL using advanced natural language analytics.</small></div></article><article><span><svg><use href="#icp-i-trust"></use></svg></span><div><strong>Semantic Intelligence</strong><small>A domain-aware semantic layer delivers root causes, key drivers, KPIs, and visualizations from live data.</small></div></article><article><span><svg><use href="#icp-i-trend"></use></svg></span><div><strong>Decision Intelligence</strong><small>Eliminate dashboards, SQL, and manual analysis to reduce analyst dependency and accelerate <b>AI-driven decisions</b>.</small></div></article></div>
+			<div class="icp-intro-value-row"><article><span><svg><use href="#icp-i-chat"></use></svg></span><div><strong>Natural Language</strong><small>Transform business questions into optimized SQL with semantic intelligence and AI-powered natural language.</small></div></article><article><span><svg><use href="#icp-i-trust"></use></svg></span><div><strong>Semantic Intelligence</strong><small>A domain-aware semantic layer delivers root causes, key drivers, KPIs, and visualizations from live data.</small></div></article><article><span><svg><use href="#icp-i-trend"></use></svg></span><div><strong>Decision Intelligence</strong><small>Eliminate dashboards, SQL, and manual analysis to reduce analyst dependency and accelerate <b>AI-driven decisions</b>.</small></div></article></div>
 		</div>
 	</section>
 
