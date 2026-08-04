@@ -142,7 +142,7 @@ $other_products = array(
 					<h1 id="icp-hero-title">Ask Questions.<br>Find Causes.<br><span>Drive Decisions.</span></h1>
 					<div class="icp-hero-business-value">
 						<strong>Move from business questions to measurable action.</strong>
-						<p>Conversa explains KPI changes, reveals the drivers behind performance, and recommends what your team should do next—using governed enterprise data.</p>
+						<p>AI-powered conversational analytics platform that lets teams query enterprise data in plain English. Turn questions into SQL and get instant insights without dashboards.</p>
 						<div class="icp-hero-business-signals"><span><svg><use href="#icp-i-chart"></use></svg><b>Explain KPI<br>Changes</b></span><span><svg><use href="#icp-i-brain"></use></svg><b>Find Business<br>Drivers</b></span><span><svg><use href="#icp-i-path"></use></svg><b>Prioritize<br>Actions</b></span></div>
 					</div>
 					<div class="icp-actions">
