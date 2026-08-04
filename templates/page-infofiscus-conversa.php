@@ -297,7 +297,7 @@ $other_products = array(
 					</div>
 				</div>
 			</div>
-			<div class="icp-intro-value-row"><article><span><svg><use href="#icp-i-chat"></use></svg></span><div><strong>Natural Language</strong><small>Transform business questions into optimized SQL with semantic intelligence and AI-powered natural language.</small></div></article><article><span><svg><use href="#icp-i-trust"></use></svg></span><div><strong>Semantic Intelligence</strong><small>A domain-aware semantic layer delivers root causes, key drivers, KPIs, and visualizations from live data.</small></div></article><article><span><svg><use href="#icp-i-trend"></use></svg></span><div><strong>Decision Intelligence</strong><small>Eliminate dashboards, SQL, and manual analysis to reduce analyst dependency and accelerate <b>AI-driven decisions</b>.</small></div></article></div>
+			<div class="icp-intro-value-row"><article><span><svg><use href="#icp-i-chat"></use></svg></span><div><strong>Natural Language</strong><small>Transform business questions into optimized SQL with semantic intelligence and AI-powered natural language.</small></div></article><article><span><svg><use href="#icp-i-trust"></use></svg></span><div><strong>Semantic Intelligence</strong><small>A domain-aware semantic layer delivers root causes, key drivers, KPIs, and visualizations from live data.</small></div></article><article><span><svg><use href="#icp-i-trend"></use></svg></span><div><strong>Decision Intelligence</strong><small>A conversational BI and decision intelligence platform delivers instant, AI-powered business insights from enterprise data.</small></div></article></div>
 		</div>
 	</section>
 

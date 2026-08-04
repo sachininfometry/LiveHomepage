@@ -13868,7 +13868,7 @@ body .infometry-conversa-product .icp-hero-slide img {
 
   body .infometry-conversa-product .icp-hero .icp-hero-grid {
     min-height: clamp(690px, 45vw, 790px) !important;
-    padding: clamp(92px, 5.5vw, 108px) 0 clamp(58px, 4vw, 76px) !important;
+    padding: clamp(76px, 4.8vw, 94px) 0 clamp(48px, 3.4vw, 64px) !important;
     grid-template-columns: minmax(450px, .65fr) minmax(0, 1.35fr) !important;
     gap: clamp(28px, 2.4vw, 38px) !important;
     align-items: start !important;
@@ -13892,7 +13892,7 @@ body .infometry-conversa-product .icp-hero-slide img {
 
   body .infometry-conversa-product .icp-hero-business-value {
     max-width: 580px !important;
-    margin-top: 30px !important;
+    margin-top: 22px !important;
     padding-left: 22px !important;
   }
 
@@ -13907,7 +13907,11 @@ body .infometry-conversa-product .icp-hero-slide img {
 
   body .infometry-conversa-product .icp-hero .icp-hero-icons {
     max-width: 580px !important;
-    margin-top: 28px !important;
+    margin-top: 18px !important;
+  }
+
+  body .infometry-conversa-product .icp-hero .icp-actions {
+    margin-top: 20px !important;
   }
 
   body .infometry-conversa-product .icp-hero .icp-hero-icons > span {
