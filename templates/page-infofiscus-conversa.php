@@ -271,7 +271,7 @@ $other_products = array(
 			<div class="icp-intro-showcase-head">
 				<p class="icp-kicker">Enterprise AI. Trusted Insights.</p>
 				<h2 id="icp-intro-title">Meet INFOFISCUS Conversa™: A Conversational Analytics Platform</h2>
-				<p><strong>INFOFISCUS Conversa™</strong> is an <strong>enterprise conversational analytics</strong> and no-code decision intelligence platform that enables executives, operational managers, and analysts to <strong>chat with their data</strong> and get <strong>AI-driven insights instantly.</strong></p>
+				<p>Conversa is an <strong>enterprise conversational analytics platform</strong> that helps teams <strong>chat with their data</strong> and uncover <strong>AI-powered insights</strong>. Its <strong>no-code decision intelligence capabilities</strong> accelerate <strong>AI-driven decision making</strong> using natural language analytics.</p>
 			</div>
 			<div class="icp-intro-video-frame icp-architecture-frame">
 				<div class="icp-intro-video-bar"><span><i></i><i></i><i></i></span><strong>Business Decision Journey</strong><small>From question to action</small></div>
