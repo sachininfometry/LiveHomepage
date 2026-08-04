@@ -17,10 +17,10 @@ $contact_url = apply_filters( 'infometry_conversa_contact_url', home_url( '/cont
 $customers_url = apply_filters( 'infometry_conversa_customers_url', 'https://www.infometry.net/company/customers-partners/' );
 
 $problems = array(
-	array( 'icon' => 'api', 'title' => 'SQL & Technical Dependency', 'copy' => 'Exploring data often requires SQL knowledge or access to technical tools' ),
-	array( 'icon' => 'brain', 'title' => 'Shallow, Predefined Reporting', 'copy' => 'Reports only show predefined metrics and lack <strong>deep insights</strong> or <strong>root cause analysis</strong>' ),
-	array( 'icon' => 'trend', 'title' => 'No Predictive Guidance', 'copy' => 'Reports lack recommendations and do not provide forward-looking predictions' ),
-	array( 'icon' => 'analyst', 'title' => 'Analyst Bottlenecks', 'copy' => 'Decision-makers must wait for analysts to interpret and deliver answers' ),
+	array( 'icon' => 'api', 'title' => 'Exploring data requires SQL or technical tools' ),
+	array( 'icon' => 'brain', 'title' => 'Reports only cover predefined insights' ),
+	array( 'icon' => 'trend', 'title' => 'Data lives in multiple warehouses and applications' ),
+	array( 'icon' => 'analyst', 'title' => 'Decision-makers must wait for analysts' ),
 );
 
 $capabilities = array(
@@ -311,7 +311,6 @@ $other_products = array(
 					<article class="icp-soft-card">
 						<span class="icp-icon"><svg><use href="#icp-i-<?php echo esc_attr( $problem['icon'] ); ?>"></use></svg></span>
 						<h3><?php echo esc_html( $problem['title'] ); ?></h3>
-						<p><?php echo wp_kses( $problem['copy'], array( 'strong' => array() ) ); ?></p>
 					</article>
 				<?php endforeach; ?>
 			</div>
