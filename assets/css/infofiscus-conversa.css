@@ -14198,6 +14198,12 @@ body .infometry-conversa-product .icp-hero-slide img {
 }
 
 /* Only enlarge the three output boxes inside step 5. */
+body .infometry-conversa-product .icp-architecture-flow .is-answer {
+  padding: 8px 9px !important;
+  grid-template-columns: 25px minmax(0, 1fr) !important;
+  gap: 7px !important;
+}
+
 body .infometry-conversa-product .icp-architecture-flow .icp-answer-outputs em {
   color: #0c5689 !important;
   font-size: clamp(10px, .78vw, 12px) !important;
