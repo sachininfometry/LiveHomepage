@@ -357,6 +357,11 @@
   var monthLabel = root.querySelector('[data-icp-calendar-label]');
   var daysGrid = root.querySelector('[data-icp-calendar-days]');
   var selectedDateText = root.querySelector('[data-icp-selected-date]');
+
+  if (demoForm) {
+    demoForm.setAttribute('target', '_blank');
+  }
+
   var monthNames = [
     'January', 'February', 'March', 'April', 'May', 'June',
     'July', 'August', 'September', 'October', 'November', 'December'
