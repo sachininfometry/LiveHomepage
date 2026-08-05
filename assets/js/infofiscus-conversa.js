@@ -394,6 +394,8 @@
     today.setHours(0, 0, 0, 0);
     var shownMonth = new Date(today.getFullYear(), today.getMonth(), 1);
     var selectedDemoDate = new Date(today.getTime());
+    var previousMonth = root.querySelector('[data-icp-calendar-prev]');
+    var nextMonth = root.querySelector('[data-icp-calendar-next]');
 
     function syncDemoDate(date) {
       selectedDemoDate = new Date(date.getFullYear(), date.getMonth(), date.getDate());
@@ -416,6 +418,7 @@
       var month = shownMonth.getMonth();
       var firstDayIndex = new Date(year, month, 1).getDay();
       var daysInMonth = new Date(year, month + 1, 0).getDate();
+      var isCurrentMonth = year === today.getFullYear() && month === today.getMonth();
 
       monthLabel.textContent = monthNames[month] + ' ' + year;
       daysGrid.innerHTML = '';
@@ -437,6 +440,12 @@
         button.setAttribute('aria-pressed', toDateValue(selectedDemoDate) === dateValue ? 'true' : 'false');
         button.dataset.demoDate = dateValue;
 
+        if (date < today) {
+          button.disabled = true;
+          button.classList.add('is-past');
+          button.setAttribute('aria-label', formatDemoDate(date) + ' is unavailable');
+        }
+
         if (toDateValue(today) === dateValue) {
           button.classList.add('is-today');
         }
@@ -454,6 +463,11 @@
 
         daysGrid.appendChild(button);
       }
+
+      if (previousMonth) {
+        previousMonth.disabled = isCurrentMonth;
+        previousMonth.setAttribute('aria-disabled', isCurrentMonth ? 'true' : 'false');
+      }
     }
 
     syncDemoDate(selectedDemoDate);
@@ -467,11 +481,11 @@
       syncDemoDate(selectedDemoDate);
     }
 
-    var previousMonth = root.querySelector('[data-icp-calendar-prev]');
-    var nextMonth = root.querySelector('[data-icp-calendar-next]');
-
     if (previousMonth) {
       previousMonth.addEventListener('click', function () {
+        if (shownMonth.getFullYear() === today.getFullYear() && shownMonth.getMonth() === today.getMonth()) {
+          return;
+        }
         shownMonth = new Date(shownMonth.getFullYear(), shownMonth.getMonth() - 1, 1);
         renderDemoCalendar();
       });

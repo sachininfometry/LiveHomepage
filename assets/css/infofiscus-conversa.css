@@ -1425,6 +1425,25 @@ body .icp-problem .icp-soft-card p {
   will-change: transform;
 }
 
+/* Past demo dates are unavailable and cannot be selected. */
+body .infometry-conversa-product .icp-demo-days button.is-past,
+body .infometry-conversa-product .icp-demo-days button:disabled {
+  color: #9aa8bc !important;
+  background: #f3f6fa !important;
+  border-color: #dce4ef !important;
+  box-shadow: none !important;
+  cursor: not-allowed !important;
+  opacity: 0.58 !important;
+  transform: none !important;
+}
+
+body .infometry-conversa-product .icp-demo-calendar-nav:disabled {
+  cursor: not-allowed !important;
+  opacity: 0.38 !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
 .icp-capabilities .icp-shell {
   width: min(100% - 56px, 1480px);
 }
