@@ -543,7 +543,7 @@
     carousel.setAttribute('aria-label', 'Platform capabilities. Drag or swipe horizontally to browse.');
 
     function maximumScroll() {
-      return Math.max(0, track.scrollWidth - carousel.clientWidth);
+      return Math.max(0, carousel.scrollWidth - carousel.clientWidth);
     }
 
     carousel.addEventListener('pointerdown', function (event) {

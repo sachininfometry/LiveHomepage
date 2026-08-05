@@ -11417,6 +11417,20 @@ body .infometry-conversa-product .icp-capability-carousel.is-hand-slider .icp-ca
   -webkit-user-drag: none !important;
 }
 
+body .infometry-conversa-product .icp-capability-carousel.is-hand-slider .icp-capability-grid::after {
+  content: "" !important;
+  display: block !important;
+  flex: 0 0 24px !important;
+  width: 24px !important;
+}
+
+@media (max-width: 700px) {
+  body .infometry-conversa-product .icp-capability-carousel.is-hand-slider .icp-capability-grid::after {
+    flex-basis: 14px !important;
+    width: 14px !important;
+  }
+}
+
 body .infometry-conversa-product .icp-capability-carousel.is-hand-slider .icp-feature-card {
   user-select: none !important;
 }
