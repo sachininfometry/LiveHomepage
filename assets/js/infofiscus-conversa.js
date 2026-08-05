@@ -358,8 +358,10 @@
   var daysGrid = root.querySelector('[data-icp-calendar-days]');
   var selectedDateText = root.querySelector('[data-icp-selected-date]');
 
-  if (demoForm) {
-    demoForm.setAttribute('target', '_blank');
+  if (demoForm && window.jQuery) {
+    window.jQuery(demoForm).on('wpformsAjaxSubmitSuccess', function () {
+      window.open('https://app.supademo.com/demo/cmrpbnvrk00aozw0jd3ao0z6v?utm_source=link', '_blank', 'noopener');
+    });
   }
 
   var monthNames = [

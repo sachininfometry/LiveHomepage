@@ -172,43 +172,30 @@ function infometry_ct_conversa_name_field_properties( $properties, $field, $form
 add_filter( 'wpforms_field_properties_name', 'infometry_ct_conversa_name_field_properties', 10, 3 );
 
 /**
- * Submit the Conversa demo form normally so its redirect can open in a new tab.
- *
- * WPForms handles AJAX redirects in the current window, regardless of the
- * form's target attribute. Disabling AJAX for this form restores native form
- * target behavior while preserving WPForms validation and reCAPTCHA.
+ * Keep the Conversa form on-page after a successful AJAX submission.
  *
  * @param array $form_data Processed WPForms form data.
  * @return array
  */
-function infometry_ct_conversa_disable_ajax_submission( $form_data ) {
+function infometry_ct_conversa_ajax_confirmation( $form_data ) {
 	if ( INFOMETRY_CT_CONVERSA_FORM_ID !== absint( $form_data['id'] ) ) {
 		return $form_data;
 	}
 
-	$form_data['settings']['ajax_submit'] = '0';
+	$form_data['settings']['ajax_submit'] = '1';
+
+	if ( ! empty( $form_data['settings']['confirmations'] ) && is_array( $form_data['settings']['confirmations'] ) ) {
+		foreach ( $form_data['settings']['confirmations'] as &$confirmation ) {
+			$confirmation['type']    = 'message';
+			$confirmation['message'] = esc_html__( 'Thank you. Your interactive demo is opening in a new tab.', 'infometry-custom-templates' );
+		}
+		unset( $confirmation );
+	}
 
 	return $form_data;
 }
-add_filter( 'wpforms_frontend_form_data', 'infometry_ct_conversa_disable_ajax_submission' );
-
-/**
- * Open the successful Conversa form submission and redirect in a new tab.
- *
- * @param array $atts      Rendered form attributes.
- * @param array $form_data Processed WPForms form data.
- * @return array
- */
-function infometry_ct_conversa_new_tab_form_target( $atts, $form_data ) {
-	if ( INFOMETRY_CT_CONVERSA_FORM_ID !== absint( $form_data['id'] ) ) {
-		return $atts;
-	}
-
-	$atts['atts']['target'] = '_blank';
-
-	return $atts;
-}
-add_filter( 'wpforms_frontend_form_atts', 'infometry_ct_conversa_new_tab_form_target', 10, 2 );
+add_filter( 'wpforms_frontend_form_data', 'infometry_ct_conversa_ajax_confirmation' );
+add_filter( 'wpforms_process_before_form_data', 'infometry_ct_conversa_ajax_confirmation' );
 
 /**
  * Add the custom scheduling fields inside the existing WPForms form.
