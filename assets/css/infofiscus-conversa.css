@@ -13593,7 +13593,8 @@ body .infometry-conversa-product .icp-capabilities .icp-feature-card h3 {
 }
 
 body .infometry-conversa-product .icp-capabilities .icp-feature-card > p {
-  min-height: 96px !important;
+  height: 144px !important;
+  min-height: 144px !important;
   margin-bottom: 12px !important;
   display: flex !important;
   align-items: flex-start !important;
@@ -13605,10 +13606,10 @@ body .infometry-conversa-product .icp-capabilities .icp-feature-card > p {
 }
 
 body .infometry-conversa-product .icp-capabilities .icp-feature-benefits {
-  min-height: 119px !important;
+  min-height: 79px !important;
   margin: 0 0 11px !important;
   display: grid !important;
-  grid-template-rows: repeat(3, minmax(36px, auto)) !important;
+  grid-template-rows: repeat(2, minmax(36px, auto)) !important;
   align-content: start !important;
   gap: 7px !important;
 }
