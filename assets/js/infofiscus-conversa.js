@@ -361,6 +361,10 @@
     'January', 'February', 'March', 'April', 'May', 'June',
     'July', 'August', 'September', 'October', 'November', 'December'
   ];
+  var shortMonthNames = [
+    'JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN',
+    'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'
+  ];
 
   function padDatePart(value) {
     return String(value).padStart(2, '0');
@@ -371,7 +375,7 @@
   }
 
   function formatDemoDate(date) {
-    return monthNames[date.getMonth()] + ' ' + date.getDate() + ', ' + date.getFullYear();
+    return shortMonthNames[date.getMonth()] + ' ' + date.getDate() + ', ' + date.getFullYear();
   }
 
   function focusDemoForm() {
