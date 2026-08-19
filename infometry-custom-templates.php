@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: Infometry Custom Templates
- * Description: Provides isolated Infometry homepage, INFOFISCUS Conversa, and Informatica Connectors page templates.
- * Version: 2.2.0
+ * Description: Provides isolated Infometry homepage and INFOFISCUS Conversa page templates.
+ * Version: 2.1.17
  * Author: Infometry
  * Text Domain: infometry-custom-templates
  */
@@ -11,12 +11,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'INFOMETRY_CT_VERSION', '2.2.0' );
+define( 'INFOMETRY_CT_VERSION', '2.1.17' );
 define( 'INFOMETRY_CT_PATH', plugin_dir_path( __FILE__ ) );
 define( 'INFOMETRY_CT_URL', plugin_dir_url( __FILE__ ) );
 define( 'INFOMETRY_CT_HOME_TEMPLATE', 'templates/page-home-design-test.php' );
 define( 'INFOMETRY_CT_CONVERSA_TEMPLATE', 'templates/page-infofiscus-conversa.php' );
-define( 'INFOMETRY_CT_INFORMATICA_TEMPLATE', 'templates/page-informatica-connectors.php' );
 define( 'INFOMETRY_CT_CONVERSA_FORM_ID', 379751 );
 
 /**
@@ -28,7 +27,6 @@ define( 'INFOMETRY_CT_CONVERSA_FORM_ID', 379751 );
 function infometry_ct_register_page_template( $templates ) {
 	$templates[ INFOMETRY_CT_HOME_TEMPLATE ]     = __( 'Home Design Test', 'infometry-custom-templates' );
 	$templates[ INFOMETRY_CT_CONVERSA_TEMPLATE ] = __( 'INFOFISCUS Conversa Product', 'infometry-custom-templates' );
-	$templates[ INFOMETRY_CT_INFORMATICA_TEMPLATE ] = __( 'Informatica Connectors Product', 'infometry-custom-templates' );
 
 	return $templates;
 }
@@ -101,16 +99,6 @@ function infometry_ct_should_use_conversa_template() {
 }
 
 /**
- * Decide whether the Informatica Connectors template is active.
- * The slug fallback activates the product design without requiring a database
- * template assignment after deployment.
- */
-function infometry_ct_should_use_informatica_template() {
-	return infometry_ct_should_use_template( INFOMETRY_CT_INFORMATICA_TEMPLATE )
-		|| is_page( 'informatica-connectors' );
-}
-
-/**
  * Load the selected template from this plugin without modifying BeTheme.
  *
  * @param string $template Resolved template path.
@@ -126,13 +114,6 @@ function infometry_ct_load_page_template( $template ) {
 
 	if ( infometry_ct_should_use_conversa_template() ) {
 		$plugin_template = INFOMETRY_CT_PATH . INFOMETRY_CT_CONVERSA_TEMPLATE;
-		if ( is_readable( $plugin_template ) ) {
-			return $plugin_template;
-		}
-	}
-
-	if ( infometry_ct_should_use_informatica_template() ) {
-		$plugin_template = INFOMETRY_CT_PATH . INFOMETRY_CT_INFORMATICA_TEMPLATE;
 		if ( is_readable( $plugin_template ) ) {
 			return $plugin_template;
 		}
@@ -156,10 +137,6 @@ function infometry_ct_body_classes( $classes ) {
 
 	if ( infometry_ct_should_use_conversa_template() ) {
 		$classes[] = 'infometry-conversa-product-page';
-	}
-
-	if ( infometry_ct_should_use_informatica_template() ) {
-		$classes[] = 'infometry-informatica-product-page';
 	}
 
 	return array_unique( $classes );
@@ -430,9 +407,8 @@ add_action( 'wp_head', 'infometry_ct_print_conversa_critical_css', 1 );
 function infometry_ct_enqueue_assets() {
 	$use_home     = infometry_ct_should_use_home_template();
 	$use_conversa = infometry_ct_should_use_conversa_template();
-	$use_informatica = infometry_ct_should_use_informatica_template();
 
-	if ( ! $use_home && ! $use_conversa && ! $use_informatica ) {
+	if ( ! $use_home && ! $use_conversa ) {
 		return;
 	}
 
@@ -477,18 +453,6 @@ function infometry_ct_enqueue_assets() {
 			array(),
 			$js_version,
 			true
-		);
-	}
-
-	if ( $use_informatica ) {
-		$css_path    = INFOMETRY_CT_PATH . 'assets/css/informatica-connectors.css';
-		$css_version = is_readable( $css_path ) ? (string) filemtime( $css_path ) : INFOMETRY_CT_VERSION;
-
-		wp_enqueue_style(
-			'infometry-informatica-connectors',
-			INFOMETRY_CT_URL . 'assets/css/informatica-connectors.css',
-			array(),
-			$css_version
 		);
 	}
 }
