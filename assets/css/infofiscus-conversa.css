@@ -10449,7 +10449,8 @@ body .infometry-conversa-product .icp-footer-links h3 {
   line-height: 1.3 !important;
   text-shadow: none !important;
 }
-body .infometry-conversa-product .icp-footer-connect > img {
+body .infometry-conversa-product .icp-footer-connect > img,
+body .infometry-conversa-product .icp-footer-logo img {
   display: block !important;
   width: 320px !important;
   max-width: 100% !important;
@@ -10457,6 +10458,14 @@ body .infometry-conversa-product .icp-footer-connect > img {
   margin: -5px 0 12px !important;
   object-fit: contain !important;
   object-position: left center !important;
+}
+body .infometry-conversa-product .icp-footer-logo {
+  display: block !important;
+  width: 320px !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-decoration: none !important;
 }
 
 body .infometry-conversa-product .icp-footer-connect .icp-social img {

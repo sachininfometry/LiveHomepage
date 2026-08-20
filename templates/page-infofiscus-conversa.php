@@ -640,43 +640,43 @@ $other_products = array(
 		<div class="icp-shell icp-footer-grid">
 			<div class="icp-footer-connect">
 				<h3>Connect with us</h3>
-				<img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/infometry-logo-white.png' ); ?>" alt="Infometry Inc.">
+				<a class="icp-footer-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/infometry-logo-white.png' ); ?>" alt="Infometry Inc."></a>
 				<p>Turning enterprise data into trusted insights, intelligent decisions and measurable business outcomes.</p>
 				<div class="icp-social-row" aria-label="Infometry social links">
-					<a class="icp-social" href="#" aria-label="Facebook"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/social-facebook.png' ); ?>" alt=""></a>
-					<a class="icp-social" href="#" aria-label="X"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/social-x.png' ); ?>" alt=""></a>
-					<a class="icp-social" href="#" aria-label="LinkedIn"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/social-linkedin.png' ); ?>" alt=""></a>
-					<a class="icp-social" href="#" aria-label="YouTube"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/social-youtube.png' ); ?>" alt=""></a>
-					<a class="icp-social" href="#" aria-label="Pinterest"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/social-pinterest.png' ); ?>" alt=""></a>
-					<a class="icp-social" href="#" aria-label="Instagram"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/social-instagram.png' ); ?>" alt=""></a>
-					<a class="icp-social" href="#" aria-label="G2"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/social-g2.png' ); ?>" alt=""></a>
+					<a class="icp-social" href="https://www.facebook.com/infometryinc/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/social-facebook.png' ); ?>" alt=""></a>
+					<a class="icp-social" href="https://x.com/Infometryinc" target="_blank" rel="noopener noreferrer" aria-label="X"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/social-x.png' ); ?>" alt=""></a>
+					<a class="icp-social" href="https://www.linkedin.com/company/infometry-inc" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/social-linkedin.png' ); ?>" alt=""></a>
+					<a class="icp-social" href="https://www.youtube.com/channel/UCYYc9Fa7iPiVLDEiSvG7DmQ" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/social-youtube.png' ); ?>" alt=""></a>
+					<a class="icp-social" href="https://in.pinterest.com/infometryincus/_saved/" target="_blank" rel="noopener noreferrer" aria-label="Pinterest"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/social-pinterest.png' ); ?>" alt=""></a>
+					<a class="icp-social" href="https://www.instagram.com/infometry_inc/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/social-instagram.png' ); ?>" alt=""></a>
+					<a class="icp-social" href="https://www.g2.com/sellers/infometry-inc#profiles" target="_blank" rel="noopener noreferrer" aria-label="G2"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/social-g2.png' ); ?>" alt=""></a>
 				</div>
 				<a class="icp-footer-contact" href="<?php echo esc_url( $contact_url ); ?>">Contact Us <span>→</span></a>
 			</div>
 			<div class="icp-footer-links">
 				<h3>Products</h3>
-				<a href="#icp-hero-title">INFOFISCUS Conversa</a>
-				<a href="#">Google (GCP) Connectors For Informatica IDMC</a>
-				<a href="#">Global Connectors For Informatica IDMC</a>
-				<a href="#">INFOFISCUS Snowflake Native Apps</a>
-				<a href="#">Pre-Built Apps For IDMC and Matillion</a>
-				<a href="#">Accelerators</a>
+				<a href="<?php echo esc_url( home_url( '/product/conversational-analytics/' ) ); ?>">INFOFISCUS Conversa</a>
+				<a href="<?php echo esc_url( home_url( '/product/google-cloud-connectors/' ) ); ?>">Google (GCP) Connectors For Informatica IDMC</a>
+				<a href="<?php echo esc_url( home_url( '/product/global-cloud-connector/' ) ); ?>">Global Connectors For Informatica IDMC</a>
+				<a href="<?php echo esc_url( home_url( '/product#infofiscus-snowflake-native-apps' ) ); ?>">INFOFISCUS Snowflake Native Apps</a>
+				<a href="<?php echo esc_url( home_url( '/product#pre-built-apps' ) ); ?>">Pre-Built Apps For IDMC and Matillion</a>
+				<a href="<?php echo esc_url( home_url( '/product/#accelerators' ) ); ?>">Accelerators</a>
 			</div>
 			<div class="icp-footer-links">
 				<h3>Resources</h3>
-				<a href="#">Blog</a>
-				<a href="#">Case Studies</a>
-				<a href="#">Whitepapers</a>
-				<a href="#">Gallery</a>
-				<a href="#">Webinar</a>
-				<a href="#">Press Releases</a>
+				<a href="<?php echo esc_url( home_url( '/resources/blog/' ) ); ?>">Blog</a>
+				<a href="<?php echo esc_url( home_url( '/resources/infometry-case-studies/' ) ); ?>">Case Studies</a>
+				<a href="<?php echo esc_url( home_url( '/whitepapers/' ) ); ?>">Whitepapers</a>
+				<a href="<?php echo esc_url( home_url( '/resources/gallery/' ) ); ?>">Gallery</a>
+				<a href="<?php echo esc_url( home_url( '/resources/webinar/' ) ); ?>">Webinar</a>
+				<a href="<?php echo esc_url( home_url( '/resources/press-releases/' ) ); ?>">Press Releases</a>
 			</div>
 			<div class="icp-footer-links">
 				<h3>Company</h3>
-				<a href="#">Customers - Partners</a>
-				<a href="#">Careers</a>
-				<a href="mailto:Life@Infometry">Life@Infometry</a>
-				<a href="#">Testimonials</a>
+				<a href="<?php echo esc_url( home_url( '/company/customers-partners/' ) ); ?>">Customers - Partners</a>
+				<a href="<?php echo esc_url( home_url( '/company/careers/' ) ); ?>">Careers</a>
+				<a href="<?php echo esc_url( home_url( '/company/life-at-infometry/' ) ); ?>">Life@Infometry</a>
+				<a href="<?php echo esc_url( home_url( '/company/testimonials/' ) ); ?>">Testimonials</a>
 			</div>
 		</div>
 		<div class="icp-shell icp-footer-bottom">
