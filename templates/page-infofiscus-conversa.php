@@ -57,12 +57,12 @@ $personas = array(
 );
 
 $supported_llms = array(
-	array( 'name' => 'OpenAI', 'file' => 'llm-openai.png' ),
-	array( 'name' => 'Llama', 'file' => 'llm-llama.png' ),
-	array( 'name' => 'Vertex AI', 'file' => 'llm-vertex-ai.png' ),
-	array( 'name' => 'Gemini', 'file' => 'llm-gemini.png' ),
-	array( 'name' => 'Claude', 'file' => 'llm-claude.png' ),
-	array( 'name' => 'Mistral AI', 'file' => 'llm-mistral-ai.png' ),
+	array( 'name' => 'OpenAI', 'file' => 'llm-openai.png', 'width' => 294, 'height' => 90 ),
+	array( 'name' => 'Llama', 'file' => 'llm-llama.png', 'width' => 228, 'height' => 54 ),
+	array( 'name' => 'Vertex AI', 'file' => 'llm-vertex-ai.png', 'width' => 362, 'height' => 119 ),
+	array( 'name' => 'Gemini', 'file' => 'llm-gemini.png', 'width' => 235, 'height' => 63 ),
+	array( 'name' => 'Claude', 'file' => 'llm-claude.png', 'width' => 403, 'height' => 98 ),
+	array( 'name' => 'Mistral AI', 'file' => 'llm-mistral-ai.png', 'width' => 300, 'height' => 65 ),
 );
 
 $comparison_rows = array(
@@ -78,31 +78,22 @@ $comparison_rows = array(
 );
 
 $customer_logos = array(
-	array( 'name' => 'Sanofi', 'file' => 'customer-sanofi-logo.png' ),
-	array( 'name' => 'Belk', 'file' => 'customer-belk-logo.png' ),
-	array( 'name' => 'IBM', 'file' => 'customer-ibm-logo.png' ),
-	array( 'name' => 'Informatica', 'file' => 'customer-informatica-logo.png' ),
-	array( 'name' => 'Michaels', 'file' => 'customer-michaels-logo.png' ),
-	array( 'name' => 'SanDisk', 'file' => 'customer-sandisk-logo.png' ),
-	array( 'name' => 'Fusion.io', 'file' => 'customer-fusionio-logo.png' ),
-	array( 'name' => 'Adaptive Insights', 'file' => 'customer-adaptive-insights-logo.png' ),
-	array( 'name' => 'Asana', 'file' => 'customer-asana-logo.png' ),
+	array( 'name' => 'Sanofi', 'file' => 'customer-sanofi-logo.png', 'width' => 323, 'height' => 259 ),
+	array( 'name' => 'Belk', 'file' => 'customer-belk-logo.png', 'width' => 423, 'height' => 179 ),
+	array( 'name' => 'IBM', 'file' => 'customer-ibm-logo.png', 'width' => 403, 'height' => 171 ),
+	array( 'name' => 'Informatica', 'file' => 'customer-informatica-logo.png', 'width' => 645, 'height' => 171 ),
+	array( 'name' => 'Michaels', 'file' => 'customer-michaels-logo.png', 'width' => 150, 'height' => 56 ),
+	array( 'name' => 'SanDisk', 'file' => 'customer-sandisk-logo.png', 'width' => 621, 'height' => 137 ),
+	array( 'name' => 'Fusion.io', 'file' => 'customer-fusionio-logo.png', 'width' => 363, 'height' => 198 ),
+	array( 'name' => 'Adaptive Insights', 'file' => 'customer-adaptive-insights-logo.png', 'width' => 543, 'height' => 197 ),
+	array( 'name' => 'Asana', 'file' => 'customer-asana-logo.png', 'width' => 150, 'height' => 46 ),
 );
 
-$faqs = array(
-	array( 'question' => 'What is a conversational analytics platform?', 'answer' => 'It is an AI-driven analytics system that lets users ask data questions in everyday language and immediately get governed answers without dashboards or manual SQL.' ),
-	array( 'question' => 'How does a conversational analytics platform work?', 'answer' => 'It understands intent with natural language processing, maps the question to a governed semantic model, runs optimized queries on connected data, and returns charts, numbers, and plain-English summaries.' ),
-	array( 'question' => 'Is Conversa secure?', 'answer' => 'Yes. Conversa is designed for enterprise security with role-based access, governed definitions, auditability, and query execution against approved enterprise data sources.' ),
-	array( 'question' => 'What data sources does Conversa support?', 'answer' => 'Conversa can connect to modern cloud and hybrid data platforms including Snowflake, BigQuery, Redshift, Azure Synapse, Oracle, PostgreSQL, SQL Server, and similar structured data stores.' ),
-	array( 'question' => 'Can conversational analytics handle complex business questions?', 'answer' => 'Yes. It can support multi-step, business-specific questions and follow-up analysis grounded in live enterprise data and semantic definitions.' ),
-	array( 'question' => 'Does conversational analytics respect role-based access?', 'answer' => 'Yes. Users only see the data they are authorized to access, with permissions aligned to enterprise security policies.' ),
-	array( 'question' => 'Can conversational analytics replace dashboards?', 'answer' => 'It complements dashboards. Dashboards remain useful for recurring monitoring, while Conversa helps users investigate new questions and explore data faster.' ),
-	array( 'question' => 'What makes INFOFISCUS Conversa different?', 'answer' => 'Conversa combines natural language queries, direct warehouse access, semantic governance, SQL transparency, document intelligence, and business-friendly answers in one enterprise platform.' ),
-);
+$faqs = infometry_ct_get_conversa_faqs();
 
 $other_products = array(
-	array( 'class' => 'is-informatica', 'logo' => 'informatica-product-mark.png', 'title' => 'Informatica Connectors', 'button' => 'Informatica Connectors', 'url' => home_url( '/product/informatica-connectors/' ), 'copy' => 'Pre-built, no-code connectors for fast, secure, and scalable data movement across enterprise systems.' ),
-	array( 'class' => 'is-snowflake', 'logo' => 'snowflake-product-mark.png', 'title' => 'INFOFISCUS Snowflake Native Apps', 'button' => 'Snowflake Native Apps', 'url' => home_url( '/product/snowflake-native-apps/' ), 'copy' => 'Native Snowflake applications that accelerate analytics, integration, and operational reporting.' ),
+	array( 'class' => 'is-informatica', 'logo' => 'informatica-product-mark.png', 'width' => 92, 'height' => 102, 'title' => 'Informatica Connectors', 'button' => 'Informatica Connectors', 'url' => home_url( '/product/informatica-connectors/' ), 'copy' => 'Pre-built, no-code connectors for fast, secure, and scalable data movement across enterprise systems.' ),
+	array( 'class' => 'is-snowflake', 'logo' => 'snowflake-product-mark.png', 'width' => 152, 'height' => 139, 'title' => 'INFOFISCUS Snowflake Native Apps', 'button' => 'Snowflake Native Apps', 'url' => home_url( '/product/snowflake-native-apps/' ), 'copy' => 'Native Snowflake applications that accelerate analytics, integration, and operational reporting.' ),
 	array( 'class' => 'is-analytics-apps', 'icon' => 'chart', 'title' => 'Pre-Built Analytics Apps', 'button' => 'Pre-Built Analytics Apps', 'url' => home_url( '/product/pre-built-analytics-apps-for-idmc-and-matillion/' ), 'copy' => 'Ready-to-use analytics solutions for IDMC and Matillion that reduce implementation time.' ),
 );
 ?>
@@ -152,7 +143,7 @@ $other_products = array(
 				</div>
 
 				<div class="icp-hero-slider" data-icp-hero-slider aria-label="INFOFISCUS Conversa product preview carousel">
-					<figure class="icp-hero-slide is-active"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/conversa-home.webp' ); ?>" width="1556" height="1011" fetchpriority="high" decoding="async" alt="INFOFISCUS Conversa home dashboard"></figure>
+					<figure class="icp-hero-slide is-active"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/conversa-home.webp' ); ?>" width="1556" height="1011" fetchpriority="high" loading="eager" decoding="async" alt="INFOFISCUS Conversa home dashboard"></figure>
 					<figure class="icp-hero-slide"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/conversa-storybooks.webp' ); ?>" width="1604" height="980" loading="lazy" decoding="async" alt="INFOFISCUS Conversa storybooks dashboard"></figure>
 					<figure class="icp-hero-slide"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/conversa-connections.webp' ); ?>" width="1558" height="1010" loading="lazy" decoding="async" alt="INFOFISCUS Conversa connections dashboard"></figure>
 				</div>
@@ -168,7 +159,7 @@ $other_products = array(
 					</aside>
 					<div class="icp-dashboard-stage">
 						<div class="icp-dashboard-head">
-							<img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/infofiscus-conversa-logo.png' ); ?>" alt="INFOFISCUS Conversa">
+							<img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/infofiscus-conversa-logo.png' ); ?>" width="714" height="185" loading="lazy" decoding="async" alt="INFOFISCUS Conversa">
 							<span aria-hidden="true">...</span>
 						</div>
 						<div class="icp-chat-question">Why did revenue decline in the Western Region this quarter?</div>
@@ -253,14 +244,14 @@ $other_products = array(
 					$llm_logo_path = INFOMETRY_CT_PATH . 'assets/images/' . $llm['file'];
 					$llm_logo_ver  = is_readable( $llm_logo_path ) ? (string) filemtime( $llm_logo_path ) : INFOMETRY_CT_VERSION;
 					?>
-					<span><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/' . $llm['file'] . '?v=' . $llm_logo_ver ); ?>" alt="<?php echo esc_attr( $llm['name'] ); ?> logo"></span>
+					<span><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/' . $llm['file'] . '?v=' . $llm_logo_ver ); ?>" width="<?php echo esc_attr( $llm['width'] ); ?>" height="<?php echo esc_attr( $llm['height'] ); ?>" loading="lazy" decoding="async" alt="<?php echo esc_attr( $llm['name'] ); ?> logo"></span>
 				<?php endforeach; ?>
 				<?php foreach ( $supported_llms as $llm ) : ?>
 					<?php
 					$llm_logo_path = INFOMETRY_CT_PATH . 'assets/images/' . $llm['file'];
 					$llm_logo_ver  = is_readable( $llm_logo_path ) ? (string) filemtime( $llm_logo_path ) : INFOMETRY_CT_VERSION;
 					?>
-					<span aria-hidden="true"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/' . $llm['file'] . '?v=' . $llm_logo_ver ); ?>" alt=""></span>
+					<span aria-hidden="true"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/' . $llm['file'] . '?v=' . $llm_logo_ver ); ?>" width="<?php echo esc_attr( $llm['width'] ); ?>" height="<?php echo esc_attr( $llm['height'] ); ?>" loading="lazy" decoding="async" alt=""></span>
 				<?php endforeach; ?>
 			</div></div>
 		</div>
@@ -276,7 +267,7 @@ $other_products = array(
 			<div class="icp-intro-video-frame icp-architecture-frame">
 				<div class="icp-intro-video-bar"><span><i></i><i></i><i></i></span><strong>Business Decision Journey</strong><small>From question to action</small></div>
 				<div class="icp-architecture" aria-label="INFOFISCUS Conversa business journey from question to decision-ready insight">
-					<div class="icp-architecture-query"><span class="icp-query-brand-mark"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/infometry-mark-white.png' ); ?>" alt="" aria-hidden="true"></span><span>Why did customer engagement drop last week?</span></div>
+					<div class="icp-architecture-query"><span class="icp-query-brand-mark"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/infometry-mark-white.png' ); ?>" width="77" height="101" loading="lazy" decoding="async" alt="" aria-hidden="true"></span><span>Why did customer engagement drop last week?</span></div>
 					<div class="icp-architecture-grid">
 						<div class="icp-architecture-sources">
 							<small>Business context</small>
@@ -481,7 +472,7 @@ $other_products = array(
 					<thead>
 						<tr>
 							<th scope="col">Capabilities</th>
-							<th scope="col"><span><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/infofiscus-conversa-table-logo.png' ); ?>" alt="INFOFISCUS Conversa"></span></th>
+							<th scope="col"><span><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/infofiscus-conversa-table-logo.png' ); ?>" width="714" height="185" loading="lazy" decoding="async" alt="INFOFISCUS Conversa"></span></th>
 							<th scope="col">Tableau</th>
 							<th scope="col">Power BI</th>
 							<th scope="col">Modern AI Tools</th>
@@ -575,7 +566,7 @@ $other_products = array(
 								$customer_logo_path = INFOMETRY_CT_PATH . 'assets/images/' . $customer['file'];
 								$customer_logo_ver  = is_readable( $customer_logo_path ) ? (string) filemtime( $customer_logo_path ) : INFOMETRY_CT_VERSION;
 								?>
-								<img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/' . $customer['file'] . '?v=' . $customer_logo_ver ); ?>" alt="<?php echo esc_attr( $customer['name'] ); ?> logo">
+								<img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/' . $customer['file'] . '?v=' . $customer_logo_ver ); ?>" width="<?php echo esc_attr( $customer['width'] ); ?>" height="<?php echo esc_attr( $customer['height'] ); ?>" loading="lazy" decoding="async" alt="<?php echo esc_attr( $customer['name'] ); ?> logo">
 							</a>
 						<?php endforeach; ?>
 					<?php endfor; ?>
@@ -610,7 +601,7 @@ $other_products = array(
 					<article class="icp-feature-card <?php echo esc_attr( $product['class'] ); ?>">
 						<span class="icp-icon">
 							<?php if ( ! empty( $product['logo'] ) ) : ?>
-								<img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/' . $product['logo'] ); ?>" alt="<?php echo esc_attr( $product['title'] ); ?> logo">
+								<img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/' . $product['logo'] ); ?>" width="<?php echo esc_attr( $product['width'] ); ?>" height="<?php echo esc_attr( $product['height'] ); ?>" loading="lazy" decoding="async" alt="<?php echo esc_attr( $product['title'] ); ?> logo">
 							<?php else : ?>
 								<svg><use href="#icp-i-<?php echo esc_attr( $product['icon'] ); ?>"></use></svg>
 							<?php endif; ?>
@@ -640,16 +631,16 @@ $other_products = array(
 		<div class="icp-shell icp-footer-grid">
 			<div class="icp-footer-connect">
 				<h3>Connect with us</h3>
-				<a class="icp-footer-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/infometry-logo-white.png' ); ?>" alt="Infometry Inc."></a>
+				<a class="icp-footer-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/infometry-logo-white.png' ); ?>" width="500" height="142" loading="lazy" decoding="async" alt="Infometry Inc."></a>
 				<p>Turning enterprise data into trusted insights, intelligent decisions and measurable business outcomes.</p>
 				<div class="icp-social-row" aria-label="Infometry social links">
-					<a class="icp-social" href="https://www.facebook.com/infometryinc/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/social-facebook.png' ); ?>" alt=""></a>
-					<a class="icp-social" href="https://x.com/Infometryinc" target="_blank" rel="noopener noreferrer" aria-label="X"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/social-x.png' ); ?>" alt=""></a>
-					<a class="icp-social" href="https://www.linkedin.com/company/infometry-inc" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/social-linkedin.png' ); ?>" alt=""></a>
-					<a class="icp-social" href="https://www.youtube.com/channel/UCYYc9Fa7iPiVLDEiSvG7DmQ" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/social-youtube.png' ); ?>" alt=""></a>
-					<a class="icp-social" href="https://in.pinterest.com/infometryincus/_saved/" target="_blank" rel="noopener noreferrer" aria-label="Pinterest"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/social-pinterest.png' ); ?>" alt=""></a>
-					<a class="icp-social" href="https://www.instagram.com/infometry_inc/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/social-instagram.png' ); ?>" alt=""></a>
-					<a class="icp-social" href="https://www.g2.com/sellers/infometry-inc#profiles" target="_blank" rel="noopener noreferrer" aria-label="G2"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/social-g2.png' ); ?>" alt=""></a>
+					<a class="icp-social" href="https://www.facebook.com/infometryinc/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/social-facebook.png' ); ?>" width="512" height="512" loading="lazy" decoding="async" alt=""></a>
+					<a class="icp-social" href="https://x.com/Infometryinc" target="_blank" rel="noopener noreferrer" aria-label="X"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/social-x.png' ); ?>" width="500" height="500" loading="lazy" decoding="async" alt=""></a>
+					<a class="icp-social" href="https://www.linkedin.com/company/infometry-inc" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/social-linkedin.png' ); ?>" width="512" height="512" loading="lazy" decoding="async" alt=""></a>
+					<a class="icp-social" href="https://www.youtube.com/channel/UCYYc9Fa7iPiVLDEiSvG7DmQ" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/social-youtube.png' ); ?>" width="512" height="512" loading="lazy" decoding="async" alt=""></a>
+					<a class="icp-social" href="https://in.pinterest.com/infometryincus/_saved/" target="_blank" rel="noopener noreferrer" aria-label="Pinterest"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/social-pinterest.png' ); ?>" width="512" height="512" loading="lazy" decoding="async" alt=""></a>
+					<a class="icp-social" href="https://www.instagram.com/infometry_inc/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/social-instagram.png' ); ?>" width="512" height="512" loading="lazy" decoding="async" alt=""></a>
+					<a class="icp-social" href="https://www.g2.com/sellers/infometry-inc#profiles" target="_blank" rel="noopener noreferrer" aria-label="G2"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/social-g2.png' ); ?>" width="512" height="512" loading="lazy" decoding="async" alt=""></a>
 				</div>
 				<a class="icp-footer-contact" href="<?php echo esc_url( $contact_url ); ?>">Contact Us <span>→</span></a>
 			</div>

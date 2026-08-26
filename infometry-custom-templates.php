@@ -19,6 +19,27 @@ define( 'INFOMETRY_CT_CONVERSA_TEMPLATE', 'templates/page-infofiscus-conversa.ph
 define( 'INFOMETRY_CT_CONVERSA_FORM_ID', 379751 );
 
 /**
+ * Return the exact FAQ copy rendered on the Conversa page.
+ *
+ * Keeping the visible FAQ and its structured data on one source prevents
+ * schema text from drifting away from the page content.
+ *
+ * @return array
+ */
+function infometry_ct_get_conversa_faqs() {
+	return array(
+		array( 'question' => 'What is a conversational analytics platform?', 'answer' => 'It is an AI-driven analytics system that lets users ask data questions in everyday language and immediately get governed answers without dashboards or manual SQL.' ),
+		array( 'question' => 'How does a conversational analytics platform work?', 'answer' => 'It understands intent with natural language processing, maps the question to a governed semantic model, runs optimized queries on connected data, and returns charts, numbers, and plain-English summaries.' ),
+		array( 'question' => 'Is Conversa secure?', 'answer' => 'Yes. Conversa is designed for enterprise security with role-based access, governed definitions, auditability, and query execution against approved enterprise data sources.' ),
+		array( 'question' => 'What data sources does Conversa support?', 'answer' => 'Conversa can connect to modern cloud and hybrid data platforms including Snowflake, BigQuery, Redshift, Azure Synapse, Oracle, PostgreSQL, SQL Server, and similar structured data stores.' ),
+		array( 'question' => 'Can conversational analytics handle complex business questions?', 'answer' => 'Yes. It can support multi-step, business-specific questions and follow-up analysis grounded in live enterprise data and semantic definitions.' ),
+		array( 'question' => 'Does conversational analytics respect role-based access?', 'answer' => 'Yes. Users only see the data they are authorized to access, with permissions aligned to enterprise security policies.' ),
+		array( 'question' => 'Can conversational analytics replace dashboards?', 'answer' => 'It complements dashboards. Dashboards remain useful for recurring monitoring, while Conversa helps users investigate new questions and explore data faster.' ),
+		array( 'question' => 'What makes INFOFISCUS Conversa different?', 'answer' => 'Conversa combines natural language queries, direct warehouse access, semantic governance, SQL transparency, document intelligence, and business-friendly answers in one enterprise platform.' ),
+	);
+}
+
+/**
  * Expose both plugin templates in the WordPress page-template selector.
  *
  * @param array $templates Available page templates.
@@ -142,6 +163,84 @@ function infometry_ct_body_classes( $classes ) {
 	return array_unique( $classes );
 }
 add_filter( 'body_class', 'infometry_ct_body_classes' );
+
+/**
+ * Add Conversa entities to Yoast's existing graph without duplicating its
+ * WebSite or Organization entities.
+ *
+ * @param array  $graph   Yoast schema graph.
+ * @param object $context Yoast meta-tags context.
+ * @return array
+ */
+function infometry_ct_add_conversa_schema( $graph, $context ) {
+	if ( ! infometry_ct_should_use_conversa_template() ) {
+		return $graph;
+	}
+
+	$canonical       = ! empty( $context->canonical ) ? (string) $context->canonical : (string) get_permalink();
+	$canonical       = trailingslashit( $canonical );
+	$software_id     = $canonical . '#softwareapplication';
+	$faq_id          = $canonical . '#faq';
+	$organization_id = trailingslashit( home_url( '/' ) ) . '#organization';
+	$existing_types  = array();
+	$existing_ids    = array();
+
+	foreach ( $graph as $piece ) {
+		if ( ! is_array( $piece ) ) {
+			continue;
+		}
+
+		if ( isset( $piece['@id'] ) ) {
+			$existing_ids[] = (string) $piece['@id'];
+		}
+
+		if ( isset( $piece['@type'] ) ) {
+			$piece_types    = (array) $piece['@type'];
+			$existing_types = array_merge( $existing_types, $piece_types );
+		}
+	}
+
+	if ( ! in_array( $software_id, $existing_ids, true ) && ! in_array( 'SoftwareApplication', $existing_types, true ) ) {
+		$graph[] = array(
+			'@type'               => 'SoftwareApplication',
+			'@id'                 => $software_id,
+			'name'                => 'INFOFISCUS Conversa',
+			'url'                 => $canonical,
+			'description'         => 'AI-powered conversational analytics platform that lets teams query enterprise data in plain English. Turn questions into SQL and get instant insights without searching through dashboards.',
+			'applicationCategory' => 'BusinessApplication',
+			'operatingSystem'     => 'Windows, macOS',
+			'image'               => INFOMETRY_CT_URL . 'assets/images/infofiscus-conversa-logo.png',
+			'publisher'           => array( '@id' => $organization_id ),
+			'mainEntityOfPage'    => array( '@id' => $canonical ),
+		);
+	}
+
+	if ( ! in_array( $faq_id, $existing_ids, true ) && ! in_array( 'FAQPage', $existing_types, true ) ) {
+		$faq_entities = array();
+
+		foreach ( infometry_ct_get_conversa_faqs() as $faq ) {
+			$faq_entities[] = array(
+				'@type'          => 'Question',
+				'name'           => $faq['question'],
+				'acceptedAnswer' => array(
+					'@type' => 'Answer',
+					'text'  => $faq['answer'],
+				),
+			);
+		}
+
+		$graph[] = array(
+			'@type'      => 'FAQPage',
+			'@id'        => $faq_id,
+			'url'        => $canonical . '#icp-faq',
+			'isPartOf'   => array( '@id' => $canonical ),
+			'mainEntity' => $faq_entities,
+		);
+	}
+
+	return $graph;
+}
+add_filter( 'wpseo_schema_graph', 'infometry_ct_add_conversa_schema', 20, 2 );
 
 /**
  * Set production-safe labels on the existing WPForms name field.
@@ -419,9 +518,16 @@ function infometry_ct_enqueue_assets() {
 		$js_version  = is_readable( $js_path ) ? (string) filemtime( $js_path ) : INFOMETRY_CT_VERSION;
 
 		wp_enqueue_style(
+			'infometry-home-google-fonts',
+			'https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;500;600;700;800&family=Roboto:wght@500;600;700;800&display=swap',
+			array(),
+			null
+		);
+
+		wp_enqueue_style(
 			'infometry-home-design-test',
 			INFOMETRY_CT_URL . 'assets/css/home-design-test.css',
-			array(),
+			array( 'infometry-home-google-fonts' ),
 			$css_version
 		);
 
@@ -441,9 +547,16 @@ function infometry_ct_enqueue_assets() {
 		$js_version  = is_readable( $js_path ) ? (string) filemtime( $js_path ) : INFOMETRY_CT_VERSION;
 
 		wp_enqueue_style(
+			'infometry-conversa-google-fonts',
+			'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Roboto:wght@400;500;600;700;800;900&display=swap',
+			array(),
+			null
+		);
+
+		wp_enqueue_style(
 			'infometry-infofiscus-conversa',
 			INFOMETRY_CT_URL . 'assets/css/infofiscus-conversa.css',
-			array(),
+			array( 'infometry-conversa-google-fonts' ),
 			$css_version
 		);
 
@@ -457,3 +570,40 @@ function infometry_ct_enqueue_assets() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'infometry_ct_enqueue_assets', 20 );
+
+/**
+ * Preconnect only on pages that request the custom Google Fonts stylesheets.
+ *
+ * @param array  $urls          Existing resource hints.
+ * @param string $relation_type Resource-hint relationship.
+ * @return array
+ */
+function infometry_ct_font_resource_hints( $urls, $relation_type ) {
+	if (
+		'preconnect' !== $relation_type
+		|| ( ! infometry_ct_should_use_home_template() && ! infometry_ct_should_use_conversa_template() )
+	) {
+		return $urls;
+	}
+
+	$existing_hrefs = array_map(
+		static function ( $url ) {
+			return is_array( $url ) && isset( $url['href'] ) ? $url['href'] : $url;
+		},
+		$urls
+	);
+
+	if ( ! in_array( 'https://fonts.googleapis.com', $existing_hrefs, true ) ) {
+		$urls[] = 'https://fonts.googleapis.com';
+	}
+
+	if ( ! in_array( 'https://fonts.gstatic.com', $existing_hrefs, true ) ) {
+		$urls[] = array(
+			'href'        => 'https://fonts.gstatic.com',
+			'crossorigin' => 'anonymous',
+		);
+	}
+
+	return $urls;
+}
+add_filter( 'wp_resource_hints', 'infometry_ct_font_resource_hints', 10, 2 );
