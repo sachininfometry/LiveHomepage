@@ -71,8 +71,7 @@ $supply_chain_url  = home_url( '/manufacturing-and-supply-chain/' );
 		<div class="infometry-orb infometry-orb-two"></div>
 		<div class="infometry-shell infometry-hero-grid">
 			<div class="infometry-hero-copy">
-				<span class="infometry-eyebrow">Conversation Analytics Platform for Enterprise</span>
-				<h1 id="infometry-hero-title">Ask Anything.<br>Get Insights.<br><span>Drive Results.</span></h1>
+				<h2 id="infometry-hero-title">Ask Anything.<br>Get Insights.<br><span>Drive Results.</span></h2>
 				<p>From the C-suite to frontline teams, INFOFISCUS Conversa makes enterprise data accessible to all - no SQL, no bottlenecks. Just natural questions, instant insights, and confident, data-driven decisions.</p>
 				<div class="infometry-actions">
 					<a class="infometry-button infometry-button-primary" href="<?php echo esc_url( $demo_url ); ?>">Request a Demo <span aria-hidden="true">→</span></a>
@@ -129,17 +128,22 @@ $supply_chain_url  = home_url( '/manufacturing-and-supply-chain/' );
 			<div class="infometry-who-panel">
 				<div class="infometry-who-copy">
 					<span>Who we are</span>
-					<h2 id="infometry-who-title">Enterprise Data Solutions. AI-Powered Decisions. Measurable Business Impact.</h2>
-					<p>Infometry helps enterprises modernize data with AI-native products, intelligent automation, and governed cloud platforms.</p>
-					<p>With 16+ years of expertise and 350+ successful transformations, we turn fragmented enterprise data into trusted insights, faster decisions, and measurable business outcomes.</p>
+					<h1 id="infometry-who-title">Infometry is an Enterprise Data Analytics &amp; AI Solutions Company</h1>
+					<p><strong>Infometry is a global Data Analytics, AI, Data Integration, and Cloud Modernization company</strong> helping enterprises turn complex data into actionable business outcomes.</p>
+					<p>We combine <strong>data engineering, cloud data platforms, advanced analytics, AI/ML, enterprise integration, and industry expertise</strong> to help organizations modernize their data ecosystems and make faster, smarter decisions.</p>
+					<p>From <strong>Cloud Data Warehouse implementation and migration</strong> to <strong>Data Integration, Predictive &amp; Prescriptive Analytics, Business Intelligence, AI-enabled analytics, and intelligent automation</strong>, our solutions are designed around real business challenges—not just technology.</p>
+					<p>With <strong>16+ years of expertise and 350+ successful enterprise transformations</strong>, Infometry works across modern data platforms including <strong>Snowflake, Databricks, Informatica, AWS, Azure, GCP, MuleSoft, Matillion, Tableau, Power BI, and more</strong>.</p>
 					<a href="<?php echo esc_url( $about_url ); ?>">Explore Infometry <span aria-hidden="true">→</span></a>
 				</div>
 				<div class="infometry-who-insight">
-					<div class="infometry-who-intro"><span>Built for AI-first enterprises</span><strong>From Enterprise Data<br>to Intelligent Action.</strong></div>
+					<div class="infometry-who-intro"><span>What we do</span><strong>From Data to Decisions: Our Core Capabilities</strong><p>We help enterprises build, modernize, integrate, and activate their data across the complete data and AI lifecycle.</p></div>
 					<div class="infometry-who-pillars">
-						<article><svg><use href="#i-target"/></svg><h3>AI-Powered Analytics</h3><p>Transform trusted enterprise data into real-time insights, recommendations, and conversational intelligence.</p></article>
-						<article><svg><use href="#i-cloud"/></svg><h3>Modern Data Platforms</h3><p>Build scalable, secure, and governed cloud data foundations for AI and analytics.</p></article>
-						<article><svg><use href="#i-rocket"/></svg><h3>AI &amp; Intelligent Automation</h3><p>Accelerate business processes with Agentic AI, automation, and low-code innovation.</p></article>
+						<article><svg><use href="#i-target"/></svg><h3>Data Analytics<br>Services</h3><p>Transform enterprise data into actionable insights with advanced, predictive, and prescriptive analytics.</p></article>
+						<article><svg><use href="#i-nodes"/></svg><h3>Data Integration &amp; Engineering</h3><p>Connect ERP, CRM, cloud, and on-premises data with scalable integration and engineering solutions.</p></article>
+						<article><svg><use href="#i-cloud"/></svg><h3>Cloud Data Warehouse Solutions</h3><p>Design, implement, optimize, and modernize scalable cloud data warehouse platforms built for analytics and AI.</p></article>
+						<article><svg><use href="#i-rocket"/></svg><h3>AI/ML &amp; Agentic<br>AI</h3><p>Automate analysis, surface insights, and support smarter decisions with AI/ML and Agentic AI.</p></article>
+						<article><svg><use href="#i-link"/></svg><h3>Data Modernization &amp; Migration</h3><p>Modernize legacy data platforms and accelerate cloud adoption with proven migration frameworks.</p></article>
+						<article><svg><use href="#i-grid"/></svg><h3>Intelligent<br>Automation</h3><p>Reduce manual effort and accelerate data operations with low-code, no-code, and intelligent automation.</p></article>
 					</div>
 					<div class="infometry-who-journey" aria-label="Infometry delivery journey"><span><b>01</b><em>Discover</em><small>Unify enterprise data</small></span><span><b>02</b><em>Modernize</em><small>Build AI-ready platforms</small></span><span><b>03</b><em>Transform</em><small>Deliver trusted business outcomes</small></span></div>
 				</div>
@@ -191,6 +195,20 @@ $supply_chain_url  = home_url( '/manufacturing-and-supply-chain/' );
 				<article class="infometry-industry-item"><div class="infometry-mini-icon"><svg><use href="#i-building"/></svg></div><h3>Manufacturing</h3><p>Enhance production efficiency with real-time factory analytics, predictive maintenance, and quality intelligence. Connect plant data to reduce downtime and improve output.</p><div class="infometry-industry-focus"><span>Smart Factory</span><span>Predictive Operations</span></div><a class="infometry-industry-link" href="<?php echo esc_url( $manufacturing_url ); ?>" aria-label="Explore Manufacturing">Explore Manufacturing <span aria-hidden="true">→</span></a></article>
          </div>
 
+		</div>
+	</section>
+
+	<section class="infometry-why" aria-labelledby="infometry-why-title">
+		<div class="infometry-shell">
+			<header class="infometry-section-head infometry-why-head"><span>Why Infometry</span><h2 id="infometry-why-title">Why Enterprises Choose Infometry</h2></header>
+			<div class="infometry-why-grid">
+				<article class="infometry-why-card"><div class="infometry-why-icon"><svg><use href="#i-target"/></svg></div><div><h3>Deep Data &amp; Analytics Expertise</h3><p>More than 16 years of experience delivering enterprise <strong>data analytics, integration, cloud modernization, and AI solutions</strong>.</p></div></article>
+				<article class="infometry-why-card"><div class="infometry-why-icon"><svg><use href="#i-nodes"/></svg></div><div><h3>Technology-Agnostic Approach</h3><p>We work across leading technologies including <strong>Snowflake, Databricks, Informatica, AWS, Azure, GCP, MuleSoft, Matillion, Power BI, Tableau, and Looker</strong>.</p></div></article>
+				<article class="infometry-why-card"><div class="infometry-why-icon"><svg><use href="#i-grid"/></svg></div><div><h3>Products + Services</h3><p>Combine proven <strong>products, accelerators, consulting, implementation, and managed expertise</strong> instead of starting from scratch.</p></div></article>
+				<article class="infometry-why-card"><div class="infometry-why-icon"><svg><use href="#i-rocket"/></svg></div><div><h3>Faster Time to Value</h3><p>Pre-built connectors, analytics applications, migration frameworks, and automation accelerators help reduce development effort and accelerate deployment.</p></div></article>
+				<article class="infometry-why-card"><div class="infometry-why-icon"><svg><use href="#i-users"/></svg></div><div><h3>Business-Focused Analytics</h3><p>We don't just move data. We help organizations turn data into <strong>insights, decisions, automation, and measurable business outcomes</strong>.</p></div></article>
+				<article class="infometry-why-card"><div class="infometry-why-icon"><svg><use href="#i-cloud"/></svg></div><div><h3>AI-Ready Data Foundations</h3><p>Build governed, scalable data platforms that are ready for <strong>advanced analytics, Generative AI, Agentic AI, and enterprise intelligence</strong>.</p></div></article>
+			</div>
 		</div>
 	</section>
 
