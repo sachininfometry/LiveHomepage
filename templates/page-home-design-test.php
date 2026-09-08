@@ -102,11 +102,11 @@ $supply_chain_url  = home_url( '/manufacturing-and-supply-chain/' );
 
 	<section class="infometry-trust" id="infometry-impact" aria-label="Infometry experience and impact">
 		<div class="infometry-shell infometry-trust-inner">
-			<div class="infometry-stat"><b class="infometry-counter" data-counter-target="16" data-counter-suffix="+">0+</b><span>Years of Expertise</span></div>
-			<div class="infometry-stat"><b class="infometry-counter" data-counter-target="150" data-counter-suffix="+">0+</b><span>Happy Customers</span></div>
-			<div class="infometry-stat"><b class="infometry-counter" data-counter-target="350" data-counter-suffix="+">0+</b><span>Successful Transformations</span></div>
-			<div class="infometry-stat"><b class="infometry-counter" data-counter-target="22" data-counter-suffix="+">0+</b><span>Innovative Products</span></div>
-			<div class="infometry-stat"><b class="infometry-counter" data-counter-target="100" data-counter-suffix="+">0+</b><span>Experts &amp; Growing</span></div>
+			<div class="infometry-stat"><b class="infometry-counter" data-counter-target="16" data-counter-suffix="+">16+</b><span>Years of Expertise</span></div>
+			<div class="infometry-stat"><b class="infometry-counter" data-counter-target="150" data-counter-suffix="+">150+</b><span>Happy Customers</span></div>
+			<div class="infometry-stat"><b class="infometry-counter" data-counter-target="350" data-counter-suffix="+">350+</b><span>Successful Transformations</span></div>
+			<div class="infometry-stat"><b class="infometry-counter" data-counter-target="22" data-counter-suffix="+">22+</b><span>Innovative Products</span></div>
+			<div class="infometry-stat"><b class="infometry-counter" data-counter-target="100" data-counter-suffix="+">100+</b><span>Experts &amp; Growing</span></div>
 			<div class="infometry-partner-panel">
 				<span class="infometry-partner-heading">Our Partners</span>
 				<div class="infometry-partners" id="infometry-partner-carousel" aria-label="Technology partners">
