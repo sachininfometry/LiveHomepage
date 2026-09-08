@@ -667,6 +667,7 @@ $other_products = array(
 				<a href="<?php echo esc_url( home_url( '/company/customers-partners/' ) ); ?>">Customers - Partners</a>
 				<a href="<?php echo esc_url( home_url( '/company/careers/' ) ); ?>">Careers</a>
 				<a href="<?php echo esc_url( home_url( '/company/life-at-infometry/' ) ); ?>">Life@Infometry</a>
+				<a href="<?php echo esc_url( home_url( '/company/infometry-cares/' ) ); ?>">Infometry Cares</a>
 				<a href="<?php echo esc_url( home_url( '/company/testimonials/' ) ); ?>">Testimonials</a>
 			</div>
 		</div>
