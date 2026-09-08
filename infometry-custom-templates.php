@@ -17,6 +17,48 @@ define( 'INFOMETRY_CT_URL', plugin_dir_url( __FILE__ ) );
 define( 'INFOMETRY_CT_HOME_TEMPLATE', 'templates/page-home-design-test.php' );
 define( 'INFOMETRY_CT_CONVERSA_TEMPLATE', 'templates/page-infofiscus-conversa.php' );
 define( 'INFOMETRY_CT_CONVERSA_FORM_ID', 379751 );
+define( 'INFOMETRY_CT_HOME_META_TITLE', 'Enterprise Data Analytics & AI Solutions | Infometry' );
+define( 'INFOMETRY_CT_HOME_META_DESCRIPTION', 'Explore Infometry’s data analytics, AI, cloud data, integration, Snowflake, Databricks, and pre-built solutions designed to accelerate enterprise transformation.' );
+
+/**
+ * Keep the live homepage SEO metadata aligned across WordPress and common SEO plugins.
+ */
+function infometry_ct_home_meta_title( $title ) {
+	return infometry_ct_should_use_home_template() ? INFOMETRY_CT_HOME_META_TITLE : $title;
+}
+add_filter( 'pre_get_document_title', 'infometry_ct_home_meta_title', 99 );
+add_filter( 'wpseo_title', 'infometry_ct_home_meta_title', 99 );
+add_filter( 'wpseo_opengraph_title', 'infometry_ct_home_meta_title', 99 );
+add_filter( 'wpseo_twitter_title', 'infometry_ct_home_meta_title', 99 );
+add_filter( 'rank_math/frontend/title', 'infometry_ct_home_meta_title', 99 );
+add_filter( 'aioseo_title', 'infometry_ct_home_meta_title', 99 );
+
+function infometry_ct_home_meta_description( $description ) {
+	return infometry_ct_should_use_home_template() ? INFOMETRY_CT_HOME_META_DESCRIPTION : $description;
+}
+add_filter( 'wpseo_metadesc', 'infometry_ct_home_meta_description', 99 );
+add_filter( 'wpseo_opengraph_desc', 'infometry_ct_home_meta_description', 99 );
+add_filter( 'wpseo_twitter_description', 'infometry_ct_home_meta_description', 99 );
+add_filter( 'rank_math/frontend/description', 'infometry_ct_home_meta_description', 99 );
+add_filter( 'aioseo_description', 'infometry_ct_home_meta_description', 99 );
+
+/**
+ * WordPress core has no metadata description filter, so emit one only when an SEO
+ * plugin is not responsible for the page head.
+ */
+function infometry_ct_home_meta_description_fallback() {
+	if ( ! infometry_ct_should_use_home_template() ) {
+		return;
+	}
+
+	$seo_plugin_active = defined( 'WPSEO_VERSION' ) || defined( 'RANK_MATH_VERSION' ) || defined( 'AIOSEO_VERSION' ) || class_exists( 'SEOPress\Core\Hooks' );
+	if ( $seo_plugin_active ) {
+		return;
+	}
+
+	printf( '<meta name="description" content="%s" />\n', esc_attr( INFOMETRY_CT_HOME_META_DESCRIPTION ) );
+}
+add_action( 'wp_head', 'infometry_ct_home_meta_description_fallback', 1 );
 
 /**
  * Return the exact FAQ copy rendered on the Conversa page.
