@@ -717,3 +717,27 @@ body .infometry-informatica-product form#wpforms-form-379751 #wpforms-379751-fie
 .infometry-informatica-product .iin-connector-card p{
 	color:#000;font-family:"Open Sans","Segoe UI",Arial,sans-serif;font-weight:600;
 }
+
+/* Keep connector names and counts readable on narrow phones. */
+@media (max-width: 760px) {
+	.infometry-informatica-product .is-ecosystem .iin-cc-group header>b {
+		font-size: 11px;
+		font-weight: 600;
+	}
+	.infometry-informatica-product .is-ecosystem .iin-cc-group.is-infometry .iin-cc-product-label>span {
+		white-space: normal;
+		overflow-wrap: anywhere;
+	}
+	.infometry-informatica-product .is-ecosystem .iin-cc-group.is-infometry .iin-cc-logo {
+		min-height: 46px;
+		height: auto;
+	}
+}
+@media (max-width: 360px) {
+	.infometry-informatica-product .is-ecosystem .iin-cc-group.is-infometry .iin-cc-logos {
+		grid-template-columns: minmax(0, 1fr);
+	}
+	.infometry-informatica-product .is-ecosystem .iin-cc-group.is-infometry .iin-cc-logo {
+		min-height: 42px;
+	}
+}
