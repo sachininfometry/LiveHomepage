@@ -14239,3 +14239,30 @@ body .infometry-conversa-product .icp-architecture-flow .icp-answer-outputs smal
   font-weight: 650 !important;
   line-height: 1.35 !important;
 }
+
+/* Keep the Conversa footer aligned with the live homepage footer. */
+body .infometry-conversa-product .icp-product-footer > .icp-shell {
+  width: min(100% - 64px, 1440px) !important;
+}
+body .infometry-conversa-product .icp-footer-grid {
+  grid-template-columns: 1.35fr 1.35fr .8fr .8fr !important;
+  gap: 54px !important;
+}
+body .infometry-conversa-product .icp-footer-logo img {
+  transform: translateX(-3.8%);
+}
+@media (max-width: 960px) {
+  body .infometry-conversa-product .icp-footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 34px !important;
+  }
+}
+@media (max-width: 700px) {
+  body .infometry-conversa-product .icp-product-footer > .icp-shell {
+    width: min(100% - 32px, 1440px) !important;
+  }
+  body .infometry-conversa-product .icp-footer-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 30px !important;
+  }
+}
