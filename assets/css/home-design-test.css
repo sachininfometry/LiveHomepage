@@ -701,3 +701,8 @@ body.page-id-380881 .infometry-home-test {
   color: #fff !important;
   background: var(--industry-accent) !important;
 }
+
+/* Align the visible logo artwork with the Connect with us heading. */
+.infometry-custom-footer .infometry-footer-logo img {
+  transform: translateX(-3.8%);
+}
