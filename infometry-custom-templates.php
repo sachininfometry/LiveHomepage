@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: Infometry Custom Templates
- * Description: Provides isolated Infometry homepage and INFOFISCUS Conversa page templates.
- * Version: 2.1.17
+ * Description: Provides isolated Infometry homepage and product page templates.
+ * Version: 2.2.0
  * Author: Infometry
  * Text Domain: infometry-custom-templates
  */
@@ -11,11 +11,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'INFOMETRY_CT_VERSION', '2.1.17' );
+define( 'INFOMETRY_CT_VERSION', '2.2.0' );
 define( 'INFOMETRY_CT_PATH', plugin_dir_path( __FILE__ ) );
 define( 'INFOMETRY_CT_URL', plugin_dir_url( __FILE__ ) );
 define( 'INFOMETRY_CT_HOME_TEMPLATE', 'templates/page-home-design-test.php' );
 define( 'INFOMETRY_CT_CONVERSA_TEMPLATE', 'templates/page-infofiscus-conversa.php' );
+define( 'INFOMETRY_CT_INFORMATICA_TEMPLATE', 'templates/page-informatica-connectors.php' );
 define( 'INFOMETRY_CT_CONVERSA_FORM_ID', 379751 );
 define( 'INFOMETRY_CT_HOME_META_TITLE', 'Enterprise Data Analytics & AI Solutions | Infometry' );
 define( 'INFOMETRY_CT_HOME_META_DESCRIPTION', 'Explore Infometry’s data analytics, AI, cloud data, integration, Snowflake, Databricks, and pre-built solutions designed to accelerate enterprise transformation.' );
@@ -90,6 +91,7 @@ function infometry_ct_get_conversa_faqs() {
 function infometry_ct_register_page_template( $templates ) {
 	$templates[ INFOMETRY_CT_HOME_TEMPLATE ]     = __( 'Home Design Test', 'infometry-custom-templates' );
 	$templates[ INFOMETRY_CT_CONVERSA_TEMPLATE ] = __( 'INFOFISCUS Conversa Product', 'infometry-custom-templates' );
+	$templates[ INFOMETRY_CT_INFORMATICA_TEMPLATE ] = __( 'Informatica Connectors Product', 'infometry-custom-templates' );
 
 	return $templates;
 }
@@ -161,6 +163,12 @@ function infometry_ct_should_use_conversa_template() {
 	return infometry_ct_should_use_template( INFOMETRY_CT_CONVERSA_TEMPLATE );
 }
 
+/** Decide whether the Informatica Connectors product template is active. */
+function infometry_ct_should_use_informatica_template() {
+	return infometry_ct_should_use_template( INFOMETRY_CT_INFORMATICA_TEMPLATE )
+		|| is_page( 'informatica-connectors' );
+}
+
 /**
  * Load the selected template from this plugin without modifying BeTheme.
  *
@@ -177,6 +185,13 @@ function infometry_ct_load_page_template( $template ) {
 
 	if ( infometry_ct_should_use_conversa_template() ) {
 		$plugin_template = INFOMETRY_CT_PATH . INFOMETRY_CT_CONVERSA_TEMPLATE;
+		if ( is_readable( $plugin_template ) ) {
+			return $plugin_template;
+		}
+	}
+
+	if ( infometry_ct_should_use_informatica_template() ) {
+		$plugin_template = INFOMETRY_CT_PATH . INFOMETRY_CT_INFORMATICA_TEMPLATE;
 		if ( is_readable( $plugin_template ) ) {
 			return $plugin_template;
 		}
@@ -200,6 +215,10 @@ function infometry_ct_body_classes( $classes ) {
 
 	if ( infometry_ct_should_use_conversa_template() ) {
 		$classes[] = 'infometry-conversa-product-page';
+	}
+
+	if ( infometry_ct_should_use_informatica_template() ) {
+		$classes[] = 'infometry-informatica-connectors-page';
 	}
 
 	return array_unique( $classes );
@@ -346,7 +365,7 @@ add_filter( 'wpforms_process_before_form_data', 'infometry_ct_conversa_ajax_conf
  */
 function infometry_ct_render_conversa_form_fields( $form_data, $form ) {
 	if (
-		! infometry_ct_should_use_conversa_template()
+		( ! infometry_ct_should_use_conversa_template() && ! infometry_ct_should_use_informatica_template() )
 		|| INFOMETRY_CT_CONVERSA_FORM_ID !== absint( $form_data['id'] )
 	) {
 		return;
@@ -548,8 +567,9 @@ add_action( 'wp_head', 'infometry_ct_print_conversa_critical_css', 1 );
 function infometry_ct_enqueue_assets() {
 	$use_home     = infometry_ct_should_use_home_template();
 	$use_conversa = infometry_ct_should_use_conversa_template();
+	$use_informatica = infometry_ct_should_use_informatica_template();
 
-	if ( ! $use_home && ! $use_conversa ) {
+	if ( ! $use_home && ! $use_conversa && ! $use_informatica ) {
 		return;
 	}
 
@@ -609,6 +629,16 @@ function infometry_ct_enqueue_assets() {
 			$js_version,
 			true
 		);
+	}
+
+	if ( $use_informatica ) {
+		$css_path    = INFOMETRY_CT_PATH . 'assets/css/informatica-connectors.css';
+		$js_path     = INFOMETRY_CT_PATH . 'assets/js/informatica-connectors.js';
+		$css_version = is_readable( $css_path ) ? (string) filemtime( $css_path ) : INFOMETRY_CT_VERSION;
+		$js_version  = is_readable( $js_path ) ? (string) filemtime( $js_path ) : INFOMETRY_CT_VERSION;
+
+		wp_enqueue_style( 'infometry-informatica-connectors', INFOMETRY_CT_URL . 'assets/css/informatica-connectors.css', array(), $css_version );
+		wp_enqueue_script( 'infometry-informatica-connectors', INFOMETRY_CT_URL . 'assets/js/informatica-connectors.js', array(), $js_version, true );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'infometry_ct_enqueue_assets', 20 );
