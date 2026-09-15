@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Roboto:wght@500;600;700;800&display=swap');
 
+body.infometry-informatica-product-page .mfn-main-slider.mfn-rev-slider {
+	display: none !important;
+}
+
 :root{--iin-navy:#020b2d;--iin-navy-2:#07164a;--iin-blue:#0b7cff;--iin-purple:#6236ff;--iin-ink:#10183b;--iin-muted:#46506a;--iin-line:#e2e8f4;--iin-soft:#f7f9ff;--iin-white:#fff}
 body.infometry-informatica-product-page{margin:0;background:#fff;color:var(--iin-ink);font-family:"Open Sans","Segoe UI",Arial,sans-serif}
 body.infometry-informatica-product-page #Footer,body.infometry-informatica-product-page #Footer_wrapper,body.infometry-informatica-product-page .mfn-footer,body.infometry-informatica-product-page footer#Footer,body.infometry-informatica-product-page #Subheader,body.infometry-informatica-product-page .mfn-rev-slider,body.infometry-informatica-product-page rs-module-wrap{display:none!important}

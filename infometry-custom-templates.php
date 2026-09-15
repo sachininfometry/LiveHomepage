@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Infometry Custom Templates
  * Description: Provides isolated Infometry homepage and product page templates.
- * Version: 2.2.0
+ * Version: 2.2.1
  * Author: Infometry
  * Text Domain: infometry-custom-templates
  */
@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'INFOMETRY_CT_VERSION', '2.2.0' );
+define( 'INFOMETRY_CT_VERSION', '2.2.1' );
 define( 'INFOMETRY_CT_PATH', plugin_dir_path( __FILE__ ) );
 define( 'INFOMETRY_CT_URL', plugin_dir_url( __FILE__ ) );
 define( 'INFOMETRY_CT_HOME_TEMPLATE', 'templates/page-home-design-test.php' );
@@ -166,7 +166,19 @@ function infometry_ct_should_use_conversa_template() {
 /** Decide whether the Informatica Connectors product template is active. */
 function infometry_ct_should_use_informatica_template() {
 	return infometry_ct_should_use_template( INFOMETRY_CT_INFORMATICA_TEMPLATE )
-		|| is_page( 'informatica-connectors' );
+		|| infometry_ct_is_live_informatica_route();
+}
+
+/** Match only the production Informatica Connectors URL. */
+function infometry_ct_is_live_informatica_route() {
+	$host = isset( $_SERVER['HTTP_HOST'] ) ? strtolower( sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ) ) ) : '';
+	$host = preg_replace( '/:\d+$/', '', $host );
+	if ( ! in_array( $host, array( 'infometry.net', 'www.infometry.net' ), true ) || empty( $_SERVER['REQUEST_URI'] ) ) {
+		return false;
+	}
+
+	$path = wp_parse_url( wp_unslash( $_SERVER['REQUEST_URI'] ), PHP_URL_PATH );
+	return '/product/informatica-connectors' === untrailingslashit( $path );
 }
 
 /**
@@ -218,7 +230,7 @@ function infometry_ct_body_classes( $classes ) {
 	}
 
 	if ( infometry_ct_should_use_informatica_template() ) {
-		$classes[] = 'infometry-informatica-connectors-page';
+		$classes[] = 'infometry-informatica-product-page';
 	}
 
 	return array_unique( $classes );
