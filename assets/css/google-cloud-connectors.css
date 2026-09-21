@@ -522,6 +522,21 @@ body.infometry-google-connectors-page #Content{padding:0!important}
 .igc-page .igc-demo-form-host textarea:focus{outline:0;border-color:#3498f5!important;background:#fff!important;box-shadow:0 0 0 3px rgba(38,144,240,.11)!important}
 .igc-page .igc-demo-form-host button[type=submit],
 .igc-page .igc-demo-form>button{box-shadow:0 10px 22px rgba(45,91,218,.22)!important}
+
+/* Keep reCAPTCHA as the final form step so its short-lived token does not
+   expire while visitors are still choosing a date and entering details. */
+.igc-page form#wpforms-form-351429>.wpforms-recaptcha-container{
+	order:4!important;margin:2px 0 4px!important;padding:11px 13px!important;
+	border:1px solid #d7e4f3!important;border-radius:10px!important;background:#f8fbff!important;
+}
+.igc-page form#wpforms-form-351429>.wpforms-submit-container{order:5!important}
+.igc-page form#wpforms-form-351429>.wpforms-field-hp{order:4!important}
+.igc-page form#wpforms-form-351429 .igc-captcha-note{
+	margin:0 0 8px;color:#526b87;font-size:10px;font-weight:700;line-height:1.45;
+}
+.igc-page form#wpforms-form-351429 .wpforms-recaptcha-container label.wpforms-error{
+	display:block!important;margin:7px 0 0!important;color:#c83b36!important;font-size:10px!important;line-height:1.4!important;
+}
 @media(max-width:1000px){
 	.igc-page .igc-demo-grid{width:min(100%,700px);margin-inline:auto;grid-template-columns:1fr;gap:0}
 	.igc-page .igc-demo-calendar{width:100%;border-right:0!important;border-bottom:1px solid #d9e5f3!important}
@@ -533,4 +548,5 @@ body.infometry-google-connectors-page #Content{padding:0!important}
 	.igc-page .igc-demo-calendar{min-height:470px;padding:21px 15px}
 	.igc-page .igc-calendar-days{grid-auto-rows:46px}
 	.igc-page .igc-demo-form,.igc-page .igc-demo-form-host form{min-height:0;padding:24px 18px!important}
+	.igc-page form#wpforms-form-351429>.wpforms-recaptcha-container{padding:10px 8px!important;overflow-x:auto}
 }

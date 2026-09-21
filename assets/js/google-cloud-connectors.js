@@ -107,6 +107,14 @@
   if (form) {
     form.classList.add('igc-demo-form');
 
+    var captcha = form.querySelector('.wpforms-recaptcha-container');
+    if (captcha && !captcha.querySelector('.igc-captcha-note')) {
+      var captchaNote = document.createElement('p');
+      captchaNote.className = 'igc-captcha-note';
+      captchaNote.textContent = 'Final security check — complete this just before booking your demo.';
+      captcha.insertBefore(captchaNote, captcha.firstChild);
+    }
+
     var submitButton = form.querySelector('button[type="submit"], input[type="submit"]');
     if (submitButton) {
       if (submitButton.tagName === 'INPUT') submitButton.value = 'Book a Demo';
