@@ -550,3 +550,16 @@ body.infometry-google-connectors-page #Content{padding:0!important}
 	.igc-page .igc-demo-form,.igc-page .igc-demo-form-host form{min-height:0;padding:24px 18px!important}
 	.igc-page form#wpforms-form-351429>.wpforms-recaptcha-container{padding:10px 8px!important;overflow-x:auto}
 }
+
+/* Final live-page refinements requested for content hierarchy and alignment. */
+.igc-page .igc-hero h1 em{display:inline}
+.igc-page .igc-hero h1 em span{white-space:nowrap}
+.igc-page .igc-section-label{font-size:14px!important;line-height:1.45}
+.igc-page .igc-card>a{
+	display:inline-flex;width:max-content;min-height:44px;padding:0 16px;align-items:center;justify-content:center;
+	justify-self:start;border:1px solid color-mix(in srgb,var(--igc-card-accent) 45%,#c9d9ea);
+	border-radius:8px;background:rgba(255,255,255,.88);text-align:center;
+}
+.igc-page form#wpforms-form-351429 .wpforms-field-name .wpforms-field-row::before,
+.igc-page form#wpforms-form-351429 .wpforms-field-name .wpforms-field-row::after{display:none!important;content:none!important}
+@media(max-width:620px){.igc-page .igc-section-label{font-size:13px!important}}

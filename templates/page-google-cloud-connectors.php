@@ -51,7 +51,7 @@ if ( ! function_exists( 'infometry_gcp_connector_icon' ) ) {
 		<div class="igc-shell igc-hero-grid">
 			<div class="igc-hero-copy">
 				<span class="igc-eyebrow"><i></i> Google Connectors for Informatica IDMC</span>
-				<h1 id="igc-title">Native Google Integration with <em>Informatica Cloud (IDMC)</em></h1>
+				<h1 id="igc-title">Native Google Integration with <em>Informatica Cloud <span>(IDMC)</span></em></h1>
 				<p>Infometry’s Google Connectors empower enterprises with native integration between Google Applications and <a href="<?php echo esc_url( $marketplace_url ); ?>">Informatica IDMC (Intelligent Data Management Cloud)</a>—powered by Agentic AI and designed for No-Code data automation.</p>
 				<div class="igc-actions"><a class="igc-button igc-button-primary" href="#igc-trial">Start a Free Trial</a><a class="igc-button igc-button-ghost" href="<?php echo esc_url( $marketplace_url ); ?>">Explore Marketplace <span>↗</span></a></div>
 				<div class="igc-hero-assurance" aria-label="Built for production"><span class="igc-assurance-label">Built for production</span><div><span><i>✓</i>No-code setup</span><span><i>✓</i>Governed data flow</span><span><i>✓</i>Enterprise ready</span></div></div>
