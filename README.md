@@ -1,7 +1,7 @@
 # Infometry Custom Templates
 
-Staging-safe WordPress plugin containing the Infometry homepage and INFOFISCUS
-Conversa product-page templates.
+WordPress plugin containing the Infometry homepage, INFOFISCUS Conversa,
+Informatica Connectors, and Google Cloud Connectors page templates.
 The repository root is the plugin root and is ready for Cloudways Git deployment.
 
 ![Infometry homepage preview](docs/homepage-preview.png)
@@ -12,6 +12,7 @@ The repository root is the plugin root and is ready for Cloudways Git deployment
 - `templates/page-home-design-test.php` — “Home Design Test” page template.
 - `templates/page-infofiscus-conversa.php` — “INFOFISCUS Conversa Product” page template.
 - `templates/page-informatica-connectors.php` — “Informatica Connectors Product” page template.
+- `templates/page-google-cloud-connectors.php` — “Google Cloud Connectors Product” page template.
 - `assets/css/` and `assets/js/` — template-scoped frontend assets.
 - `assets/images/` — local design and brand assets.
 - `preview-full.html` — standalone local preview of the complete homepage.
@@ -28,10 +29,12 @@ The repository root is the plugin root and is ready for Cloudways Git deployment
 3. On the homepage, select **Home Design Test** under Page Template.
 4. On the Conversa product page, select **INFOFISCUS Conversa Product**.
 5. On the Informatica product page, select **Informatica Connectors Product**.
-6. Update/preview all three pages and clear staging caches if needed.
+6. On the Google connectors page, select **Google Cloud Connectors Product**.
+7. Update/preview all four pages and clear caches if needed.
 
-Version 2.2.1 automatically recognizes the live Informatica route at
-`/product/informatica-connectors/`; the other templates remain explicitly selected.
+Version 2.3.0 automatically recognizes the live Informatica and Google Cloud
+Connectors routes at `/product/informatica-connectors/` and
+`/product/google-cloud-connectors/`; the other templates remain explicitly selected.
 The plugin loads each
 template and its isolated CSS/JavaScript only when that template is selected.
 It does not modify WordPress core, BeTheme files, Theme Options, or the database.

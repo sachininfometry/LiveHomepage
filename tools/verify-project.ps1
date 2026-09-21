@@ -47,6 +47,14 @@ $requiredFiles = @(
     'templates/page-home-design-test.php',
     'templates/page-infofiscus-conversa.php',
     'templates/page-informatica-connectors.php',
+    'templates/page-google-cloud-connectors.php',
+    'assets/css/google-cloud-connectors.css',
+    'assets/js/google-cloud-connectors.js',
+    'assets/images/google-connectors/google-ads.png',
+    'assets/images/google-connectors/google-bigtable.png',
+    'assets/images/google-connectors/google-drive.png',
+    'assets/images/google-connectors/google-pubsub.png',
+    'assets/images/google-connectors/google-sheets.png',
     'preview-full.html',
     'preview-conversa.html',
     'preview-informatica.html'
@@ -98,4 +106,4 @@ if ($failures.Count -gt 0) {
     exit 1
 }
 
-Write-Host "`nProject verification passed: 3 templates, PHP syntax, JavaScript syntax, and preview assets." -ForegroundColor Green
+Write-Host "`nProject verification passed: 4 templates, PHP syntax, JavaScript syntax, and preview assets." -ForegroundColor Green
