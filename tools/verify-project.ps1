@@ -48,9 +48,6 @@ $requiredFiles = @(
     'templates/page-infofiscus-conversa.php',
     'templates/page-informatica-connectors.php',
     'templates/page-google-cloud-connectors.php',
-    'templates/page-asana-case-study.php',
-    'assets/css/asana-case-study.css',
-    'assets/images/asana-case-study-hero.png',
     'assets/css/google-cloud-connectors.css',
     'assets/js/google-cloud-connectors.js',
     'assets/images/google-connectors/google-ads.png',
@@ -60,8 +57,7 @@ $requiredFiles = @(
     'assets/images/google-connectors/google-sheets.png',
     'preview-full.html',
     'preview-conversa.html',
-    'preview-informatica.html',
-    'preview-asana-case-study.php'
+    'preview-informatica.html'
 )
 
 foreach ($relativePath in $requiredFiles) {
@@ -110,4 +106,4 @@ if ($failures.Count -gt 0) {
     exit 1
 }
 
-Write-Host "`nProject verification passed: 5 templates, PHP syntax, JavaScript syntax, and preview assets." -ForegroundColor Green
+Write-Host "`nProject verification passed: 4 templates, PHP syntax, JavaScript syntax, and preview assets." -ForegroundColor Green

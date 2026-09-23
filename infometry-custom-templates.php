@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Infometry Custom Templates
  * Description: Provides isolated Infometry homepage and product page templates.
- * Version: 2.3.3
+ * Version: 2.3.2
  * Author: Infometry
  * Text Domain: infometry-custom-templates
  */
@@ -11,15 +11,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'INFOMETRY_CT_VERSION', '2.3.3' );
+define( 'INFOMETRY_CT_VERSION', '2.3.2' );
 define( 'INFOMETRY_CT_PATH', plugin_dir_path( __FILE__ ) );
 define( 'INFOMETRY_CT_URL', plugin_dir_url( __FILE__ ) );
 define( 'INFOMETRY_CT_HOME_TEMPLATE', 'templates/page-home-design-test.php' );
 define( 'INFOMETRY_CT_CONVERSA_TEMPLATE', 'templates/page-infofiscus-conversa.php' );
 define( 'INFOMETRY_CT_INFORMATICA_TEMPLATE', 'templates/page-informatica-connectors.php' );
 define( 'INFOMETRY_CT_GOOGLE_CONNECTORS_TEMPLATE', 'templates/page-google-cloud-connectors.php' );
-define( 'INFOMETRY_CT_ASANA_CASE_STUDY_TEMPLATE', 'templates/page-asana-case-study.php' );
-define( 'INFOMETRY_CT_ASANA_ARCHITECTURE_PARTIAL', 'templates/partials/asana-architecture.php' );
 define( 'INFOMETRY_CT_CONVERSA_FORM_ID', 379751 );
 define( 'INFOMETRY_CT_GOOGLE_FORM_ID', 351429 );
 define( 'INFOMETRY_CT_HOME_META_TITLE', 'Enterprise Data Analytics & AI Solutions | Infometry' );
@@ -97,7 +95,6 @@ function infometry_ct_register_page_template( $templates ) {
 	$templates[ INFOMETRY_CT_CONVERSA_TEMPLATE ] = __( 'INFOFISCUS Conversa Product', 'infometry-custom-templates' );
 	$templates[ INFOMETRY_CT_INFORMATICA_TEMPLATE ] = __( 'Informatica Connectors Product', 'infometry-custom-templates' );
 	$templates[ INFOMETRY_CT_GOOGLE_CONNECTORS_TEMPLATE ] = __( 'Google Cloud Connectors Product', 'infometry-custom-templates' );
-	$templates[ INFOMETRY_CT_ASANA_CASE_STUDY_TEMPLATE ] = __( 'Asana Case Study', 'infometry-custom-templates' );
 
 	return $templates;
 }
@@ -193,11 +190,6 @@ function infometry_ct_should_use_google_connectors_template() {
 		|| infometry_ct_is_live_google_connectors_route();
 }
 
-/** Decide whether the Asana case-study template is active. */
-function infometry_ct_should_use_asana_case_study_template() {
-	return infometry_ct_should_use_template( INFOMETRY_CT_ASANA_CASE_STUDY_TEMPLATE );
-}
-
 /** Match only the production Google Cloud Connectors URL. */
 function infometry_ct_is_live_google_connectors_route() {
 	$host = isset( $_SERVER['HTTP_HOST'] ) ? strtolower( sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ) ) ) : '';
@@ -245,13 +237,6 @@ function infometry_ct_load_page_template( $template ) {
 		}
 	}
 
-	if ( infometry_ct_should_use_asana_case_study_template() ) {
-		$plugin_template = INFOMETRY_CT_PATH . INFOMETRY_CT_ASANA_CASE_STUDY_TEMPLATE;
-		if ( is_readable( $plugin_template ) ) {
-			return $plugin_template;
-		}
-	}
-
 	return $template;
 }
 add_filter( 'page_template', 'infometry_ct_load_page_template', PHP_INT_MAX );
@@ -278,10 +263,6 @@ function infometry_ct_body_classes( $classes ) {
 
 	if ( infometry_ct_should_use_google_connectors_template() ) {
 		$classes[] = 'infometry-google-connectors-page';
-	}
-
-	if ( infometry_ct_should_use_asana_case_study_template() ) {
-		$classes[] = 'infometry-asana-case-study-page';
 	}
 
 	return array_unique( $classes );
@@ -633,36 +614,6 @@ function infometry_ct_print_conversa_critical_css() {
 add_action( 'wp_head', 'infometry_ct_print_conversa_critical_css', 1 );
 
 /**
- * Render the code-native Asana architecture transformation graphic.
- *
- * The component intentionally uses semantic HTML and inline SVG instead of a
- * flattened screenshot so its text stays sharp, accessible, and responsive.
- * Add it to any WordPress page with [infometry_asana_architecture].
- *
- * @return string
- */
-function infometry_ct_render_asana_architecture() {
-	$partial = INFOMETRY_CT_PATH . INFOMETRY_CT_ASANA_ARCHITECTURE_PARTIAL;
-
-	if ( ! is_readable( $partial ) ) {
-		return '';
-	}
-
-	ob_start();
-	include $partial;
-	return (string) ob_get_clean();
-}
-add_shortcode( 'infometry_asana_architecture', 'infometry_ct_render_asana_architecture' );
-
-/** Check whether the current page contains the architecture shortcode. */
-function infometry_ct_has_asana_architecture() {
-	global $post;
-
-	return $post instanceof WP_Post
-		&& has_shortcode( (string) $post->post_content, 'infometry_asana_architecture' );
-}
-
-/**
  * Enqueue isolated assets only for the currently selected plugin template.
  */
 function infometry_ct_enqueue_assets() {
@@ -670,23 +621,9 @@ function infometry_ct_enqueue_assets() {
 	$use_conversa = infometry_ct_should_use_conversa_template();
 	$use_informatica = infometry_ct_should_use_informatica_template();
 	$use_google_connectors = infometry_ct_should_use_google_connectors_template();
-	$use_asana_case_study = infometry_ct_should_use_asana_case_study_template();
-	$use_asana_architecture = infometry_ct_has_asana_architecture();
 
-	if ( ! $use_home && ! $use_conversa && ! $use_informatica && ! $use_google_connectors && ! $use_asana_case_study && ! $use_asana_architecture ) {
+	if ( ! $use_home && ! $use_conversa && ! $use_informatica && ! $use_google_connectors ) {
 		return;
-	}
-
-	if ( $use_asana_architecture ) {
-		$css_path    = INFOMETRY_CT_PATH . 'assets/css/asana-architecture.css';
-		$css_version = is_readable( $css_path ) ? (string) filemtime( $css_path ) : INFOMETRY_CT_VERSION;
-
-		wp_enqueue_style(
-			'infometry-asana-architecture',
-			INFOMETRY_CT_URL . 'assets/css/asana-architecture.css',
-			array(),
-			$css_version
-		);
 	}
 
 	if ( $use_home ) {
@@ -766,19 +703,6 @@ function infometry_ct_enqueue_assets() {
 		wp_enqueue_style( 'infometry-google-cloud-connectors', INFOMETRY_CT_URL . 'assets/css/google-cloud-connectors.css', array(), $css_version );
 		wp_enqueue_script( 'infometry-google-cloud-connectors', INFOMETRY_CT_URL . 'assets/js/google-cloud-connectors.js', array(), $js_version, true );
 	}
-
-	if ( $use_asana_case_study ) {
-		$css_path    = INFOMETRY_CT_PATH . 'assets/css/asana-case-study.css';
-		$css_version = is_readable( $css_path ) ? (string) filemtime( $css_path ) : INFOMETRY_CT_VERSION;
-
-		wp_enqueue_style(
-			'infometry-asana-google-fonts',
-			'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap',
-			array(),
-			null
-		);
-		wp_enqueue_style( 'infometry-asana-case-study', INFOMETRY_CT_URL . 'assets/css/asana-case-study.css', array( 'infometry-asana-google-fonts' ), $css_version );
-	}
 }
 add_action( 'wp_enqueue_scripts', 'infometry_ct_enqueue_assets', 20 );
 
@@ -796,7 +720,6 @@ function infometry_ct_font_resource_hints( $urls, $relation_type ) {
 			! infometry_ct_should_use_home_template()
 			&& ! infometry_ct_should_use_conversa_template()
 			&& ! infometry_ct_should_use_google_connectors_template()
-			&& ! infometry_ct_should_use_asana_case_study_template()
 		)
 	) {
 		return $urls;
