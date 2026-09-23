@@ -1,7 +1,7 @@
 # Infometry Custom Templates
 
 WordPress plugin containing the Infometry homepage, INFOFISCUS Conversa,
-Informatica Connectors, and Google Cloud Connectors page templates.
+Informatica Connectors, Google Cloud Connectors, and Asana case-study page templates.
 The repository root is the plugin root and is ready for Cloudways Git deployment.
 
 ![Infometry homepage preview](docs/homepage-preview.png)
@@ -13,11 +13,14 @@ The repository root is the plugin root and is ready for Cloudways Git deployment
 - `templates/page-infofiscus-conversa.php` — “INFOFISCUS Conversa Product” page template.
 - `templates/page-informatica-connectors.php` — “Informatica Connectors Product” page template.
 - `templates/page-google-cloud-connectors.php` — “Google Cloud Connectors Product” page template.
+- `templates/page-asana-case-study.php` — complete “Asana Case Study” page template.
 - `assets/css/` and `assets/js/` — template-scoped frontend assets.
 - `assets/images/` — local design and brand assets.
 - `preview-full.html` — standalone local preview of the complete homepage.
 - `preview-conversa.html` — standalone local preview of the Conversa page.
 - `preview-informatica.html` — generated standalone preview of the Informatica Connectors page.
+- `preview-asana-architecture.php` — standalone preview of the code-native Asana architecture section.
+- `preview-asana-case-study.php` — standalone preview of the complete Asana case-study page.
 - `tools/` — preview generation and pre-deployment verification scripts.
 - `docs/homepage-preview.png` — current desktop preview.
 
@@ -30,7 +33,8 @@ The repository root is the plugin root and is ready for Cloudways Git deployment
 4. On the Conversa product page, select **INFOFISCUS Conversa Product**.
 5. On the Informatica product page, select **Informatica Connectors Product**.
 6. On the Google connectors page, select **Google Cloud Connectors Product**.
-7. Update/preview all four pages and clear caches if needed.
+7. On the Asana case-study page, select **Asana Case Study**.
+8. Update/preview all five pages and clear caches if needed.
 
 Version 2.3.0 automatically recognizes the live Informatica and Google Cloud
 Connectors routes at `/product/informatica-connectors/` and
@@ -63,6 +67,16 @@ Then open:
 - `http://127.0.0.1:4189/preview-full.html`
 - `http://127.0.0.1:4189/preview-conversa.html`
 - `http://127.0.0.1:4189/preview-informatica.html`
+
+For the PHP-powered architecture component preview, run `php -S 127.0.0.1:4190`
+and open `http://127.0.0.1:4190/preview-asana-architecture.php`.
+
+The complete Asana page is available at `http://127.0.0.1:4190/preview-asana-case-study.php`.
+
+On WordPress, insert `[infometry_asana_architecture]` in the Asana case-study
+page wherever the architecture transformation section should appear. The
+shortcode renders responsive HTML and inline SVG; it does not embed the source
+screenshot.
 
 Regenerate the Informatica preview after changing its PHP template:
 
