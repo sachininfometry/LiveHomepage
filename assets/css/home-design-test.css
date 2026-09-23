@@ -661,8 +661,13 @@ body.page-id-380881 .infometry-home-test {
 /* Industry cards: make only Explore button clickable, remove old arrow circle */
 .infometry-home-test .infometry-industry-grid article {
   display: flex !important;
+  min-height: 470px !important;
   flex-direction: column !important;
   align-items: flex-start !important;
+}
+
+.infometry-home-test .infometry-industry-focus {
+  margin-bottom: 20px;
 }
 
 .infometry-home-test .infometry-industry-grid .infometry-industry-link {
@@ -676,7 +681,7 @@ body.page-id-380881 .infometry-home-test {
   height: auto !important;
   margin-top: auto !important;
   padding: 10px 18px !important;
-  align-self: center !important;
+  align-self: flex-start !important;
   align-items: center !important;
   justify-content: center !important;
   gap: 0 !important;
@@ -704,6 +709,18 @@ body.page-id-380881 .infometry-home-test {
   background: linear-gradient(135deg, var(--industry-accent), var(--industry-accent-2)) !important;
   box-shadow: 0 10px 22px color-mix(in srgb, var(--industry-accent) 32%, transparent) !important;
   transform: translateY(-2px);
+}
+
+@media (max-width: 1240px) {
+  .infometry-home-test .infometry-industry-grid article {
+    min-height: 480px !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .infometry-home-test .infometry-industry-grid article {
+    min-height: 440px !important;
+  }
 }
 
 /* Align the visible logo artwork with the Connect with us heading. */
