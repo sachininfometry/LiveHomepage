@@ -444,8 +444,8 @@ body.infometry-asana-fdp-page .ics .ics-hero-benefits span{font-size:12px!import
 	object-position:center!important;
 	transform:none!important;
 	clip-path:none!important;
-	-webkit-mask-image:linear-gradient(90deg,transparent 0%,transparent 48%,rgba(0,0,0,.2) 49.5%,rgba(0,0,0,.75) 51%,#000 52%,#000 100%),radial-gradient(ellipse 8% 7% at 53% 22%,#000 68%,transparent 100%),radial-gradient(ellipse 8% 6.5% at 47% 39%,#000 68%,transparent 100%)!important;
-	mask-image:linear-gradient(90deg,transparent 0%,transparent 48%,rgba(0,0,0,.2) 49.5%,rgba(0,0,0,.75) 51%,#000 52%,#000 100%),radial-gradient(ellipse 8% 7% at 53% 22%,#000 68%,transparent 100%),radial-gradient(ellipse 8% 6.5% at 47% 39%,#000 68%,transparent 100%)!important;
+	-webkit-mask-image:linear-gradient(90deg,transparent 0%,transparent 48%,rgba(0,0,0,.2) 49.5%,rgba(0,0,0,.75) 51%,#000 52%,#000 100%),radial-gradient(ellipse 10% 8.5% at 53% 22%,#000 72%,transparent 100%),radial-gradient(ellipse 10% 7.5% at 47% 39%,#000 72%,transparent 100%)!important;
+	mask-image:linear-gradient(90deg,transparent 0%,transparent 48%,rgba(0,0,0,.2) 49.5%,rgba(0,0,0,.75) 51%,#000 52%,#000 100%),radial-gradient(ellipse 10% 8.5% at 53% 22%,#000 72%,transparent 100%),radial-gradient(ellipse 10% 7.5% at 47% 39%,#000 72%,transparent 100%)!important;
 	-webkit-mask-composite:source-over!important;
 	mask-composite:add!important;
 	-webkit-mask-repeat:no-repeat!important;

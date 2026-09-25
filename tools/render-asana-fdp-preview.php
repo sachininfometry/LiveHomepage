@@ -27,7 +27,7 @@ function get_header(): void {
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Asana FDP Snowflake Case Study | Infometry Preview</title>
-	<link rel="stylesheet" href="assets/css/asana-fdp-case-study.css?v=2.15.11">
+	<link rel="stylesheet" href="assets/css/asana-fdp-case-study.css?v=2.15.12">
 	<style>
 		html,body{margin:0}.preview-theme-row{display:flex;height:96px;padding:0 42px;align-items:center}.preview-theme-row img{width:300px;height:auto}.preview-theme-row nav{display:flex;gap:42px;margin-left:auto}.preview-theme-row a{color:#fff;font:600 14px/1.2 Arial,sans-serif;text-decoration:none}.preview-old-slider{height:365px;background:#081735}@media(max-width:767px){.preview-theme-row{height:72px;padding:0 15px}.preview-theme-row img{width:210px}.preview-theme-row nav{display:none}}
 	</style>
