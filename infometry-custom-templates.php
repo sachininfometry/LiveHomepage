@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Infometry Custom Templates
  * Description: Provides isolated Infometry homepage and product page templates.
- * Version: 2.3.3
+ * Version: 2.3.4
  * Author: Infometry
  * Text Domain: infometry-custom-templates
  */
@@ -11,14 +11,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'INFOMETRY_CT_VERSION', '2.3.3' );
+define( 'INFOMETRY_CT_VERSION', '2.3.4' );
 define( 'INFOMETRY_CT_PATH', plugin_dir_path( __FILE__ ) );
 define( 'INFOMETRY_CT_URL', plugin_dir_url( __FILE__ ) );
 define( 'INFOMETRY_CT_HOME_TEMPLATE', 'templates/page-home-design-test.php' );
 define( 'INFOMETRY_CT_CONVERSA_TEMPLATE', 'templates/page-infofiscus-conversa.php' );
 define( 'INFOMETRY_CT_INFORMATICA_TEMPLATE', 'templates/page-informatica-connectors.php' );
 define( 'INFOMETRY_CT_GOOGLE_CONNECTORS_TEMPLATE', 'templates/page-google-cloud-connectors.php' );
-define( 'INFOMETRY_CT_ASANA_CASE_STUDY_TEMPLATE', 'templates/page-asana-case-study.php' );
+define( 'INFOMETRY_CT_ASANA_CASE_STUDY_TEMPLATE', 'templates/page-asana-fdp-case-study.php' );
+define( 'INFOMETRY_CT_ASANA_FDP_ASSET_VERSION', '2.15.10' );
 define( 'INFOMETRY_CT_ASANA_ARCHITECTURE_PARTIAL', 'templates/partials/asana-architecture.php' );
 define( 'INFOMETRY_CT_CONVERSA_FORM_ID', 379751 );
 define( 'INFOMETRY_CT_GOOGLE_FORM_ID', 351429 );
@@ -97,7 +98,7 @@ function infometry_ct_register_page_template( $templates ) {
 	$templates[ INFOMETRY_CT_CONVERSA_TEMPLATE ] = __( 'INFOFISCUS Conversa Product', 'infometry-custom-templates' );
 	$templates[ INFOMETRY_CT_INFORMATICA_TEMPLATE ] = __( 'Informatica Connectors Product', 'infometry-custom-templates' );
 	$templates[ INFOMETRY_CT_GOOGLE_CONNECTORS_TEMPLATE ] = __( 'Google Cloud Connectors Product', 'infometry-custom-templates' );
-	$templates[ INFOMETRY_CT_ASANA_CASE_STUDY_TEMPLATE ] = __( 'Asana Case Study', 'infometry-custom-templates' );
+	$templates[ INFOMETRY_CT_ASANA_CASE_STUDY_TEMPLATE ] = __( 'Asana FDP Snowflake Case Study', 'infometry-custom-templates' );
 
 	return $templates;
 }
@@ -195,8 +196,39 @@ function infometry_ct_should_use_google_connectors_template() {
 
 /** Decide whether the Asana case-study template is active. */
 function infometry_ct_should_use_asana_case_study_template() {
-	return infometry_ct_should_use_template( INFOMETRY_CT_ASANA_CASE_STUDY_TEMPLATE );
+	return infometry_ct_should_use_template( INFOMETRY_CT_ASANA_CASE_STUDY_TEMPLATE )
+		|| infometry_ct_is_live_asana_fdp_route();
 }
+
+/** Match the production Asana FDP case-study URL. */
+function infometry_ct_is_live_asana_fdp_route() {
+	$host = isset( $_SERVER['HTTP_HOST'] ) ? strtolower( sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ) ) ) : '';
+	$host = preg_replace( '/:\d+$/', '', $host );
+	if ( ! in_array( $host, array( 'infometry.net', 'www.infometry.net' ), true ) || empty( $_SERVER['REQUEST_URI'] ) ) {
+		return false;
+	}
+
+	$path = wp_parse_url( wp_unslash( $_SERVER['REQUEST_URI'] ), PHP_URL_PATH );
+	return '/resources/infometry-case-studies/financial-data-platform-fdp-modernization-on-snowflake' === untrailingslashit( $path );
+}
+
+/** Serve the redesigned case study at its exact production URL. */
+function infometry_ct_render_live_asana_fdp_route() {
+	if ( ! infometry_ct_is_live_asana_fdp_route() ) {
+		return;
+	}
+
+	$plugin_template = INFOMETRY_CT_PATH . INFOMETRY_CT_ASANA_CASE_STUDY_TEMPLATE;
+	if ( ! is_readable( $plugin_template ) ) {
+		return;
+	}
+
+	status_header( 200 );
+	nocache_headers();
+	include $plugin_template;
+	exit;
+}
+add_action( 'template_redirect', 'infometry_ct_render_live_asana_fdp_route', 0 );
 
 /** Match only the production Google Cloud Connectors URL. */
 function infometry_ct_is_live_google_connectors_route() {
@@ -281,7 +313,7 @@ function infometry_ct_body_classes( $classes ) {
 	}
 
 	if ( infometry_ct_should_use_asana_case_study_template() ) {
-		$classes[] = 'infometry-asana-case-study-page';
+		$classes[] = 'infometry-asana-fdp-page';
 	}
 
 	return array_unique( $classes );
@@ -768,16 +800,13 @@ function infometry_ct_enqueue_assets() {
 	}
 
 	if ( $use_asana_case_study ) {
-		$css_path    = INFOMETRY_CT_PATH . 'assets/css/asana-case-study.css';
-		$css_version = is_readable( $css_path ) ? (string) filemtime( $css_path ) : INFOMETRY_CT_VERSION;
-
 		wp_enqueue_style(
-			'infometry-asana-google-fonts',
-			'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap',
+			'infometry-asana-fdp-fonts',
+			'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Roboto:wght@500;600;700;800;900&display=swap',
 			array(),
 			null
 		);
-		wp_enqueue_style( 'infometry-asana-case-study', INFOMETRY_CT_URL . 'assets/css/asana-case-study.css', array( 'infometry-asana-google-fonts' ), $css_version );
+		wp_enqueue_style( 'infometry-asana-fdp-case-study', INFOMETRY_CT_URL . 'assets/css/asana-fdp-case-study.css', array( 'infometry-asana-fdp-fonts' ), INFOMETRY_CT_ASANA_FDP_ASSET_VERSION );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'infometry_ct_enqueue_assets', 20 );
