@@ -19,7 +19,7 @@ define( 'INFOMETRY_CT_CONVERSA_TEMPLATE', 'templates/page-infofiscus-conversa.ph
 define( 'INFOMETRY_CT_INFORMATICA_TEMPLATE', 'templates/page-informatica-connectors.php' );
 define( 'INFOMETRY_CT_GOOGLE_CONNECTORS_TEMPLATE', 'templates/page-google-cloud-connectors.php' );
 define( 'INFOMETRY_CT_ASANA_CASE_STUDY_TEMPLATE', 'templates/page-asana-fdp-case-study.php' );
-define( 'INFOMETRY_CT_ASANA_FDP_ASSET_VERSION', '2.15.10' );
+define( 'INFOMETRY_CT_ASANA_FDP_ASSET_VERSION', '2.15.11' );
 define( 'INFOMETRY_CT_ASANA_ARCHITECTURE_PARTIAL', 'templates/partials/asana-architecture.php' );
 define( 'INFOMETRY_CT_CONVERSA_FORM_ID', 379751 );
 define( 'INFOMETRY_CT_GOOGLE_FORM_ID', 351429 );
