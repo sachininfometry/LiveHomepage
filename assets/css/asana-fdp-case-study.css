@@ -418,7 +418,7 @@ body.infometry-asana-fdp-page .ics .ics-hero-benefits span{font-size:12px!import
 
 /* Premium editable hero with deliberate spacing and a clean photographic plate. */
 .ics-hero{
-	min-height:clamp(620px,35vw,680px)!important;
+	min-height:clamp(560px,35vw,680px)!important;
 	height:auto!important;
 	aspect-ratio:auto!important;
 	background:#02264a url(../images/case-studies/asana-fdp-hero-clean.png) center/cover no-repeat!important;
@@ -458,7 +458,7 @@ body.infometry-asana-fdp-page .ics .ics-hero-benefits span{font-size:12px!import
 	display:block!important;
 	width:min(calc(100% - clamp(72px,8vw,156px)),1600px);
 	max-width:1600px;
-	min-height:clamp(620px,35vw,680px);
+	min-height:clamp(560px,35vw,680px);
 	height:auto;
 	padding-top:clamp(118px,6.8vw,132px);
 	padding-bottom:0;
