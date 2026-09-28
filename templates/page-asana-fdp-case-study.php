@@ -75,6 +75,8 @@ $outcomes = array(
 
 	<section class="ics-hero" aria-labelledby="ics-title">
 		<img class="ics-hero-final" src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/case-studies/asana-fdp-hero-final.png' ); ?>" width="1960" height="802" alt="" aria-hidden="true">
+		<img class="ics-hero-card-layer ics-hero-card-realtime" src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/case-studies/asana-fdp-hero-final.png' ); ?>" width="1960" height="802" alt="" aria-hidden="true">
+		<img class="ics-hero-card-layer ics-hero-card-security" src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/case-studies/asana-fdp-hero-final.png' ); ?>" width="1960" height="802" alt="" aria-hidden="true">
 		<div class="ics-shell ics-hero-inner">
 			<div class="ics-hero-copy">
 				<p class="ics-kicker">Case Study</p>
