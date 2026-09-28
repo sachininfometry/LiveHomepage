@@ -418,7 +418,7 @@ body.infometry-asana-fdp-page .ics .ics-hero-benefits span{font-size:12px!import
 
 /* Premium editable hero with deliberate spacing and a clean photographic plate. */
 .ics-hero{
-	min-height:clamp(560px,35vw,680px)!important;
+	min-height:clamp(640px,39vw,740px)!important;
 	height:auto!important;
 	aspect-ratio:auto!important;
 	background:#02264a url(../images/case-studies/asana-fdp-hero-clean.png) center/cover no-repeat!important;
@@ -444,8 +444,8 @@ body.infometry-asana-fdp-page .ics .ics-hero-benefits span{font-size:12px!import
 	object-position:center!important;
 	transform:none!important;
 	clip-path:none!important;
-	-webkit-mask-image:linear-gradient(90deg,transparent 0%,transparent 48%,rgba(0,0,0,.2) 49.5%,rgba(0,0,0,.75) 51%,#000 52%,#000 100%),radial-gradient(ellipse 13% 11% at 53% 22%,#000 76%,transparent 100%),radial-gradient(ellipse 14% 11% at 47% 39%,#000 76%,transparent 100%)!important;
-	mask-image:linear-gradient(90deg,transparent 0%,transparent 48%,rgba(0,0,0,.2) 49.5%,rgba(0,0,0,.75) 51%,#000 52%,#000 100%),radial-gradient(ellipse 13% 11% at 53% 22%,#000 76%,transparent 100%),radial-gradient(ellipse 14% 11% at 47% 39%,#000 76%,transparent 100%)!important;
+	-webkit-mask-image:linear-gradient(90deg,transparent 0%,transparent 48%,rgba(0,0,0,.2) 49.5%,rgba(0,0,0,.75) 51%,#000 52%,#000 100%),radial-gradient(ellipse 8% 7% at 53% 22%,#000 84%,transparent 100%),radial-gradient(ellipse 7% 6.5% at 47% 39%,#000 84%,transparent 100%)!important;
+	mask-image:linear-gradient(90deg,transparent 0%,transparent 48%,rgba(0,0,0,.2) 49.5%,rgba(0,0,0,.75) 51%,#000 52%,#000 100%),radial-gradient(ellipse 8% 7% at 53% 22%,#000 84%,transparent 100%),radial-gradient(ellipse 7% 6.5% at 47% 39%,#000 84%,transparent 100%)!important;
 	-webkit-mask-composite:source-over!important;
 	mask-composite:add!important;
 	-webkit-mask-repeat:no-repeat!important;
@@ -458,9 +458,9 @@ body.infometry-asana-fdp-page .ics .ics-hero-benefits span{font-size:12px!import
 	display:block!important;
 	width:min(calc(100% - clamp(72px,8vw,156px)),1600px);
 	max-width:1600px;
-	min-height:clamp(560px,35vw,680px);
+	min-height:clamp(640px,39vw,740px);
 	height:auto;
-	padding-top:clamp(118px,6.8vw,132px);
+	padding-top:clamp(128px,7.4vw,142px);
 	padding-bottom:0;
 }
 .ics-hero-copy{width:47%;max-width:740px;isolation:auto}
