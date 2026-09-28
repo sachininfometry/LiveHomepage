@@ -453,8 +453,8 @@ body.infometry-asana-fdp-page .ics .ics-hero-benefits span{font-size:12px!import
 	pointer-events:none;
 }
 .ics-hero .ics-hero-card-layer{position:absolute!important;z-index:1!important;inset:0!important;display:block!important;width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;margin:0!important;object-fit:cover!important;object-position:center!important;pointer-events:none}
-.ics-hero .ics-hero-card-realtime{-webkit-clip-path:inset(14.5% 32.5% 72% 43%);clip-path:inset(14.5% 32.5% 72% 43%)}
-.ics-hero .ics-hero-card-security{-webkit-clip-path:inset(33% 45% 55.5% 35%);clip-path:inset(33% 45% 55.5% 35%)}
+.ics-hero .ics-hero-card-realtime{-webkit-mask-image:radial-gradient(ellipse 8.5% 7.5% at 53% 22%,#000 74%,transparent 100%);mask-image:radial-gradient(ellipse 8.5% 7.5% at 53% 22%,#000 74%,transparent 100%)}
+.ics-hero .ics-hero-card-security{-webkit-mask-image:radial-gradient(ellipse 9% 8% at 47% 39%,#000 74%,transparent 100%);mask-image:radial-gradient(ellipse 9% 8% at 47% 39%,#000 74%,transparent 100%)}
 .ics-hero .ics-hero-inner{
 	position:relative;
 	z-index:2;
