@@ -50,11 +50,14 @@ $requiredFiles = @(
     'templates/page-google-cloud-connectors.php',
     'templates/page-asana-case-study.php',
     'templates/page-asana-fdp-case-study.php',
+    'templates/page-insurance-snowflake-case-study.php',
     'assets/css/asana-case-study.css',
     'assets/css/asana-fdp-case-study.css',
+    'assets/css/insurance-snowflake-case-study.css',
     'assets/images/asana-case-study-hero.png',
     'assets/images/case-studies/asana-fdp-hero-clean.png',
     'assets/images/case-studies/asana-fdp-hero-final.png',
+    'assets/images/case-studies/insurance-snowflake/hero-user-supplied.png',
     'assets/css/google-cloud-connectors.css',
     'assets/js/google-cloud-connectors.js',
     'assets/images/google-connectors/google-ads.png',
@@ -66,7 +69,8 @@ $requiredFiles = @(
     'preview-conversa.html',
     'preview-informatica.html',
     'preview-asana-case-study.php',
-    'preview-asana-fdp-case-study.html'
+    'preview-asana-fdp-case-study.html',
+    'preview-insurance-snowflake-case-study.php'
 )
 
 foreach ($relativePath in $requiredFiles) {
@@ -115,4 +119,4 @@ if ($failures.Count -gt 0) {
     exit 1
 }
 
-Write-Host "`nProject verification passed: 6 templates, PHP syntax, JavaScript syntax, and preview assets." -ForegroundColor Green
+Write-Host "`nProject verification passed: 7 templates, PHP syntax, JavaScript syntax, and preview assets." -ForegroundColor Green

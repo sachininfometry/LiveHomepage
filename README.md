@@ -1,7 +1,8 @@
 # Infometry Custom Templates
 
 WordPress plugin containing the Infometry homepage, INFOFISCUS Conversa,
-Informatica Connectors, Google Cloud Connectors, and Asana case-study page templates.
+Informatica Connectors, Google Cloud Connectors, Asana, and insurance Snowflake
+modernization case-study page templates.
 The repository root is the plugin root and is ready for Cloudways Git deployment.
 
 ![Infometry homepage preview](docs/homepage-preview.png)
@@ -14,6 +15,7 @@ The repository root is the plugin root and is ready for Cloudways Git deployment
 - `templates/page-informatica-connectors.php` — “Informatica Connectors Product” page template.
 - `templates/page-google-cloud-connectors.php` — “Google Cloud Connectors Product” page template.
 - `templates/page-asana-case-study.php` — complete “Asana Case Study” page template.
+- `templates/page-insurance-snowflake-case-study.php` — insurance data-platform modernization case study.
 - `assets/css/` and `assets/js/` — template-scoped frontend assets.
 - `assets/images/` — local design and brand assets.
 - `preview-full.html` — standalone local preview of the complete homepage.
@@ -34,7 +36,8 @@ The repository root is the plugin root and is ready for Cloudways Git deployment
 5. On the Informatica product page, select **Informatica Connectors Product**.
 6. On the Google connectors page, select **Google Cloud Connectors Product**.
 7. On the Asana case-study page, select **Asana Case Study**.
-8. Update/preview all five pages and clear caches if needed.
+8. On the insurance modernization page, select **Insurance Snowflake Modernization Case Study**.
+9. Update/preview the pages and clear caches if needed.
 
 Version 2.3.0 automatically recognizes the live Informatica and Google Cloud
 Connectors routes at `/product/informatica-connectors/` and
@@ -72,6 +75,9 @@ For the PHP-powered architecture component preview, run `php -S 127.0.0.1:4190`
 and open `http://127.0.0.1:4190/preview-asana-architecture.php`.
 
 The complete Asana page is available at `http://127.0.0.1:4190/preview-asana-case-study.php`.
+
+The insurance Snowflake case study is available at
+`http://127.0.0.1:4190/preview-insurance-snowflake-case-study.php`.
 
 On WordPress, insert `[infometry_asana_architecture]` in the Asana case-study
 page wherever the architecture transformation section should appear. The
