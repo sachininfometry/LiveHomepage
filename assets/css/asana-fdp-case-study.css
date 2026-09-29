@@ -573,6 +573,7 @@ body.admin-bar.infometry-asana-fdp-page #Top_bar.is-sticky{top:32px!important}
 .ics .ics-platform-link{color:inherit;text-decoration:none}
 .ics .ics-platform-link:hover,
 .ics .ics-platform-link:focus{color:#087dd1;text-decoration:underline;text-underline-offset:3px}
+.ics .ics-asana-logo-link{display:inline-block;color:inherit}
 
 /* The expanded platform name must still fit beside the Infometry lockup. */
 .ics-snowflake-brand b{font-size:clamp(18px,1.55vw,30px);white-space:nowrap}
