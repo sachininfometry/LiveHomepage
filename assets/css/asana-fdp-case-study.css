@@ -427,7 +427,7 @@ body.infometry-asana-fdp-page .ics .ics-hero-benefits span{font-size:12px!import
 .ics-hero:before{
 	display:block!important;
 	z-index:0;
-	background:linear-gradient(90deg,rgba(0,35,70,.9) 0%,rgba(0,38,75,.74) 31%,rgba(0,42,78,.28) 48%,transparent 63%)!important;
+	background:linear-gradient(90deg,rgba(0,35,70,.62) 0%,rgba(0,38,75,.42) 28%,rgba(0,42,78,.12) 38%,transparent 44%)!important;
 }
 .ics-hero:after{display:none!important}
 .ics-hero .ics-hero-inner{
