@@ -410,6 +410,8 @@ body.infometry-asana-fdp-page .ics .ics-hero-benefits span{font-size:12px!import
 @media(max-width:900px){.ics-solution-flow article:hover{transform:translateY(-4px)}.ics-flow-arrow:hover span{transform:rotate(90deg) translateX(3px)}}
 @media(prefers-reduced-motion:reduce){.ics-solution-flow article,.ics-solution-icon,.ics-flow-arrow span{transition:none}.ics-solution-flow article:hover,.ics-solution-flow article:hover .ics-solution-icon,.ics-flow-arrow:hover span{transform:none}}
 
+.ics-tech-flow .ics-snowflake img{width:230px;height:auto;margin-bottom:7px;mix-blend-mode:multiply}
+
 /* Keep hero benefit labels proportional to the supporting hero copy. */
 .ics-hero-benefits span{font-size:14px;font-weight:800;line-height:1.35}
 
