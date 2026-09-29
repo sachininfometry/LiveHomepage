@@ -421,7 +421,7 @@ body.infometry-asana-fdp-page .ics .ics-hero-benefits span{font-size:12px!import
 	min-height:clamp(640px,39vw,740px)!important;
 	height:auto!important;
 	aspect-ratio:auto!important;
-	background:#02264a url(../images/case-studies/asana-fdp-hero-clean.png) center/cover no-repeat!important;
+	background:#02264a url(../images/case-studies/asana-fdp-hero-mockup.png) center/cover no-repeat!important;
 	overflow:hidden;
 }
 .ics-hero:before{
@@ -430,31 +430,6 @@ body.infometry-asana-fdp-page .ics .ics-hero-benefits span{font-size:12px!import
 	background:linear-gradient(90deg,rgba(0,35,70,.9) 0%,rgba(0,38,75,.74) 31%,rgba(0,42,78,.28) 48%,transparent 63%)!important;
 }
 .ics-hero:after{display:none!important}
-.ics-hero .ics-hero-final{
-	position:absolute!important;
-	z-index:1!important;
-	inset:0!important;
-	display:block!important;
-	width:100%!important;
-	height:100%!important;
-	max-width:none!important;
-	max-height:none!important;
-	margin:0!important;
-	object-fit:cover!important;
-	object-position:center!important;
-	transform:none!important;
-	clip-path:none!important;
-	-webkit-mask-image:linear-gradient(90deg,transparent 0%,transparent 48%,rgba(0,0,0,.2) 49.5%,rgba(0,0,0,.75) 51%,#000 52%,#000 100%)!important;
-	mask-image:linear-gradient(90deg,transparent 0%,transparent 48%,rgba(0,0,0,.2) 49.5%,rgba(0,0,0,.75) 51%,#000 52%,#000 100%)!important;
-	-webkit-mask-composite:source-over!important;
-	mask-composite:add!important;
-	-webkit-mask-repeat:no-repeat!important;
-	mask-repeat:no-repeat!important;
-	pointer-events:none;
-}
-.ics-hero .ics-hero-card-layer{position:absolute!important;z-index:1!important;inset:0!important;display:block!important;width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;margin:0!important;object-fit:cover!important;object-position:center!important;pointer-events:none}
-.ics-hero .ics-hero-card-realtime{-webkit-mask-image:radial-gradient(ellipse 8.5% 7.5% at 53% 22%,#000 74%,transparent 100%);mask-image:radial-gradient(ellipse 8.5% 7.5% at 53% 22%,#000 74%,transparent 100%)}
-.ics-hero .ics-hero-card-security{-webkit-mask-image:radial-gradient(ellipse 9% 8% at 47% 39%,#000 74%,transparent 100%);mask-image:radial-gradient(ellipse 9% 8% at 47% 39%,#000 74%,transparent 100%)}
 .ics-hero .ics-hero-inner{
 	position:relative;
 	z-index:2;
@@ -536,14 +511,12 @@ body.infometry-asana-fdp-page .ics .ics-hero-benefits span{font-size:12px!import
 	.ics-hero-benefits{width:62%}
 }
 @media(max-width:900px){
-	.ics-hero{min-height:760px!important;background-position:64% center!important}
+	.ics-hero{min-height:760px!important;background-image:url(../images/case-studies/asana-fdp-hero-clean.png)!important;background-position:64% center!important}
 	.ics-hero:before{background:linear-gradient(180deg,rgba(0,31,64,.98),rgba(0,35,69,.9) 58%,rgba(0,35,69,.5))!important}
 	.ics-hero .ics-hero-inner{width:calc(100% - 30px);min-height:760px;padding-top:100px;padding-bottom:24px}
 	.ics-hero-copy{width:100%;max-width:640px}
 	.ics-title-main{font-size:34px;white-space:normal}.ics .ics-hero h1 em{font-size:39px}.ics-title-sub{font-size:30px}
 	.ics-hero-copy>p:not(.ics-kicker){max-width:100%;font-size:14px}
-	.ics-hero .ics-hero-final{display:none!important}
-	.ics-hero .ics-hero-card-layer{display:none!important}
 	.ics-hero-benefits{left:0;right:0;bottom:20px;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:8px 15px}
 	.ics-hero-benefits span{padding:5px 8px}.ics-hero-benefits span:first-child{padding-left:8px}.ics-hero-benefits span:not(:last-child):after{display:none!important}
 }
