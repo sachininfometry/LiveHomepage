@@ -114,7 +114,7 @@ body.infometry-asana-fdp-page [id^="rev_slider_"][id$="_forcefullwidth"]{display
 .ics-facts{gap:14px;padding:18px;border:1px solid #cfe6f3;border-radius:18px;background:linear-gradient(145deg,#f4fbff,#eaf6fc);box-shadow:0 22px 48px rgba(7,67,107,.11)}
 .ics-facts>div{min-height:112px;align-items:center;gap:15px;padding:18px;border:1px solid rgba(183,220,240,.9)!important;border-radius:12px;background:#fff;box-shadow:0 7px 18px rgba(18,91,132,.06)}
 .ics-facts svg{flex-basis:42px;width:42px;height:42px;padding:7px;border-radius:10px;color:#047fc8;background:#e8f7ff;stroke-width:2.15}
-.ics-fact-icon{display:block;width:48px;height:48px;padding:10px;border-radius:12px;background:#e8f7ff;object-fit:contain}
+.ics-fact-icon{display:block;width:48px;height:48px;padding:10px;border-radius:12px;background:#31b7df;object-fit:contain}
 .ics-fact-icon.is-snowflake{padding:7px;background:#31b7df}
 .ics-facts span{color:#385b79;font-size:13px;font-weight:500;line-height:1.45}
 .ics-facts b{margin-bottom:5px;color:#062f59;font-size:14px;font-weight:800}
