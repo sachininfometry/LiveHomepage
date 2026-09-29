@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Infometry Custom Templates
  * Description: Provides isolated Infometry homepage and product page templates.
- * Version: 2.3.4
+ * Version: 2.4.0
  * Author: Infometry
  * Text Domain: infometry-custom-templates
  */
@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'INFOMETRY_CT_VERSION', '2.3.4' );
+define( 'INFOMETRY_CT_VERSION', '2.4.0' );
 define( 'INFOMETRY_CT_PATH', plugin_dir_path( __FILE__ ) );
 define( 'INFOMETRY_CT_URL', plugin_dir_url( __FILE__ ) );
 define( 'INFOMETRY_CT_HOME_TEMPLATE', 'templates/page-home-design-test.php' );
@@ -21,6 +21,7 @@ define( 'INFOMETRY_CT_GOOGLE_CONNECTORS_TEMPLATE', 'templates/page-google-cloud-
 define( 'INFOMETRY_CT_ASANA_CASE_STUDY_TEMPLATE', 'templates/page-asana-fdp-case-study.php' );
 define( 'INFOMETRY_CT_ASANA_FDP_ASSET_VERSION', '2.15.25' );
 define( 'INFOMETRY_CT_ASANA_ARCHITECTURE_PARTIAL', 'templates/partials/asana-architecture.php' );
+define( 'INFOMETRY_CT_INSURANCE_SNOWFLAKE_TEMPLATE', 'templates/page-insurance-snowflake-case-study.php' );
 define( 'INFOMETRY_CT_CONVERSA_FORM_ID', 379751 );
 define( 'INFOMETRY_CT_GOOGLE_FORM_ID', 351429 );
 define( 'INFOMETRY_CT_HOME_META_TITLE', 'Enterprise Data Analytics & AI Solutions | Infometry' );
@@ -100,6 +101,7 @@ function infometry_ct_register_page_template( $templates ) {
 	$templates[ INFOMETRY_CT_INFORMATICA_TEMPLATE ] = __( 'Informatica Connectors Product', 'infometry-custom-templates' );
 	$templates[ INFOMETRY_CT_GOOGLE_CONNECTORS_TEMPLATE ] = __( 'Google Cloud Connectors Product', 'infometry-custom-templates' );
 	$templates[ INFOMETRY_CT_ASANA_CASE_STUDY_TEMPLATE ] = __( 'Asana FDP Snowflake Case Study', 'infometry-custom-templates' );
+	$templates[ INFOMETRY_CT_INSURANCE_SNOWFLAKE_TEMPLATE ] = __( 'Insurance Snowflake Modernization Case Study', 'infometry-custom-templates' );
 
 	return $templates;
 }
@@ -201,6 +203,24 @@ function infometry_ct_should_use_asana_case_study_template() {
 		|| infometry_ct_is_live_asana_fdp_route();
 }
 
+/** Decide whether the Insurance Snowflake case-study template is active. */
+function infometry_ct_should_use_insurance_snowflake_template() {
+	return infometry_ct_should_use_template( INFOMETRY_CT_INSURANCE_SNOWFLAKE_TEMPLATE )
+		|| infometry_ct_is_live_insurance_snowflake_route();
+}
+
+/** Match only the production Insurance Snowflake case-study URL. */
+function infometry_ct_is_live_insurance_snowflake_route() {
+	$host = isset( $_SERVER['HTTP_HOST'] ) ? strtolower( sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ) ) ) : '';
+	$host = preg_replace( '/:\d+$/', '', $host );
+	if ( ! in_array( $host, array( 'infometry.net', 'www.infometry.net' ), true ) || empty( $_SERVER['REQUEST_URI'] ) ) {
+		return false;
+	}
+
+	$path = wp_parse_url( wp_unslash( $_SERVER['REQUEST_URI'] ), PHP_URL_PATH );
+	return '/resources/infometry-case-studies/on-prem-datawarehouse-case-study' === untrailingslashit( $path );
+}
+
 /** Match the production Asana FDP case-study URL. */
 function infometry_ct_is_live_asana_fdp_route() {
 	$host = isset( $_SERVER['HTTP_HOST'] ) ? strtolower( sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ) ) ) : '';
@@ -285,6 +305,13 @@ function infometry_ct_load_page_template( $template ) {
 		}
 	}
 
+	if ( infometry_ct_should_use_insurance_snowflake_template() ) {
+		$plugin_template = INFOMETRY_CT_PATH . INFOMETRY_CT_INSURANCE_SNOWFLAKE_TEMPLATE;
+		if ( is_readable( $plugin_template ) ) {
+			return $plugin_template;
+		}
+	}
+
 	return $template;
 }
 add_filter( 'page_template', 'infometry_ct_load_page_template', PHP_INT_MAX );
@@ -315,6 +342,10 @@ function infometry_ct_body_classes( $classes ) {
 
 	if ( infometry_ct_should_use_asana_case_study_template() ) {
 		$classes[] = 'infometry-asana-fdp-page';
+	}
+
+	if ( infometry_ct_should_use_insurance_snowflake_template() ) {
+		$classes[] = 'infometry-insurance-snowflake-page';
 	}
 
 	return array_unique( $classes );
@@ -704,9 +735,10 @@ function infometry_ct_enqueue_assets() {
 	$use_informatica = infometry_ct_should_use_informatica_template();
 	$use_google_connectors = infometry_ct_should_use_google_connectors_template();
 	$use_asana_case_study = infometry_ct_should_use_asana_case_study_template();
+	$use_insurance_snowflake = infometry_ct_should_use_insurance_snowflake_template();
 	$use_asana_architecture = infometry_ct_has_asana_architecture();
 
-	if ( ! $use_home && ! $use_conversa && ! $use_informatica && ! $use_google_connectors && ! $use_asana_case_study && ! $use_asana_architecture ) {
+	if ( ! $use_home && ! $use_conversa && ! $use_informatica && ! $use_google_connectors && ! $use_asana_case_study && ! $use_insurance_snowflake && ! $use_asana_architecture ) {
 		return;
 	}
 
@@ -809,6 +841,18 @@ function infometry_ct_enqueue_assets() {
 		);
 		wp_enqueue_style( 'infometry-asana-fdp-case-study', INFOMETRY_CT_URL . 'assets/css/asana-fdp-case-study.css', array( 'infometry-asana-fdp-fonts' ), INFOMETRY_CT_ASANA_FDP_ASSET_VERSION );
 	}
+
+	if ( $use_insurance_snowflake ) {
+		$css_path    = INFOMETRY_CT_PATH . 'assets/css/insurance-snowflake-case-study.css';
+		$css_version = is_readable( $css_path ) ? (string) filemtime( $css_path ) : INFOMETRY_CT_VERSION;
+		wp_enqueue_style(
+			'infometry-insurance-snowflake-fonts',
+			'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap',
+			array(),
+			null
+		);
+		wp_enqueue_style( 'infometry-insurance-snowflake-case-study', INFOMETRY_CT_URL . 'assets/css/insurance-snowflake-case-study.css', array( 'infometry-insurance-snowflake-fonts' ), $css_version );
+	}
 }
 add_action( 'wp_enqueue_scripts', 'infometry_ct_enqueue_assets', 20 );
 
@@ -827,6 +871,7 @@ function infometry_ct_font_resource_hints( $urls, $relation_type ) {
 			&& ! infometry_ct_should_use_conversa_template()
 			&& ! infometry_ct_should_use_google_connectors_template()
 			&& ! infometry_ct_should_use_asana_case_study_template()
+			&& ! infometry_ct_should_use_insurance_snowflake_template()
 		)
 	) {
 		return $urls;
