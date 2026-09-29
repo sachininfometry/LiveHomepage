@@ -556,18 +556,19 @@ body.admin-bar.infometry-asana-fdp-page #Top_bar.is-sticky{top:32px!important}
 	.ics-outcome-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
 }
 
-/* Keep contextual SEO links readable without disrupting the hero treatment. */
+/* Keep contextual SEO links clear within the case-study body copy. */
 .ics .ics-content-link{
-	color:inherit;
+	color:#087dd1;
+	font-weight:700;
 	text-decoration:underline;
-	text-decoration-color:rgba(255,255,255,.58);
+	text-decoration-color:rgba(8,125,209,.42);
 	text-decoration-thickness:1px;
 	text-underline-offset:3px;
 }
 .ics .ics-content-link:hover,
 .ics .ics-content-link:focus{
-	color:#fff;
-	text-decoration-color:#10bcea;
+	color:#005ea8;
+	text-decoration-color:currentColor;
 }
 
 /* The expanded platform name must still fit beside the Infometry lockup. */
