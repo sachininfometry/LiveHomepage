@@ -20,6 +20,8 @@
 /* Keep the actual BeTheme logo/menu visible, but remove its old page-title banner. */
 body.infometry-insurance-snowflake-page #Subheader,
 body.infometry-insurance-snowflake-page .mfn-page-title{display:none!important}
+body.infometry-insurance-snowflake-page .mfn-main-slider.mfn-rev-slider,
+body.infometry-insurance-snowflake-page #rev_slider_204_1_wrapper{display:none!important}
 body.infometry-insurance-snowflake-page #Content{padding:0!important}body.infometry-insurance-snowflake-page #Wrapper{max-width:none!important}body.infometry-insurance-snowflake-page .breadcrumbs{display:none!important}
 
 @media(max-width:1024px){.gcs-shell{width:min(100% - 38px,940px)}.gcs-hero{min-height:470px;background-position:57% center}.gcs-hero-inner{min-height:470px}.gcs-hero-copy{width:53%}.gcs-hero-path{grid-template-columns:1fr;gap:7px}.gcs-hero-path>span{padding:0;border:0!important}.gcs-journey{grid-template-columns:repeat(2,1fr)}.gcs-solution-grid{grid-template-columns:repeat(2,1fr)}.gcs-tech-grid{grid-template-columns:repeat(4,1fr)}}
