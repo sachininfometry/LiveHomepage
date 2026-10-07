@@ -24,21 +24,21 @@ $problems = array(
 );
 
 $capabilities = array(
-	array( 'icon' => 'chat', 'class' => 'is-natural-language', 'kicker' => 'Conversational Analytics', 'title' => 'Natural Language to SQL Engine', 'copy' => 'Conversa’s natural language to SQL engine converts business questions into optimized queries automatically. Explore any metric without SQL, reduce analyst dependency, accelerate insights, and simplify data workflows across teams effortlessly.', 'benefits' => array( 'Understand terminology, KPIs, and business logic', 'Deliver context-rich insights without writing SQL' ), 'tags' => array( 'Advanced NLP', 'Less Analyst Work' ) ),
-	array( 'icon' => 'brain', 'class' => 'is-ai-insights', 'kicker' => 'AI Intelligence', 'title' => 'Multi-Model AI Analytics', 'copy' => 'Conversa supports Snowflake Cortex Agent, OpenAI, Gemini, and Claude, enabling organizations to choose the right AI model for each use case, improve answer accuracy, reduce manual analysis, and streamline governed data operations across teams.', 'benefits' => array( 'Choose the right AI model', 'Analyze complex questions'), 'tags' => array( 'Multi-Model AI', 'Trusted Answers' ) ),
-	array( 'icon' => 'chart', 'class' => 'is-connectivity', 'kicker' => 'Advanced Intelligence', 'title' => 'Advanced Analytics', 'copy' => 'Conversa enables trend analysis, forecasting, segmentation, and scenario simulations. AI-powered predictive agents identify patterns, detect anomalies, and project outcomes, delivering advanced analytics without complex workflows or large analyst teams.', 'benefits' => array( 'Detect patterns and important trends', 'Identify key drivers and root causes' ), 'tags' => array( 'LLM Insights', 'Business Context' ) ),
-	array( 'icon' => 'spark', 'class' => 'is-governance', 'kicker' => 'Enterprise Knowledge', 'title' => 'AI-Powered Document Intelligence', 'copy' => 'Conversa lets users search documents using natural language, retrieving insights from PDFs, contracts, manuals, and knowledge bases to unify information, reduce manual research, and deliver faster answers across enterprise content instantly.', 'benefits' => array( 'Retrieve insights across enterprise documents', 'Find answers faster with less manual research' ), 'tags' => array( 'Semantic Search', 'Document AI' ) ),
-	array( 'icon' => 'nodes', 'class' => 'is-visuals', 'kicker' => 'Trusted Data', 'title' => 'Semantic Layer for Trusted Data', 'copy' => "Conversa's built-in semantic layer defines business metrics, KPIs, and terminology to ensure consistent calculations and governed answers across teams, reducing confusion, analyst validation, and data reconciliation efforts for faster decisions.", 'benefits' => array( 'Map business terms, KPIs, and relationships', 'Deliver accurate and trusted insights' ), 'tags' => array( 'Domain-Aware', 'Consistent Metrics' ) ),
-	array( 'icon' => 'lock', 'class' => 'is-sql', 'kicker' => 'Secure Analytics', 'title' => 'Enterprise Security and Governance', 'copy' => 'Conversa securely accesses enterprise cloud data warehouses using role-based access, encryption, audit trails, and single sign-on, enabling governed queries without moving data while supporting compliance and streamlined enterprise data operations.', 'benefits' => array( 'Enforce single sign-on and role-based access', 'Maintain encryption and detailed audit trails' ), 'tags' => array( 'Enterprise Security', 'Data Governance' ) ),
-	array( 'icon' => 'monitor', 'class' => 'is-monitoring', 'kicker' => 'Native Experience', 'title' => 'Native Desktop Application', 'copy' => 'Conversa is available as a native desktop application for macOS and Windows, providing enterprise teams with fast, secure access to conversational analytics and consistent, high-performance, AI-powered insights across devices every day.', 'benefits' => array( 'Work securely on desktop', 'Support Windows and macOS' ), 'tags' => array( 'Native Desktop', 'Secure Access' ) ),
-	array( 'icon' => 'bolt', 'class' => 'is-automation', 'kicker' => 'Business Efficiency', 'title' => 'Cost Optimization & Faster Insights', 'copy' => 'Reduce reporting effort, eliminate analytics bottlenecks, and accelerate trusted decisions with AI-powered insights that optimize costs, simplify enterprise analytics, and improve business efficiency across teams through smarter data analysis daily.', 'benefits' => array( 'Reduce reporting effort', 'Remove analytics bottlenecks' ), 'tags' => array( 'Cost Optimization', 'Faster Insights' ) ),
+	array( 'icon' => 'chart', 'class' => 'is-connectivity', 'kicker' => 'Analytical Reasoning', 'title' => 'Investigate Complex Business Questions', 'copy' => 'Conversa supports multi-step analysis that moves from a business question to the underlying drivers, risks, opportunities, and follow-up questions.', 'benefits' => array( 'Investigate changes across multiple dimensions', 'Compare trends and business scenarios', 'Identify key drivers' ), 'tags' => array( 'Deep Analysis', 'Root Cause' ) ),
+	array( 'icon' => 'nodes', 'class' => 'is-visuals', 'kicker' => 'Trusted Intelligence', 'title' => 'Get Answers Grounded in Business Meaning', 'copy' => 'Conversa uses governed semantics and business context to interpret metrics, terminology, relationships, and business logic consistently.', 'benefits' => array( 'Define business terms and KPIs', 'Apply domain-specific semantics', 'Maintain consistent metric definitions' ), 'tags' => array( 'Semantic Intelligence', 'Governed Metrics' ) ),
+	array( 'icon' => 'api', 'class' => 'is-ai-insights', 'kicker' => 'Cross-Platform Intelligence', 'title' => 'One Business Question. Multiple Enterprise Systems. One Answer.', 'copy' => 'Conversa helps teams investigate questions across heterogeneous enterprise data environments rather than limiting analysis to a single platform.', 'benefits' => array( 'Connect across enterprise data platforms', 'Investigate cross-domain questions', 'Access governed enterprise data' ), 'tags' => array( 'Federated Access', 'Cross-Platform Analysis' ) ),
+	array( 'icon' => 'chat', 'class' => 'is-natural-language', 'kicker' => 'Conversational Analytics', 'title' => 'Ask Business Questions Naturally', 'copy' => 'Ask questions in everyday business language and explore the answer without having to formulate SQL yourself.', 'benefits' => array( 'Ask follow-up questions', 'Explore metrics and dimensions', 'Generate optimized queries' ), 'tags' => array( 'Natural Language', 'Optimized Queries' ) ),
+	array( 'icon' => 'spark', 'class' => 'is-governance', 'kicker' => 'Document Intelligence', 'title' => 'Connect Enterprise Data With Enterprise Knowledge', 'copy' => 'Investigate information across structured enterprise data and relevant business documents.', 'benefits' => array( 'Search PDFs and business documents', 'Find information in contracts, manuals, SOPs, and reports', 'Combine business context with analytical questions' ), 'tags' => array( 'Enterprise Search', 'Document Intelligence' ) ),
+	array( 'icon' => 'lock', 'class' => 'is-sql', 'kicker' => 'Enterprise Governance', 'title' => 'Built for Governed Enterprise Analytics', 'copy' => 'Conversa is designed to work within enterprise security and governance requirements.', 'benefits' => array( 'Role-based access', 'Single sign-on', 'Encryption & Audit trails' ), 'tags' => array( 'Security', 'Governance' ) ),
+	array( 'icon' => 'bolt', 'class' => 'is-automation', 'kicker' => 'AI Economics', 'title' => 'Scale Enterprise AI With Control', 'copy' => 'Scale AI-assisted analytics with controlled model usage and enterprise-ready efficiency.', 'benefits' => array( 'Efficient retrieval and context', 'Controlled AI usage', 'Model-fit optimization' ), 'tags' => array( 'Controlled AI Consumption', 'Efficient Analytics' ) ),
 );
 
 $steps = array(
-	array( 'icon' => 'chat', 'title' => '1. Ask Naturally', 'copy' => 'Ask questions in everyday business language.' ),
-	array( 'icon' => 'database', 'title' => '2. Understand Context', 'copy' => 'AI applies semantic models and business logic.' ),
-	array( 'icon' => 'chart', 'title' => '3. Generate Trusted Insights', 'copy' => 'Analyze live data with AI-powered explanations.' ),
-	array( 'icon' => 'check', 'title' => '4. Take Confident Action', 'copy' => 'Make faster decisions with trusted recommendations.' ),
+	array( 'icon' => 'chat', 'title' => '1. Ask', 'copy' => 'Ask a complex business question in natural language.' ),
+	array( 'icon' => 'database', 'title' => '2. Understand', 'copy' => 'Conversa interprets the question using business context, governed semantics, and enterprise data relationships.' ),
+	array( 'icon' => 'chart', 'title' => '3. Investigate', 'copy' => 'Analyze the relevant data, compare dimensions, investigate changes, and follow the evidence.' ),
+	array( 'icon' => 'eye', 'title' => '4. Identify Drivers', 'copy' => 'Understand the key factors, root causes, risks, and opportunities behind the result.' ),
+	array( 'icon' => 'check', 'title' => '5. Decide', 'copy' => 'Turn the investigation into a clear, decision-ready business insight.' ),
 );
 
 $outcomes = array(
@@ -49,10 +49,10 @@ $outcomes = array(
 );
 
 $personas = array(
-	array( 'icon' => 'executive', 'class' => 'is-executive', 'title' => 'CIOs, CDOs & Executives', 'copy' => 'CIOs and Chief Data Officers use Conversa to securely scale governed enterprise data access while reducing analyst dependence across organizations.', 'benefits' => array( 'Govern enterprise AI', 'Monitor enterprise KPIs', 'Ensure security and compliance' ), 'tags' => array( 'AI Governance', 'Decision Intelligence' ) ),
-	array( 'icon' => 'users', 'class' => 'is-business-user', 'title' => 'Business Users', 'copy' => 'Business leaders use Conversa to explore enterprise data independently, accelerate decisions with instant governed insights, reducing reliance on analyst support.', 'benefits' => array( 'Ask questions naturally', 'Get instant governed answers', 'Explore business insights' ), 'tags' => array( 'Self-Service Analytics', 'Natural Language AI' ) ),
-	array( 'icon' => 'analyst', 'class' => 'is-data-analyst', 'title' => 'Data Analysts', 'copy' => 'Data analysts and engineers use Conversa to automate routine data requests, enabling focus on advanced analytics, pipelines, and data quality.', 'benefits' => array( 'Review generated SQL', 'Investigate trends and anomalies', 'Build reusable analytics workflows' ), 'tags' => array( 'AI-Assisted Analytics', 'SQL Transparency' ) ),
-	array( 'icon' => 'finance', 'class' => 'is-finance-team', 'title' => 'Finance Teams', 'copy' => 'Finance teams use Conversa to monitor business performance, uncover financial insights, evaluate risks, and make faster, data-driven decisions every day.', 'benefits' => array( 'Analyze budget variances', 'Monitor financial performance', 'Improve forecasting accuracy' ), 'tags' => array( 'FP&A Analytics', 'Financial Planning' ) ),
+	array( 'icon' => 'executive', 'class' => 'is-executive', 'title' => 'CIOs, CDOs & Executives', 'copy' => 'Use governed enterprise intelligence to understand business performance, investigate critical questions, and scale AI-enabled decision-making.', 'benefits' => array( 'Monitor enterprise performance', 'Investigate business drivers', 'Govern enterprise AI' ), 'tags' => array( 'Executive Intelligence', 'AI Governance' ) ),
+	array( 'icon' => 'finance', 'class' => 'is-finance-team', 'title' => 'Finance & FP&A Teams', 'copy' => 'Investigate variances, understand forecast movement, identify financial drivers, and surface risks faster.', 'benefits' => array( 'Analyze plan vs. actual', 'Investigate variance drivers', 'Understand forecast movement' ), 'tags' => array( 'FP&A', 'Financial Intelligence' ) ),
+	array( 'icon' => 'users', 'class' => 'is-business-user', 'title' => 'Business Leaders', 'copy' => 'Explore governed enterprise information without waiting for every question to become a reporting request.', 'benefits' => array( 'Ask complex questions', 'Investigate performance', 'Explore business drivers' ), 'tags' => array( 'Self-Service Intelligence', 'Business Context' ) ),
+	array( 'icon' => 'analyst', 'class' => 'is-data-analyst', 'title' => 'Data & Analytics Teams', 'copy' => 'Reduce repetitive analytical requests and focus technical expertise on higher-value analytics, data quality, and strategic initiatives.', 'benefits' => array( 'Automate routine analysis', 'Investigate trends and anomalies', 'Review transparent query logic' ), 'tags' => array( 'Analytics Productivity', 'SQL Transparency' ) ),
 	array( 'icon' => 'it', 'class' => 'is-it-data', 'title' => 'IT & Data Teams', 'copy' => 'IT & Data teams use Conversa to accelerate governed insights, reduce routine analyst requests, empower business users, and prioritize strategic analytics initiatives.', 'benefits' => array( 'Manage secure data access', 'Govern metrics and semantic models', 'Enforce enterprise permissions' ), 'tags' => array( 'Data Governance', 'Enterprise Security' ) ),
 );
 
@@ -129,23 +129,21 @@ $other_products = array(
 		<div class="icp-shell">
 			<div class="icp-hero-grid">
 				<div class="icp-hero-copy">
-					<p class="icp-eyebrow">Conversation Analytics Platform for Enterprise</p>
-					<h1 id="icp-hero-title">Ask Questions.<br>Find Causes.<br><span>Drive Decisions.</span></h1>
+					<p class="icp-eyebrow">INFOFISCUS Conversa</p>
+					<h1 id="icp-hero-title">Trusted Decision<br>Intelligence<br><span>for the Enterprise</span></h1>
 					<div class="icp-hero-business-value">
-						<strong>Stop Searching Reports and Start Finding Root Causes</strong>
-						<p>AI-powered conversational analytics platform that lets teams query enterprise data in plain English. Turn questions into SQL and get instant insights without searching through dashboards.</p>
-						<div class="icp-hero-business-signals"><span><svg><use href="#icp-i-chart"></use></svg><b>Explain KPI<br>Changes</b></span><span><svg><use href="#icp-i-brain"></use></svg><b>Find Business<br>Drivers</b></span><span><svg><use href="#icp-i-path"></use></svg><b>Prioritize<br>Actions</b></span></div>
+						<p>Turn enterprise data into trusted answers, deeper analysis, and decision-ready insights for business teams and leaders.</p>
 					</div>
 					<div class="icp-actions">
 						<a class="icp-button icp-button-primary" href="#icp-demo-form" data-icp-demo-trigger>Request a Demo <span aria-hidden="true">→</span></a>
-						<a class="icp-button icp-button-secondary" href="https://app.supademo.com/demo/cmrpbnvrk00aozw0jd3ao0z6v?utm_source=link" target="_blank" rel="noopener noreferrer"><span class="icp-play-dot">▶</span> Watch Product Tour</a>
+						<a class="icp-button icp-button-secondary" href="https://app.supademo.com/demo/cmrpbnvrk00aozw0jd3ao0z6v?utm_source=link" target="_blank" rel="noopener noreferrer"><span class="icp-play-dot">▶</span> Explore Conversa</a>
 					</div>
+					<div class="icp-hero-business-signals"><span><svg><use href="#icp-i-chat"></use></svg><b>Trusted<br>Answers</b></span><span><svg><use href="#icp-i-chart"></use></svg><b>Deeper<br>Analysis</b></span><span><svg><use href="#icp-i-path"></use></svg><b>Actionable<br>Insights</b></span><span><svg><use href="#icp-i-shield"></use></svg><b>Enterprise-<br>Grade Security</b></span></div>
 				</div>
 
 				<div class="icp-hero-slider" data-icp-hero-slider aria-label="INFOFISCUS Conversa product preview carousel">
-					<figure class="icp-hero-slide is-active"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/conversa-home.webp' ); ?>" width="1556" height="1011" fetchpriority="high" loading="eager" decoding="async" alt="INFOFISCUS Conversa home dashboard"></figure>
-					<figure class="icp-hero-slide"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/conversa-storybooks.webp' ); ?>" width="1604" height="980" loading="lazy" decoding="async" alt="INFOFISCUS Conversa storybooks dashboard"></figure>
-					<figure class="icp-hero-slide"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/conversa-connections.webp' ); ?>" width="1558" height="1010" loading="lazy" decoding="async" alt="INFOFISCUS Conversa connections dashboard"></figure>
+					<figure class="icp-hero-slide is-active"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/conversa-executive-insights.png' ); ?>" width="1672" height="941" fetchpriority="high" loading="eager" decoding="async" alt="INFOFISCUS Conversa executive revenue insights dashboard"></figure>
+					<figure class="icp-hero-slide"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/conversa-apac-revenue-v2.png' ); ?>" width="1672" height="941" loading="lazy" decoding="async" alt="INFOFISCUS Conversa APAC revenue decline dashboard"></figure>
 				</div>
 
 				<div class="icp-dashboard icp-dashboard-legacy" aria-hidden="true">
@@ -260,9 +258,9 @@ $other_products = array(
 	<section class="icp-intro" id="icp-intro" aria-labelledby="icp-intro-title">
 		<div class="icp-shell icp-intro-grid">
 			<div class="icp-intro-showcase-head">
-				<p class="icp-kicker">Enterprise AI. Trusted Insights.</p>
-				<h2 id="icp-intro-title">Meet INFOFISCUS Conversa™: A Conversational Analytics Platform</h2>
-				<p>Conversa is an <strong>enterprise conversational analytics platform</strong> that helps teams <strong>chat with their data</strong> and uncover <strong>AI-powered insights</strong>. Its <strong>no-code decision intelligence capabilities</strong> accelerate <strong>AI-driven decision making</strong> using natural language analytics.</p>
+				<p class="icp-kicker">Stop Searching Reports. Start Investigating What Matters.</p>
+				<h2 id="icp-intro-title">Meet INFOFISCUS Conversa™: An Enterprise Decision Intelligence Platform</h2>
+				<p>Conversa is an <strong>enterprise decision intelligence platform</strong> that helps teams investigate complex business questions, uncover key drivers, and turn governed enterprise data into trusted, decision-ready insights. Its cross-platform intelligence and analytical reasoning capabilities help organizations move from understanding what happened to why it happened—and make better, faster business decisions.</p>
 			</div>
 			<div class="icp-intro-video-frame icp-architecture-frame">
 				<div class="icp-intro-video-bar"><span><i></i><i></i><i></i></span><strong>Business Decision Journey</strong><small>From question to action</small></div>
@@ -288,7 +286,8 @@ $other_products = array(
 					</div>
 				</div>
 			</div>
-			<div class="icp-intro-value-row"><article><span><svg><use href="#icp-i-chat"></use></svg></span><div><strong>Natural Language</strong><small>Transform business questions into optimized SQL with semantic intelligence and AI-powered natural language.</small></div></article><article><span><svg><use href="#icp-i-trust"></use></svg></span><div><strong>Semantic Intelligence</strong><small>A domain-aware semantic layer delivers root causes, key drivers, KPIs, and visualizations from live data.</small></div></article><article><span><svg><use href="#icp-i-trend"></use></svg></span><div><strong>Decision Intelligence</strong><small>A conversational BI and decision intelligence platform delivers instant, AI-powered business insights from enterprise data.</small></div></article></div>
+			<div class="icp-intro-value-row"><article><span><svg><use href="#icp-i-chat"></use></svg></span><div><strong>Ask Naturally</strong><small>Turn complex business questions into guided investigations using natural language and business context.</small></div></article><article><span><svg><use href="#icp-i-trust"></use></svg></span><div><strong>Understand Context</strong><small>Apply governed semantics and business definitions to connect enterprise data with the meaning behind the numbers.</small></div></article><article><span><svg><use href="#icp-i-trend"></use></svg></span><div><strong>Make Decisions</strong><small>Move from what happened to why it happened, uncover drivers and risks, and turn analysis into trusted business decisions.</small></div></article></div>
+			<div class="icp-intro-action"><a class="icp-button icp-button-primary" href="https://app.supademo.com/demo/cmrpbnvrk00aozw0jd3ao0z6v?utm_source=link" target="_blank" rel="noopener noreferrer">See Conversa in Action <span aria-hidden="true">→</span></a></div>
 		</div>
 	</section>
 
@@ -312,7 +311,7 @@ $other_products = array(
 	<section class="icp-capabilities" id="icp-capabilities" aria-labelledby="icp-capabilities-title">
 		<div class="icp-shell">
 			<div class="icp-section-heading icp-center">
-				<h2 id="icp-capabilities-title">INFOFISCUS Conversa Conversational Analytics Platform Capabilities</h2>
+				<h2 id="icp-capabilities-title">INFOFISCUS Conversa Enterprise Decision Intelligence Capabilities</h2>
 				<p>AI-Powered Conversational analytics built for trusted, secure, and faster decisions.</p>
 			</div>
 			<div class="icp-capability-carousel" aria-label="Platform capabilities carousel">
@@ -335,7 +334,8 @@ $other_products = array(
 
 	<section class="icp-workflow" id="icp-workflow" aria-labelledby="icp-workflow-title">
 		<div class="icp-shell">
-			<h2 id="icp-workflow-title">How Enterprise Conversational Analytics Works</h2>
+			<h2 id="icp-workflow-title">How Enterprise Decision Intelligence Works</h2>
+			<p class="icp-workflow-subtitle">From Business Question to Trusted Decision</p>
 			<div class="icp-workflow-row">
 				<?php foreach ( $steps as $step ) : ?>
 					<article>
@@ -352,17 +352,17 @@ $other_products = array(
 		<div class="icp-shell">
 			<div class="icp-journey-heading">
 				<span>Enterprise transformation</span>
-				<h2 id="icp-outcome-journey-title">The shift Conversa creates.</h2>
-				<p>See how everyday analytics changes when trusted intelligence becomes accessible to every team.</p>
+				<h2 id="icp-outcome-journey-title">The Shift Conversa Creates</h2>
+				<p>See what changes when trusted decision intelligence becomes accessible across the enterprise.</p>
 			</div>
 			<div class="icp-shift-board">
 				<div class="icp-shift-labels"><span>Before Conversa</span><span>Transformation</span><span>With Conversa</span></div>
-				<div class="icp-shift-row"><article class="icp-shift-problem"><span><svg><use href="#icp-i-monitor"></use></svg></span><div><small>Before Conversa</small><h3>Data Silos</h3><p>Information stays fragmented across systems and teams.</p></div></article><div class="icp-shift-flow" aria-hidden="true"><i></i><b>→</b></div><article class="icp-shift-result"><span><svg><use href="#icp-i-chat"></use></svg></span><div><small>With Conversa</small><h3>Unified Enterprise Intelligence</h3><p>Access trusted insights across connected enterprise data.</p></div></article></div>
-				<div class="icp-shift-row"><article class="icp-shift-problem"><span><svg><use href="#icp-i-path"></use></svg></span><div><small>Before Conversa</small><h3>Reactive Reporting</h3><p>Teams wait for reports after problems occur.</p></div></article><div class="icp-shift-flow" aria-hidden="true"><i></i><b>→</b></div><article class="icp-shift-result"><span><svg><use href="#icp-i-eye"></use></svg></span><div><small>With Conversa</small><h3>Proactive Intelligence</h3><p>Detect trends, risks, and opportunities before impact.</p></div></article></div>
-				<div class="icp-shift-row"><article class="icp-shift-problem"><span><svg><use href="#icp-i-database"></use></svg></span><div><small>Before Conversa</small><h3>Knowledge Bottlenecks</h3><p>Business knowledge stays trapped with specialists.</p></div></article><div class="icp-shift-flow" aria-hidden="true"><i></i><b>→</b></div><article class="icp-shift-result"><span><svg><use href="#icp-i-users"></use></svg></span><div><small>With Conversa</small><h3>Self-Service Analytics</h3><p>Everyone can explore trusted enterprise insights.</p></div></article></div>
-				<div class="icp-shift-row"><article class="icp-shift-problem"><span><svg><use href="#icp-i-gauge"></use></svg></span><div><small>Before Conversa</small><h3>Disconnected Decisions</h3><p>Teams rely on inconsistent reports and assumptions.</p></div></article><div class="icp-shift-flow" aria-hidden="true"><i></i><b>→</b></div><article class="icp-shift-result"><span><svg><use href="#icp-i-trust"></use></svg></span><div><small>With Conversa</small><h3>Business Alignment</h3><p>Shared metrics create organization-wide consistency.</p></div></article></div>
+				<div class="icp-shift-row"><article class="icp-shift-problem"><span><svg><use href="#icp-i-monitor"></use></svg></span><div><small>Before Conversa</small><h3>Fragmented Data</h3><p>Business questions require information from multiple systems and teams.</p></div></article><div class="icp-shift-flow" aria-hidden="true"><i></i><b>→</b></div><article class="icp-shift-result"><span><svg><use href="#icp-i-chat"></use></svg></span><div><small>With Conversa</small><h3>Cross-Enterprise Intelligence</h3><p>Investigate questions across connected enterprise data and business domains.</p></div></article></div>
+				<div class="icp-shift-row"><article class="icp-shift-problem"><span><svg><use href="#icp-i-path"></use></svg></span><div><small>Before Conversa</small><h3>Reactive Reporting</h3><p>Teams wait for reports or analyst support when something changes.</p></div></article><div class="icp-shift-flow" aria-hidden="true"><i></i><b>→</b></div><article class="icp-shift-result"><span><svg><use href="#icp-i-eye"></use></svg></span><div><small>With Conversa</small><h3>Faster Investigation</h3><p>Teams can investigate changes, drivers, and risks closer to the moment decisions are required.</p></div></article></div>
+				<div class="icp-shift-row"><article class="icp-shift-problem"><span><svg><use href="#icp-i-database"></use></svg></span><div><small>Before Conversa</small><h3>Knowledge Bottlenecks</h3><p>Business context and analytical expertise remain concentrated with specialists.</p></div></article><div class="icp-shift-flow" aria-hidden="true"><i></i><b>→</b></div><article class="icp-shift-result"><span><svg><use href="#icp-i-users"></use></svg></span><div><small>With Conversa</small><h3>Accessible Intelligence</h3><p>Business teams can explore governed insights while analysts focus on higher-value analytical work.</p></div></article></div>
+				<div class="icp-shift-row"><article class="icp-shift-problem"><span><svg><use href="#icp-i-gauge"></use></svg></span><div><small>Before Conversa</small><h3>Disconnected Decisions</h3><p>Different teams work from different reports, definitions, and interpretations.</p></div></article><div class="icp-shift-flow" aria-hidden="true"><i></i><b>→</b></div><article class="icp-shift-result"><span><svg><use href="#icp-i-trust"></use></svg></span><div><small>With Conversa</small><h3>Trusted Business Context</h3><p>Governed semantics and shared business definitions support consistent decision-making.</p></div></article></div>
 			</div>
-			<div class="icp-journey-action"><a class="icp-button icp-button-primary" href="#icp-demo-form" data-icp-demo-trigger>Try Conversa <span aria-hidden="true">→</span></a></div>
+			<div class="icp-journey-action"><a class="icp-button icp-button-primary" href="#icp-demo-form" data-icp-demo-trigger>Start a Conversa Value Sprint <span aria-hidden="true">→</span></a></div>
 		</div>
 	</section>
 
@@ -443,7 +443,7 @@ $other_products = array(
 		<div class="icp-shell">
 			<div class="icp-section-heading icp-center">
 				<span class="icp-persona-eyebrow">Built for Every Role</span>
-				<h2 id="icp-personas-title">Empowering Every Team with Trusted Analytics</h2>
+				<h2 id="icp-personas-title">Built for Every Decision-Maker</h2>
 				<p>Role-ready insights, governed answers, and faster decisions across your enterprise.</p>
 			</div>
 			<div class="icp-card-grid icp-persona-grid">
@@ -504,15 +504,15 @@ $other_products = array(
 	<section class="icp-demo-form-section" id="icp-demo-form" aria-labelledby="icp-demo-form-title">
 		<div class="icp-shell">
 			<div class="icp-section-heading icp-center">
-				<h2 id="icp-demo-form-title">Experience INFOFISCUS Conversa.</h2>
-				<p><strong>Turn every business question into a confident decision.</strong></p>
-				<p>Book a personalized demo and see governed conversational analytics working with your enterprise data.</p>
+				<h2 id="icp-demo-form-title">Experience INFOFISCUS Conversa</h2>
+				<p><strong>Turn complex business questions into trusted, decision-ready insights.</strong></p>
+				<p>Book a personalized demo and see how Conversa investigates questions, uncovers key drivers, and helps your teams make confident decisions across enterprise data.</p>
 			</div>
 			<div class="icp-demo-form-grid">
 				<div class="icp-demo-visual">
 					<div class="icp-demo-card">
 						<span>See How We Can Work for You</span>
-						<button class="icp-demo-schedule-trigger" type="button" data-icp-demo-trigger>Schedule Your Demo</button>
+						<button class="icp-demo-schedule-trigger" type="button" data-icp-demo-trigger>Book a Demo →</button>
 						<div class="icp-demo-calendar" data-icp-demo-calendar>
 							<div class="icp-demo-calendar-head">
 								<button class="icp-demo-calendar-nav" type="button" data-icp-calendar-prev aria-label="Previous month">&lt;</button>

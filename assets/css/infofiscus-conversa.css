@@ -6955,6 +6955,136 @@ body .infometry-conversa-product .icp-footer-bottom p {
   }
 }
 
+/* Reference-aligned Conversa hero messaging and benefit rail. */
+body .infometry-conversa-product .icp-hero-copy .icp-eyebrow {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  margin: 0 0 18px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  color: #c8d8ff !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  letter-spacing: .11em !important;
+  text-transform: none !important;
+}
+
+body .infometry-conversa-product .icp-hero-copy .icp-eyebrow::before {
+  content: "";
+  width: 30px;
+  height: 2px;
+  flex: 0 0 30px;
+  background: linear-gradient(90deg, #19c5f5, #655cff);
+}
+
+body .infometry-conversa-product .icp-hero-copy h1 {
+  max-width: 620px !important;
+  font-size: clamp(44px, 3.5vw, 56px) !important;
+  line-height: 1.05 !important;
+  letter-spacing: -.045em !important;
+}
+
+body .infometry-conversa-product .icp-hero-copy h1 span {
+  white-space: nowrap !important;
+}
+
+body .infometry-conversa-product .icp-hero-copy h1 span {
+  color: #4b68ff !important;
+  background: linear-gradient(90deg, #27a9ff 0%, #6958ff 82%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+body .infometry-conversa-product .icp-hero-business-value {
+  max-width: 585px !important;
+  margin-top: 20px !important;
+  padding: 0 !important;
+  border: 0 !important;
+}
+
+body .infometry-conversa-product .icp-hero-business-value > p {
+  margin: 0 !important;
+  color: #c8d4eb !important;
+  font-size: clamp(14px, 1.05vw, 16px) !important;
+  font-weight: 500 !important;
+  line-height: 1.55 !important;
+}
+
+body .infometry-conversa-product .icp-hero .icp-actions {
+  margin-top: 24px !important;
+}
+
+body .infometry-conversa-product .icp-hero-business-signals {
+  display: grid !important;
+  max-width: 620px !important;
+  margin-top: 30px !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 0 !important;
+}
+
+body .infometry-conversa-product .icp-hero-business-signals span,
+body .infometry-conversa-product .icp-hero-business-signals span:first-child {
+  min-height: 62px !important;
+  padding: 0 14px !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  flex-direction: row !important;
+  gap: 9px !important;
+  border-left: 1px solid rgba(119, 159, 224, .22) !important;
+  font-size: 10px !important;
+  white-space: normal !important;
+}
+
+body .infometry-conversa-product .icp-hero-business-signals span:first-child {
+  padding-left: 0 !important;
+  border-left: 0 !important;
+}
+
+body .infometry-conversa-product .icp-hero-business-signals span svg {
+  width: 24px !important;
+  height: 24px !important;
+  flex: 0 0 24px !important;
+  margin-top: 2px !important;
+}
+
+body .infometry-conversa-product .icp-hero-business-signals span b {
+  min-height: 0 !important;
+  color: #dce8fa !important;
+  font-size: 10px !important;
+  font-weight: 650 !important;
+  line-height: 1.35 !important;
+}
+
+@media (min-width: 1350px) and (max-resolution: 1.1dppx) {
+  body .infometry-conversa-product .icp-hero-copy h1 {
+    max-width: 660px !important;
+    font-size: clamp(54px, 3.4vw, 64px) !important;
+  }
+}
+
+@media (max-width: 700px) {
+  body .infometry-conversa-product .icp-hero-copy h1 {
+    font-size: clamp(34px, 10vw, 46px) !important;
+  }
+
+  body .infometry-conversa-product .icp-hero-business-signals {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    row-gap: 16px !important;
+  }
+
+  body .infometry-conversa-product .icp-hero-business-signals span,
+  body .infometry-conversa-product .icp-hero-business-signals span:first-child {
+    min-height: 46px !important;
+    padding: 0 10px !important;
+    border-left: 0 !important;
+  }
+}
+
 /*
  * Desktop browser zoom (150%+): retain the approved five-card persona row.
  * Pointer/hover guards keep the real touch-mobile layout unchanged.
@@ -10194,6 +10324,11 @@ body .infometry-conversa-product .icp-architecture-flow b {
   }
 }
 
+/* Remove the animated pointer dot from the workflow connector. */
+body .infometry-conversa-product .icp-workflow-row::after {
+  display: none !important;
+}
+
 /* Preserve the joined card design; only round every card's corners. */
 body .infometry-conversa-product .icp-problem .icp-four {
   gap: 0 !important;
@@ -11861,11 +11996,13 @@ body .infometry-conversa-product .icp-demo-form [data-icp-demo-time] {
   letter-spacing: -0.01em !important;
 }
 
-/* Keep every workflow step on a consistent single line at desktop scaling. */
+/* Keep each workflow step readable inside its own column at desktop scaling. */
 @media (min-width: 1280px) {
   body .infometry-conversa-product .icp-workflow-row h3,
   body .infometry-conversa-product .icp-workflow-row p {
-    white-space: nowrap !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
   }
 
   body .infometry-conversa-product .icp-workflow-row h3 {
@@ -13807,7 +13944,7 @@ body .infometry-conversa-product .icp-persona-action .icp-button {
 
   body .infometry-conversa-product .icp-hero-copy h1 {
     max-width: 100% !important;
-    font-size: clamp(40px, 3.6vw, 46px) !important;
+    font-size: clamp(38px, 3.35vw, 44px) !important;
     line-height: 1.08 !important;
     white-space: nowrap !important;
   }
@@ -13898,7 +14035,7 @@ body .infometry-conversa-product .icp-hero-slider {
   min-height: 0 !important;
   max-height: none !important;
   padding: 0 !important;
-  aspect-ratio: 1556 / 1011 !important;
+  aspect-ratio: 1672 / 941 !important;
   justify-self: center !important;
 }
 
@@ -13957,7 +14094,7 @@ body .infometry-conversa-product .icp-hero-slide img {
 
   body .infometry-conversa-product .icp-hero-copy h1 {
     max-width: 590px !important;
-    font-size: clamp(64px, 4.35vw, 72px) !important;
+    font-size: clamp(48px, 3.5vw, 56px) !important;
     line-height: 1.045 !important;
   }
 
@@ -14034,7 +14171,7 @@ body .infometry-conversa-product .icp-hero-slide img {
 
   body .infometry-conversa-product .icp-hero-copy h1 {
     max-width: 660px !important;
-    font-size: clamp(72px, 4.35vw, 82px) !important;
+    font-size: clamp(54px, 3.4vw, 64px) !important;
     line-height: 1.04 !important;
   }
 
@@ -14104,7 +14241,7 @@ body .infometry-conversa-product .icp-hero-slide img {
 
   body .infometry-conversa-product .icp-hero-copy h1 {
     max-width: 100% !important;
-    font-size: clamp(42px, 4.4vw, 56px) !important;
+    font-size: clamp(40px, 3.9vw, 50px) !important;
     line-height: 1.05 !important;
   }
 
@@ -14123,7 +14260,7 @@ body .infometry-conversa-product .icp-hero-slide img {
   }
 
   body .infometry-conversa-product .icp-hero-copy h1 {
-    font-size: clamp(40px, 4vw, 50px) !important;
+    font-size: clamp(38px, 3.7vw, 46px) !important;
   }
 
   body .infometry-conversa-product .icp-hero-business-value {
@@ -14157,7 +14294,7 @@ body .infometry-conversa-product .icp-hero-slide img {
     height: auto !important;
     min-height: 0 !important;
     max-height: none !important;
-    aspect-ratio: 1556 / 1011 !important;
+    aspect-ratio: 1672 / 941 !important;
   }
 
   body .infometry-conversa-product .icp-demo-form-grid {
@@ -14189,7 +14326,7 @@ body .infometry-conversa-product .icp-hero-slide img {
   }
 
   body .infometry-conversa-product .icp-hero-copy h1 {
-    font-size: clamp(38px, 11vw, 54px) !important;
+    font-size: clamp(34px, 10vw, 46px) !important;
     line-height: 1.05 !important;
     white-space: normal !important;
   }
@@ -14264,5 +14401,611 @@ body .infometry-conversa-product .icp-footer-logo img {
   body .infometry-conversa-product .icp-footer-grid {
     grid-template-columns: minmax(0, 1fr) !important;
     gap: 30px !important;
+  }
+}
+
+/* Final reference scale: preserve the three intentional hero lines. */
+body .infometry-conversa-product .icp-hero-copy > p.icp-eyebrow {
+  display: inline-flex !important;
+  width: fit-content !important;
+  max-width: 100% !important;
+  min-height: 0 !important;
+  margin: 0 0 32px !important;
+  padding: 10px 18px !important;
+  align-self: flex-start !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0 !important;
+  border: 1px solid #7770ff !important;
+  border-radius: 999px !important;
+  color: #f3f5ff !important;
+  background: rgba(70, 57, 186, .16) !important;
+  box-shadow: none !important;
+  font-size: clamp(11px, .9vw, 12px) !important;
+  font-weight: 850 !important;
+  line-height: 1.2 !important;
+  letter-spacing: .025em !important;
+  text-transform: uppercase !important;
+  white-space: nowrap !important;
+}
+
+body .infometry-conversa-product .icp-hero-copy > p.icp-eyebrow::before {
+  display: none !important;
+  content: none !important;
+}
+
+body .infometry-conversa-product #icp-hero-title {
+  max-width: 100% !important;
+  font-size: clamp(52px, 3.8vw, 58px) !important;
+  line-height: 1.05 !important;
+}
+
+body .infometry-conversa-product #icp-hero-title span {
+  white-space: nowrap !important;
+}
+
+@media (min-width: 701px) {
+  body .infometry-conversa-product section.icp-hero > .icp-shell > .icp-hero-grid {
+    padding-top: clamp(108px, 7.5vw, 124px) !important;
+  }
+
+  body .infometry-conversa-product .icp-hero-business-value {
+    margin-top: 28px !important;
+    padding-left: 0 !important;
+    border-left: 0 !important;
+  }
+
+  body .infometry-conversa-product .icp-hero .icp-actions {
+    margin-top: 28px !important;
+  }
+
+  body .infometry-conversa-product .icp-hero-business-signals {
+    min-height: 118px !important;
+    margin-top: 32px !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    align-items: stretch !important;
+  }
+
+  body .infometry-conversa-product .icp-hero-business-signals span,
+  body .infometry-conversa-product .icp-hero-business-signals span:first-child {
+    min-height: 118px !important;
+    padding: 14px 14px 16px !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    border-left: 1px solid rgba(112, 176, 238, .24) !important;
+  }
+
+  body .infometry-conversa-product .icp-hero-business-signals span:first-child {
+    padding-left: 18px !important;
+    border-left: 4px solid #27c7f4 !important;
+  }
+
+  body .infometry-conversa-product .icp-hero-business-signals span svg {
+    width: 31px !important;
+    height: 31px !important;
+    flex: 0 0 31px !important;
+    margin: 0 !important;
+  }
+
+  body .infometry-conversa-product .icp-hero-business-signals span b {
+    min-height: 0 !important;
+    font-size: 12px !important;
+    font-weight: 750 !important;
+    line-height: 1.32 !important;
+  }
+}
+
+body .infometry-conversa-product .icp-hero-copy > .icp-eyebrow,
+body .infometry-conversa-product .icp-hero-copy > #icp-hero-title,
+body .infometry-conversa-product .icp-hero-copy > .icp-hero-business-value,
+body .infometry-conversa-product .icp-hero-copy > .icp-actions,
+body .infometry-conversa-product .icp-hero-copy > .icp-hero-business-signals {
+  margin-left: 0 !important;
+}
+
+@media (max-width: 700px) {
+  body .infometry-conversa-product #icp-hero-title {
+    font-size: clamp(34px, 10vw, 44px) !important;
+  }
+
+  body .infometry-conversa-product .icp-hero-business-signals {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 0 !important;
+  }
+
+  body .infometry-conversa-product .icp-hero-business-signals span,
+  body .infometry-conversa-product .icp-hero-business-signals span:first-child {
+    min-height: 88px !important;
+    padding: 12px !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    border-left: 1px solid rgba(112, 176, 238, .24) !important;
+  }
+}
+
+/* Close the visual dead space between the hero copy and dashboard artwork. */
+@media (min-width: 1101px) {
+  body .infometry-conversa-product .icp-hero .icp-hero-grid {
+    gap: clamp(12px, 1.4vw, 22px) !important;
+  }
+
+  body .infometry-conversa-product .icp-hero-slider {
+    justify-self: start !important;
+  }
+}
+
+/* Keep the headline visually balanced beside the dashboard on scaled laptops. */
+@media (min-width: 1101px) and (min-resolution: 1.4dppx) {
+  body .infometry-conversa-product .icp-hero-copy {
+    max-width: 560px !important;
+  }
+
+  body .infometry-conversa-product .icp-hero-copy h1 {
+    max-width: 560px !important;
+    font-size: clamp(44px, 4vw, 52px) !important;
+  }
+}
+
+/* Match the strong display weight used by the reference decision heading. */
+body .infometry-conversa-product #icp-hero-title {
+  font-weight: 850 !important;
+  letter-spacing: -.04em !important;
+}
+
+/* Keep the first benefit accent from extending below its icon and label. */
+@media (min-width: 701px) {
+  body .infometry-conversa-product .icp-hero-business-signals span:first-child {
+    padding-left: 14px !important;
+    border-left: 0 !important;
+  }
+}
+
+/* Let the dashboard read as the hero's featured visual on large desktops. */
+@media (min-width: 1350px) and (max-resolution: 1.1dppx) {
+  body .infometry-conversa-product > .icp-hero > .icp-shell {
+    width: min(calc(100% - clamp(64px, 5vw, 100px)), 1820px) !important;
+    max-width: 1820px !important;
+  }
+
+  body .infometry-conversa-product .icp-hero .icp-hero-grid {
+    grid-template-columns: minmax(570px, .74fr) minmax(0, 1.58fr) !important;
+    gap: clamp(26px, 1.7vw, 34px) !important;
+  }
+
+  body .infometry-conversa-product .icp-hero-slider {
+    width: 100% !important;
+    max-width: 1240px !important;
+    justify-self: start !important;
+  }
+}
+
+/* Keep the featured dashboard inside its grid track so the right edge never clips. */
+@media (min-width: 1101px) {
+  body .infometry-conversa-product .icp-hero-slider {
+    width: 100% !important;
+    max-width: 1200px !important;
+    justify-self: start !important;
+  }
+}
+
+/*
+ * Canonical responsive scale.
+ * Keep the hero and the following content on the same viewport-based rhythm;
+ * browser zoom / Windows display scaling must not select a different layout.
+ */
+@media (min-width: 1101px) {
+  body .infometry-conversa-product > .icp-hero > .icp-shell {
+    width: min(calc(100% - 48px), 1600px) !important;
+    max-width: 1600px !important;
+    margin-inline: auto !important;
+  }
+
+  body .infometry-conversa-product .icp-hero .icp-hero-grid {
+    min-height: clamp(690px, 47vw, 880px) !important;
+    height: auto !important;
+    padding: clamp(108px, 7.5vw, 124px) 0 clamp(48px, 4vw, 76px) !important;
+    grid-template-columns: minmax(400px, .78fr) minmax(0, 1.6fr) !important;
+    gap: clamp(22px, 1.8vw, 34px) !important;
+    align-items: start !important;
+  }
+
+  body .infometry-conversa-product .icp-hero-copy {
+    width: 100% !important;
+    max-width: 590px !important;
+    min-width: 0 !important;
+    margin-top: 0 !important;
+    padding-left: 12px !important;
+    justify-self: center !important;
+  }
+
+  body .infometry-conversa-product #icp-hero-title,
+  body .infometry-conversa-product .icp-hero-copy h1 {
+    width: 100% !important;
+    max-width: 590px !important;
+    font-size: clamp(58px, 3.4vw, 64px) !important;
+    line-height: 1.05 !important;
+  }
+
+  body .infometry-conversa-product .icp-hero-slider {
+    width: 100% !important;
+    max-width: 1200px !important;
+    min-width: 0 !important;
+    margin-top: 0 !important;
+    justify-self: stretch !important;
+  }
+}
+
+@media (min-width: 1101px) and (max-width: 1320px) {
+  body .infometry-conversa-product .icp-hero .icp-hero-grid {
+    grid-template-columns: minmax(400px, .78fr) minmax(0, 1.22fr) !important;
+  }
+
+  body .infometry-conversa-product #icp-hero-title,
+  body .infometry-conversa-product .icp-hero-copy h1 {
+    font-size: clamp(50px, 4vw, 54px) !important;
+  }
+
+  body .infometry-conversa-product .icp-intro .icp-intro-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-template-rows: auto !important;
+    gap: 36px !important;
+  }
+
+  body .infometry-conversa-product .icp-intro-showcase-head {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    width: min(100%, 900px) !important;
+    max-width: 900px !important;
+    margin-inline: auto !important;
+  }
+
+  body .infometry-conversa-product .icp-intro-video-frame {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+    width: min(100%, 900px) !important;
+    max-width: 900px !important;
+    margin-inline: auto !important;
+  }
+
+  body .infometry-conversa-product .icp-intro-value-row {
+    grid-column: 1 !important;
+    grid-row: 3 !important;
+    width: min(100%, 900px) !important;
+    max-width: 900px !important;
+    margin-inline: auto !important;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 1320px) {
+  body .infometry-conversa-product > .icp-hero-strip > .icp-shell,
+  body .infometry-conversa-product .icp-intro > .icp-intro-grid {
+    width: calc(100% - clamp(32px, 4vw, 48px)) !important;
+    max-width: 100% !important;
+    margin-inline: auto !important;
+  }
+
+  body .infometry-conversa-product .icp-strip-stats,
+  body .infometry-conversa-product .icp-intro .icp-intro-grid,
+  body .infometry-conversa-product .icp-intro-showcase-head,
+  body .infometry-conversa-product .icp-intro-video-frame,
+  body .infometry-conversa-product .icp-intro-value-row {
+    min-width: 0 !important;
+  }
+}
+
+/* Final typography sizes approved for the Conversa hero and introduction. */
+body .infometry-conversa-product .icp-hero-business-value > p {
+  font-size: 17px !important;
+}
+
+@media (min-width: 701px) {
+  body .infometry-conversa-product .icp-intro-showcase-head h2 {
+    font-size: 48px !important;
+  }
+}
+
+/* Keep the hero benefits clean and prevent the hyphenated label splitting. */
+body .infometry-conversa-product .icp-hero-business-signals span,
+body .infometry-conversa-product .icp-hero-business-signals span:first-child {
+  border-left: 0 !important;
+  border-right: 0 !important;
+}
+
+body .infometry-conversa-product .icp-hero-business-signals span:nth-child(4) {
+  padding-inline: 8px !important;
+}
+
+body .infometry-conversa-product .icp-hero-business-signals span:nth-child(4) b {
+  white-space: nowrap !important;
+}
+
+/* Introduction CTA follows the story cards in every responsive layout. */
+body .infometry-conversa-product .icp-intro-action {
+  display: flex !important;
+  width: 100% !important;
+  max-width: 650px !important;
+  margin-top: -14px !important;
+  grid-column: 2 !important;
+  grid-row: 3 !important;
+  justify-content: flex-start !important;
+}
+
+body .infometry-conversa-product .icp-intro-action .icp-button {
+  min-height: 52px !important;
+  padding: 14px 24px !important;
+  border-radius: 8px !important;
+  font-size: 15px !important;
+  font-weight: 800 !important;
+}
+
+@media (max-width: 1320px) {
+  body .infometry-conversa-product .icp-intro-action {
+    width: min(100%, 900px) !important;
+    max-width: 900px !important;
+    margin: -12px auto 0 !important;
+    grid-column: 1 !important;
+    grid-row: 4 !important;
+  }
+}
+
+@media (max-width: 700px) {
+  body .infometry-conversa-product .icp-intro-action {
+    margin-top: -8px !important;
+  }
+
+  body .infometry-conversa-product .icp-intro-action .icp-button {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+}
+
+/* Roomier capability cards keep every content zone aligned and unbroken. */
+body .infometry-conversa-product .icp-capabilities .icp-feature-card,
+body .infometry-conversa-product .icp-capability-carousel.is-hand-slider .icp-feature-card {
+  flex: 0 0 clamp(310px, 22vw, 350px) !important;
+  width: clamp(310px, 22vw, 350px) !important;
+  min-height: 550px !important;
+  height: 550px !important;
+  padding: 26px 22px 22px !important;
+}
+
+body .infometry-conversa-product .icp-capabilities .icp-feature-card h3 {
+  min-height: 52px !important;
+  margin-bottom: 10px !important;
+  font-size: 16px !important;
+}
+
+body .infometry-conversa-product .icp-capabilities .icp-feature-card > p {
+  height: 165px !important;
+  min-height: 165px !important;
+  margin-bottom: 12px !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+}
+
+body .infometry-conversa-product .icp-capabilities .icp-feature-benefits {
+  min-height: 92px !important;
+  margin-bottom: 8px !important;
+  grid-template-rows: repeat(2, minmax(40px, auto)) !important;
+  gap: 7px !important;
+}
+
+body .infometry-conversa-product .icp-capabilities .icp-feature-benefits li {
+  min-height: 40px !important;
+  padding: 7px 9px 7px 34px !important;
+  font-size: 12px !important;
+  line-height: 1.25 !important;
+}
+
+body .infometry-conversa-product .icp-capabilities .icp-feature-tags,
+body .infometry-conversa-product .icp-capabilities .icp-feature-tags span {
+  min-height: 34px !important;
+}
+
+body .infometry-conversa-product .icp-capabilities .icp-feature-tags {
+  margin-top: 8px !important;
+}
+
+body .infometry-conversa-product .icp-capabilities .icp-feature-tags span {
+  padding: 6px 8px !important;
+  font-size: 11.5px !important;
+}
+
+@media (max-width: 700px) {
+  body .infometry-conversa-product .icp-capabilities .icp-feature-card,
+  body .infometry-conversa-product .icp-capability-carousel.is-hand-slider .icp-feature-card {
+    flex-basis: min(86vw, 350px) !important;
+    width: min(86vw, 350px) !important;
+  }
+}
+
+/* Intro card copy must paint immediately; no staggered loading state. */
+body .infometry-conversa-product .icp-intro-value-row article,
+body .infometry-conversa-product .icp-intro-value-row article > span,
+body .infometry-conversa-product .icp-intro-value-row article > div,
+body .infometry-conversa-product .icp-intro-value-row article strong,
+body .infometry-conversa-product .icp-intro-value-row article small {
+  opacity: 1 !important;
+  visibility: visible !important;
+  animation: none !important;
+  animation-delay: 0s !important;
+  transform: none !important;
+}
+
+body .infometry-conversa-product .icp-intro-value-row article > div {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+body .infometry-conversa-product .icp-intro-value-row article::before,
+body .infometry-conversa-product .icp-intro-value-row article::after {
+  animation: none !important;
+  animation-delay: 0s !important;
+}
+
+/* Content-fit guardrails: preserve the approved design with the revised copy. */
+body .infometry-conversa-product .icp-workflow-subtitle {
+  margin: 10px auto 0 !important;
+  color: rgba(231, 243, 255, .9) !important;
+  font-size: 15px !important;
+  font-weight: 650 !important;
+  line-height: 1.55 !important;
+  text-align: center !important;
+}
+
+body .infometry-conversa-product .icp-workflow-row p {
+  font-size: 16px !important;
+}
+
+@media (min-width: 1101px) {
+  body .infometry-conversa-product .icp-workflow-row {
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    gap: 24px !important;
+  }
+
+  body .infometry-conversa-product .icp-workflow-row article {
+    min-width: 0 !important;
+  }
+
+  body .infometry-conversa-product .icp-workflow-row p {
+    width: 100% !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  body .infometry-conversa-product .icp-workflow-row::before {
+    left: 10% !important;
+    right: 10% !important;
+  }
+
+  body .infometry-conversa-product .icp-workflow-row::after {
+    left: 10% !important;
+  }
+
+  body .infometry-conversa-product .icp-personas .icp-persona-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  }
+}
+
+body .infometry-conversa-product .icp-workflow-row article:nth-child(5) {
+  --icp-step-a: #f0abfc;
+  --icp-step-b: #d946ef;
+  --icp-step-c: #a21caf;
+  --icp-step-glow: #d946ef;
+}
+
+body .infometry-conversa-product .icp-capabilities .icp-feature-card h3 {
+  min-height: 72px !important;
+}
+
+body .infometry-conversa-product .icp-capabilities .icp-feature-card > p {
+  height: 110px !important;
+  min-height: 110px !important;
+}
+
+body .infometry-conversa-product .icp-capabilities .icp-feature-benefits {
+  min-height: 118px !important;
+  grid-template-rows: repeat(3, minmax(36px, 1fr)) !important;
+  gap: 5px !important;
+}
+
+body .infometry-conversa-product .icp-capabilities .icp-feature-benefits li {
+  min-height: 36px !important;
+  padding-block: 5px !important;
+  font-size: 11px !important;
+}
+
+body .infometry-conversa-product .icp-capabilities .icp-feature-tags {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+}
+
+body .infometry-conversa-product .icp-capabilities .icp-feature-tags span {
+  padding-inline: 4px !important;
+  font-size: 10.5px !important;
+  line-height: 1.12 !important;
+  white-space: normal !important;
+  text-align: center !important;
+}
+
+@media (min-width: 701px) {
+  body .infometry-conversa-product .icp-personas .icp-persona-benefits {
+    min-height: 106px !important;
+    grid-template-rows: repeat(3, minmax(32px, 1fr)) !important;
+    gap: 5px !important;
+  }
+
+  body .infometry-conversa-product .icp-personas .icp-persona-benefits li {
+    min-height: 32px !important;
+  }
+
+  body .infometry-conversa-product .icp-personas .icp-persona-tags {
+    display: grid !important;
+    min-height: 32px !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    align-items: stretch !important;
+    gap: 6px !important;
+  }
+
+  body .infometry-conversa-product .icp-personas .icp-persona-tags span {
+    width: 100% !important;
+    min-width: 0 !important;
+    white-space: normal !important;
+    text-align: center !important;
+  }
+}
+
+/* Let longer capability copy expand naturally on narrow screens. */
+@media (max-width: 700px) {
+  body .infometry-conversa-product .icp-capabilities .icp-feature-card,
+  body .infometry-conversa-product .icp-capability-carousel.is-hand-slider .icp-feature-card {
+    height: auto !important;
+    min-height: 640px !important;
+  }
+
+  body .infometry-conversa-product .icp-capabilities .icp-feature-card > p {
+    height: auto !important;
+    min-height: 150px !important;
+    overflow: visible !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  body .infometry-conversa-product .icp-capabilities .icp-feature-benefits {
+    height: auto !important;
+    grid-template-rows: repeat(3, minmax(40px, auto)) !important;
+  }
+
+  body .infometry-conversa-product .icp-capabilities .icp-feature-benefits li,
+  body .infometry-conversa-product .icp-capabilities .icp-feature-tags span {
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+  }
+}
+
+/* Lock the five audience cards to matching content baselines on desktop. */
+@media (min-width: 1101px) {
+  body .infometry-conversa-product .icp-personas .icp-persona-card > p {
+    height: 126px !important;
+    min-height: 126px !important;
+  }
+
+  body .infometry-conversa-product .icp-personas .icp-persona-benefits {
+    height: 142px !important;
+    min-height: 142px !important;
+    grid-template-rows: repeat(3, minmax(44px, 1fr)) !important;
+  }
+
+  body .infometry-conversa-product .icp-personas .icp-persona-benefits li {
+    min-height: 44px !important;
+    height: 100% !important;
+  }
+
+  body .infometry-conversa-product .icp-personas .icp-persona-tags,
+  body .infometry-conversa-product .icp-personas .icp-persona-tags span {
+    min-height: 44px !important;
   }
 }
