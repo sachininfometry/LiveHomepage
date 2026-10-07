@@ -178,8 +178,9 @@ body.page-id-380881 .infometry-home-test {
   text-transform: uppercase;
   background: rgba(26,37,92,.55);
 }
-.infometry-home-test .infometry-hero #infometry-hero-title { margin-bottom: 20px; color: #fff; font-size: clamp(48px, 4.2vw, 70px); line-height: 1.11; font-weight: 800; letter-spacing: -.04em; }
-.infometry-home-test .infometry-hero #infometry-hero-title span { color: transparent; background: linear-gradient(90deg, #0b8cff 0%, #2868ff 46%, #9747ff 100%); -webkit-background-clip: text; background-clip: text; }
+.infometry-home-test .infometry-hero #infometry-hero-title { margin-bottom: 20px; color: #fff; font-size: clamp(40px, 3.25vw, 58px); line-height: 1.11; font-weight: 800; letter-spacing: -.045em; }
+.infometry-home-test .infometry-hero .infometry-hero-title-line { display: block; color: #fff; white-space: nowrap; }
+.infometry-home-test .infometry-hero .infometry-hero-title-accent { color: transparent; background: linear-gradient(90deg, #0b8cff 0%, #2868ff 46%, #9747ff 100%); -webkit-background-clip: text; background-clip: text; }
 .infometry-home-test .infometry-hero-copy > p { max-width: 490px; margin-bottom: 28px; color: rgba(255,255,255,.82); font-size: 17px; line-height: 1.75; }
 .infometry-home-test .infometry-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
 .infometry-home-test .infometry-button { display: inline-flex; min-height: 50px; padding: 13px 24px; align-items: center; justify-content: center; gap: 14px; border: 1px solid transparent; border-radius: 7px; font-size: 15px; font-weight: 700; transition: transform .2s ease, box-shadow .2s ease, background .2s ease; }
@@ -597,7 +598,7 @@ body.page-id-380881 .infometry-home-test {
   .infometry-home-test .infometry-hero { min-height: auto; padding: 78px 0 46px; }
   .infometry-home-test .infometry-hero-grid { gap: 24px; }
   .infometry-home-test .infometry-eyebrow { margin-bottom: 12px; padding-inline: 12px; font-size: 11px; letter-spacing: 0; }
-  .infometry-home-test .infometry-hero #infometry-hero-title { margin-bottom: 14px; font-size: clamp(36px, 11vw, 48px); letter-spacing: 0; }
+  .infometry-home-test .infometry-hero #infometry-hero-title { margin-bottom: 14px; font-size: clamp(28px, 8.9vw, 44px); letter-spacing: -.035em; }
   .infometry-home-test .infometry-hero-copy > p { margin-bottom: 18px; font-size: 14px; line-height: 1.55; }
   .infometry-home-test .infometry-actions { gap: 10px; flex-wrap: nowrap; }
   .infometry-home-test .infometry-actions .infometry-button { flex: 1 1 0; min-height: 46px; padding: 11px 12px; gap: 9px; }
