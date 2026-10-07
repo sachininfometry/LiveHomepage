@@ -178,7 +178,7 @@ body.page-id-380881 .infometry-home-test {
   text-transform: uppercase;
   background: rgba(26,37,92,.55);
 }
-.infometry-home-test .infometry-hero #infometry-hero-title { margin-bottom: 20px; color: #fff; font-size: clamp(58px, 3.25vw, 70px); line-height: 1.11; font-weight: 800; letter-spacing: -.045em; }
+.infometry-home-test .infometry-hero #infometry-hero-title { margin-bottom: 20px; color: #fff; font-size: clamp(58px, 3.25vw, 65px); line-height: 1.11; font-weight: 800; letter-spacing: -.045em; }
 .infometry-home-test .infometry-hero .infometry-hero-title-line { display: block; color: #fff; white-space: nowrap; }
 .infometry-home-test .infometry-hero .infometry-hero-title-accent { color: transparent; background: linear-gradient(90deg, #0b8cff 0%, #2868ff 46%, #9747ff 100%); -webkit-background-clip: text; background-clip: text; }
 .infometry-home-test .infometry-hero-copy > p { max-width: 490px; margin-bottom: 28px; color: rgba(255,255,255,.82); font-size: 17px; line-height: 1.75; }
