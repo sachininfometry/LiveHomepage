@@ -24,7 +24,7 @@
 .gcs-hero-path>span{padding:0 17px;gap:11px}
 .gcs-hero-path i{flex-basis:46px;width:46px;height:46px;border:1px solid rgba(126,218,255,.58);border-radius:50%;background:rgba(0,48,88,.35)}
 .gcs-hero-path svg{width:22px;height:22px}
-.gcs-hero-path b{display:block;min-height:32px;font-size:13px;line-height:1.2}.gcs-hero-path small{display:block;min-height:28px;font-size:11px;line-height:1.25}
+.gcs-hero-path b{display:block;min-height:32px;font-size:13px;line-height:1.2}.gcs-hero-path small{display:block;min-height:28px;font-size:11px;line-height:1.25}.gcs-hero-path b>span,.gcs-hero-path small>span{display:block;white-space:nowrap}
 
 /* Keep the actual BeTheme logo/menu visible, but remove its old page-title banner. */
 body.infometry-insurance-snowflake-page #Subheader,
