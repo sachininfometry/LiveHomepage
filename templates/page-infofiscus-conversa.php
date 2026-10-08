@@ -464,8 +464,8 @@ $other_products = array(
 	<section class="icp-comparison" id="icp-comparison" aria-labelledby="icp-comparison-title">
 		<div class="icp-shell">
 			<div class="icp-section-heading icp-center">
-				<h2 id="icp-comparison-title">INFOFISCUS Conversa vs Other Conversational Analytics Platforms</h2>
-				<p>See how enterprise conversational analytics compares across the capabilities teams ask for most.</p>
+				<h2 id="icp-comparison-title">INFOFISCUS Conversa vs Other Decision Intelligence Platforms</h2>
+				<p>Explore how Conversa approaches enterprise decision intelligence across trust, reasoning, cross-platform analysis, and business context.</p>
 			</div>
 			<div class="icp-comparison-table-wrap">
 				<table class="icp-comparison-table">
@@ -620,7 +620,7 @@ $other_products = array(
 			<span class="icp-rocket"><svg><use href="#icp-i-spark"></use></svg></span>
 			<div>
 				<h2 id="icp-final-title">Turn questions into better business outcomes.</h2>
-				<p>Experience the power of conversational analytics.</p>
+				<p>Experience the power of trusted Decision Intelligence.</p>
 			</div>
 			<a class="icp-button icp-button-primary" href="#icp-demo-form" data-icp-demo-trigger>Request a Live Demo</a>
 			<a class="icp-button icp-button-secondary" href="#icp-demo-form" data-icp-demo-trigger>Talk to an Expert</a>

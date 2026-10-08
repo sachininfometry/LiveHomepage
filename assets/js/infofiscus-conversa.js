@@ -102,7 +102,7 @@
     var demoCopy = demoHeading.querySelectorAll('p');
     if (demoTitle) demoTitle.textContent = 'Experience INFOFISCUS Conversa.';
     if (demoCopy[0]) demoCopy[0].innerHTML = '<strong>Turn every business question into a confident decision.</strong>';
-    if (demoCopy[1]) demoCopy[1].textContent = 'Book a personalized demo and see governed conversational analytics working with your enterprise data.';
+    if (demoCopy[1]) demoCopy[1].textContent = 'Book a personalized demo and see how Conversa investigates questions, uncovers key drivers, and helps your teams make confident decisions across enterprise data.';
   }
 
   var tabButtons = Array.prototype.slice.call(root.querySelectorAll('[data-icp-shot]'));
