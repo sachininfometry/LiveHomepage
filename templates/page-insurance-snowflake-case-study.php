@@ -25,15 +25,15 @@ $metrics = array(
 	array( '300+', 300, '+', 'MuleSoft interfaces', 'modernized' ),
 );
 $challenges = array(
-	'Complex architecture and undocumented legacy stored procedures',
-	'Multiple copies of data extracted by different tools and processes',
-	'Consolidation and migration of SQL Server databases to Snowflake',
-	'Retirement of existing systems within six months',
-	'Integration of a large number of enterprise applications',
-	'Migration of 1,200+ database objects',
-	'Migration of 200+ dashboards from Qlik to Tableau Online',
-	'Real-time integration using Mule 4 microservices',
-	'Change management for Qlik users adopting Tableau',
+	array( 'layers', 'Legacy complexity', 'Complex architecture and undocumented stored procedures' ),
+	array( 'database', 'Duplicate data', 'Multiple copies across disconnected tools and processes' ),
+	array( 'snow', 'Platform migration', 'SQL Server databases consolidated on Snowflake' ),
+	array( 'clock', 'Six-month deadline', 'Existing systems retired within an accelerated timeline' ),
+	array( 'nodes', 'Enterprise integrations', 'A large application landscape connected at scale' ),
+	array( 'server', 'Database scale', 'More than 1,200 database objects migrated' ),
+	array( 'chart', 'Analytics transition', '200+ Qlik dashboards moved to Tableau Online' ),
+	array( 'cloud', 'Real-time services', 'Mule 4 microservices enabled live integration' ),
+	array( 'users', 'Change enablement', 'Qlik users supported through Tableau adoption' ),
 );
 $solutions = array(
 	array( 'database', 'Eliminated redundant data collection', 'A governed Data Hub streamlined data flow and enabled parallel processing.' ),
@@ -54,10 +54,12 @@ $solutions = array(
 		<symbol id="gcs-nodes" viewBox="0 0 24 24"><circle cx="12" cy="5" r="3"/><circle cx="5" cy="18" r="3"/><circle cx="19" cy="18" r="3"/><path d="m10.5 7.5-4 8m7-8 4 8M8 18h8"/></symbol>
 		<symbol id="gcs-cloud" viewBox="0 0 24 24"><path d="M6 19a5 5 0 0 1-.5-10A7 7 0 0 1 19 11a4 4 0 0 1-1 8H6Z"/></symbol>
 		<symbol id="gcs-users" viewBox="0 0 24 24"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M2 20c0-4 2-6 6-6s6 2 6 6m1-5c4 0 7 1.8 7 5"/></symbol>
-		<symbol id="gcs-chart" viewBox="0 0 24 24"><path d="M4 20V11h4v9m4 0V4h4v16m4 0V8h4v12M2 20h22"/></symbol>
+		<symbol id="gcs-chart" viewBox="0 0 24 24"><path d="M4 20V11h4v9m4 0V4h4v16m3 0V8h3v12M2 20h20"/></symbol>
 		<symbol id="gcs-map" viewBox="0 0 24 24"><path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3V6Z"/><path d="M9 3v15m6-12v15"/></symbol>
 		<symbol id="gcs-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 6-7"/></symbol>
 		<symbol id="gcs-snow" viewBox="0 0 24 24"><path d="M12 2v20M3.5 7l17 10m0-10-17 10M8 4l4 2 4-2M8 20l4-2 4 2M3 11l3 1-3 2m18-3-3 1 3 2"/></symbol>
+		<symbol id="gcs-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+		<symbol id="gcs-server" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="6" rx="2"/><rect x="3" y="14" width="18" height="6" rx="2"/><path d="M7 7h.01M7 17h.01M11 7h7M11 17h7"/></symbol>
 	</svg>
 	<section class="gcs-hero" aria-labelledby="gcs-title"><div class="gcs-shell gcs-hero-inner">
 		<div class="gcs-hero-copy"><span class="gcs-eyebrow">Case Study</span><h1 id="gcs-title">On-Prem Data Warehouses &amp; Tools <em>Migration to Snowflake Data Cloud</em></h1><p class="gcs-hero-summary">How Infometry helped a leading insurance software company modernize its legacy data warehouse, analytics, and integration ecosystem for faster insights, real-time connectivity, and cloud-ready scale.</p><div class="gcs-hero-path" aria-label="Modernization outcomes"><span class="is-stacked"><i><svg><use href="#gcs-database"/></svg></i><span><b><span>Unified</span><span>Data</span></b><small><span>Snowflake</span><span>EDW</span></small></span></span><span><i><svg><use href="#gcs-chart"/></svg></i><span><b>Faster Insights</b><small>Tableau analytics</small></span></span><span><i><svg><use href="#gcs-nodes"/></svg></i><span><b>Real-time Integration</b><small>Mule microservices</small></span></span><span><i><svg><use href="#gcs-cloud"/></svg></i><span><b>Cloud-ready Scale</b><small>Modern architecture</small></span></span></div></div>
@@ -66,7 +68,7 @@ $solutions = array(
 	<section class="gcs-metrics" aria-label="Case study headline metrics"><div class="gcs-shell gcs-metrics-grid"><?php foreach ( $metrics as $metric ) : ?><article><strong class="gcs-counter" data-count="<?php echo esc_attr( $metric[1] ); ?>" data-suffix="<?php echo esc_attr( $metric[2] ); ?>"><?php echo esc_html( $metric[0] ); ?></strong><span><?php echo esc_html( $metric[3] ); ?><br><?php echo esc_html( $metric[4] ); ?></span></article><?php endforeach; ?></div></section>
 	<section class="gcs-section gcs-client"><div class="gcs-shell gcs-split"><div><h2>Our Client</h2><p>Our customer is a leading insurance company and platform P&amp;C insurers trust to engage, innovate, and grow efficiently. It combines digital, core, analytics, and AI to deliver its platform as a cloud service. More than 450 insurers, from new ventures to the largest and most complex in the world, depend on them.</p></div><figure class="gcs-photo-card gcs-client-visual"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/case-studies/insurance-snowflake/client-office-v1.png' ); ?>" alt="Modern glass-fronted enterprise office campus" width="1536" height="1024" loading="lazy" decoding="async"><figcaption><span><svg><use href="#gcs-users"/></svg></span><strong>450+</strong><small>insurers trust their platform worldwide</small></figcaption></figure></div></section>
 	<section class="gcs-section gcs-objective"><div class="gcs-shell gcs-split"><div><h2>Business Objective</h2><p>It was a venture to modernize the Enterprise Data Warehouse by consolidating on-prem data marts and data warehouses and designing a central Snowflake Cloud Data Warehouse (EDW) for analytics use cases and an Integration Data Hub (IDH) for real-time application integration.</p><p>This would help the customer process data at scale, provide real-time data access, reduce operational costs, and offer a self-service Tableau cloud analytics platform for data-driven insights.</p><a class="gcs-text-link" href="#gcs-solution">Learn more <span>→</span></a></div><figure class="gcs-photo-card"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/case-studies/insurance-snowflake/business-objective-analytics-v1.png' ); ?>" alt="Business professional reviewing enterprise analytics on a tablet" width="1536" height="1024" loading="lazy" decoding="async"></figure></div></section>
-	<section class="gcs-section gcs-challenges"><div class="gcs-shell gcs-challenge-grid"><div><h2>Business Challenges</h2><p>The customer’s mandate was to implement a Snowflake Enterprise Data Warehouse and Integration Data Hub and go live within six months. The goal was to decommission on-prem servers and consolidate data integration and analytics tooling.</p><p>The existing environment included complex architecture, redundant data silos, limited compute, SLA-impacting performance issues, and undocumented legacy stored procedures.</p><a class="gcs-button is-blue" href="<?php echo esc_url( $case_url ); ?>">Download the Case Study PDF <span>→</span></a></div><div class="gcs-challenge-list"><h3>Key challenges included:</h3><ul><?php foreach ( $challenges as $challenge ) : ?><li><svg><use href="#gcs-check"/></svg><?php echo esc_html( $challenge ); ?></li><?php endforeach; ?></ul></div></div></section>
+	<section class="gcs-section gcs-challenges"><div class="gcs-shell gcs-challenge-grid"><div class="gcs-challenge-copy"><span class="gcs-section-label">Modernization mandate</span><h2>Business Challenges</h2><p>The customer’s mandate was to implement a Snowflake Enterprise Data Warehouse and Integration Data Hub and go live within six months. The goal was to decommission on-prem servers and consolidate data integration and analytics tooling.</p><p>The existing environment included complex architecture, redundant data silos, limited compute, SLA-impacting performance issues, and undocumented legacy stored procedures.</p><a class="gcs-button is-blue" href="<?php echo esc_url( $case_url ); ?>">Download the Case Study PDF <span>→</span></a></div><div class="gcs-challenge-list"><div class="gcs-challenge-heading"><span>Critical delivery priorities</span><h3>Key challenges included</h3></div><div class="gcs-challenge-cards"><?php foreach ( $challenges as $challenge ) : ?><article><i><svg><use href="#gcs-<?php echo esc_attr( $challenge[0] ); ?>"/></svg></i><div><h4><?php echo esc_html( $challenge[1] ); ?></h4><p><?php echo esc_html( $challenge[2] ); ?></p></div></article><?php endforeach; ?></div></div></div></section>
 	<section class="gcs-section gcs-architecture" id="gcs-program-journey"><div class="gcs-shell">
 		<div class="gcs-section-intro"><span>Program journey</span><h2>Migration Architecture &amp; Delivery Timeline</h2><p>A four-year modernization journey that moved core data, analytics, cloud integration, and enterprise applications onto a scalable modern platform.</p></div>
 		<div class="gcs-journey" aria-label="Modernization program from 2017 to 2020">

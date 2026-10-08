@@ -9,7 +9,7 @@
 .gcs-section{padding:52px 0}.gcs-section:nth-of-type(even){background:#f6fafd}.gcs-section h2,.gcs-cta h2{position:relative;margin-bottom:17px;padding-top:13px;font-size:clamp(27px,2.5vw,38px);letter-spacing:-.035em;line-height:1.12}.gcs-section h2:before,.gcs-cta h2:before{content:"";position:absolute;top:0;left:0;width:46px;height:3px;border-radius:9px;background:var(--orange)}.gcs-section p{margin-bottom:16px;color:var(--copy);font-size:14px;line-height:1.72}.gcs-split{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(380px,.96fr);gap:54px;align-items:center}.gcs-text-link{display:inline-flex;padding:9px 14px;align-items:center;gap:11px;border:1px solid #168cf0;border-radius:7px;color:#0878dc;font-size:12px;font-weight:800;transition:color .2s,background .2s}.gcs-text-link:hover{color:#fff;background:#087bf5}
 .gcs-photo-card{position:relative;min-height:245px;margin:0;overflow:hidden;border:1px solid #d5e6f1;border-radius:15px;background:#edf7fc;box-shadow:0 14px 34px rgba(14,81,125,.11)}.gcs-photo-card>img{display:block;width:100%;height:245px;object-fit:cover}.gcs-client-visual figcaption{position:absolute;right:15px;bottom:15px;display:grid;width:min(230px,calc(100% - 30px));padding:13px 15px;grid-template-columns:38px 1fr;gap:2px 10px;align-items:center;border:1px solid rgba(210,230,242,.95);border-radius:12px;background:rgba(255,255,255,.94);box-shadow:0 10px 25px rgba(4,47,84,.18);backdrop-filter:blur(8px)}.gcs-client-visual figcaption>span{display:grid;width:38px;height:38px;grid-row:1/3;place-items:center;border-radius:50%;color:#087fee;background:#e2f4ff}.gcs-client-visual figcaption svg{width:22px;height:22px}.gcs-client-visual figcaption strong{color:#0870da;font-size:24px;line-height:1}.gcs-client-visual figcaption small{color:#405d77;font-size:10px;font-weight:700;line-height:1.3}
 
-.gcs-challenge-grid{display:grid;grid-template-columns:minmax(0,.92fr) minmax(470px,1.08fr);gap:46px;align-items:center}.gcs-challenge-list{padding:24px;border:1px solid #d4e6f2;border-radius:15px;background:#f8fbfe;box-shadow:0 12px 32px rgba(4,66,108,.07)}.gcs-challenge-list h3{margin-bottom:15px;color:#0b4775;font-size:18px}.gcs-challenge-list ul{display:grid;margin:0;padding:0;gap:8px;list-style:none}.gcs-challenge-list li{display:flex;align-items:flex-start;gap:9px;color:#3d5871;font-size:12px;line-height:1.45}.gcs-challenge-list svg{flex:0 0 17px;width:17px;height:17px;color:var(--orange);stroke-width:2.5}.gcs-button{display:inline-flex;margin-top:5px;padding:11px 17px;align-items:center;justify-content:center;gap:11px;border-radius:8px;color:#fff;background:linear-gradient(135deg,#0793ff,#075cf1);font-size:12px;font-weight:800;box-shadow:0 9px 24px rgba(0,94,255,.23)}
+.gcs-challenge-grid{display:grid;grid-template-columns:minmax(0,.82fr) minmax(620px,1.18fr);gap:48px;align-items:center}.gcs-section-label{display:block;margin-bottom:8px;color:#087bf5;font-size:10px;font-weight:900;letter-spacing:.15em;text-transform:uppercase}.gcs-challenge-copy>p{max-width:520px}.gcs-challenge-list{position:relative;padding:27px 28px 25px;overflow:hidden;border:1px solid #cfe2ef;border-radius:18px;background:linear-gradient(145deg,#fff 0%,#f6fbfe 100%);box-shadow:0 18px 44px rgba(4,66,108,.1)}.gcs-challenge-list:before{content:"";position:absolute;inset:0 0 auto;height:4px;background:linear-gradient(90deg,#087bf5,#16c8ee 68%,#ff7200)}.gcs-challenge-heading{margin-bottom:15px;padding-bottom:16px;border-bottom:1px solid #dceaf3}.gcs-challenge-heading>span{display:block;margin-bottom:6px;color:#ff7200;font-size:9px;font-weight:900;letter-spacing:.15em;text-transform:uppercase}.gcs-challenge-list h3{margin:0;color:#083963;font-size:21px;line-height:1.2}.gcs-challenge-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.gcs-challenge-cards article{display:grid;min-height:84px;padding:13px;grid-template-columns:40px 1fr;align-items:start;gap:11px;border:1px solid #dceaf3;border-radius:12px;background:#fff;box-shadow:0 5px 16px rgba(6,64,103,.045)}.gcs-challenge-cards article:last-child{grid-column:1/-1}.gcs-challenge-cards i{display:grid;width:40px;height:40px;place-items:center;border:1px solid #c9e8f7;border-radius:11px;color:#078bd7;background:#eaf8ff}.gcs-challenge-cards article:nth-child(3n) i{color:#ff7200;border-color:#ffd9bc;background:#fff3e9}.gcs-challenge-cards svg{width:20px;height:20px;stroke-width:2}.gcs-challenge-cards h4{margin:1px 0 4px;color:#0a3f6a;font-size:12px;line-height:1.3}.gcs-challenge-cards p{margin:0;color:#60778d;font-size:10px;line-height:1.45}.gcs-button{display:inline-flex;margin-top:5px;padding:11px 17px;align-items:center;justify-content:center;gap:11px;border-radius:8px;color:#fff;background:linear-gradient(135deg,#0793ff,#075cf1);font-size:12px;font-weight:800;box-shadow:0 9px 24px rgba(0,94,255,.23)}
 
 .gcs-architecture{position:relative;overflow:hidden;background:linear-gradient(180deg,#f7fbff,#fff)}.gcs-section-intro{max-width:800px;margin-bottom:30px}.gcs-section-intro>span{display:block;margin-bottom:6px;color:#087bf5;font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}.gcs-journey{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.gcs-journey article{display:flex;min-height:350px;padding:0 18px 18px;flex-direction:column;border:1px solid #d7e6f0;border-radius:14px;background:#fff;box-shadow:0 12px 30px rgba(15,71,111,.08)}.gcs-journey-head{display:flex;margin-bottom:16px;align-items:center;justify-content:space-between}.gcs-journey time{display:grid;min-width:70px;height:49px;place-items:center;border-radius:0 0 11px 11px;color:#fff;background:var(--stage);font-size:17px;font-weight:800}.gcs-journey-head i{display:grid;width:38px;height:38px;place-items:center;border-radius:10px;color:var(--stage);background:var(--stage-soft)}.gcs-journey-head svg{width:20px;height:20px}.gcs-journey h3{min-height:43px;margin-bottom:12px;color:#0a2b50;font-size:16px;line-height:1.3}.gcs-journey ul{display:grid;margin:0 0 18px;padding:0;gap:6px;list-style:none}.gcs-journey li{position:relative;padding-left:13px;color:#536a80;font-size:11px}.gcs-journey li:before{content:"";position:absolute;top:.62em;left:0;width:5px;height:5px;border-radius:50%;background:var(--stage)}.gcs-journey li strong{color:#0b315b;font-size:13px}.gcs-journey article>p{margin:auto 0 0;padding:12px;border-radius:10px;color:#51687e;background:var(--stage-soft);font-size:10px;line-height:1.4}.gcs-journey article>p b{display:block;margin-bottom:2px;color:var(--stage);font-size:9px;letter-spacing:.1em;text-transform:uppercase}
 
@@ -132,11 +132,11 @@ body.infometry-insurance-snowflake-page .gcs .gcs-metrics{padding-bottom:8px}
 body.infometry-insurance-snowflake-page .gcs .gcs-metrics article{min-height:104px;padding:16px 18px}
 body.infometry-insurance-snowflake-page .gcs .gcs-metrics span{color:#34516f;font-size:13px}
 
-body.infometry-insurance-snowflake-page .gcs .gcs-challenge-grid{gap:40px}
-body.infometry-insurance-snowflake-page .gcs .gcs-challenge-list{padding:22px 24px;background:#f5f9fc}
-body.infometry-insurance-snowflake-page .gcs .gcs-challenge-list h3{font-size:19px}
-body.infometry-insurance-snowflake-page .gcs .gcs-challenge-list ul{gap:9px}
-body.infometry-insurance-snowflake-page .gcs .gcs-challenge-list li{color:#294b69;font-size:13px;line-height:1.45}
+body.infometry-insurance-snowflake-page .gcs .gcs-challenge-grid{gap:48px}
+body.infometry-insurance-snowflake-page .gcs .gcs-challenge-list{padding:27px 28px 25px;background:linear-gradient(145deg,#fff 0%,#f6fbfe 100%)}
+body.infometry-insurance-snowflake-page .gcs .gcs-challenge-list h3{font-size:21px}
+body.infometry-insurance-snowflake-page .gcs .gcs-challenge-cards h4{font-size:13px}
+body.infometry-insurance-snowflake-page .gcs .gcs-challenge-cards p{color:#49677f;font-size:11px;line-height:1.45}
 
 body.infometry-insurance-snowflake-page .gcs .gcs-journey{gap:12px}
 body.infometry-insurance-snowflake-page .gcs .gcs-journey article{min-height:318px;padding:0 17px 16px}
@@ -176,6 +176,10 @@ body.infometry-insurance-snowflake-page .infometry-custom-footer{margin-top:24px
 
 /* Keep every hero outcome label on the same two-row rhythm. */
 body.infometry-insurance-snowflake-page .gcs .gcs-hero-path>span>span{align-content:center}
+body.infometry-insurance-snowflake-page .gcs .gcs-hero-path>span{padding-inline:18px;justify-content:flex-start;gap:13px}
+body.infometry-insurance-snowflake-page .gcs .gcs-hero-path>span:first-child{padding-left:18px}
+body.infometry-insurance-snowflake-page .gcs .gcs-hero-path i,
+body.infometry-insurance-snowflake-page .gcs .gcs-hero-path svg{overflow:visible}
 body.infometry-insurance-snowflake-page .gcs .gcs-hero-path b,
 body.infometry-insurance-snowflake-page .gcs .gcs-hero-path small{display:flex;align-items:flex-start}
 body.infometry-insurance-snowflake-page .gcs .gcs-hero-path .is-stacked b,
@@ -185,6 +189,7 @@ body.infometry-insurance-snowflake-page .gcs .gcs-hero-path b{min-height:2.4em;a
 body.infometry-insurance-snowflake-page .gcs .gcs-hero-path small{min-height:2.5em}
 
 @media(max-width:1024px){
+	body.infometry-insurance-snowflake-page .gcs .gcs-challenge-grid{grid-template-columns:1fr}
 	body.infometry-insurance-snowflake-page .gcs .gcs-tech-grid{grid-template-columns:repeat(4,1fr)}
 	body.infometry-insurance-snowflake-page .gcs .gcs-journey article{min-height:300px}
 }
@@ -201,6 +206,8 @@ body.infometry-insurance-snowflake-page .gcs .gcs-hero-path small{min-height:2.5
 	body.infometry-insurance-snowflake-page .infometry-custom-footer{margin-top:18px;padding-top:42px}
 }
 @media(max-width:480px){
+	body.infometry-insurance-snowflake-page .gcs .gcs-hero-path>span,
+	body.infometry-insurance-snowflake-page .gcs .gcs-hero-path>span:first-child{padding-inline:8px;gap:9px}
 	body.infometry-insurance-snowflake-page .gcs .gcs-hero,
 	body.infometry-insurance-snowflake-page .gcs .gcs-hero-inner{min-height:700px}
 	body.infometry-insurance-snowflake-page .gcs .gcs-metrics-grid,
@@ -208,6 +215,9 @@ body.infometry-insurance-snowflake-page .gcs .gcs-hero-path small{min-height:2.5
 	body.infometry-insurance-snowflake-page .gcs .gcs-metrics article{min-height:94px;border-right:0;border-bottom:1px solid #e1ebf2}
 	body.infometry-insurance-snowflake-page .gcs .gcs-metrics article:nth-child(odd){border-right:1px solid #e1ebf2}
 	body.infometry-insurance-snowflake-page .gcs .gcs-metrics article:nth-last-child(-n+2){border-bottom:0}
+	body.infometry-insurance-snowflake-page .gcs .gcs-challenge-list{padding:22px 18px 18px}
+	body.infometry-insurance-snowflake-page .gcs .gcs-challenge-cards{grid-template-columns:1fr}
+	body.infometry-insurance-snowflake-page .gcs .gcs-challenge-cards article:last-child{grid-column:auto}
 	body.infometry-insurance-snowflake-page .gcs .gcs-tech-grid{grid-template-columns:repeat(2,1fr)}
 	body.infometry-insurance-snowflake-page .gcs .gcs-tech-grid span{min-height:88px}
 }
