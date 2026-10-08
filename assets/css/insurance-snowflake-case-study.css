@@ -178,6 +178,9 @@ body.infometry-insurance-snowflake-page .infometry-custom-footer{margin-top:24px
 body.infometry-insurance-snowflake-page .gcs .gcs-hero-path>span>span{align-content:center}
 body.infometry-insurance-snowflake-page .gcs .gcs-hero-path b,
 body.infometry-insurance-snowflake-page .gcs .gcs-hero-path small{display:flex;align-items:flex-start}
+body.infometry-insurance-snowflake-page .gcs .gcs-hero-path .is-stacked b,
+body.infometry-insurance-snowflake-page .gcs .gcs-hero-path .is-stacked small{flex-direction:column}
+body.infometry-insurance-snowflake-page .gcs .gcs-hero-path .is-stacked b{align-items:flex-start;justify-content:flex-end}
 body.infometry-insurance-snowflake-page .gcs .gcs-hero-path b{min-height:2.4em;align-items:flex-end}
 body.infometry-insurance-snowflake-page .gcs .gcs-hero-path small{min-height:2.5em}
 
