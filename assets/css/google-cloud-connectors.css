@@ -337,7 +337,7 @@ body.infometry-google-connectors-page #Content{padding:0!important}
 }
 .igc-page .igc-hero-copy>p a{color:#fff;font-weight:800}
 .igc-page .igc-related-grid p{
-	color:#263b50;font-size:14px;font-weight:500;line-height:1.72;
+	margin:0 0 24px;color:#263b50;font-size:14px;font-weight:500;line-height:1.72;
 }
 .igc-page .igc-benefit-grid p{
 	color:#e6f0fa;font-size:14px;font-weight:500;line-height:1.7;
