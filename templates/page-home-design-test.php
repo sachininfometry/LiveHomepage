@@ -44,6 +44,7 @@ $supply_chain_url  = home_url( '/manufacturing-and-supply-chain/' );
 <main class="infometry-home-test" id="infometry-home-test">
 	<svg class="infometry-icon-sprite" aria-hidden="true" focusable="false">
 		<symbol id="i-chat" viewBox="0 0 24 24"><path d="M5 4h14a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3h-7l-5 4v-4H5a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3Z"/><circle cx="8" cy="10.5" r="1"/><circle cx="12" cy="10.5" r="1"/><circle cx="16" cy="10.5" r="1"/></symbol>
+		<symbol id="i-decision" viewBox="0 0 24 24"><circle cx="10" cy="10" r="7"/><path d="m15.2 15.2 5.3 5.3M6.5 13V9m3.5 4V6m3.5 7V8"/></symbol>
 		<symbol id="i-snow" viewBox="0 0 24 24"><path d="M12 2v20M4.2 6.5l15.6 11M19.8 6.5l-15.6 11M8.5 4 12 6l3.5-2M8.5 20l3.5-2 3.5 2M3 10l3 2-3 2M21 10l-3 2 3 2"/></symbol>
 		<symbol id="i-link" viewBox="0 0 24 24"><path d="m9 15 6-6M7.5 18H6a4 4 0 0 1 0-8h3M16.5 6H18a4 4 0 0 1 0 8h-3"/></symbol>
 		<symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 14h7v7h-7z"/></symbol>
@@ -173,7 +174,7 @@ $supply_chain_url  = home_url( '/manufacturing-and-supply-chain/' );
 	<section class="infometry-values" aria-label="Our capabilities">
 		<header class="infometry-capabilities-head"><h2>Our Capabilities</h2></header>
 		<div class="infometry-shell infometry-value-grid" id="infometry-capability-carousel" tabindex="0" aria-label="Infometry capabilities">
-			<article class="infometry-capability-item"><svg><use href="#i-chat"/></svg><div><h3>Conversational AI Analytics</h3><p>Natural language analytics delivering instant insights from enterprise data through AI conversations.</p></div></article>
+			<article class="infometry-capability-item"><svg><use href="#i-decision"/></svg><div><h3>Enterprise Decision Intelligence</h3><p>Investigate complex business questions, uncover key drivers, and turn enterprise data into trusted, decision-ready insights.</p></div></article>
 			<article class="infometry-capability-item"><svg><use href="#i-rocket"/></svg><div><h3>AI/ML + Agentic Intelligence</h3><p>Intelligent AI agents automate insights, recommendations, workflows, and enterprise decision-making.</p></div></article>
 			<article class="infometry-capability-item"><svg><use href="#i-grid"/></svg><div><h3>Low-Code Data Automation</h3><p>Simplify integration, orchestration, and automation using enterprise-ready low-code platforms.</p></div></article>
 			<article class="infometry-capability-item"><svg><use href="#i-target"/></svg><div><h3>Advanced Analytics</h3><p>Predictive and prescriptive analytics driving faster, smarter, data-driven business decisions.</p></div></article>
