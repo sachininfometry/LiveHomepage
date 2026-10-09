@@ -81,12 +81,13 @@ body.infometry-insurance-snowflake-page .mfn-footer{display:none!important}
 @media(max-width:960px){.infometry-footer-grid{grid-template-columns:repeat(2,1fr);gap:34px}}
 @media(max-width:700px){.infometry-footer-shell{width:min(100% - 32px,1440px)}.infometry-footer-grid{grid-template-columns:1fr;gap:30px}.infometry-footer-bottom{flex-direction:column}}
 
+/* Large-screen standard: backgrounds may be full bleed, but page content stays centered at 1440px. */
 /* Final layout and contrast pass from the staging design review. */
-body.infometry-insurance-snowflake-page .gcs{--ink:#062a50;--copy:#34516f}
-body.infometry-insurance-snowflake-page .gcs .gcs-shell{width:calc(100% - clamp(60px,5.2vw,100px));max-width:none}
-body.infometry-insurance-snowflake-page .gcs .gcs-hero-inner{width:100%;padding-inline:clamp(30px,2.6vw,50px)}
+body.infometry-insurance-snowflake-page .gcs{--ink:#062a50;--copy:#34516f;--gcs-content-max:1440px}
+body.infometry-insurance-snowflake-page .gcs .gcs-shell{width:min(calc(100% - clamp(60px,5.2vw,100px)),var(--gcs-content-max));max-width:var(--gcs-content-max);margin-inline:auto}
+body.infometry-insurance-snowflake-page .gcs .gcs-hero-inner{width:min(calc(100% - clamp(60px,5.2vw,100px)),var(--gcs-content-max));max-width:var(--gcs-content-max);margin-inline:auto;padding-inline:0}
 body.infometry-insurance-snowflake-page .gcs .gcs-hero h1 em{display:inline}
-body.infometry-insurance-snowflake-page .gcs .gcs-metrics .gcs-metrics-grid{width:calc(100% - clamp(60px,5.2vw,100px))}
+body.infometry-insurance-snowflake-page .gcs .gcs-metrics .gcs-metrics-grid{width:min(calc(100% - clamp(60px,5.2vw,100px)),var(--gcs-content-max));max-width:var(--gcs-content-max);margin-inline:auto}
 body.infometry-insurance-snowflake-page .gcs .gcs-section,
 body.infometry-insurance-snowflake-page .gcs .gcs-cta{scroll-margin-top:96px}
 
