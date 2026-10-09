@@ -160,17 +160,17 @@ body.infometry-insurance-snowflake-page .gcs .gcs-outcome-grid span{font-size:12
 
 body.infometry-insurance-snowflake-page .gcs .gcs-tech h2{margin-bottom:22px}
 body.infometry-insurance-snowflake-page .gcs .gcs-tech-grid{gap:12px}
-body.infometry-insurance-snowflake-page .gcs .gcs-tech-grid span{min-height:96px;padding:14px 12px}
-body.infometry-insurance-snowflake-page .gcs .gcs-tech-grid img{width:auto;max-width:100%;height:auto;max-height:48px}
+body.infometry-insurance-snowflake-page .gcs .gcs-tech-grid span{min-height:104px;padding:16px 14px}
+body.infometry-insurance-snowflake-page .gcs .gcs-tech-grid img{display:block;width:auto;max-width:100%;height:auto;max-height:54px;object-fit:contain}
 body.infometry-insurance-snowflake-page .gcs .gcs-tech-grid .has-label{gap:9px}
 body.infometry-insurance-snowflake-page .gcs .gcs-tech-grid .has-label b{color:#153c60;font-size:13px;line-height:1.2;white-space:nowrap}
-body.infometry-insurance-snowflake-page .gcs .gcs-tech-grid .is-snowflake img{width:31px;height:46px}
-body.infometry-insurance-snowflake-page .gcs .gcs-tech-grid .is-sql-server img{width:42px;height:46px}
-body.infometry-insurance-snowflake-page .gcs .gcs-tech-grid .is-qlik img{max-width:88px;max-height:42px}
-body.infometry-insurance-snowflake-page .gcs .gcs-tech-grid .is-tableau img{max-width:112px;max-height:34px}
-body.infometry-insurance-snowflake-page .gcs .gcs-tech-grid .is-mulesoft img{max-width:108px;max-height:38px}
-body.infometry-insurance-snowflake-page .gcs .gcs-tech-grid .is-aws img{max-width:68px;max-height:48px}
-body.infometry-insurance-snowflake-page .gcs .gcs-tech-grid .is-informatica img{max-width:112px;max-height:36px}
+body.infometry-insurance-snowflake-page .gcs .gcs-tech-grid .is-snowflake img{max-width:134px;max-height:46px}
+body.infometry-insurance-snowflake-page .gcs .gcs-tech-grid .is-sql-server img{width:46px;height:50px}
+body.infometry-insurance-snowflake-page .gcs .gcs-tech-grid .is-qlik img{max-width:110px;max-height:46px}
+body.infometry-insurance-snowflake-page .gcs .gcs-tech-grid .is-tableau img{max-width:136px;max-height:40px}
+body.infometry-insurance-snowflake-page .gcs .gcs-tech-grid .is-mulesoft img{max-width:128px;max-height:42px}
+body.infometry-insurance-snowflake-page .gcs .gcs-tech-grid .is-aws img{max-width:82px;max-height:54px}
+body.infometry-insurance-snowflake-page .gcs .gcs-tech-grid .is-informatica img{max-width:132px;max-height:42px}
 
 body.infometry-insurance-snowflake-page .gcs .gcs-cta{padding:34px 0}
 body.infometry-insurance-snowflake-page .infometry-custom-footer{margin-top:24px;padding-top:52px}
