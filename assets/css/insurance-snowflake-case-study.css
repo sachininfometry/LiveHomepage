@@ -228,3 +228,25 @@ body.infometry-insurance-snowflake-page .gcs .gcs-hero-path small{min-height:2.5
 	body.infometry-insurance-snowflake-page .gcs .gcs-tech-grid{grid-template-columns:repeat(2,1fr)}
 	body.infometry-insurance-snowflake-page .gcs .gcs-tech-grid span{min-height:88px}
 }
+
+/* Responsive hero: keep the complete architecture artwork visible at every viewport width. */
+@media(min-width:1025px){
+	body.infometry-insurance-snowflake-page .gcs .gcs-hero{background-size:auto 100%;background-position:right center}
+}
+@media(min-width:761px) and (max-width:1024px){
+	body.infometry-insurance-snowflake-page .gcs .gcs-hero{min-height:980px;background-size:100% auto;background-position:center bottom}
+	body.infometry-insurance-snowflake-page .gcs .gcs-hero:before{background:linear-gradient(180deg,rgba(0,24,52,.99) 0%,rgba(0,31,65,.96) 50%,rgba(0,31,63,.62) 58%,rgba(0,31,63,.14) 68%,transparent 80%)}
+	body.infometry-insurance-snowflake-page .gcs .gcs-hero-inner{min-height:980px;align-items:flex-start}
+	body.infometry-insurance-snowflake-page .gcs .gcs-hero-copy{width:100%;max-width:720px;padding:48px 0 450px}
+}
+@media(max-width:900px){
+	body.infometry-insurance-snowflake-page .gcs .gcs-metrics .gcs-metrics-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+	body.infometry-insurance-snowflake-page .gcs .gcs-metrics article:nth-child(2){border-right:0}
+	body.infometry-insurance-snowflake-page .gcs .gcs-metrics article:nth-child(-n+2){border-bottom:1px solid #e1ebf2}
+}
+@media(max-width:760px){
+	body.infometry-insurance-snowflake-page .gcs .gcs-hero{min-height:0;background-size:100% auto;background-position:center bottom}
+	body.infometry-insurance-snowflake-page .gcs .gcs-hero:before{background:linear-gradient(180deg,rgba(0,24,52,.99) 0%,rgba(0,31,65,.97) 64%,rgba(0,31,63,.62) 72%,rgba(0,31,63,.12) 82%,transparent 94%)}
+	body.infometry-insurance-snowflake-page .gcs .gcs-hero-inner{min-height:0;align-items:flex-start}
+	body.infometry-insurance-snowflake-page .gcs .gcs-hero-copy{padding:42px 0 calc(41.95vw + 30px)}
+}
