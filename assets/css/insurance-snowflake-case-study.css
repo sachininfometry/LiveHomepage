@@ -129,6 +129,9 @@ body.infometry-insurance-snowflake-page .gcs .gcs-section h2{margin-bottom:16px;
 body.infometry-insurance-snowflake-page .gcs .gcs-section-intro{max-width:900px;margin-bottom:24px}
 body.infometry-insurance-snowflake-page .gcs .gcs-section-intro>span{font-size:12px}
 body.infometry-insurance-snowflake-page .gcs .gcs-split{gap:44px}
+/* Preserve the supplied artwork's native 16:9 shape instead of flattening it to a fixed 245px strip. */
+body.infometry-insurance-snowflake-page .gcs .gcs-photo-card{min-height:0;aspect-ratio:16/9}
+body.infometry-insurance-snowflake-page .gcs .gcs-photo-card>img{width:100%;height:100%;object-fit:cover}
 body.infometry-insurance-snowflake-page .gcs .gcs-metrics{padding-bottom:8px}
 body.infometry-insurance-snowflake-page .gcs .gcs-metrics article{min-height:104px;padding:16px 18px}
 body.infometry-insurance-snowflake-page .gcs .gcs-metrics span{color:#34516f;font-size:13px}
