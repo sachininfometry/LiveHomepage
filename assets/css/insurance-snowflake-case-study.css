@@ -244,9 +244,19 @@ body.infometry-insurance-snowflake-page .gcs .gcs-hero-path small{min-height:2.5
 	body.infometry-insurance-snowflake-page .gcs .gcs-tech-grid span{min-height:88px}
 }
 
-/* Responsive hero: keep the complete architecture artwork visible at every viewport width. */
+/* Large desktop: align the complete hero artwork to the same centered 1440px content frame. */
 @media(min-width:1401px){
-	body.infometry-insurance-snowflake-page .gcs .gcs-hero{background-size:auto 100%;background-position:right center}
+	body.infometry-insurance-snowflake-page .gcs .gcs-hero{min-height:650px;background-size:auto 650px;background-position:calc(50% - 55px) center}
+	body.infometry-insurance-snowflake-page .gcs .gcs-hero-inner{min-height:650px}
+	body.infometry-insurance-snowflake-page .gcs .gcs-hero-copy{width:46%;max-width:680px;transform:translateY(22px)}
+	body.infometry-insurance-snowflake-page .gcs .gcs-eyebrow{font-size:12px}
+	body.infometry-insurance-snowflake-page .gcs .gcs-hero h1{max-width:680px;font-size:clamp(50px,3vw,58px);line-height:1.04}
+	body.infometry-insurance-snowflake-page .gcs .gcs-hero-summary{max-width:650px;font-size:17px;line-height:1.6}
+	body.infometry-insurance-snowflake-page .gcs .gcs-hero-path{margin-top:38px}
+	body.infometry-insurance-snowflake-page .gcs .gcs-hero-path i{flex-basis:50px;width:50px;height:50px}
+	body.infometry-insurance-snowflake-page .gcs .gcs-hero-path svg{width:24px;height:24px}
+	body.infometry-insurance-snowflake-page .gcs .gcs-hero-path b{font-size:14px}
+	body.infometry-insurance-snowflake-page .gcs .gcs-hero-path small{font-size:12px}
 }
 /* Compact desktop mode targets Full HD displays at 125-150% scaling without overlapping the artwork. */
 @media(min-width:1201px) and (max-width:1400px){
