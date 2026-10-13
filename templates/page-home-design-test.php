@@ -87,16 +87,13 @@ $supply_chain_url  = home_url( '/manufacturing-and-supply-chain/' );
 			</div>
 
 			<div class="infometry-dashboard-wrap infometry-hero-slider" aria-label="INFOFISCUS Conversa product preview carousel">
-				<figure class="infometry-hero-slide is-home">
-					<img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/conversa-home.webp' ); ?>" width="1556" height="1011" fetchpriority="high" loading="eager" decoding="async" alt="INFOFISCUS Conversa home dashboard">
+				<figure class="infometry-hero-slide is-executive">
+					<img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/conversa-executive-insights.png' ); ?>" width="1672" height="941" fetchpriority="high" loading="eager" decoding="async" alt="INFOFISCUS Conversa executive revenue insights dashboard">
 				</figure>
-				<figure class="infometry-hero-slide is-storybooks">
-					<img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/conversa-storybooks.webp' ); ?>" width="1604" height="980" decoding="async" alt="INFOFISCUS Conversa storybooks dashboard">
+				<figure class="infometry-hero-slide is-apac">
+					<img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/conversa-apac-revenue-v2.png' ); ?>" width="1672" height="941" decoding="async" alt="INFOFISCUS Conversa APAC revenue decline dashboard">
 				</figure>
-				<figure class="infometry-hero-slide is-connections">
-					<img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/conversa-connections.webp' ); ?>" width="1558" height="1010" decoding="async" alt="INFOFISCUS Conversa connections dashboard">
-				</figure>
-				<div class="infometry-hero-slider-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+				<div class="infometry-hero-slider-dots" aria-hidden="true"><span></span><span></span></div>
 			</div>
 		</div>
 	</section>
