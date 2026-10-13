@@ -847,7 +847,7 @@ function infometry_ct_enqueue_assets() {
 		$css_version = is_readable( $css_path ) ? (string) filemtime( $css_path ) : INFOMETRY_CT_VERSION;
 		wp_enqueue_style(
 			'infometry-insurance-snowflake-fonts',
-			'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap',
+			'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Roboto:wght@500;600;700;800;900&display=swap',
 			array(),
 			null
 		);
