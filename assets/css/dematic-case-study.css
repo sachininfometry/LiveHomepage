@@ -1,0 +1,912 @@
+/*
+ * Dematic supply chain case study.
+ * Follows the Sunrun case-study system: image-led hero, floating fact cards with
+ * normal-weight values, readable body copy, 1600/1920 type steps, shared footer.
+ */
+:root {
+	--dematic-navy: #071f49;
+	--dematic-deep: #001f47;
+	--dematic-blue: #087cf0;
+	--dematic-sky: #0798ee;
+	--dematic-orange: #ff7d19;
+	--dematic-text: #1f3147;
+	--dematic-muted: #2b3b4f;
+	--dematic-line: #d8e7f1;
+}
+
+body.infometry-dematic-case-study-page {
+	overflow-x: hidden;
+	background: #fff;
+	color: var(--dematic-text);
+}
+
+body.infometry-dematic-case-study-page #Wrapper,
+body.infometry-dematic-case-study-page #Content {
+	max-width: 100% !important;
+	overflow-x: hidden;
+}
+
+body.infometry-dematic-case-study-page #mfn-rev-slider,
+body.infometry-dematic-case-study-page .mfn-rev-slider,
+body.infometry-dematic-case-study-page .forcefullwidth_wrapper_tp_banner,
+body.infometry-dematic-case-study-page .rev_slider_wrapper,
+body.infometry-dematic-case-study-page [id^="rev_slider_"][id$="_wrapper"],
+body.infometry-dematic-case-study-page [id^="rev_slider_"][id$="_forcefullwidth"] {
+	display: none !important;
+	height: 0 !important;
+	min-height: 0 !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	overflow: hidden !important;
+}
+
+/*
+ * The WordPress page has no slider, so Betheme would add its 250px header spacer,
+ * a header background image and the black page-title bar. Neutralise all three so
+ * the transparent header overlays the hero exactly like the Sunrun page.
+ */
+body.infometry-dematic-case-study-page #Subheader { display: none !important; }
+body.infometry-dematic-case-study-page #Header_wrapper { background-image: none !important; }
+body.infometry-dematic-case-study-page #Header { min-height: 0 !important; }
+
+/* Keep the theme header balanced when desktop display scaling reduces the CSS viewport. */
+@media (min-width: 1025px) and (max-width: 1320px) {
+	body.infometry-dematic-case-study-page #Top_bar .logo,
+	body.infometry-dematic-case-study-page #Top_bar .logo #logo { width: auto !important; }
+	body.infometry-dematic-case-study-page #Top_bar .logo img,
+	body.infometry-dematic-case-study-page #Top_bar #logo img.logo-main {
+		width: auto !important;
+		max-width: 250px !important;
+		max-height: 58px !important;
+	}
+}
+
+.dematic-case-study,
+.dematic-case-study * { box-sizing: border-box; }
+
+.dematic-case-study {
+	position: relative;
+	overflow: hidden;
+	background: #fff;
+	color: var(--dematic-text);
+	font-family: "Open Sans", Arial, sans-serif;
+	font-size: 17px;
+	line-height: 1.65;
+}
+
+.dematic-case-study h1,
+.dematic-case-study h2,
+.dematic-case-study h3,
+.dematic-case-study p { margin-top: 0; }
+
+.dematic-case-study h2,
+.dematic-case-study h3 {
+	color: var(--dematic-navy);
+	font-family: "Roboto", "Open Sans", Arial, sans-serif;
+	letter-spacing: -.02em;
+}
+
+.dematic-case-study svg {
+	display: block;
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 1.8;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+
+.dematic-case-study svg.dematic-ms,
+.dematic-case-study svg.dematic-sap { stroke: none; }
+
+.dematic-sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+.dematic-shell {
+	position: relative;
+	z-index: 2;
+	width: min(100% - 64px, 1320px);
+	margin-inline: auto;
+}
+
+.dematic-icon { display: grid; place-items: center; }
+.dematic-icon svg { width: 26px; height: 26px; }
+
+/* Section headings: navy title with the short orange rule used across the family. */
+.dematic-section-heading { margin-bottom: 28px; }
+.dematic-section-heading h2,
+.dematic-copy-block h2,
+.dematic-objective-grid h2,
+.dematic-quote h2 {
+	position: relative;
+	margin: 0 0 12px;
+	padding-bottom: 10px;
+	font-size: clamp(28px, 2.35vw, 40px);
+	font-weight: 700;
+	line-height: 1.1;
+}
+.dematic-section-heading h2::after,
+.dematic-copy-block h2::after,
+.dematic-objective-grid h2::after,
+.dematic-quote h2::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 46px;
+	height: 3px;
+	border-radius: 999px;
+	background: var(--dematic-orange);
+}
+.dematic-section-heading p { max-width: 1040px; margin: 0; color: #24364d; font-size: 18px; line-height: 1.6; }
+
+/* ------------------------------------------------------------------ Hero */
+/*
+ * Identical to the Sunrun hero (sunrise-case-study.css): same height, frame,
+ * padding, copy width and type, so every case-study banner matches.
+ *  1025px+  hero height clamp(400px, 37.5vw, 540px); the artwork lives in a
+ *           1440px frame, height-fitted and right-aligned, under an opaque
+ *           navy cover that clears before the first panel.
+ *  1441px+  the frame stops growing; the artwork bleeds to the viewport's right
+ *           edge and the cover only sits behind the copy (the copy always ends
+ *           at 50% - 74px). Panels start 444px from the artwork's right edge
+ *           (540px tall x 2 = 1080px wide), so the cover clears before them and
+ *           always hides the artwork's left edge (100% - 1080px).
+ *  A light top shade keeps the theme menu readable over the bright artwork.
+ *  <=1024   artwork shown as an image under the copy.
+ */
+.dematic-hero {
+	position: relative;
+	display: flex;
+	background: linear-gradient(180deg, #002456 0%, #001f47 55%, #001d41 100%);
+	isolation: isolate;
+}
+.dematic-hero::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	background: radial-gradient(circle at 16% 48%, rgba(8, 124, 240, .16), transparent 36%);
+}
+
+.dematic-hero-inner {
+	position: relative;
+	display: flex;
+	width: 100%;
+	max-width: 1440px;
+	margin: 0 auto;
+	padding: 84px 50px 34px;
+	align-items: center;
+}
+
+.dematic-hero-copy { position: relative; z-index: 1; color: rgba(255, 255, 255, .86); }
+
+.dematic-eyebrow {
+	display: inline-flex;
+	margin: 0 0 22px;
+	padding: 8px 19px;
+	border: 1px solid #22c8f6;
+	border-radius: 999px;
+	color: #57d9ff;
+	font-size: 11px;
+	font-weight: 800;
+	letter-spacing: .15em;
+	line-height: 1.3;
+	text-transform: uppercase;
+}
+
+.dematic-hero h1 {
+	max-width: 100%;
+	margin: 0 0 22px;
+	color: #fff;
+	font-family: "Manrope", "Open Sans", Arial, sans-serif;
+	font-size: 50px;
+	font-weight: 800;
+	line-height: 1.04;
+	letter-spacing: -.045em;
+}
+.dematic-hero h1 span,
+.dematic-hero h1 strong { display: block; }
+.dematic-hero h1 strong { margin-top: 7px; color: #22c8f6; font-weight: inherit; }
+.dematic-hero h1 .dematic-title-tail { margin-top: 7px; font-size: .88em; letter-spacing: -.04em; }
+
+.dematic-hero-copy > p:not(.dematic-eyebrow) {
+	max-width: 680px;
+	margin: 0;
+	color: rgba(255, 255, 255, .82);
+	font-size: 17px;
+	line-height: 1.58;
+}
+
+.dematic-hero-mobile-visual { display: none; }
+
+@media (max-width: 1320px) {
+	.dematic-hero h1 { font-size: 40px; line-height: 1.02; }
+	.dematic-hero-copy > p:not(.dematic-eyebrow) { max-width: 590px; font-size: 14px; line-height: 1.5; }
+}
+
+@media (min-width: 1025px) {
+	.dematic-hero { height: clamp(400px, 37.5vw, 540px); }
+	.dematic-hero-inner { height: 100%; }
+	.dematic-hero-inner::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		z-index: 0;
+		pointer-events: none;
+		background:
+			linear-gradient(180deg, rgba(0, 22, 52, .72) 0, rgba(0, 22, 52, 0) 130px),
+			linear-gradient(90deg, #001f47 0%, #001f47 38%, rgba(0, 31, 71, .7) 45%, rgba(0, 31, 71, 0) 53%),
+			url(../images/case-studies/dematic/dematic-warehouse-visibility-hero.jpg) right center / auto 100% no-repeat;
+	}
+	.dematic-hero-copy { width: calc(51.8% - 98px); max-width: 600px; }
+	.dematic-hero h1 span:first-child { white-space: nowrap; }
+}
+
+@media (min-width: 1321px) {
+	.dematic-hero h1 { font-size: 46px; }
+}
+
+@media (min-width: 1025px) and (max-width: 1320px) {
+	.dematic-hero h1 { font-size: clamp(32px, 3.05vw, 40px); }
+	.dematic-hero-copy > p:not(.dematic-eyebrow) { font-size: clamp(13px, 1.1vw, 14px); }
+}
+
+@media (min-width: 1441px) {
+	.dematic-hero { overflow: hidden; }
+	.dematic-hero-inner::before {
+		right: calc(720px - 50vw);
+		left: calc(720px - 50vw);
+		background:
+			linear-gradient(180deg, rgba(0, 22, 52, .72) 0, rgba(0, 22, 52, 0) 130px),
+			linear-gradient(90deg,
+				#001f47 0,
+				#001f47 max(min(50% - 40px, 100% - 624px), 100% - 1020px),
+				rgba(0, 31, 71, .55) max(min(50% + 40px, 100% - 544px), 100% - 960px),
+				rgba(0, 31, 71, 0) max(min(50% + 120px, 100% - 464px), 100% - 900px)),
+			url(../images/case-studies/dematic/dematic-warehouse-visibility-hero.jpg) right center / auto 100% no-repeat;
+	}
+}
+
+@media (max-width: 1024px) {
+	.dematic-hero { height: auto; min-height: 0; background: #031b3a; }
+	.dematic-hero::before { background: radial-gradient(circle at 18% 35%, rgba(8, 124, 240, .16), transparent 42%); }
+	.dematic-hero-inner { display: block; width: 100%; height: auto; min-height: 0; padding: 120px 32px 0; }
+	.dematic-hero-copy { width: 100%; }
+	.dematic-hero h1 { max-width: 760px; font-size: clamp(38px, 6vw, 50px); }
+	.dematic-hero-copy > p:not(.dematic-eyebrow) { font-size: 15px; }
+	.dematic-hero-mobile-visual {
+		display: block;
+		width: calc(100% + 64px);
+		margin: 36px -32px 0;
+		overflow: hidden;
+		border-top: 1px solid rgba(80, 200, 255, .26);
+		background: #08244a;
+	}
+	.dematic-hero-mobile-visual img { display: block; width: 100%; height: auto; }
+}
+
+@media (max-width: 600px) {
+	.dematic-hero-inner { padding: 112px 20px 0; }
+	.dematic-hero h1 { font-size: clamp(34px, 10vw, 44px); }
+	.dematic-hero-mobile-visual { width: calc(100% + 40px); margin-inline: -20px; }
+}
+
+/* ------------------------------------------------------------------ Facts */
+.dematic-facts {
+	position: relative;
+	z-index: 3;
+	padding: 36px 0 32px;
+	border-bottom: 1px solid #e0edf6;
+	background: linear-gradient(180deg, #eef8ff 0%, #fff 100%);
+}
+
+.dematic-facts-grid {
+	display: grid;
+	margin-top: 0;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 14px;
+}
+
+.dematic-facts article {
+	position: relative;
+	display: flex;
+	min-width: 0;
+	min-height: 0;
+	padding: 22px 20px 20px;
+	align-items: flex-start;
+	gap: 14px;
+	overflow: hidden;
+	border: 1px solid #d2e6f3;
+	border-radius: 14px;
+	background: rgba(255, 255, 255, .96);
+	box-shadow: 0 16px 38px rgba(13, 69, 108, .10), inset 0 1px 0 #fff;
+	transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+.dematic-facts article::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	height: 4px;
+	background: linear-gradient(90deg, #087cf0, #24c9f5);
+}
+.dematic-facts article:nth-child(2)::before { background: linear-gradient(90deg, #0ca4d8, #48d8d0); }
+.dematic-facts article:nth-child(3)::before { background: linear-gradient(90deg, #6459df, #179eea); }
+.dematic-facts article:nth-child(4)::before { background: linear-gradient(90deg, #087cf0, #ff912d); }
+.dematic-facts article:hover { transform: translateY(-4px); border-color: #9fd6f3; box-shadow: 0 22px 46px rgba(13, 69, 108, .14); }
+.dematic-facts .dematic-icon {
+	width: 46px;
+	height: 46px;
+	flex: 0 0 46px;
+	border: 1px solid #bde3f7;
+	border-radius: 13px;
+	color: #078fe6;
+	background: linear-gradient(145deg, #f2fbff, #dff4ff);
+	box-shadow: 0 10px 22px rgba(8, 124, 240, .11);
+}
+.dematic-facts .dematic-icon svg { width: 24px; height: 24px; }
+.dematic-facts p { display: grid; min-width: 0; margin: 0; color: #0b2852; font-size: 16px; line-height: 1.4; }
+.dematic-facts small { display: flex; min-height: 46px; align-items: center; color: #0b1f3a; font-family: "Roboto", "Open Sans", Arial, sans-serif; font-size: 18px; font-weight: 600; letter-spacing: -.005em; line-height: 1.2; text-transform: none; }
+.dematic-facts strong { margin-top: 2px; color: #1f3147; font-size: 14px; font-weight: 500; }
+
+/* ------------------------------------------------------------------ About + objective */
+.dematic-overview { padding: 68px 0 0; background: linear-gradient(180deg, #fff 0%, #f7fbff 100%); }
+
+.dematic-about-grid {
+	display: grid;
+	grid-template-columns: 1.05fr .95fr;
+	gap: 58px;
+	align-items: center;
+}
+
+.dematic-copy-block p { max-width: 690px; margin-bottom: 16px; color: var(--dematic-text); font-size: 18px; line-height: 1.65; }
+.dematic-copy-block h2 { margin-bottom: 22px; }
+
+.dematic-client-visual {
+	position: relative;
+	margin: 0;
+	overflow: hidden;
+	border: 1px solid #c7dfef;
+	border-radius: 14px;
+	background: #0a2d55;
+	box-shadow: 0 22px 52px rgba(9, 54, 94, .16);
+}
+.dematic-client-visual img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: 30% center; }
+.dematic-client-visual figcaption {
+	position: absolute;
+	top: 50%;
+	right: 0;
+	width: min(46%, 260px);
+	padding: 30px 26px 34px;
+	color: #fff;
+	background: linear-gradient(145deg, rgba(3, 31, 70, .95), rgba(3, 46, 91, .84));
+	font: 400 26px/1.22 "Roboto", "Open Sans", sans-serif;
+	transform: translateY(-50%);
+}
+.dematic-client-visual figcaption::after { content: ""; display: block; width: 46px; height: 3px; margin-top: 20px; background: var(--dematic-orange); }
+
+.dematic-objective-grid {
+	display: grid;
+	margin-top: 54px;
+	padding: 50px 0 62px;
+	grid-template-columns: 1fr 1fr;
+	gap: 52px;
+	align-items: center;
+	border-top: 1px solid #d8e9f5;
+}
+.dematic-objective-grid h2 { margin-bottom: 22px; }
+.dematic-objective-grid p { margin: 0; color: var(--dematic-text); font-size: 18px; line-height: 1.65; }
+
+.dematic-objective-flow {
+	display: grid;
+	min-height: 190px;
+	padding: 26px 30px;
+	grid-template-columns: 1fr 34px 1fr 34px 1fr;
+	align-items: center;
+	gap: 12px;
+	border: 1px solid #cfe5f4;
+	border-radius: 14px;
+	background: rgba(255, 255, 255, .9);
+	box-shadow: 0 15px 36px rgba(16, 75, 117, .08);
+}
+.dematic-objective-flow span { display: grid; justify-items: center; color: #0b1f3a; font-size: 14px; line-height: 1.35; text-align: center; }
+.dematic-objective-flow i { display: grid; width: 58px; height: 58px; margin-bottom: 13px; place-items: center; border-radius: 14px; color: #078ce8; background: #e6f6ff; }
+.dematic-objective-flow i svg { width: 31px; height: 31px; }
+.dematic-arrow { width: 24px; height: 24px; color: var(--dematic-sky); }
+
+/* ------------------------------------------------------------------ Challenges (dark) */
+.dematic-challenge {
+	padding: 64px 0 70px;
+	background: radial-gradient(circle at 92% 0, rgba(21, 116, 197, .24), transparent 30%), #02264f;
+}
+.dematic-challenge .dematic-section-heading h2 { color: #fff; }
+.dematic-challenge .dematic-section-heading p { color: #c4d5e8; }
+
+.dematic-card-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.dematic-card-grid article {
+	display: flex;
+	min-height: 145px;
+	padding: 23px;
+	gap: 16px;
+	border: 1px solid rgba(68, 162, 225, .35);
+	border-radius: 10px;
+	background: rgba(2, 35, 73, .72);
+}
+.dematic-card-grid .dematic-icon { width: 44px; height: 44px; flex: 0 0 44px; color: #ff8b21; }
+.dematic-card-grid .dematic-icon svg { width: 34px; height: 34px; }
+.dematic-card-grid h3 { margin: 0 0 8px; color: #fff; font-size: 18px; line-height: 1.3; }
+.dematic-card-grid p { margin: 0; color: #c2d1e1; font-size: 16px; line-height: 1.55; }
+
+/* ------------------------------------------------------------------ Architecture */
+.dematic-architecture { padding: 66px 0 70px; background: linear-gradient(180deg, #fff 0, #f4f9fe 100%); }
+
+.dematic-stages {
+	display: grid;
+	margin: 0 0 14px;
+	padding: 0;
+	grid-template-columns: repeat(7, minmax(0, 1fr));
+	gap: 4px;
+	list-style: none;
+}
+.dematic-stages li {
+	display: grid;
+	min-height: 58px;
+	margin: 0;
+	padding: 8px 22px;
+	place-items: center;
+	color: #fff;
+	background: var(--dematic-sky);
+	clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 50%, calc(100% - 16px) 100%, 0 100%, 16px 50%);
+	font-family: "Roboto", "Open Sans", Arial, sans-serif;
+	font-size: 15px;
+	font-weight: 700;
+	line-height: 1.2;
+	text-align: center;
+}
+.dematic-stages li:first-child { clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 50%, calc(100% - 16px) 100%, 0 100%); border-radius: 6px 0 0 6px; }
+
+.dematic-systems { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; }
+.dematic-systems article {
+	position: relative;
+	display: flex;
+	min-width: 0;
+	min-height: 168px;
+	margin-bottom: 40px;
+	padding: 18px 12px;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	border: 1px solid #dbeaf6;
+	border-radius: 12px;
+	background: #fff;
+	box-shadow: 0 10px 28px rgba(14, 73, 115, .06);
+	text-align: center;
+}
+.dematic-systems article::after {
+	content: "";
+	position: absolute;
+	bottom: -38px;
+	left: 50%;
+	width: 14px;
+	height: 30px;
+	background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 30'%3E%3Cpath d='M7 1v26M2 22l5 6 5-6' fill='none' stroke='%230a84e4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 14px 30px no-repeat;
+	transform: translateX(-50%);
+}
+.dematic-systems b { color: #0b1f3a; font-size: 15px; font-weight: 600; line-height: 1.3; }
+
+.dematic-logo { display: flex; width: 100%; min-height: 86px; flex-direction: column; align-items: center; justify-content: center; gap: 6px; }
+.dematic-logo img { display: block; width: auto; height: auto; object-fit: contain; }
+.dematic-logo em { color: #33465c; font-size: 13px; font-style: normal; line-height: 1.3; }
+.dematic-logo.salesforce img { max-width: 92px; max-height: 64px; object-view-box: inset(14% 0 14% 0); }
+.dematic-logo.oracle img { max-width: 124px; max-height: 18px; }
+.dematic-logo.icon svg { width: 42px; height: 42px; color: var(--dematic-sky); }
+.dematic-logo .dematic-ms { width: 36px; height: 36px; }
+.dematic-logo .dematic-sap { width: 78px; height: 39px; }
+
+.dematic-integration {
+	position: relative;
+	display: flex;
+	width: 100%;
+	margin: 0 auto 50px;
+	padding: 20px 24px;
+	align-items: center;
+	justify-content: center;
+	gap: 14px;
+	flex-wrap: wrap;
+	border: 1px solid #bfdcf2;
+	border-radius: 12px;
+	background: linear-gradient(180deg, #f4faff, #e8f4fd);
+	text-align: center;
+}
+.dematic-integration img { width: 30px; height: auto; }
+.dematic-integration b { color: #0b1f3a; font-size: 20px; }
+.dematic-integration span { color: #0b1f3a; font-size: 16px; font-weight: 600; }
+.dematic-integration::after { display: none; }
+
+/* Bottom row mirrors the mockup: the integration bar drops an arrow onto the
+   warehouse box, which feeds Tableau through a long horizontal arrow. */
+.dematic-warehouse-row {
+	display: grid;
+	width: min(100%, 1080px);
+	margin: 0 auto;
+	grid-template-columns: minmax(0, 1fr) minmax(90px, .55fr) minmax(0, 1fr);
+	align-items: center;
+}
+.dematic-edw,
+.dematic-bi {
+	position: relative;
+	display: flex;
+	min-width: 0;
+	min-height: 120px;
+	padding: 18px 26px;
+	align-items: center;
+	justify-content: center;
+	gap: 18px;
+	border: 1px solid #cfe3f2;
+	border-radius: 12px;
+	background: #fff;
+	box-shadow: 0 12px 28px rgba(14, 73, 115, .07);
+}
+.dematic-edw::before {
+	content: "";
+	position: absolute;
+	top: -40px;
+	left: 50%;
+	width: 14px;
+	height: 30px;
+	background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 30'%3E%3Cpath d='M7 1v26M2 22l5 6 5-6' fill='none' stroke='%230a84e4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 14px 30px no-repeat;
+	transform: translateX(-50%);
+}
+.dematic-edw svg { width: 52px; height: 52px; flex: 0 0 52px; color: var(--dematic-sky); fill: #e3f3fe; }
+.dematic-edw b,
+.dematic-bi b { color: #0b1f3a; font-size: 18px; font-weight: 700; line-height: 1.3; }
+.dematic-bi { flex-direction: column; gap: 6px; }
+.dematic-bi img { width: auto; max-width: 170px; max-height: 50px; }
+.dematic-link-arrow {
+	position: relative;
+	height: 14px;
+	margin: 0 10px;
+	background: linear-gradient(#0a84e4, #0a84e4) left center / calc(100% - 4px) 2px no-repeat;
+}
+.dematic-link-arrow::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	right: 0;
+	width: 10px;
+	height: 10px;
+	border-top: 2px solid #0a84e4;
+	border-right: 2px solid #0a84e4;
+	transform: translateY(-50%) rotate(45deg);
+}
+
+/* ------------------------------------------------------------------ Solution steps */
+.dematic-solution { padding: 66px 0 40px; background: #fff; }
+.dematic-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.dematic-steps article {
+	padding: 24px 24px 26px;
+	border: 1px solid var(--dematic-line);
+	border-radius: 12px;
+	background: #fff;
+	box-shadow: 0 10px 25px rgba(23, 78, 118, .055);
+}
+.dematic-steps header { display: grid; margin-bottom: 14px; justify-items: start; gap: 14px; }
+.dematic-step-number {
+	display: grid;
+	width: 44px;
+	height: 44px;
+	flex: 0 0 44px;
+	place-items: center;
+	border-radius: 50%;
+	color: #fff;
+	background: var(--dematic-sky);
+	font: 700 20px/1 "Roboto", "Open Sans", sans-serif;
+}
+.dematic-steps h3 { min-height: 2.6em; margin: 0; font-size: 17px; line-height: 1.3; }
+.dematic-steps p { margin: 0; color: var(--dematic-muted); font-size: 16px; line-height: 1.6; }
+
+/* ------------------------------------------------------------------ Outcomes */
+.dematic-outcomes { padding: 30px 0 64px; background: #fff; }
+.dematic-outcome-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; }
+.dematic-outcome-grid article {
+	display: flex;
+	min-width: 0;
+	min-height: 196px;
+	padding: 22px 14px;
+	flex-direction: column;
+	align-items: center;
+	border: 1px solid var(--dematic-line);
+	border-radius: 12px;
+	background: #fff;
+	box-shadow: 0 10px 25px rgba(23, 78, 118, .055);
+	text-align: center;
+}
+.dematic-outcome-grid .dematic-icon { width: 46px; height: 46px; margin-bottom: 12px; color: var(--dematic-sky); }
+.dematic-outcome-grid .dematic-icon svg { width: 40px; height: 40px; }
+.dematic-outcome-grid strong { display: flex; min-height: 40px; align-items: center; justify-content: center; color: #f4700b; font: 800 30px/1.15 "Roboto", "Open Sans", sans-serif; }
+.dematic-outcome-grid article:nth-child(4) strong,
+.dematic-outcome-grid article:nth-child(5) strong { font-size: 20px; line-height: 1.2; }
+.dematic-outcome-grid p { margin: 8px 0 0; hyphens: manual; overflow-wrap: normal; color: var(--dematic-muted); font-size: 15px; line-height: 1.45; }
+
+/* ------------------------------------------------------------------ Testimonial */
+.dematic-testimonial { padding: 0 0 64px; background: #fff; }
+.dematic-quote {
+	display: grid;
+	margin: 0;
+	padding: 34px 40px;
+	grid-template-columns: minmax(0, 1fr) 280px;
+	gap: 40px;
+	align-items: center;
+	border: 1px solid #cfe5f4;
+	border-radius: 14px;
+	background: linear-gradient(135deg, #eef8ff, #e3f2fd);
+}
+.dematic-quote-body { position: relative; padding-left: 64px; }
+.dematic-quote h2 { margin-left: -64px; margin-bottom: 20px; }
+.dematic-quote-mark { position: absolute; top: 70px; left: 0; width: 44px; height: 44px; color: var(--dematic-blue); fill: currentColor; stroke: none; }
+.dematic-quote blockquote { margin: 0; padding: 0; border: 0; }
+.dematic-quote blockquote p { margin: 0; color: var(--dematic-text); font-size: 17px; font-style: normal; line-height: 1.7; }
+.dematic-quote figcaption { display: flex; padding-left: 32px; align-items: flex-start; gap: 14px; border-left: 1px solid #b9d7ee; }
+.dematic-quote figcaption::before { content: ""; position: absolute; width: 46px; height: 4px; margin-top: -22px; background: var(--dematic-orange); }
+.dematic-quote figcaption .dematic-icon { width: 42px; height: 42px; flex: 0 0 42px; border-radius: 50%; color: #fff; background: var(--dematic-navy); }
+.dematic-quote figcaption .dematic-icon svg { width: 24px; height: 24px; }
+.dematic-quote figcaption > span:last-child { display: grid; gap: 6px; color: #33465c; font-size: 14px; line-height: 1.45; }
+.dematic-quote figcaption b { color: #0b1f3a; font-size: 16px; }
+
+/* ------------------------------------------------------------------ Technologies */
+.dematic-tech { padding: 50px 0 56px; background: linear-gradient(180deg, #f4f9fe, #fff); }
+.dematic-tech-list { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; }
+.dematic-tech-list > span {
+	display: flex;
+	min-width: 0;
+	min-height: 120px;
+	padding: 16px 12px;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	border: 1px solid var(--dematic-line);
+	border-radius: 10px;
+	background: #fff;
+	box-shadow: 0 8px 20px rgba(20, 72, 108, .05);
+	text-align: center;
+}
+.dematic-tech-logo { display: grid; width: 100%; height: 56px; place-items: center; }
+.dematic-tech-logo img { display: block; width: auto; height: auto; object-fit: contain; }
+.dematic-tech-logo.salesforce img { max-width: 92px; max-height: 60px; object-view-box: inset(14% 0 14% 0); }
+.dematic-tech-logo.oracle img { max-width: 140px; max-height: 22px; }
+.dematic-tech-logo.informatica img { max-width: 150px; max-height: 40px; }
+.dematic-tech-logo.tableau img { max-width: 150px; max-height: 50px; }
+.dematic-tech-logo .dematic-ms { width: 40px; height: 40px; }
+.dematic-tech-logo .dematic-sap { width: 84px; height: 42px; }
+.dematic-tech-list small { color: var(--dematic-muted); font-size: 13px; line-height: 1.4; }
+
+/* ------------------------------------------------------------------ Final CTA */
+.dematic-final-cta {
+	position: relative;
+	margin: 0 0 28px;
+	padding: 62px 0 70px;
+	background:
+		linear-gradient(90deg, #021d40 0%, rgba(3, 39, 80, .97) 46%, rgba(2, 37, 76, .7) 68%, rgba(2, 28, 60, .25) 100%),
+		url(../images/case-studies/dematic/dematic-warehouse-automation.jpg) right center / max(50%, 620px) auto no-repeat,
+		#032750;
+}
+.dematic-final-inner { max-width: 720px; }
+.dematic-final-cta h2 { margin: 0 0 14px; color: #fff; font-size: clamp(32px, 3vw, 46px); font-weight: 700; line-height: 1.1; }
+.dematic-final-cta p { max-width: 680px; margin: 0 0 26px; color: #d3e2ef; font-size: 18px; line-height: 1.6; }
+.dematic-button {
+	display: inline-flex;
+	min-height: 52px;
+	padding: 0 24px;
+	align-items: center;
+	gap: 12px;
+	border-radius: 6px;
+	color: #fff !important;
+	background: var(--dematic-orange);
+	box-shadow: 0 12px 28px rgba(255, 108, 18, .25);
+	font-size: 16px;
+	font-weight: 700;
+	text-decoration: none !important;
+	transition: transform .2s ease, box-shadow .2s ease;
+}
+.dematic-button:hover { transform: translateY(-2px); box-shadow: 0 16px 34px rgba(255, 108, 18, .32); }
+.dematic-button svg { width: 18px; height: 18px; }
+
+/* ------------------------------------------------------------------ Shared footer */
+body.infometry-dematic-case-study-page #Footer,
+body.infometry-dematic-case-study-page #Footer_wrapper,
+body.infometry-dematic-case-study-page .mfn-footer { display: none !important; }
+
+.infometry-custom-footer {
+	position: relative;
+	overflow: hidden;
+	margin: 0;
+	padding: 58px 0 22px;
+	color: #c6d2f5;
+	background:
+		radial-gradient(circle at 14% 0, rgba(80, 49, 255, .28), transparent 30%),
+		radial-gradient(circle at 88% 16%, rgba(12, 123, 255, .2), transparent 28%),
+		#020b2d;
+	font-family: "Open Sans", "Segoe UI", Arial, sans-serif;
+}
+.infometry-custom-footer::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	opacity: .12;
+	background-image: radial-gradient(circle, #58a4ff 1px, transparent 1.2px);
+	background-size: 10px 10px;
+	mask-image: linear-gradient(115deg, transparent 28%, #000 80%);
+	pointer-events: none;
+}
+.infometry-footer-shell { position: relative; z-index: 1; width: min(100% - 64px, 1440px); margin-inline: auto; }
+.infometry-footer-grid { display: grid; grid-template-columns: 1.35fr 1.35fr .8fr .8fr; gap: 54px; }
+.infometry-footer-connect h2,
+.infometry-footer-column h3 { margin: 0 0 18px; color: #fff; font-family: "Roboto", "Open Sans", Arial, sans-serif; font-size: 20px; line-height: 1.3; font-weight: 800; letter-spacing: 0; }
+.infometry-footer-logo { display: flex; width: 100%; min-height: 92px; margin: -5px 0 12px; align-items: center; justify-content: flex-start; }
+.infometry-custom-footer .infometry-footer-logo img { display: block; width: 320px; max-width: 100%; height: 86px; object-fit: contain; object-position: left center; transform: translateX(-3.8%); }
+.infometry-footer-connect > p { max-width: 370px; margin: 0 0 18px; color: #e2e8ff; font-size: 15px; line-height: 1.7; font-weight: 500; }
+.infometry-footer-social { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 19px; }
+.infometry-footer-social a { display: grid; width: 31px; height: 31px; padding: 2px; place-items: center; overflow: hidden; border: 1px solid rgba(139, 190, 255, .25); border-radius: 9px; background: rgba(255, 255, 255, .06); transition: transform .2s ease, border-color .2s ease, background .2s ease; }
+.infometry-footer-social img { display: block; width: 100%; height: 100%; border-radius: 7px; object-fit: contain; }
+.infometry-footer-social a:hover { transform: translateY(-2px); border-color: #54b8ff; background: linear-gradient(135deg, rgba(92, 57, 255, .8), rgba(0, 132, 255, .8)); }
+.infometry-footer-contact { display: inline-flex; padding: 11px 17px; align-items: center; gap: 10px; border-radius: 8px; color: #fff !important; background: linear-gradient(135deg, #6333ff, #087cff); font-size: 14px; font-weight: 800; text-decoration: none !important; box-shadow: 0 9px 22px rgba(34, 92, 255, .24); transition: transform .2s ease, box-shadow .2s ease; }
+.infometry-footer-contact:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(34, 92, 255, .32); }
+.infometry-footer-column { min-width: 0; }
+.infometry-footer-column a { display: block; margin: 0 0 11px; color: #edf2ff !important; font-size: 15px; line-height: 1.55; font-weight: 500; text-decoration: none !important; transition: color .2s ease, transform .2s ease; }
+.infometry-footer-column a:hover { color: #66c5ff !important; transform: translateX(3px); }
+.infometry-footer-bottom { display: flex; margin-top: 40px; padding-top: 21px; justify-content: space-between; gap: 20px; border-top: 1px solid rgba(255, 255, 255, .18); color: #cbd5f5; font-size: 14px; font-weight: 500; }
+
+/* ------------------------------------------------------------------ Reveal motion */
+.dematic-motion-ready .dematic-card-grid article,
+.dematic-motion-ready .dematic-steps article,
+.dematic-motion-ready .dematic-outcome-grid article,
+.dematic-motion-ready .dematic-tech-list > span,
+.dematic-motion-ready .dematic-final-inner,
+.infometry-custom-footer.dematic-motion-ready .infometry-footer-grid > * {
+	opacity: 0;
+	transform: translateY(24px);
+	transition: opacity .7s ease, transform .8s cubic-bezier(.2, .72, .2, 1);
+}
+.is-visible .dematic-card-grid article,
+.is-visible .dematic-steps article,
+.is-visible .dematic-outcome-grid article,
+.is-visible .dematic-tech-list > span,
+.is-visible .dematic-final-inner,
+.infometry-custom-footer.is-visible .infometry-footer-grid > * { opacity: 1; transform: none; }
+.dematic-case-study article:nth-child(2),
+.dematic-tech-list > span:nth-child(2) { transition-delay: .07s; }
+.dematic-case-study article:nth-child(3),
+.dematic-tech-list > span:nth-child(3) { transition-delay: .14s; }
+.dematic-case-study article:nth-child(4),
+.dematic-tech-list > span:nth-child(4) { transition-delay: .21s; }
+.dematic-case-study article:nth-child(5),
+.dematic-tech-list > span:nth-child(5) { transition-delay: .28s; }
+.dematic-case-study article:nth-child(6),
+.dematic-tech-list > span:nth-child(6) { transition-delay: .35s; }
+.dematic-facts article { transition-delay: 0s; }
+
+@media (prefers-reduced-motion: reduce) {
+	.dematic-case-study *,
+	.infometry-custom-footer * { transition: none !important; }
+}
+
+/* ------------------------------------------------------------------ Responsive */
+@media (max-width: 1200px) {
+	.dematic-stages li { padding-inline: 18px; font-size: 13px; }
+	.dematic-outcome-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+	.dematic-tech-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 1100px) {
+	.dematic-facts-grid { grid-template-columns: repeat(2, 1fr); }
+	.dematic-about-grid,
+	.dematic-objective-grid { grid-template-columns: 1fr; }
+	.dematic-card-grid,
+	.dematic-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+	.dematic-steps article:last-child:nth-child(odd) { grid-column: 1 / -1; }
+	.dematic-client-visual { max-width: 760px; }
+	.dematic-quote { grid-template-columns: 1fr; gap: 28px; }
+	.dematic-quote figcaption { padding: 24px 0 0; border-top: 1px solid #b9d7ee; border-left: 0; }
+	.infometry-footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; }
+}
+
+/* The lifecycle reads top-to-bottom on tablets/phones: each stage sits above its system. */
+@media (max-width: 960px) {
+	.dematic-stages { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+	.dematic-stages li,
+	.dematic-stages li:first-child { min-height: 50px; padding: 8px 14px; border-radius: 8px; clip-path: none; }
+	.dematic-systems { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-bottom: 40px; }
+	.dematic-systems article { margin-bottom: 0; }
+	.dematic-systems article::after { display: none; }
+}
+
+@media (max-width: 720px) {
+	.dematic-case-study { font-size: 16px; }
+	.dematic-shell { width: min(100% - 40px, 1320px); }
+	.dematic-section-heading p,
+	.dematic-copy-block p,
+	.dematic-objective-grid p { font-size: 16px; }
+	.dematic-facts { padding: 24px 0 20px; }
+	.dematic-facts-grid { margin-top: 0; grid-template-columns: 1fr; gap: 10px; }
+	.dematic-facts article { padding: 16px 18px; }
+	.dematic-overview { padding-top: 50px; }
+	.dematic-about-grid { gap: 34px; }
+	.dematic-client-visual figcaption { width: 54%; padding: 20px 16px 24px; font-size: 19px; }
+	.dematic-objective-grid { margin-top: 38px; padding: 38px 0 50px; gap: 28px; }
+	.dematic-objective-flow { padding: 22px 14px; grid-template-columns: 1fr; gap: 16px; }
+	.dematic-objective-flow .dematic-arrow { transform: rotate(90deg); justify-self: center; }
+	.dematic-card-grid,
+	.dematic-steps,
+	.dematic-systems { grid-template-columns: 1fr; }
+	.dematic-systems article { min-height: 0; padding: 16px 12px; gap: 8px; }
+	.dematic-logo { min-height: 0; }
+	.dematic-card-grid article { min-height: 0; }
+	.dematic-card-grid p,
+	.dematic-steps p { font-size: 15px; }
+	.dematic-steps h3 { min-height: 0; }
+	.dematic-stages { grid-template-columns: 1fr; }
+	.dematic-integration { margin-bottom: 40px; }
+	.dematic-warehouse-row { grid-template-columns: 1fr; gap: 0; }
+	.dematic-link-arrow { width: 14px; height: 44px; margin: 0 auto; background: linear-gradient(#0a84e4, #0a84e4) center top / 2px calc(100% - 4px) no-repeat; }
+	.dematic-link-arrow::after { top: auto; right: auto; bottom: 2px; left: 50%; transform: translateX(-50%) rotate(135deg); }
+	.dematic-edw,
+	.dematic-bi { min-height: 96px; }
+	.dematic-outcome-grid,
+	.dematic-tech-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+	.dematic-outcome-grid strong { font-size: 26px; }
+	.dematic-quote { padding: 26px 20px; }
+	.dematic-quote-body { padding-left: 0; }
+	.dematic-quote h2 { margin-left: 0; }
+	.dematic-quote-mark { position: static; width: 34px; height: 34px; margin-bottom: 12px; }
+	.dematic-quote blockquote p { font-size: 16px; }
+	.dematic-final-cta { margin-bottom: 18px; padding: 50px 0 60px; background-size: auto, auto 100%, auto; }
+	.dematic-final-cta p { font-size: 16px; }
+	.infometry-footer-shell { width: min(100% - 32px, 1440px); }
+	.infometry-footer-grid { grid-template-columns: 1fr; gap: 32px; }
+	.infometry-footer-bottom { flex-direction: column; }
+}
+
+/* Big screens: body copy and card titles step up with the viewport (hero untouched). */
+@media (min-width: 1600px) {
+	.dematic-case-study > section:not(.dematic-hero) { font-size: 18px; }
+	.dematic-facts p { font-size: 17px; }
+	.dematic-facts small { font-size: 19px; }
+	.dematic-facts strong { font-size: 15px; }
+	.dematic-copy-block p,
+	.dematic-objective-grid p,
+	.dematic-section-heading p,
+	.dematic-final-cta p { font-size: 19px; }
+	.dematic-objective-flow span { font-size: 15px; }
+	.dematic-card-grid h3,
+	.dematic-steps h3 { font-size: 19px; }
+	.dematic-card-grid p,
+	.dematic-steps p,
+	.dematic-quote blockquote p { font-size: 17px; }
+	.dematic-stages li { font-size: 16px; }
+	.dematic-systems b,
+	.dematic-outcome-grid p { font-size: 16px; }
+	.dematic-logo em,
+	.dematic-tech-list small { font-size: 14px; }
+}
+
+@media (min-width: 1920px) {
+	.dematic-facts p { font-size: 18px; }
+	.dematic-facts small { font-size: 20px; }
+	.dematic-facts strong { font-size: 16px; }
+	.dematic-copy-block p,
+	.dematic-objective-grid p,
+	.dematic-section-heading p,
+	.dematic-final-cta p { font-size: 20px; }
+	.dematic-objective-flow span { font-size: 16px; }
+	.dematic-card-grid h3,
+	.dematic-steps h3 { font-size: 20px; }
+	.dematic-card-grid p,
+	.dematic-steps p,
+	.dematic-quote blockquote p { font-size: 18px; }
+	.dematic-systems b,
+	.dematic-outcome-grid p { font-size: 17px; }
+	.dematic-logo em,
+	.dematic-tech-list small { font-size: 15px; }
+}
