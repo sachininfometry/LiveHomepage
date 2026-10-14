@@ -88,7 +88,7 @@ $solutions = array(
 				<p>How Infometry built an integrated data warehouse, orchestration, and analytics foundation across customer, operational, production, and financial systems.</p>
 			</div>
 			<figure class="sunrise-hero-mobile-visual">
-				<img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/case-studies/sunrun/sunrun-energy-network-at-sunset.png' ); ?>" width="2172" height="724" alt="Sunrun cloud connected to production analytics, customer insights, partner performance, and portfolio insights">
+				<img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/case-studies/sunrun/sunrun-hero-night-network.jpg' ); ?>" width="2172" height="724" alt="Sunrun cloud connected to production analytics, customer insights, partner performance, and portfolio insights">
 			</figure>
 		</div>
 	</section>

@@ -1005,7 +1005,7 @@ body.infometry-sunrise-case-study-page [id^="rev_slider_"][id$="_forcefullwidth"
 .sunrise-hero {
 	height: 590px;
 	min-height: 590px;
-	background: #031b3a url(../images/case-studies/sunrun/sunrun-energy-network-v2.png) right center / contain no-repeat;
+	background: #031b3a url(../images/case-studies/sunrun/sunrun-hero-night-network.jpg) right center / contain no-repeat;
 }
 
 @media (min-width: 1600px) {
@@ -1203,7 +1203,7 @@ body.infometry-sunrise-case-study-page [id^="rev_slider_"][id$="_forcefullwidth"
 		pointer-events: none;
 		background:
 			linear-gradient(90deg, rgba(0, 31, 71, .97) 0%, rgba(0, 31, 71, .95) 38%, rgba(0, 31, 71, .7) 45%, rgba(0, 31, 71, 0) 53%),
-			url(../images/case-studies/sunrun/sunrun-energy-network-v2.png) right center / auto 100% no-repeat;
+			url(../images/case-studies/sunrun/sunrun-hero-night-network.jpg) right center / auto 100% no-repeat;
 	}
 	.sunrise-hero-copy {
 		position: relative;
@@ -1223,11 +1223,25 @@ body.infometry-sunrise-case-study-page [id^="rev_slider_"][id$="_forcefullwidth"
 	.sunrise-hero-copy > p:not(.sunrise-eyebrow) { font-size: clamp(13px, 1.1vw, 14px); }
 }
 
-/* Past 1440px the frame stops growing; fade both edges into the hero colour. */
+/* Past 1440px the copy frame stops growing; the image layer spans the full
+   viewport and the artwork bleeds to the right edge, so wide screens never show
+   an empty strip or a seam at the frame edge. The dark cover only spans the copy
+   (which always ends at 50% - 74px): solid to 50% - 40px and clear by 50% + 120px,
+   so the artwork fills the space between text and panels. It never reaches the
+   first panel (717px from the right edge of the 540px-tall, 1620px-wide artwork)
+   and always hides the artwork's left edge (100% - 1600px). */
 @media (min-width: 1441px) {
+	.sunrise-hero { overflow: hidden; }
 	.sunrise-hero-inner::before {
-		-webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 90%, transparent 100%);
-		mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 90%, transparent 100%);
+		right: calc(720px - 50vw);
+		left: calc(720px - 50vw);
+		background:
+			linear-gradient(90deg,
+				#001f47 0,
+				#001f47 max(min(50% - 40px, 100% - 900px), 100% - 1600px),
+				rgba(0, 31, 71, .55) max(min(50% + 40px, 100% - 820px), 100% - 1540px),
+				rgba(0, 31, 71, 0) max(min(50% + 120px, 100% - 737px), 100% - 1480px)),
+			url(../images/case-studies/sunrun/sunrun-hero-night-network.jpg) right center / auto 100% no-repeat;
 	}
 }
 
@@ -1975,10 +1989,10 @@ body.infometry-sunrise-case-study-page .mfn-footer { display: none !important; }
 	position: relative;
 	display: flex;
 	min-width: 0;
-	min-height: 126px;
-	padding: 24px 22px;
-	align-items: center;
-	gap: 17px;
+	min-height: 0;
+	padding: 22px 20px 20px;
+	align-items: flex-start;
+	gap: 14px;
 	overflow: hidden;
 	border: 1px solid #d2e6f3;
 	border-radius: 14px;
@@ -2002,20 +2016,20 @@ body.infometry-sunrise-case-study-page .mfn-footer { display: none !important; }
 .sunrun-facts article:nth-child(4)::before { background: linear-gradient(90deg, #087cf0, #ff912d); }
 .sunrun-facts article:hover { transform: translateY(-4px); border-color: #9fd6f3; box-shadow: 0 22px 46px rgba(13, 69, 108, .14); }
 .sunrun-facts .sunrise-icon {
-	width: 54px;
-	height: 54px;
-	flex: 0 0 54px;
+	width: 46px;
+	height: 46px;
+	flex: 0 0 46px;
 	margin: 0;
 	border: 1px solid #bde3f7;
-	border-radius: 15px;
+	border-radius: 13px;
 	color: #078fe6;
 	background: linear-gradient(145deg, #f2fbff, #dff4ff);
 	box-shadow: 0 10px 22px rgba(8, 124, 240, .11);
 }
-.sunrun-facts .sunrise-icon svg { width: 28px; height: 28px; }
+.sunrun-facts .sunrise-icon svg { width: 24px; height: 24px; }
 .sunrun-facts p { display: grid; min-width: 0; margin: 0; color: #0b2852; font-size: 14px; line-height: 1.4; }
 .sunrun-facts small { color: #59809d; font-size: 10px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
-.sunrun-facts strong { margin-top: 7px; font-weight: 400; }
+.sunrun-facts strong { margin-top: 2px; font-weight: 400; }
 
 .sunrun-overview {
 	padding: 68px 0 0;
@@ -2450,7 +2464,7 @@ body.infometry-sunrise-case-study-page .mfn-footer { display: none !important; }
 @media (max-width: 720px) {
 	.sunrun-facts { padding-bottom: 20px; }
 	.sunrun-facts-grid { margin-top: -18px; grid-template-columns: 1fr; gap: 10px; }
-	.sunrun-facts article { min-height: 98px; padding: 18px; border: 1px solid #d2e6f3; }
+	.sunrun-facts article { padding: 16px 18px; border: 1px solid #d2e6f3; }
 	.sunrun-overview { padding-top: 50px; }
 	.sunrun-about-grid { gap: 34px; }
 	.sunrun-client-visual figcaption { width: 50%; padding: 24px 18px 28px; font-size: 21px; }
@@ -2471,7 +2485,7 @@ body.infometry-sunrise-case-study-page .mfn-footer { display: none !important; }
 
 /* Readability pass (all sections except hero): larger body copy, darker text on white backgrounds. */
 .sunrun-facts p { font-size: 16px; }
-.sunrun-facts small { color: #33506a; font-size: 11px; }
+.sunrun-facts small { display: flex; min-height: 46px; align-items: center; color: #0b1f3a; font-family: "Roboto", "Open Sans", Arial, sans-serif; font-size: 18px; font-weight: 700; letter-spacing: .04em; line-height: 1.2; }
 .sunrise-client .sunrun-copy-block p,
 .sunrun-objective-grid p { color: #1f3147; font-size: 18px; }
 .sunrun-objective-flow span { color: #0b1f3a; font-size: 14px; }
@@ -2499,7 +2513,7 @@ body.infometry-sunrise-case-study-page .mfn-footer { display: none !important; }
 /* Big screens: step body copy and card titles up so text keeps pace with the wider viewport (hero untouched). */
 @media (min-width: 1600px) {
 	.sunrun-facts p { font-size: 17px; }
-	.sunrun-facts small { font-size: 12px; }
+	.sunrun-facts small { font-size: 19px; }
 	.sunrise-client .sunrun-copy-block p,
 	.sunrun-objective-grid p,
 	.sunrun-section-heading p,
@@ -2522,6 +2536,7 @@ body.infometry-sunrise-case-study-page .mfn-footer { display: none !important; }
 
 @media (min-width: 1920px) {
 	.sunrun-facts p { font-size: 18px; }
+	.sunrun-facts small { font-size: 20px; }
 	.sunrise-client .sunrun-copy-block p,
 	.sunrun-objective-grid p,
 	.sunrun-section-heading p,
