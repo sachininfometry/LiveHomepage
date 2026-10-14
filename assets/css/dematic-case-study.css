@@ -96,7 +96,12 @@ body.infometry-dematic-case-study-page #Header { min-height: 0 !important; }
 }
 
 .dematic-case-study svg.dematic-ms,
-.dematic-case-study svg.dematic-sap { stroke: none; }
+.dematic-case-study svg.dematic-sap,
+.dematic-case-study svg.dmx-ms,
+.dematic-case-study svg.dmx-sap,
+.dematic-case-study svg.dmx-panel,
+.dematic-case-study svg.dmx-illus,
+.dematic-case-study svg.dmx-db { stroke: none; }
 
 .dematic-sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
 
@@ -438,147 +443,232 @@ body.infometry-dematic-case-study-page #Header { min-height: 0 !important; }
 .dematic-card-grid p { margin: 0; color: #c2d1e1; font-size: 16px; line-height: 1.55; }
 
 /* ------------------------------------------------------------------ Architecture */
-.dematic-architecture { padding: 66px 0 70px; background: linear-gradient(180deg, #fff 0, #f4f9fe 100%); }
+/*
+ * Lifecycle diagram: a seven-stage gradient chevron bar (each stage with its
+ * icon), six tinted system cards with small illustrations, down arrows into the
+ * Informatica Cloud hub, then the warehouse feeding Tableau.
+ */
+.dematic-architecture { padding: 66px 0 74px; background: linear-gradient(180deg, #fff 0, #f4f9fe 100%); }
 
-.dematic-stages {
+.dmx-stages {
 	display: grid;
-	margin: 0 0 14px;
+	margin: 0 0 16px;
 	padding: 0;
 	grid-template-columns: repeat(7, minmax(0, 1fr));
-	gap: 4px;
+	gap: 0;
 	list-style: none;
 }
-.dematic-stages li {
-	display: grid;
-	min-height: 58px;
-	margin: 0;
-	padding: 8px 22px;
-	place-items: center;
+.dmx-stages li {
+	display: flex;
+	min-height: 66px;
+	margin: 0 0 0 -6px;
+	padding: 8px 18px 8px 30px;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
 	color: #fff;
-	background: var(--dematic-sky);
-	clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 50%, calc(100% - 16px) 100%, 0 100%, 16px 50%);
+	clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 0 100%, 20px 50%);
 	font-family: "Roboto", "Open Sans", Arial, sans-serif;
 	font-size: 15px;
 	font-weight: 700;
 	line-height: 1.2;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, .12);
+}
+.dmx-stages li:first-child { margin-left: 0; padding-left: 18px; border-radius: 10px 0 0 10px; clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 0 100%); }
+.dmx-stages li:last-child { border-radius: 0 10px 10px 0; clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 20px 50%); }
+.dmx-stages svg { flex: 0 0 auto; width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 1.7; }
+.dmx-stages li:nth-child(1) { background: linear-gradient(90deg, #1544c4, #1f6fe3); }
+.dmx-stages li:nth-child(2) { background: linear-gradient(90deg, #1f78e6, #22a6ef); }
+.dmx-stages li:nth-child(3) { background: linear-gradient(90deg, #1fb2ee, #1fcfd1); }
+.dmx-stages li:nth-child(4) { background: linear-gradient(90deg, #1ccbb0, #33c873); }
+.dmx-stages li:nth-child(5) { background: linear-gradient(90deg, #f2c12c, #f6a623); }
+.dmx-stages li:nth-child(6) { background: linear-gradient(90deg, #f69a26, #f2672b); }
+.dmx-stages li:nth-child(7) { background: linear-gradient(90deg, #ef4f3f, #e5265e); }
+
+.dmx-systems { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; }
+.dmx-card {
+	position: relative;
+	display: flex;
+	min-width: 0;
+	min-height: 0;
+	margin-bottom: 62px;
+	padding: 16px 14px 20px;
+	flex-direction: column;
+	align-items: center;
+	border: 1px solid #dbe8f5;
+	border-radius: 14px;
+	background: linear-gradient(180deg, var(--dmx-tint, #f1f7ff) 0%, #fff 78%);
+	box-shadow: 0 12px 30px rgba(14, 73, 115, .06);
 	text-align: center;
 }
-.dematic-stages li:first-child { clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 50%, calc(100% - 16px) 100%, 0 100%); border-radius: 6px 0 0 6px; }
+.dmx-card:nth-child(1) { --dmx-tint: #eef6ff; }
+.dmx-card:nth-child(2) { --dmx-tint: #fff0ec; }
+.dmx-card:nth-child(3) { --dmx-tint: #eef6ff; }
+.dmx-card:nth-child(4) { --dmx-tint: #edf9f1; }
+.dmx-card:nth-child(5) { --dmx-tint: #fff7e6; }
+.dmx-card:nth-child(6) { --dmx-tint: #f2f1ff; }
+.dmx-card::after,
+.dmx-edw::before {
+	content: "";
+	position: absolute;
+	left: 50%;
+	width: 18px;
+	height: 44px;
+	background: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 18 44%22%3E%3Cpath d=%22M9 1v32%22 stroke=%22%231f6fe3%22 stroke-width=%223%22 stroke-linecap=%22round%22/%3E%3Cpath d=%22M2 31l7 12 7-12z%22 fill=%22%231f6fe3%22/%3E%3C/svg%3E") center / 18px 44px no-repeat;
+	transform: translateX(-50%);
+}
+.dmx-card::after { bottom: -54px; }
+.dmx-edw::before { top: -54px; }
+.dmx-card h3 { margin: 0; color: #0b1f3a; font-family: "Roboto", "Open Sans", Arial, sans-serif; font-size: 18px; font-weight: 700; line-height: 1.25; letter-spacing: -.01em; }
+.dmx-card p { margin: 6px 0 0; color: #33465c; font-size: 15px; line-height: 1.4; }
 
-.dematic-systems { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; }
-.dematic-systems article {
+.dmx-art { position: relative; display: flex; width: 100%; height: 150px; margin-bottom: 12px; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
+.dmx-illus { width: 150px; height: 115px; }
+.dmx-panel { width: 118px; height: 90px; filter: drop-shadow(0 6px 10px rgba(30, 90, 170, .12)); }
+.dmx-panel-sm { width: 74px; height: 60px; }
+.dmx-panel-wide { width: 138px; height: 64px; }
+.dmx-art-row { display: flex; align-items: center; justify-content: center; gap: 8px; }
+.dmx-db { width: 54px; height: 66px; }
+.dmx-brand { display: grid; justify-items: center; gap: 2px; }
+.dmx-brand em { color: #33465c; font-size: 13px; font-style: normal; font-weight: 600; }
+.dmx-logo-oracle { width: auto; max-width: 132px; height: auto; max-height: 19px; }
+.dmx-art-crm .dmx-panel { margin: 22px -30px 0 0; }
+.dmx-logo-salesforce { position: absolute; top: 6px; left: calc(50% - 86px); width: auto; max-width: 104px; max-height: 74px; object-fit: contain; object-view-box: inset(14% 0 14% 0); filter: drop-shadow(0 6px 10px rgba(0, 120, 200, .18)); }
+.dmx-ms { width: 46px; height: 46px; }
+.dmx-sap { width: 92px; height: 46px; }
+
+.dmx-hub {
+	position: relative;
+	display: flex;
+	min-height: 104px;
+	margin: 0 0 58px;
+	padding: 20px 28px;
+	align-items: center;
+	justify-content: center;
+	gap: 18px;
+	flex-wrap: wrap;
+	border: 1px solid #c9def3;
+	border-radius: 18px;
+	background:
+		url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1200 104%22 preserveAspectRatio=%22none%22%3E%3Cpath d=%22M0 70C200 30 360 100 600 66S1000 20 1200 58V104H0Z%22 fill=%22%23dcebfb%22 opacity=%22.7%22/%3E%3Cpath d=%22M0 84C240 54 420 110 640 82S1010 48 1200 76V104H0Z%22 fill=%22%23cfe3f8%22 opacity=%22.6%22/%3E%3C/svg%3E") center bottom / 100% 100% no-repeat,
+		linear-gradient(180deg, #f6fbff, #eaf4fe);
+	box-shadow: 0 14px 34px rgba(14, 73, 115, .07);
+}
+.dmx-hub img { width: 46px; height: auto; }
+.dmx-hub b { color: #0b1f3a; font-family: "Roboto", "Open Sans", Arial, sans-serif; font-size: 34px; font-weight: 700; letter-spacing: -.02em; line-height: 1.1; }
+.dmx-hub i { width: 1px; height: 38px; background: #9fbfe0; }
+.dmx-hub span { color: #1f3147; font-size: 19px; font-weight: 500; }
+
+.dmx-bottom {
+	display: grid;
+	width: min(100%, 1200px);
+	margin: 0 auto;
+	grid-template-columns: minmax(0, 1fr) minmax(120px, .32fr) minmax(0, 1fr);
+	align-items: center;
+}
+.dmx-edw,
+.dmx-bi {
 	position: relative;
 	display: flex;
 	min-width: 0;
 	min-height: 168px;
-	margin-bottom: 40px;
-	padding: 18px 12px;
-	flex-direction: column;
-	align-items: center;
-	justify-content: space-between;
-	gap: 12px;
-	border: 1px solid #dbeaf6;
-	border-radius: 12px;
-	background: #fff;
-	box-shadow: 0 10px 28px rgba(14, 73, 115, .06);
-	text-align: center;
-}
-.dematic-systems article::after {
-	content: "";
-	position: absolute;
-	bottom: -38px;
-	left: 50%;
-	width: 14px;
-	height: 30px;
-	background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 30'%3E%3Cpath d='M7 1v26M2 22l5 6 5-6' fill='none' stroke='%230a84e4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 14px 30px no-repeat;
-	transform: translateX(-50%);
-}
-.dematic-systems b { color: #0b1f3a; font-size: 15px; font-weight: 600; line-height: 1.3; }
-
-.dematic-logo { display: flex; width: 100%; min-height: 86px; flex-direction: column; align-items: center; justify-content: center; gap: 6px; }
-.dematic-logo img { display: block; width: auto; height: auto; object-fit: contain; }
-.dematic-logo em { color: #33465c; font-size: 13px; font-style: normal; line-height: 1.3; }
-.dematic-logo.salesforce img { max-width: 92px; max-height: 64px; object-view-box: inset(14% 0 14% 0); }
-.dematic-logo.oracle img { max-width: 124px; max-height: 18px; }
-.dematic-logo.icon svg { width: 42px; height: 42px; color: var(--dematic-sky); }
-.dematic-logo .dematic-ms { width: 36px; height: 36px; }
-.dematic-logo .dematic-sap { width: 78px; height: 39px; }
-
-.dematic-integration {
-	position: relative;
-	display: flex;
-	width: 100%;
-	margin: 0 auto 50px;
-	padding: 20px 24px;
-	align-items: center;
-	justify-content: center;
-	gap: 14px;
-	flex-wrap: wrap;
-	border: 1px solid #bfdcf2;
-	border-radius: 12px;
-	background: linear-gradient(180deg, #f4faff, #e8f4fd);
-	text-align: center;
-}
-.dematic-integration img { width: 30px; height: auto; }
-.dematic-integration b { color: #0b1f3a; font-size: 20px; }
-.dematic-integration span { color: #0b1f3a; font-size: 16px; font-weight: 600; }
-.dematic-integration::after { display: none; }
-
-/* Bottom row mirrors the mockup: the integration bar drops an arrow onto the
-   warehouse box, which feeds Tableau through a long horizontal arrow. */
-.dematic-warehouse-row {
-	display: grid;
-	width: min(100%, 1080px);
-	margin: 0 auto;
-	grid-template-columns: minmax(0, 1fr) minmax(90px, .55fr) minmax(0, 1fr);
-	align-items: center;
-}
-.dematic-edw,
-.dematic-bi {
-	position: relative;
-	display: flex;
-	min-width: 0;
-	min-height: 120px;
-	padding: 18px 26px;
+	padding: 14px 24px;
 	align-items: center;
 	justify-content: center;
 	gap: 18px;
 	border: 1px solid #cfe3f2;
-	border-radius: 12px;
-	background: #fff;
-	box-shadow: 0 12px 28px rgba(14, 73, 115, .07);
+	border-radius: 16px;
+	background: linear-gradient(180deg, #fff, #f3f8fe);
+	box-shadow: 0 14px 34px rgba(14, 73, 115, .08);
 }
-.dematic-edw::before {
-	content: "";
-	position: absolute;
-	top: -40px;
-	left: 50%;
-	width: 14px;
-	height: 30px;
-	background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 30'%3E%3Cpath d='M7 1v26M2 22l5 6 5-6' fill='none' stroke='%230a84e4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 14px 30px no-repeat;
-	transform: translateX(-50%);
-}
-.dematic-edw svg { width: 52px; height: 52px; flex: 0 0 52px; color: var(--dematic-sky); fill: #e3f3fe; }
-.dematic-edw b,
-.dematic-bi b { color: #0b1f3a; font-size: 18px; font-weight: 700; line-height: 1.3; }
-.dematic-bi { flex-direction: column; gap: 6px; }
-.dematic-bi img { width: auto; max-width: 170px; max-height: 50px; }
-.dematic-link-arrow {
+.dmx-edw-art { flex: 0 1 250px; width: 250px; max-width: 48%; height: auto; }
+.dmx-edw b,
+.dmx-bi b { color: #0b1f3a; font-family: "Roboto", "Open Sans", Arial, sans-serif; font-size: 24px; font-weight: 700; line-height: 1.25; }
+.dmx-bi-copy { display: grid; justify-items: center; gap: 4px; text-align: center; }
+.dmx-bi-copy b { white-space: nowrap; }
+.dmx-bi-copy img { width: auto; max-width: 200px; max-height: 64px; }
+.dmx-bi-art { flex: 0 1 240px; width: 240px; max-width: 46%; height: auto; }
+.dmx-link {
 	position: relative;
-	height: 14px;
-	margin: 0 10px;
-	background: linear-gradient(#0a84e4, #0a84e4) left center / calc(100% - 4px) 2px no-repeat;
+	height: 16px;
+	margin: 0 14px;
+	background: linear-gradient(#1f6fe3, #1f6fe3) left center / calc(100% - 6px) 3px no-repeat;
 }
-.dematic-link-arrow::after {
+.dmx-link::after {
 	content: "";
 	position: absolute;
 	top: 50%;
 	right: 0;
-	width: 10px;
-	height: 10px;
-	border-top: 2px solid #0a84e4;
-	border-right: 2px solid #0a84e4;
-	transform: translateY(-50%) rotate(45deg);
+	border-top: 8px solid transparent;
+	border-bottom: 8px solid transparent;
+	border-left: 13px solid #1f6fe3;
+	transform: translateY(-50%);
+}
+
+@media (max-width: 1320px) {
+	.dmx-stages li { gap: 7px; padding-inline: 26px 14px; font-size: 13px; }
+	.dmx-stages li:first-child { padding-left: 14px; }
+	.dmx-stages svg { width: 22px; height: 22px; }
+	.dmx-card h3 { font-size: 16px; }
+	.dmx-card p { font-size: 14px; }
+	.dmx-hub b { font-size: 28px; }
+	.dmx-hub span { font-size: 17px; }
+	.dmx-edw b,
+	.dmx-bi b { font-size: 20px; }
+	.dmx-edw-art { flex-basis: 200px; width: 200px; }
+	.dmx-bi-art { flex-basis: 190px; width: 190px; }
+}
+
+@media (max-width: 1100px) {
+	.dmx-stages svg { display: none; }
+	.dmx-systems { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-bottom: 30px; }
+	.dmx-card { margin-bottom: 0; }
+	.dmx-card::after { display: none; }
+	.dmx-bottom { grid-template-columns: 1fr; width: min(100%, 560px); }
+	.dmx-link { width: 16px; height: 46px; margin: 0 auto; background: linear-gradient(#1f6fe3, #1f6fe3) center top / 3px calc(100% - 6px) no-repeat; }
+	.dmx-link::after { top: auto; right: auto; bottom: 0; left: 50%; border: 8px solid transparent; border-top: 13px solid #1f6fe3; border-bottom: 0; transform: translateX(-50%); }
+}
+
+@media (max-width: 960px) {
+	.dmx-stages { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+	.dmx-stages li,
+	.dmx-stages li:first-child,
+	.dmx-stages li:last-child { min-height: 52px; margin: 0; padding: 8px 14px; border-radius: 10px; clip-path: none; }
+	.dmx-stages svg { display: block; }
+	.dmx-stages li:last-child { grid-column: 1 / -1; }
+}
+
+@media (max-width: 720px) {
+	.dmx-stages { grid-template-columns: 1fr; }
+	.dmx-systems { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+	.dmx-card { min-height: 0; padding: 14px 10px 16px; }
+	.dmx-art { height: 120px; }
+	.dmx-logo-salesforce { left: 4px; max-width: 84px; }
+	.dmx-art-crm .dmx-panel { width: 100px; height: 76px; margin-right: -18px; }
+	.dmx-illus { width: 124px; height: 95px; }
+	.dmx-hub { gap: 10px 14px; padding: 18px; }
+	.dmx-hub b { font-size: 24px; }
+	.dmx-hub i { display: none; }
+	.dmx-hub span { flex-basis: 100%; font-size: 15px; text-align: center; }
+	.dmx-edw,
+	.dmx-bi { flex-direction: column; gap: 10px; text-align: center; }
+}
+
+@media (min-width: 1600px) {
+	.dmx-stages li { font-size: 16px; }
+	.dmx-card h3 { font-size: 19px; }
+	.dmx-card p { font-size: 16px; }
+	.dmx-hub span { font-size: 20px; }
+}
+
+@media (min-width: 1920px) {
+	.dmx-stages li { font-size: 17px; }
+	.dmx-card h3 { font-size: 20px; }
+	.dmx-card p { font-size: 17px; }
+	.dmx-hub b { font-size: 38px; }
+	.dmx-hub span { font-size: 21px; }
+	.dmx-edw b,
+	.dmx-bi b { font-size: 26px; }
 }
 
 /* ------------------------------------------------------------------ Solution steps */
@@ -794,7 +884,6 @@ body.infometry-dematic-case-study-page .mfn-footer { display: none !important; }
 
 /* ------------------------------------------------------------------ Responsive */
 @media (max-width: 1200px) {
-	.dematic-stages li { padding-inline: 18px; font-size: 13px; }
 	.dematic-outcome-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 	.dematic-tech-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
@@ -810,16 +899,6 @@ body.infometry-dematic-case-study-page .mfn-footer { display: none !important; }
 	.dematic-quote { grid-template-columns: 1fr; gap: 28px; }
 	.dematic-quote figcaption { padding: 24px 0 0; border-top: 1px solid #b9d7ee; border-left: 0; }
 	.infometry-footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; }
-}
-
-/* The lifecycle reads top-to-bottom on tablets/phones: each stage sits above its system. */
-@media (max-width: 960px) {
-	.dematic-stages { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
-	.dematic-stages li,
-	.dematic-stages li:first-child { min-height: 50px; padding: 8px 14px; border-radius: 8px; clip-path: none; }
-	.dematic-systems { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-bottom: 40px; }
-	.dematic-systems article { margin-bottom: 0; }
-	.dematic-systems article::after { display: none; }
 }
 
 @media (max-width: 720px) {
@@ -838,21 +917,11 @@ body.infometry-dematic-case-study-page .mfn-footer { display: none !important; }
 	.dematic-objective-flow { padding: 22px 14px; grid-template-columns: 1fr; gap: 16px; }
 	.dematic-objective-flow .dematic-arrow { transform: rotate(90deg); justify-self: center; }
 	.dematic-card-grid,
-	.dematic-steps,
-	.dematic-systems { grid-template-columns: 1fr; }
-	.dematic-systems article { min-height: 0; padding: 16px 12px; gap: 8px; }
-	.dematic-logo { min-height: 0; }
+	.dematic-steps { grid-template-columns: 1fr; }
 	.dematic-card-grid article { min-height: 0; }
 	.dematic-card-grid p,
 	.dematic-steps p { font-size: 15px; }
 	.dematic-steps h3 { min-height: 0; }
-	.dematic-stages { grid-template-columns: 1fr; }
-	.dematic-integration { margin-bottom: 40px; }
-	.dematic-warehouse-row { grid-template-columns: 1fr; gap: 0; }
-	.dematic-link-arrow { width: 14px; height: 44px; margin: 0 auto; background: linear-gradient(#0a84e4, #0a84e4) center top / 2px calc(100% - 4px) no-repeat; }
-	.dematic-link-arrow::after { top: auto; right: auto; bottom: 2px; left: 50%; transform: translateX(-50%) rotate(135deg); }
-	.dematic-edw,
-	.dematic-bi { min-height: 96px; }
 	.dematic-outcome-grid,
 	.dematic-tech-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
 	.dematic-outcome-grid strong { font-size: 26px; }
@@ -884,10 +953,7 @@ body.infometry-dematic-case-study-page .mfn-footer { display: none !important; }
 	.dematic-card-grid p,
 	.dematic-steps p,
 	.dematic-quote blockquote p { font-size: 17px; }
-	.dematic-stages li { font-size: 16px; }
-	.dematic-systems b,
 	.dematic-outcome-grid p { font-size: 16px; }
-	.dematic-logo em,
 	.dematic-tech-list small { font-size: 14px; }
 }
 
@@ -905,8 +971,6 @@ body.infometry-dematic-case-study-page .mfn-footer { display: none !important; }
 	.dematic-card-grid p,
 	.dematic-steps p,
 	.dematic-quote blockquote p { font-size: 18px; }
-	.dematic-systems b,
 	.dematic-outcome-grid p { font-size: 17px; }
-	.dematic-logo em,
 	.dematic-tech-list small { font-size: 15px; }
 }

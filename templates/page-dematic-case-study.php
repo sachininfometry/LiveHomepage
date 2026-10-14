@@ -29,7 +29,6 @@ $challenges = array(
 	array( 'globe', 'Complex Global Environment', 'Multiple applications, processes and data variations across regions and business units.' ),
 );
 
-$stages = array( 'Sales Opportunity', 'Solution Design', 'Quoting', 'Engineering', 'Project Planning', 'Manufacturing', 'Delivery &amp; Installation' );
 
 $steps = array(
 	array( 'search', 'Discover the Business Process and Data Landscape', 'Detailed workshops across sales, engineering, project management, manufacturing and supply chain to map processes, data flows and gaps.' ),
@@ -127,27 +126,94 @@ $outcomes = array(
 	<section class="dematic-section dematic-architecture" id="architecture">
 		<div class="dematic-shell">
 			<div class="dematic-section-heading"><h2>End-to-End Supply Chain &amp; Project Delivery Architecture</h2><p>Integrating data across the customer project lifecycle to enable unified analytics and planning.</p></div>
-			<ol class="dematic-stages" aria-label="Customer project lifecycle">
-				<?php foreach ( $stages as $stage ) : ?>
-					<li><?php echo $stage; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static markup. ?></li>
-				<?php endforeach; ?>
-			</ol>
-			<div class="dematic-systems">
-				<article><span class="dematic-logo salesforce"><img src="<?php echo esc_url( $img_url . 'case-studies/sunrun/logo-salesforce-current.png' ); ?>" alt="Salesforce" width="1254" height="1254" loading="lazy"></span><b>CRM</b></article>
-				<article><span class="dematic-logo oracle"><img src="<?php echo esc_url( $img_url . 'case-studies/sunrun/logo-oracle-current.png' ); ?>" alt="Oracle" width="1529" height="199" loading="lazy"><em>Applications</em></span><b>Quoting &amp; Configuration</b></article>
-				<article><span class="dematic-logo icon"><svg aria-hidden="true"><use href="#dematic-code"/></svg><em>Engineering Systems</em></span><b>Engineering Data</b></article>
-				<article><span class="dematic-logo microsoft"><svg class="dematic-ms" viewBox="0 0 23 23" role="img" aria-label="Microsoft"><path fill="#f25022" d="M1 1h10v10H1z"/><path fill="#7fba00" d="M12 1h10v10H12z"/><path fill="#00a4ef" d="M1 12h10v10H1z"/><path fill="#ffb900" d="M12 12h10v10H12z"/></svg><em>Microsoft Project Server (PWA)</em></span><b>Project Plans &amp; Schedules</b></article>
-				<article><span class="dematic-logo sap"><svg class="dematic-sap" viewBox="0 0 92 46" role="img" aria-label="SAP"><defs><linearGradient id="dematic-sap-fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#00b8f1"/><stop offset="1" stop-color="#0057b8"/></linearGradient></defs><path fill="url(#dematic-sap-fill)" d="M0 0h92L46 46H0z"/><text x="8" y="33" fill="#fff" font-family="Arial, sans-serif" font-size="27" font-weight="700" letter-spacing="-1">SAP</text></svg><em>ERP</em></span><b>ERP &amp; Manufacturing</b></article>
-				<article><span class="dematic-logo icon"><svg aria-hidden="true"><use href="#dematic-database"/></svg><em>Other Operational Applications</em></span><b>Materials, Logistics, Installation</b></article>
-			</div>
-			<div class="dematic-integration">
-				<img src="<?php echo esc_url( $img_url . 'informatica-mark.png' ); ?>" alt="" width="92" height="102" loading="lazy">
-				<b>Informatica Cloud</b><span>Data Integration &amp; Orchestration (IDMC)</span>
-			</div>
-			<div class="dematic-warehouse-row">
-				<div class="dematic-edw"><svg aria-hidden="true"><use href="#dematic-database"/></svg><b>Enterprise<br>Data Warehouse</b></div>
-				<span class="dematic-link-arrow" aria-hidden="true"></span>
-				<div class="dematic-bi"><img src="<?php echo esc_url( $img_url . 'case-studies/sunrun/logo-tableau-current.png' ); ?>" alt="Tableau" width="2172" height="724" loading="lazy"><b>Analytics &amp; Reporting</b></div>
+			<div class="dmx">
+				<svg class="dematic-sprite" aria-hidden="true" focusable="false">
+					<defs>
+						<linearGradient id="dmx-blue" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#5aa6f8"/><stop offset=".55" stop-color="#2f7fe8"/><stop offset="1" stop-color="#1b55c9"/></linearGradient>
+						<linearGradient id="dematic-sap-fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#00b1eb"/><stop offset=".212" stop-color="#009ad9"/><stop offset=".519" stop-color="#007fc4"/><stop offset=".792" stop-color="#006eb8"/><stop offset="1" stop-color="#0069b4"/></linearGradient>
+						<linearGradient id="dmx-panel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#e6f0fd"/></linearGradient>
+					</defs>
+					<symbol id="dmx-handshake" viewBox="0 0 24 24"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3M3 4h8"/></symbol>
+					<symbol id="dmx-bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2Z"/><path d="M12 6v1M6 9H5M19 9h-1"/></symbol>
+					<symbol id="dmx-quote" viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6V2Z"/><path d="M14 2v6h6M9 12h6M9 16h3"/><circle cx="15.5" cy="16.5" r="2"/></symbol>
+					<symbol id="dmx-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M7 14h2M11 14h2M15 14h2M7 17h2M11 17h2"/></symbol>
+					<symbol id="dmx-db" viewBox="0 0 60 72"><rect x="6" y="14" width="48" height="46" fill="url(#dmx-blue)"/><ellipse cx="30" cy="60" rx="24" ry="8" fill="url(#dmx-blue)"/><path d="M6 30a24 8 0 0 0 48 0M6 45a24 8 0 0 0 48 0" fill="none" stroke="#cfe4ff" stroke-width="2"/><ellipse cx="30" cy="14" rx="24" ry="8" fill="#a9d0ff"/></symbol>
+					<symbol id="dmx-cog" viewBox="0 0 24 24"><path fill="#2f7fe8" d="M19.4 13.5v-3l-2.1-.7-.6-1.5.9-2-2.1-2.1-2 .9-1.5-.6L11.3 2h-3l-.7 2.2-1.5.6-2-.9L2 6l.9 2-.6 1.5-2.1.7v3l2.1.7.6 1.5-.9 2L4.1 19.5l2-.9 1.5.6.7 2.1h3l.7-2.1 1.5-.6 2 .9 2.1-2.1-.9-2 .6-1.5Z" transform="translate(1.6 .2)"/><circle cx="11.4" cy="12" r="3.2" fill="#fff"/></symbol>
+				</svg>
+
+				<ol class="dmx-stages" aria-label="Customer project lifecycle">
+					<li><svg aria-hidden="true"><use href="#dmx-handshake"/></svg><span>Sales Opportunity</span></li>
+					<li><svg aria-hidden="true"><use href="#dmx-bulb"/></svg><span>Solution Design</span></li>
+					<li><svg aria-hidden="true"><use href="#dmx-quote"/></svg><span>Quoting</span></li>
+					<li><svg aria-hidden="true"><use href="#dematic-code"/></svg><span>Engineering</span></li>
+					<li><svg aria-hidden="true"><use href="#dmx-calendar"/></svg><span>Project Planning</span></li>
+					<li><svg aria-hidden="true"><use href="#dematic-factory"/></svg><span>Manufacturing</span></li>
+					<li><svg aria-hidden="true"><use href="#dematic-truck"/></svg><span>Delivery &amp; Installation</span></li>
+				</ol>
+
+				<div class="dmx-systems">
+					<article class="dmx-card">
+						<div class="dmx-art dmx-art-crm">
+							<svg class="dmx-panel" viewBox="0 0 92 70" aria-hidden="true"><rect x="1" y="1" width="90" height="68" rx="9" fill="url(#dmx-panel)" stroke="#c6dcf5"/><rect x="12" y="12" width="34" height="5" rx="2.5" fill="#bcd5f5"/><rect x="12" y="21" width="22" height="4" rx="2" fill="#d8e7fb"/><circle cx="22" cy="42" r="6" fill="#2f7fe8"/><path d="M12 58c0-6 4-9 10-9s10 3 10 9Z" fill="#2f7fe8"/><rect x="48" y="44" width="8" height="14" rx="1.5" fill="#5aa6f8"/><rect x="60" y="35" width="8" height="23" rx="1.5" fill="#2f7fe8"/><rect x="72" y="26" width="8" height="32" rx="1.5" fill="#1b55c9"/></svg>
+							<img class="dmx-logo-salesforce" src="<?php echo esc_url( $img_url . 'case-studies/sunrun/logo-salesforce-current.png' ); ?>" alt="Salesforce" width="1254" height="1254" loading="lazy">
+						</div>
+						<h3>CRM</h3>
+					</article>
+					<article class="dmx-card">
+						<div class="dmx-art dmx-art-stack">
+							<span class="dmx-brand"><img class="dmx-logo-oracle" src="<?php echo esc_url( $img_url . 'case-studies/sunrun/logo-oracle-current.png' ); ?>" alt="Oracle" width="1529" height="199" loading="lazy"><em>Applications</em></span>
+							<span class="dmx-art-row"><svg class="dmx-db" aria-hidden="true"><use href="#dmx-db"/></svg><svg class="dmx-panel dmx-panel-sm" viewBox="0 0 60 44" aria-hidden="true"><rect x="1" y="1" width="58" height="42" rx="7" fill="url(#dmx-panel)" stroke="#c6dcf5"/><rect x="28" y="12" width="22" height="4" rx="2" fill="#bcd5f5"/><rect x="28" y="20" width="16" height="4" rx="2" fill="#d8e7fb"/><rect x="28" y="28" width="20" height="4" rx="2" fill="#d8e7fb"/><use href="#dmx-cog" x="6" y="11" width="20" height="20"/></svg></span>
+						</div>
+						<h3>Quoting &amp; Configuration</h3>
+					</article>
+					<article class="dmx-card">
+						<div class="dmx-art">
+							<svg class="dmx-illus" viewBox="0 0 110 84" aria-hidden="true"><rect x="6" y="6" width="74" height="52" rx="6" fill="#1b55c9"/><rect x="11" y="11" width="64" height="42" rx="3" fill="#eaf3ff"/><path d="m36 24-8 8 8 8M50 24l8 8-8 8M46 21l-6 22" fill="none" stroke="#1b55c9" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M36 58h14l3 12H33Z" fill="#2f7fe8"/><rect x="26" y="70" width="34" height="5" rx="2.5" fill="#1b55c9"/><use href="#dmx-cog" x="64" y="40" width="40" height="40"/></svg>
+						</div>
+						<h3>Engineering Systems</h3>
+						<p>Engineering Data</p>
+					</article>
+					<article class="dmx-card">
+						<div class="dmx-art dmx-art-stack">
+							<svg class="dmx-ms" viewBox="0 0 23 23" role="img" aria-label="Microsoft"><path fill="#f25022" d="M1 1h10v10H1z"/><path fill="#7fba00" d="M12 1h10v10H12z"/><path fill="#00a4ef" d="M1 12h10v10H1z"/><path fill="#ffb900" d="M12 12h10v10H12z"/></svg>
+							<svg class="dmx-panel dmx-panel-wide" viewBox="0 0 100 46" aria-hidden="true"><rect x="1" y="1" width="98" height="44" rx="7" fill="url(#dmx-panel)" stroke="#c6dcf5"/><rect x="10" y="10" width="38" height="5" rx="2.5" fill="#2f7fe8"/><rect x="30" y="19" width="34" height="5" rx="2.5" fill="#5aa6f8"/><rect x="46" y="28" width="30" height="5" rx="2.5" fill="#f2c94c"/><rect x="58" y="36" width="32" height="4" rx="2" fill="#27ae60"/></svg>
+						</div>
+						<h3>Microsoft Project Server (PWA)</h3>
+						<p>Project Plans &amp; Schedules</p>
+					</article>
+					<article class="dmx-card">
+						<div class="dmx-art dmx-art-stack">
+							<svg class="dmx-sap" viewBox="0 0 412.38 204" role="img" aria-label="SAP"><polygon fill="url(#dematic-sap-fill)" points="0 204 208.413 204 412.38 0 0 0 0 204"/><path fill="#fff" fill-rule="evenodd" d="m244.727,38.359l-40.593-.025v96.518l-35.46-96.518h-35.16l-30.277,80.716c-3.224-20.352-24.277-27.38-40.84-32.649-10.937-3.512-22.541-8.678-22.434-14.387.091-4.687,6.225-9.04,18.377-8.385,8.17.433,15.373,1.092,29.71,8.006l14.102-24.557c-13.088-6.658-31.169-10.867-45.985-10.883h-.086c-17.277,0-31.677,5.598-40.602,14.824-6.221,6.443-9.572,14.626-9.712,23.679-.227,12.454,4.341,21.292,13.938,28.338,8.104,5.944,18.468,9.794,27.603,12.626,11.27,3.492,20.467,6.526,20.36,13.002-.083,2.355-.977,4.552-2.671,6.337-2.807,2.897-7.124,3.986-13.084,4.098-11.497.243-20.026-1.559-33.61-9.585l-12.536,24.903c13.546,7.705,29.586,12.223,45.952,12.223l2.106-.024c14.247-.256,25.745-4.316,34.929-11.712.527-.416,1.001-.845,1.488-1.277l-4.073,10.874h36.875l6.189-18.822c6.477,2.214,13.847,3.437,21.676,3.437,7.618,0,14.795-1.17,21.156-3.252l5.965,18.637h60.137v-38.969h13.113c31.706,0,50.456-16.147,50.456-43.202,0-30.139-18.219-43.969-57.011-43.969Zm-93.816,82.587c-4.737,0-9.177-.828-13.006-2.275l12.866-40.593h.244l12.643,40.708c-3.801,1.349-8.138,2.16-12.746,2.16Zm96.199-23.324h-8.941v-32.711h8.941c11.927,0,21.437,3.961,21.437,16.139,0,12.602-9.51,16.572-21.437,16.572"/></svg>
+							<span class="dmx-art-row"><svg class="dmx-panel dmx-panel-sm" viewBox="0 0 60 50" aria-hidden="true"><rect x="1" y="1" width="58" height="48" rx="7" fill="url(#dmx-panel)" stroke="#c6dcf5"/><rect x="9" y="9" width="30" height="4" rx="2" fill="#bcd5f5"/><rect x="10" y="30" width="7" height="12" rx="1.5" fill="#5aa6f8"/><rect x="21" y="24" width="7" height="18" rx="1.5" fill="#2f7fe8"/><rect x="32" y="18" width="7" height="24" rx="1.5" fill="#1b55c9"/></svg><svg class="dmx-panel dmx-panel-sm" viewBox="0 0 50 50" aria-hidden="true"><rect x="1" y="1" width="48" height="48" rx="7" fill="url(#dmx-panel)" stroke="#c6dcf5"/><circle cx="25" cy="26" r="14" fill="#5aa6f8"/><path d="M25 26V12a14 14 0 0 1 13.4 18Z" fill="#1b55c9"/></svg></span>
+						</div>
+						<h3>ERP</h3>
+						<p>ERP &amp; Manufacturing</p>
+					</article>
+					<article class="dmx-card">
+						<div class="dmx-art">
+							<svg class="dmx-illus" viewBox="0 0 120 84" aria-hidden="true"><use href="#dmx-db" x="14" y="2" width="50" height="62"/><rect x="40" y="62" width="74" height="9" rx="4.5" fill="#1b55c9"/><circle cx="50" cy="66.5" r="2.4" fill="#a9d0ff"/><circle cx="64" cy="66.5" r="2.4" fill="#a9d0ff"/><circle cx="78" cy="66.5" r="2.4" fill="#a9d0ff"/><circle cx="92" cy="66.5" r="2.4" fill="#a9d0ff"/><circle cx="106" cy="66.5" r="2.4" fill="#a9d0ff"/><rect x="62" y="46" width="20" height="16" rx="2" fill="#e8b36a"/><path d="M62 52h20M72 46v6" stroke="#c98a3d" stroke-width="1.6"/><use href="#dmx-cog" x="78" y="12" width="34" height="34"/></svg>
+						</div>
+						<h3>Other Operational Applications</h3>
+						<p>Materials, Logistics, Installation</p>
+					</article>
+				</div>
+
+				<div class="dmx-hub">
+					<img src="<?php echo esc_url( $img_url . 'informatica-mark-transparent.png' ); ?>" alt="" width="77" height="77" loading="lazy">
+					<b>Informatica Cloud</b><i aria-hidden="true"></i><span>Data Integration &amp; Orchestration (IDMC)</span>
+				</div>
+
+				<div class="dmx-bottom">
+					<article class="dmx-edw">
+						<img class="dmx-edw-art" src="<?php echo esc_url( $dematic_img_url . 'dematic-edw-illustration.png' ); ?>" alt="" width="716" height="336" loading="lazy" decoding="async">
+						<b>Enterprise<br>Data Warehouse</b>
+					</article>
+					<span class="dmx-link" aria-hidden="true"></span>
+					<article class="dmx-bi">
+						<div class="dmx-bi-copy"><img src="<?php echo esc_url( $img_url . 'case-studies/sunrun/logo-tableau-current.png' ); ?>" alt="Tableau from Salesforce" width="2172" height="724" loading="lazy"><b>Analytics &amp; Reporting</b></div>
+						<img class="dmx-bi-art" src="<?php echo esc_url( $dematic_img_url . 'dematic-analytics-illustration.png' ); ?>" alt="" width="688" height="336" loading="lazy" decoding="async">
+					</article>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -192,7 +258,7 @@ $outcomes = array(
 			<div class="dematic-section-heading"><h2>Technologies &amp; Platforms</h2><p>A connected ecosystem of enterprise and operational systems.</p></div>
 			<div class="dematic-tech-list">
 				<span><span class="dematic-tech-logo salesforce"><img src="<?php echo esc_url( $img_url . 'case-studies/sunrun/logo-salesforce-current.png' ); ?>" alt="Salesforce" width="1254" height="1254" loading="lazy"></span><small>Salesforce</small></span>
-				<span><span class="dematic-tech-logo sap"><svg class="dematic-sap" viewBox="0 0 92 46" role="img" aria-label="SAP"><path fill="url(#dematic-sap-fill)" d="M0 0h92L46 46H0z"/><text x="8" y="33" fill="#fff" font-family="Arial, sans-serif" font-size="27" font-weight="700" letter-spacing="-1">SAP</text></svg></span><small>SAP</small></span>
+				<span><span class="dematic-tech-logo sap"><svg class="dematic-sap" viewBox="0 0 412.38 204" role="img" aria-label="SAP"><polygon fill="url(#dematic-sap-fill)" points="0 204 208.413 204 412.38 0 0 0 0 204"/><path fill="#fff" fill-rule="evenodd" d="m244.727,38.359l-40.593-.025v96.518l-35.46-96.518h-35.16l-30.277,80.716c-3.224-20.352-24.277-27.38-40.84-32.649-10.937-3.512-22.541-8.678-22.434-14.387.091-4.687,6.225-9.04,18.377-8.385,8.17.433,15.373,1.092,29.71,8.006l14.102-24.557c-13.088-6.658-31.169-10.867-45.985-10.883h-.086c-17.277,0-31.677,5.598-40.602,14.824-6.221,6.443-9.572,14.626-9.712,23.679-.227,12.454,4.341,21.292,13.938,28.338,8.104,5.944,18.468,9.794,27.603,12.626,11.27,3.492,20.467,6.526,20.36,13.002-.083,2.355-.977,4.552-2.671,6.337-2.807,2.897-7.124,3.986-13.084,4.098-11.497.243-20.026-1.559-33.61-9.585l-12.536,24.903c13.546,7.705,29.586,12.223,45.952,12.223l2.106-.024c14.247-.256,25.745-4.316,34.929-11.712.527-.416,1.001-.845,1.488-1.277l-4.073,10.874h36.875l6.189-18.822c6.477,2.214,13.847,3.437,21.676,3.437,7.618,0,14.795-1.17,21.156-3.252l5.965,18.637h60.137v-38.969h13.113c31.706,0,50.456-16.147,50.456-43.202,0-30.139-18.219-43.969-57.011-43.969Zm-93.816,82.587c-4.737,0-9.177-.828-13.006-2.275l12.866-40.593h.244l12.643,40.708c-3.801,1.349-8.138,2.16-12.746,2.16Zm96.199-23.324h-8.941v-32.711h8.941c11.927,0,21.437,3.961,21.437,16.139,0,12.602-9.51,16.572-21.437,16.572"/></svg></span><small>SAP</small></span>
 				<span><span class="dematic-tech-logo microsoft"><svg class="dematic-ms" viewBox="0 0 23 23" role="img" aria-label="Microsoft"><path fill="#f25022" d="M1 1h10v10H1z"/><path fill="#7fba00" d="M12 1h10v10H12z"/><path fill="#00a4ef" d="M1 12h10v10H1z"/><path fill="#ffb900" d="M12 12h10v10H12z"/></svg></span><small>Microsoft Project Server (PWA)</small></span>
 				<span><span class="dematic-tech-logo oracle"><img src="<?php echo esc_url( $img_url . 'case-studies/sunrun/logo-oracle-current.png' ); ?>" alt="Oracle" width="1529" height="199" loading="lazy"></span><small>Oracle Applications</small></span>
 				<span><span class="dematic-tech-logo informatica"><img src="<?php echo esc_url( $img_url . 'tech-informatica.png' ); ?>" alt="Informatica" width="293" height="78" loading="lazy"></span><small>Informatica Cloud</small></span>
