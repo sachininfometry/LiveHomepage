@@ -93,7 +93,10 @@ $supply_chain_url  = home_url( '/manufacturing-and-supply-chain/' );
 				<figure class="infometry-hero-slide is-apac">
 					<img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/conversa-apac-revenue-v2.png' ); ?>" width="1672" height="941" decoding="async" alt="INFOFISCUS Conversa APAC revenue decline dashboard">
 				</figure>
-				<div class="infometry-hero-slider-dots" aria-hidden="true"><span></span><span></span></div>
+				<figure class="infometry-hero-slide is-summary">
+					<img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/conversa-apac-executive-summary.jpg' ); ?>" width="1672" height="941" loading="lazy" decoding="async" alt="INFOFISCUS Conversa executive summary of the APAC revenue decline with key drivers and follow-up questions">
+				</figure>
+				<div class="infometry-hero-slider-dots" aria-hidden="true"><span></span><span></span><span></span></div>
 			</div>
 		</div>
 	</section>
