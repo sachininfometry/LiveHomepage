@@ -76,7 +76,7 @@ $outcomes = array(
 				<p>How Infometry connected sales, engineering, project planning, materials, manufacturing, and delivery data for a global warehouse automation leader.</p>
 			</div>
 			<figure class="dematic-hero-mobile-visual">
-				<img src="<?php echo esc_url( $dematic_img_url . 'dematic-warehouse-visibility-hero.jpg' ); ?>" width="1774" height="887" alt="Automated warehouse with robots, forklifts and conveyors, overlaid with project delivery, global visibility, manufacturing and on-time delivery metrics">
+				<img src="<?php echo esc_url( $dematic_img_url . 'dematic-hero-v3.jpg' ); ?>" width="1774" height="887" alt="Automated warehouse with robots, forklifts and conveyors, overlaid with project delivery, global visibility, manufacturing and on-time delivery metrics">
 			</figure>
 		</div>
 	</section>
@@ -96,6 +96,7 @@ $outcomes = array(
 				<h2>About the Client</h2>
 				<p>Dematic is a global leader in warehouse automation and intelligent supply chain solutions. Its offerings include conveyor and sortation systems, automated guided vehicles and mobile robotics, storage and retrieval technologies, software, and other material-handling capabilities.</p>
 				<p>Each customer project involves a complex chain of engineering, material, manufacturing, logistics, and installation dependencies.</p>
+				<p>Sales, engineering, project planning, materials, manufacturing, and delivery teams each worked from their own systems, so understanding the true status of a customer project, from opportunity through installation, required pulling data together by hand. Dematic partnered with Infometry to connect that data into one trusted view.</p>
 			</div>
 			<figure class="dematic-client-visual">
 				<img src="<?php echo esc_url( $dematic_img_url . 'dematic-warehouse-automation.jpg' ); ?>" width="770" height="887" alt="Autonomous mobile robots moving along a warehouse conveyor line" loading="lazy" decoding="async">

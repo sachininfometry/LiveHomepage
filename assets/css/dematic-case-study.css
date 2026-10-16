@@ -148,13 +148,14 @@ body.infometry-dematic-case-study-page #Header { min-height: 0 !important; }
  * Identical to the Sunrun hero (sunrise-case-study.css): same height, frame,
  * padding, copy width and type, so every case-study banner matches.
  *  1025px+  hero height clamp(400px, 37.5vw, 540px); the artwork lives in a
- *           1440px frame, height-fitted and right-aligned, under an opaque
- *           navy cover that clears before the first panel.
- *  1441px+  the frame stops growing; the artwork bleeds to the viewport's right
- *           edge and the cover only sits behind the copy (the copy always ends
- *           at 50% - 74px). Panels start 444px from the artwork's right edge
- *           (540px tall x 2 = 1080px wide), so the cover clears before them and
- *           always hides the artwork's left edge (100% - 1080px).
+ *           1440px frame, height-fitted and right-aligned; it already starts
+ *           left of the copy, so the cover only sits behind the copy.
+ *  1441px+  the frame stops growing and the artwork bleeds to the viewport's
+ *           right edge. The 2:1 artwork is narrower than Sunrun's, so it is
+ *           widened to at least 50% + 134px (it then starts 60px before the copy
+ *           ends at 50% - 74px) and cropped evenly top and bottom; the panels sit
+ *           mid-height so they stay in view. The cover still only sits behind
+ *           the copy and clears before the first panel.
  *  A light top shade keeps the theme menu readable over the bright artwork.
  *  <=1024   artwork shown as an image under the copy.
  */
@@ -239,8 +240,8 @@ body.infometry-dematic-case-study-page #Header { min-height: 0 !important; }
 		pointer-events: none;
 		background:
 			linear-gradient(180deg, rgba(0, 22, 52, .72) 0, rgba(0, 22, 52, 0) 130px),
-			linear-gradient(90deg, #001f47 0%, #001f47 38%, rgba(0, 31, 71, .7) 45%, rgba(0, 31, 71, 0) 53%),
-			url(../images/case-studies/dematic/dematic-warehouse-visibility-hero.jpg) right center / auto 100% no-repeat;
+			linear-gradient(90deg, #001f47 0%, #001f47 calc(51.8% - 60px), rgba(0, 31, 71, .55) 51.8%, rgba(0, 31, 71, 0) calc(51.8% + 50px)),
+			url(../images/case-studies/dematic/dematic-hero-v3.jpg) right center / auto 100% no-repeat;
 	}
 	.dematic-hero-copy { width: calc(51.8% - 98px); max-width: 600px; }
 	.dematic-hero h1 span:first-child { white-space: nowrap; }
@@ -264,10 +265,10 @@ body.infometry-dematic-case-study-page #Header { min-height: 0 !important; }
 			linear-gradient(180deg, rgba(0, 22, 52, .72) 0, rgba(0, 22, 52, 0) 130px),
 			linear-gradient(90deg,
 				#001f47 0,
-				#001f47 max(min(50% - 40px, 100% - 624px), 100% - 1020px),
-				rgba(0, 31, 71, .55) max(min(50% + 40px, 100% - 544px), 100% - 960px),
-				rgba(0, 31, 71, 0) max(min(50% + 120px, 100% - 464px), 100% - 900px)),
-			url(../images/case-studies/dematic/dematic-warehouse-visibility-hero.jpg) right center / auto 100% no-repeat;
+				#001f47 min(50% - 50px, 100% - 624px),
+				rgba(0, 31, 71, .55) min(50% + 10px, 100% - 544px),
+				rgba(0, 31, 71, 0) min(50% + 70px, 100% - 464px)),
+			url(../images/case-studies/dematic/dematic-hero-v3.jpg) right center / max(1080px, 50% + 134px) auto no-repeat;
 	}
 }
 
@@ -299,7 +300,7 @@ body.infometry-dematic-case-study-page #Header { min-height: 0 !important; }
 .dematic-facts {
 	position: relative;
 	z-index: 3;
-	padding: 36px 0 32px;
+	padding: 36px 0 24px;
 	border-bottom: 1px solid #e0edf6;
 	background: linear-gradient(180deg, #eef8ff 0%, #fff 100%);
 }
@@ -355,13 +356,13 @@ body.infometry-dematic-case-study-page #Header { min-height: 0 !important; }
 .dematic-facts strong { margin-top: 2px; color: #1f3147; font-size: 14px; font-weight: 500; }
 
 /* ------------------------------------------------------------------ About + objective */
-.dematic-overview { padding: 68px 0 0; background: linear-gradient(180deg, #fff 0%, #f7fbff 100%); }
+.dematic-overview { padding: 40px 0 0; background: linear-gradient(180deg, #fff 0%, #f7fbff 100%); }
 
 .dematic-about-grid {
 	display: grid;
 	grid-template-columns: 1.05fr .95fr;
 	gap: 58px;
-	align-items: center;
+	align-items: start;
 }
 
 .dematic-copy-block p { max-width: 690px; margin-bottom: 16px; color: var(--dematic-text); font-size: 18px; line-height: 1.65; }
@@ -910,7 +911,7 @@ body.infometry-dematic-case-study-page .mfn-footer { display: none !important; }
 	.dematic-facts { padding: 24px 0 20px; }
 	.dematic-facts-grid { margin-top: 0; grid-template-columns: 1fr; gap: 10px; }
 	.dematic-facts article { padding: 16px 18px; }
-	.dematic-overview { padding-top: 50px; }
+	.dematic-overview { padding-top: 32px; }
 	.dematic-about-grid { gap: 34px; }
 	.dematic-client-visual figcaption { width: 54%; padding: 20px 16px 24px; font-size: 19px; }
 	.dematic-objective-grid { margin-top: 38px; padding: 38px 0 50px; gap: 28px; }
@@ -973,4 +974,294 @@ body.infometry-dematic-case-study-page .mfn-footer { display: none !important; }
 	.dematic-quote blockquote p { font-size: 18px; }
 	.dematic-outcome-grid p { font-size: 17px; }
 	.dematic-tech-list small { font-size: 15px; }
+}
+
+/* ================================================================== Consistency layer
+ * One rhythm for the whole page: every section has the same 44px top/bottom
+ * (36px on mobile); a section on the same background as the one above starts
+ * flush so the gap never doubles. One type scale:
+ *   lead copy  17 / 18 / 19px  (default / 1600+ / 1920+), regular
+ *   box title  17 / 18 / 19px, bold 700
+ *   box text   15 / 16 / 17px, regular 400
+ *   caption    14 / 14 / 15px, medium 500
+ */
+body .dematic-case-study .dematic-challenge,
+body .dematic-case-study .dematic-architecture,
+body .dematic-case-study .dematic-solution,
+body .dematic-case-study .dematic-tech { padding-top: 44px !important; padding-bottom: 44px !important; }
+body .dematic-case-study .dematic-outcomes,
+body .dematic-case-study .dematic-testimonial { padding-top: 0 !important; padding-bottom: 44px !important; }
+body .dematic-case-study .dematic-section-heading { margin-bottom: 28px; }
+
+body .dematic-case-study .dematic-section-heading p,
+body .dematic-case-study .dematic-copy-block p,
+body .dematic-case-study .dematic-objective-grid p,
+body .dematic-case-study .dematic-final-cta p,
+body .dematic-case-study .dematic-quote blockquote p { font-size: 17px; font-weight: 400; line-height: 1.65; }
+body .dematic-case-study .dematic-card-grid h3,
+body .dematic-case-study .dematic-steps h3,
+body .dematic-case-study .dmx-card h3,
+body .dematic-case-study .dematic-facts small { font-size: 17px; font-weight: 700; line-height: 1.3; }
+body .dematic-case-study .dematic-facts strong,
+body .dematic-case-study .dematic-card-grid p,
+body .dematic-case-study .dematic-steps p,
+body .dematic-case-study .dematic-outcome-grid p,
+body .dematic-case-study .dmx-card p,
+body .dematic-case-study .dematic-objective-flow span { font-size: 15px; font-weight: 400; line-height: 1.55; }
+body .dematic-case-study .dematic-tech-list small,
+body .dematic-case-study .dmx-brand em,
+body .dematic-case-study .dematic-quote figcaption > span:last-child { font-size: 14px; font-weight: 500; line-height: 1.4; }
+body .dematic-case-study .dematic-overview { padding-top: 28px !important; }
+body .dematic-case-study .dematic-objective-grid { margin-top: 32px; padding: 32px 0 44px; }
+body .dematic-case-study .dematic-architecture { background: #fff; }
+body .dematic-case-study .dematic-solution { padding-top: 0 !important; }
+
+@media (min-width: 1600px) {
+body .dematic-case-study .dematic-section-heading p,
+body .dematic-case-study .dematic-copy-block p,
+body .dematic-case-study .dematic-objective-grid p,
+body .dematic-case-study .dematic-final-cta p,
+body .dematic-case-study .dematic-quote blockquote p { font-size: 18px; }
+body .dematic-case-study .dematic-card-grid h3,
+body .dematic-case-study .dematic-steps h3,
+body .dematic-case-study .dmx-card h3,
+body .dematic-case-study .dematic-facts small { font-size: 18px; }
+body .dematic-case-study .dematic-facts strong,
+body .dematic-case-study .dematic-card-grid p,
+body .dematic-case-study .dematic-steps p,
+body .dematic-case-study .dematic-outcome-grid p,
+body .dematic-case-study .dmx-card p,
+body .dematic-case-study .dematic-objective-flow span { font-size: 16px; }
+}
+
+@media (min-width: 1920px) {
+body .dematic-case-study .dematic-section-heading p,
+body .dematic-case-study .dematic-copy-block p,
+body .dematic-case-study .dematic-objective-grid p,
+body .dematic-case-study .dematic-final-cta p,
+body .dematic-case-study .dematic-quote blockquote p { font-size: 19px; }
+body .dematic-case-study .dematic-card-grid h3,
+body .dematic-case-study .dematic-steps h3,
+body .dematic-case-study .dmx-card h3,
+body .dematic-case-study .dematic-facts small { font-size: 19px; }
+body .dematic-case-study .dematic-facts strong,
+body .dematic-case-study .dematic-card-grid p,
+body .dematic-case-study .dematic-steps p,
+body .dematic-case-study .dematic-outcome-grid p,
+body .dematic-case-study .dmx-card p,
+body .dematic-case-study .dematic-objective-flow span { font-size: 17px; }
+body .dematic-case-study .dematic-tech-list small,
+body .dematic-case-study .dmx-brand em,
+body .dematic-case-study .dematic-quote figcaption > span:last-child { font-size: 15px; }
+}
+
+@media (max-width: 720px) {
+body .dematic-case-study .dematic-challenge,
+body .dematic-case-study .dematic-architecture,
+body .dematic-case-study .dematic-solution,
+body .dematic-case-study .dematic-tech { padding-top: 36px !important; padding-bottom: 36px !important; }
+body .dematic-case-study .dematic-outcomes,
+body .dematic-case-study .dematic-testimonial { padding-bottom: 36px !important; }
+body .dematic-case-study .dematic-section-heading p,
+body .dematic-case-study .dematic-copy-block p,
+body .dematic-case-study .dematic-objective-grid p,
+body .dematic-case-study .dematic-final-cta p,
+body .dematic-case-study .dematic-quote blockquote p { font-size: 16px; }
+body .dematic-case-study .dematic-card-grid h3,
+body .dematic-case-study .dematic-steps h3,
+body .dematic-case-study .dmx-card h3,
+body .dematic-case-study .dematic-facts small { font-size: 17px; }
+body .dematic-case-study .dematic-facts strong,
+body .dematic-case-study .dematic-card-grid p,
+body .dematic-case-study .dematic-steps p,
+body .dematic-case-study .dematic-outcome-grid p,
+body .dematic-case-study .dmx-card p,
+body .dematic-case-study .dematic-objective-flow span { font-size: 15px; }
+}
+
+/* Cards sit close under the banner and the About section follows tightly. */
+body .dematic-case-study .dematic-facts { padding-bottom: 12px; border-bottom: 0; }
+
+/* ================================================================== Design review fixes
+ * 1. Box headings 16px / 800, box body text 500, the same in every box.
+ * 2. Section headings 800, section body copy 500.
+ * 3. Tighter spacing, matched to the Snowflake case study (44px rhythm,
+ *    16px under section headings, no extra gap inside the fact cards).
+ */
+body .dematic-case-study .dematic-card-grid h3,
+body .dematic-case-study .dematic-steps h3,
+body .dematic-case-study .dmx-card h3,
+body .dematic-case-study .dematic-facts small { font-size: 16px; font-weight: 800; }
+body .dematic-case-study .dematic-facts strong,
+body .dematic-case-study .dematic-card-grid p,
+body .dematic-case-study .dematic-steps p,
+body .dematic-case-study .dematic-outcome-grid p,
+body .dematic-case-study .dmx-card p { font-weight: 500; }
+body .dematic-case-study .dematic-section-heading h2,
+body .dematic-case-study .dematic-copy-block h2,
+body .dematic-case-study .dematic-objective-grid h2,
+body .dematic-case-study .dematic-quote h2,
+body .dematic-case-study .dematic-final-cta h2 { font-weight: 800; margin-bottom: 16px; }
+body .dematic-case-study .dematic-section-heading p,
+body .dematic-case-study .dematic-copy-block p,
+body .dematic-case-study .dematic-objective-grid p,
+body .dematic-case-study .dematic-final-cta p,
+body .dematic-case-study .dematic-quote blockquote p { font-weight: 500; }
+body .dematic-case-study .dematic-section-heading { margin-bottom: 24px; }
+body .dematic-case-study .dematic-section-heading h2 { margin-bottom: 12px; }
+body .dematic-case-study .dematic-about-grid { gap: 44px; }
+body .dematic-case-study .dematic-objective-grid { margin-top: 22px; padding: 22px 0 44px; }
+body .dematic-case-study .dematic-facts small { min-height: 0; }
+body .dematic-case-study .dematic-facts strong { margin-top: 4px; }
+
+@media (min-width: 1600px) {
+body .dematic-case-study .dematic-card-grid h3,
+body .dematic-case-study .dematic-steps h3,
+body .dematic-case-study .dmx-card h3,
+body .dematic-case-study .dematic-facts small { font-size: 17px; }
+}
+
+@media (min-width: 1920px) {
+body .dematic-case-study .dematic-card-grid h3,
+body .dematic-case-study .dematic-steps h3,
+body .dematic-case-study .dmx-card h3,
+body .dematic-case-study .dematic-facts small { font-size: 18px; }
+}
+
+@media (max-width: 720px) {
+body .dematic-case-study .dematic-card-grid h3,
+body .dematic-case-study .dematic-steps h3,
+body .dematic-case-study .dmx-card h3,
+body .dematic-case-study .dematic-facts small { font-size: 16px; }
+body .dematic-case-study .dematic-objective-grid { margin-top: 18px; padding: 18px 0 36px; }
+body .dematic-case-study .dematic-about-grid { gap: 28px; }
+}
+
+/* One section-heading style on every case study: same size, weight and gap below. */
+body .dematic-case-study .dematic-section-heading h2,
+body .dematic-case-study .dematic-copy-block h2,
+body .dematic-case-study .dematic-objective-grid h2,
+body .dematic-case-study .dematic-quote h2,
+body .dematic-case-study .dematic-final-cta h2 { font-size: clamp(28px, 2.35vw, 40px); font-weight: 800; line-height: 1.1; letter-spacing: -.02em; margin-bottom: 16px; }
+
+/* ================================================================== Typography system
+ * One style per role, on every case study:
+ *   section heading  Roboto 800, clamp(28px, 2.35vw, 40px)   navy #071f49 / white on dark
+ *   sub-heading      Roboto 800, 20px                         #0b1f3a
+ *   paragraph        Open Sans 500, 17 / 18 / 19px            #1f3147 / #d3e2ef on dark
+ *   box heading      Roboto 800, 16 / 17 / 18px               #0b1f3a / white on dark
+ *   box text         Open Sans 500, 15 / 16 / 17px            #1f3147 / #c2d1e1 on dark
+ *   caption          Open Sans 500, 14 / 14 / 15px            #33465c
+ *   button           Open Sans 700, 16px                      white
+ */
+body .dematic-case-study .dematic-section-heading p,
+body .dematic-case-study .dematic-copy-block p:not(.dgf-lead),
+body .dematic-case-study .dematic-objective-grid p:not(.dgf-lead),
+body .dematic-case-study .dematic-final-cta p,
+body .dematic-case-study .dematic-quote blockquote p { font-family: "Open Sans", Arial, sans-serif; font-size: 17px; font-weight: 500; line-height: 1.65; color: #1f3147; }
+body .dematic-case-study .dematic-facts small,
+body .dematic-case-study .dematic-card-grid h3,
+body .dematic-case-study .dematic-steps h3,
+body .dematic-case-study .dmx-card h3,
+body .dematic-case-study .dematic-objective-flow b,
+body .dematic-case-study .dematic-quote figcaption b,
+body .dematic-case-study .dmx-edw b,
+body .dematic-case-study .dmx-bi b { font-family: "Roboto", "Open Sans", Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 1.3; letter-spacing: 0; color: #0b1f3a; }
+body .dematic-case-study .dematic-facts strong,
+body .dematic-case-study .dematic-card-grid p,
+body .dematic-case-study .dematic-steps p,
+body .dematic-case-study .dematic-outcome-grid p,
+body .dematic-case-study .dmx-card p { font-family: "Open Sans", Arial, sans-serif; font-size: 15px; font-weight: 500; line-height: 1.55; font-style: normal; color: #1f3147; }
+body .dematic-case-study .dematic-tech-list small,
+body .dematic-case-study .dmx-brand em,
+body .dematic-case-study .dematic-quote figcaption > span:last-child { font-family: "Open Sans", Arial, sans-serif; font-size: 14px; font-weight: 500; line-height: 1.4; font-style: normal; color: #33465c; }
+body .dematic-case-study .dematic-button { font-family: "Open Sans", Arial, sans-serif; font-size: 16px; font-weight: 700; }
+
+body .dematic-case-study .dematic-challenge .dematic-section-heading p,
+body .dematic-case-study .dematic-challenge .dematic-copy-block p:not(.dgf-lead),
+body .dematic-case-study .dematic-challenge .dematic-objective-grid p:not(.dgf-lead),
+body .dematic-case-study .dematic-challenge .dematic-quote blockquote p,
+body .dematic-case-study .dematic-final-cta .dematic-section-heading p,
+body .dematic-case-study .dematic-final-cta .dematic-copy-block p:not(.dgf-lead),
+body .dematic-case-study .dematic-final-cta .dematic-objective-grid p:not(.dgf-lead),
+body .dematic-case-study .dematic-final-cta p,
+body .dematic-case-study .dematic-final-cta .dematic-quote blockquote p { color: #d3e2ef; }
+body .dematic-case-study .dematic-challenge .dematic-facts small,
+body .dematic-case-study .dematic-challenge .dematic-card-grid h3,
+body .dematic-case-study .dematic-challenge .dematic-steps h3,
+body .dematic-case-study .dematic-challenge .dmx-card h3,
+body .dematic-case-study .dematic-challenge .dematic-objective-flow b,
+body .dematic-case-study .dematic-challenge .dematic-quote figcaption b,
+body .dematic-case-study .dematic-challenge .dmx-edw b,
+body .dematic-case-study .dematic-challenge .dmx-bi b,
+body .dematic-case-study .dematic-final-cta .dematic-facts small,
+body .dematic-case-study .dematic-final-cta .dematic-card-grid h3,
+body .dematic-case-study .dematic-final-cta .dematic-steps h3,
+body .dematic-case-study .dematic-final-cta .dmx-card h3,
+body .dematic-case-study .dematic-final-cta .dematic-objective-flow b,
+body .dematic-case-study .dematic-final-cta .dematic-quote figcaption b,
+body .dematic-case-study .dematic-final-cta .dmx-edw b,
+body .dematic-case-study .dematic-final-cta .dmx-bi b { color: #fff; }
+body .dematic-case-study .dematic-challenge .dematic-facts strong,
+body .dematic-case-study .dematic-challenge .dematic-card-grid p,
+body .dematic-case-study .dematic-challenge .dematic-steps p,
+body .dematic-case-study .dematic-challenge .dematic-outcome-grid p,
+body .dematic-case-study .dematic-challenge .dmx-card p,
+body .dematic-case-study .dematic-final-cta .dematic-facts strong,
+body .dematic-case-study .dematic-final-cta .dematic-card-grid p,
+body .dematic-case-study .dematic-final-cta .dematic-steps p,
+body .dematic-case-study .dematic-final-cta .dematic-outcome-grid p,
+body .dematic-case-study .dematic-final-cta .dmx-card p { color: #c2d1e1; }
+
+@media (min-width: 1600px) {
+body .dematic-case-study .dematic-section-heading p,
+body .dematic-case-study .dematic-copy-block p:not(.dgf-lead),
+body .dematic-case-study .dematic-objective-grid p:not(.dgf-lead),
+body .dematic-case-study .dematic-final-cta p,
+body .dematic-case-study .dematic-quote blockquote p { font-size: 18px; }
+body .dematic-case-study .dematic-facts small,
+body .dematic-case-study .dematic-card-grid h3,
+body .dematic-case-study .dematic-steps h3,
+body .dematic-case-study .dmx-card h3,
+body .dematic-case-study .dematic-objective-flow b,
+body .dematic-case-study .dematic-quote figcaption b,
+body .dematic-case-study .dmx-edw b,
+body .dematic-case-study .dmx-bi b { font-size: 17px; }
+body .dematic-case-study .dematic-facts strong,
+body .dematic-case-study .dematic-card-grid p,
+body .dematic-case-study .dematic-steps p,
+body .dematic-case-study .dematic-outcome-grid p,
+body .dematic-case-study .dmx-card p { font-size: 16px; }
+}
+
+@media (min-width: 1920px) {
+body .dematic-case-study .dematic-section-heading p,
+body .dematic-case-study .dematic-copy-block p:not(.dgf-lead),
+body .dematic-case-study .dematic-objective-grid p:not(.dgf-lead),
+body .dematic-case-study .dematic-final-cta p,
+body .dematic-case-study .dematic-quote blockquote p { font-size: 19px; }
+body .dematic-case-study .dematic-facts small,
+body .dematic-case-study .dematic-card-grid h3,
+body .dematic-case-study .dematic-steps h3,
+body .dematic-case-study .dmx-card h3,
+body .dematic-case-study .dematic-objective-flow b,
+body .dematic-case-study .dematic-quote figcaption b,
+body .dematic-case-study .dmx-edw b,
+body .dematic-case-study .dmx-bi b { font-size: 18px; }
+body .dematic-case-study .dematic-facts strong,
+body .dematic-case-study .dematic-card-grid p,
+body .dematic-case-study .dematic-steps p,
+body .dematic-case-study .dematic-outcome-grid p,
+body .dematic-case-study .dmx-card p { font-size: 17px; }
+body .dematic-case-study .dematic-tech-list small,
+body .dematic-case-study .dmx-brand em,
+body .dematic-case-study .dematic-quote figcaption > span:last-child { font-size: 15px; }
+}
+
+@media (max-width: 720px) {
+body .dematic-case-study .dematic-section-heading p,
+body .dematic-case-study .dematic-copy-block p:not(.dgf-lead),
+body .dematic-case-study .dematic-objective-grid p:not(.dgf-lead),
+body .dematic-case-study .dematic-final-cta p,
+body .dematic-case-study .dematic-quote blockquote p { font-size: 16px; }
 }
