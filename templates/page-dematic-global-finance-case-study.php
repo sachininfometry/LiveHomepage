@@ -217,7 +217,7 @@ $excel_logo = '<svg class="dgf-excel-svg" viewBox="0 0 32 32" role="img" aria-la
 			<div class="dematic-section-heading"><h2>Technologies &amp; Platforms</h2><p>A connected ecosystem of enterprise and finance systems.</p></div>
 			<div class="dgf-tech-grid">
 				<div class="dgf-tech" style="--tint:#e8f3fd"><span class="dgf-tech-icon-box"><img src="<?php echo esc_url( $img_url . 'tech-logos/sap.png' ); ?>" alt="SAP" width="400" height="198" loading="lazy"></span><span class="dgf-tech-name">SAP</span></div>
-				<div class="dgf-tech" style="--tint:#eef1f6"><span class="dgf-tech-icon-box"><span class="dgf-monogram" aria-hidden="true">S</span></span><span class="dgf-tech-name">Syteline</span></div>
+				<div class="dgf-tech" style="--tint:#fdeced"><span class="dgf-tech-icon-box"><img src="<?php echo esc_url( $img_url . 'tech-logos/infor.png' ); ?>" alt="Infor" width="240" height="240" loading="lazy"></span><span class="dgf-tech-name">Syteline</span></div>
 				<div class="dgf-tech" style="--tint:#eef1f6"><span class="dgf-tech-icon-box"><svg class="dgf-svg-icon" aria-hidden="true"><use href="#dgf-triangle"/></svg></span><span class="dgf-tech-name">Proteus</span></div>
 				<div class="dgf-tech" style="--tint:#f1f6ee"><span class="dgf-tech-icon-box"><img src="<?php echo esc_url( $img_url . 'tech-logos/microsoft.png' ); ?>" alt="Microsoft" width="240" height="240" loading="lazy"></span><span class="dgf-tech-name">Microsoft Dynamics NAV</span></div>
 				<div class="dgf-tech" style="--tint:#fdeeee"><span class="dgf-tech-icon-box"><img src="<?php echo esc_url( $img_url . 'tech-logos/sql-server-mark.png' ); ?>" alt="SQL Server" width="195" height="210" loading="lazy"></span><span class="dgf-tech-name">SQL Server</span></div>
