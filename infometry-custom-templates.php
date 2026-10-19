@@ -337,7 +337,7 @@ function infometry_ct_should_use_conns_template() {
 		|| infometry_ct_is_conns_route();
 }
 
-/** Match the production Dematic global finance case-study URL. */
+/** Match the production Dematic Conn's HomePlus case-study URL. */
 function infometry_ct_is_conns_route() {
 	$host = isset( $_SERVER['HTTP_HOST'] ) ? strtolower( sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ) ) ) : '';
 	$host = preg_replace( '/:\d+$/', '', $host );
