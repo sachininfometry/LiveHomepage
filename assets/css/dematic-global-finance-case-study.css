@@ -1735,3 +1735,22 @@ body .dematic-case-study .dgf-tech-name { display: flex; min-height: 2.6em; alig
 @media (min-width: 1920px) {
 	body .dematic-case-study .dgf-tech-name { font-size: 16px; }
 }
+
+/* Architecture on tablet/mobile: the desktop column template set above must not
+   win, so restate the stacked layout last. Boxes stack with down arrows. */
+@media (max-width: 1200px) {
+	body .dematic-case-study .dgf-flow { grid-template-columns: minmax(0, 1fr); width: min(100%, 620px); margin-inline: auto; }
+	body .dematic-case-study .dgf-col { padding: 22px 20px; }
+	body .dematic-case-study .dgf-col h3,
+	body .dematic-case-study .dgf-sources h3 { text-align: center; }
+	body .dematic-case-study .dgf-staging { align-self: stretch; min-height: 0; }
+	body .dematic-case-study .dgf-epm { justify-content: center; }
+	body .dematic-case-study .dgf-data ul { width: fit-content; margin-inline: auto; }
+	body .dematic-case-study .dgf-validation ul { width: fit-content; margin-inline: auto; }
+	body .dematic-case-study .dgf-arrow { width: 16px; height: 40px; margin: 0 auto; background: linear-gradient(#1f6fe3, #1f6fe3) center top / 2px calc(100% - 6px) no-repeat; }
+	body .dematic-case-study .dgf-arrow::after { top: auto; right: auto; bottom: 0; left: 50%; border: 7px solid transparent; border-top: 11px solid #1f6fe3; border-bottom: 0; transform: translateX(-50%); }
+}
+@media (max-width: 720px) {
+	body .dematic-case-study .dgf-source-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px 8px; }
+	body .dematic-case-study .dgf-source-grid b { font-size: 12px; }
+}
