@@ -1,0 +1,2189 @@
+/*
+ * Asana FDP 2.0 case study (built on the Expedia / Conn's HomePlus / Dematic global finance stylesheet) (same system as the Dematic supply chain
+ * and Sunrun case studies).
+ * Follows the Sunrun case-study system: image-led hero, floating fact cards with
+ * normal-weight values, readable body copy, 1600/1920 type steps, shared footer.
+ */
+:root {
+	--dematic-navy: #071f49;
+	--dematic-deep: #001f47;
+	--dematic-blue: #087cf0;
+	--dematic-sky: #0798ee;
+	--dematic-orange: #ff7d19;
+	--dematic-text: #1f3147;
+	--dematic-muted: #2b3b4f;
+	--dematic-line: #d8e7f1;
+}
+
+body.infometry-asana-fdp-page {
+	overflow-x: hidden;
+	background: #fff;
+	color: var(--dematic-text);
+}
+
+body.infometry-asana-fdp-page #Wrapper,
+body.infometry-asana-fdp-page #Content {
+	max-width: 100% !important;
+	overflow-x: hidden;
+}
+
+body.infometry-asana-fdp-page #mfn-rev-slider,
+body.infometry-asana-fdp-page .mfn-rev-slider,
+body.infometry-asana-fdp-page .forcefullwidth_wrapper_tp_banner,
+body.infometry-asana-fdp-page .rev_slider_wrapper,
+body.infometry-asana-fdp-page [id^="rev_slider_"][id$="_wrapper"],
+body.infometry-asana-fdp-page [id^="rev_slider_"][id$="_forcefullwidth"] {
+	display: none !important;
+	height: 0 !important;
+	min-height: 0 !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	overflow: hidden !important;
+}
+
+/*
+ * The WordPress page has no slider, so Betheme would add its 250px header spacer,
+ * a header background image and the black page-title bar. Neutralise all three so
+ * the transparent header overlays the hero exactly like the Sunrun page.
+ */
+body.infometry-asana-fdp-page #Subheader { display: none !important; }
+body.infometry-asana-fdp-page #Header_wrapper { background-image: none !important; }
+body.infometry-asana-fdp-page #Header { min-height: 0 !important; }
+
+/* Keep the theme header balanced when desktop display scaling reduces the CSS viewport. */
+@media (min-width: 1025px) and (max-width: 1320px) {
+	body.infometry-asana-fdp-page #Top_bar .logo,
+	body.infometry-asana-fdp-page #Top_bar .logo #logo { width: auto !important; }
+	body.infometry-asana-fdp-page #Top_bar .logo img,
+	body.infometry-asana-fdp-page #Top_bar #logo img.logo-main {
+		width: auto !important;
+		max-width: 250px !important;
+		max-height: 58px !important;
+	}
+}
+
+.dematic-case-study,
+.dematic-case-study * { box-sizing: border-box; }
+
+.dematic-case-study {
+	position: relative;
+	overflow: hidden;
+	background: #fff;
+	color: var(--dematic-text);
+	font-family: "Open Sans", Arial, sans-serif;
+	font-size: 17px;
+	line-height: 1.65;
+}
+
+.dematic-case-study h1,
+.dematic-case-study h2,
+.dematic-case-study h3,
+.dematic-case-study p { margin-top: 0; }
+
+.dematic-case-study h2,
+.dematic-case-study h3 {
+	color: var(--dematic-navy);
+	font-family: "Roboto", "Open Sans", Arial, sans-serif;
+	letter-spacing: -.02em;
+}
+
+.dematic-case-study svg {
+	display: block;
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 1.8;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+
+.dematic-case-study svg.dematic-ms,
+.dematic-case-study svg.dematic-sap,
+.dematic-case-study svg.dmx-ms,
+.dematic-case-study svg.dmx-sap,
+.dematic-case-study svg.dmx-panel,
+.dematic-case-study svg.dmx-illus,
+.dematic-case-study svg.dmx-db { stroke: none; }
+
+.dematic-sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+.dematic-shell {
+	position: relative;
+	z-index: 2;
+	width: min(100% - 64px, 1320px);
+	margin-inline: auto;
+}
+
+.dematic-icon { display: grid; place-items: center; }
+.dematic-icon svg { width: 26px; height: 26px; }
+
+/* Section headings: navy title with the short orange rule used across the family. */
+.dematic-section-heading { margin-bottom: 28px; }
+.dematic-section-heading h2,
+.dematic-copy-block h2,
+.dematic-objective-grid h2,
+.dematic-quote h2 {
+	position: relative;
+	margin: 0 0 12px;
+	padding-bottom: 10px;
+	font-size: clamp(28px, 2.35vw, 40px);
+	font-weight: 700;
+	line-height: 1.1;
+}
+.dematic-section-heading h2::after,
+.dematic-copy-block h2::after,
+.dematic-objective-grid h2::after,
+.dematic-quote h2::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 46px;
+	height: 3px;
+	border-radius: 999px;
+	background: var(--dematic-orange);
+}
+.dematic-section-heading p { max-width: 1040px; margin: 0; color: #24364d; font-size: 18px; line-height: 1.6; }
+
+/* ------------------------------------------------------------------ Hero */
+/*
+ * Identical to the Sunrun hero (sunrise-case-study.css): same height, frame,
+ * padding, copy width and type, so every case-study banner matches.
+ *  1025px+  hero height clamp(400px, 37.5vw, 540px); the artwork lives in a
+ *           1440px frame, height-fitted and right-aligned, under an opaque
+ *           navy cover that clears before the first panel.
+ *  1441px+  the frame stops growing; the artwork bleeds to the viewport's right
+ *           edge and the cover only sits behind the copy (the copy always ends
+ *           at 50% - 74px). Panels start 669px from the artwork's right edge
+ *           (540px tall x 2.5 = 1350px wide), so the cover clears before them and
+ *           always hides the artwork's left edge (100% - 1350px).
+ *  A light top shade keeps the theme menu readable over the bright artwork.
+ *  <=1024   artwork shown as an image under the copy.
+ */
+.dematic-hero {
+	position: relative;
+	display: flex;
+	background: linear-gradient(180deg, #002456 0%, #001f47 55%, #001d41 100%);
+	isolation: isolate;
+}
+.dematic-hero::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	background: radial-gradient(circle at 16% 48%, rgba(8, 124, 240, .16), transparent 36%);
+}
+
+.dematic-hero-inner {
+	position: relative;
+	display: flex;
+	width: 100%;
+	max-width: 1440px;
+	margin: 0 auto;
+	padding: 84px 50px 34px;
+	align-items: center;
+}
+
+.dematic-hero-copy { position: relative; z-index: 1; color: rgba(255, 255, 255, .86); }
+
+.dematic-eyebrow {
+	display: inline-flex;
+	margin: 0 0 22px;
+	padding: 8px 19px;
+	border: 1px solid #22c8f6;
+	border-radius: 999px;
+	color: #57d9ff;
+	font-size: 11px;
+	font-weight: 800;
+	letter-spacing: .15em;
+	line-height: 1.3;
+	text-transform: uppercase;
+}
+
+.dematic-hero h1 {
+	max-width: 100%;
+	margin: 0 0 22px;
+	color: #fff;
+	font-family: "Manrope", "Open Sans", Arial, sans-serif;
+	font-size: 50px;
+	font-weight: 800;
+	line-height: 1.04;
+	letter-spacing: -.045em;
+}
+.dematic-hero h1 span,
+.dematic-hero h1 strong { display: block; }
+.dematic-hero h1 strong { margin-top: 7px; color: #22c8f6; font-weight: inherit; }
+.dematic-hero h1 .dematic-title-tail { margin-top: 7px; font-size: .88em; letter-spacing: -.04em; }
+
+.dematic-hero-copy > p:not(.dematic-eyebrow) {
+	max-width: 680px;
+	margin: 0;
+	color: rgba(255, 255, 255, .82);
+	font-size: 17px;
+	line-height: 1.58;
+}
+
+.dematic-hero-mobile-visual { display: none; }
+
+@media (max-width: 1320px) {
+	.dematic-hero h1 { font-size: 40px; line-height: 1.02; }
+	.dematic-hero-copy > p:not(.dematic-eyebrow) { max-width: 590px; font-size: 14px; line-height: 1.5; }
+}
+
+/* Banner: same code as the Dematic supply chain case study; only the artwork
+   (1957x804) and its numbers differ: 1314px wide at the 540px hero height,
+   building 630px from its right edge. */
+@media (min-width: 1025px) {
+	.dematic-hero { height: clamp(400px, 37.5vw, 540px); }
+	.dematic-hero-inner { height: 100%; }
+	.dematic-hero-inner::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		z-index: 0;
+		pointer-events: none;
+		background:
+			linear-gradient(180deg, rgba(0, 22, 52, .72) 0, rgba(0, 22, 52, 0) 130px),
+			linear-gradient(90deg, #001f47 0%, #001f47 calc(51.8% - 60px), rgba(0, 31, 71, .55) 51.8%, rgba(0, 31, 71, 0) calc(51.8% + 50px)),
+			url(../images/case-studies/asana-fdp-hero.jpg) right center / auto 100% no-repeat;
+	}
+	.dematic-hero-copy { width: calc(51.8% - 98px); max-width: 600px; }
+	.dematic-hero h1 span:first-child { white-space: nowrap; }
+}
+
+@media (min-width: 1321px) {
+	.dematic-hero h1 { font-size: 46px; }
+}
+
+@media (min-width: 1025px) and (max-width: 1320px) {
+	.dematic-hero h1 { font-size: clamp(32px, 3.05vw, 40px); }
+	.dematic-hero-copy > p:not(.dematic-eyebrow) { font-size: clamp(13px, 1.1vw, 14px); }
+}
+
+@media (min-width: 1441px) {
+	.dematic-hero { overflow: hidden; }
+	.dematic-hero-inner::before {
+		right: calc(720px - 50vw);
+		left: calc(720px - 50vw);
+		background:
+			linear-gradient(180deg, rgba(0, 22, 52, .72) 0, rgba(0, 22, 52, 0) 130px),
+			linear-gradient(90deg,
+				#001f47 0,
+				#001f47 min(50% - 50px, 100% - 790px),
+				rgba(0, 31, 71, .55) min(50% + 10px, 100% - 710px),
+				rgba(0, 31, 71, 0) min(50% + 70px, 100% - 630px)),
+			url(../images/case-studies/asana-fdp-hero.jpg) right center / max(1314px, 50% + 134px) auto no-repeat;
+	}
+}
+
+@media (max-width: 1024px) {
+	.dematic-hero { height: auto; min-height: 0; background: #031b3a; }
+	.dematic-hero::before { background: radial-gradient(circle at 18% 35%, rgba(8, 124, 240, .16), transparent 42%); }
+	.dematic-hero-inner { display: block; width: 100%; height: auto; min-height: 0; padding: 120px 32px 0; }
+	.dematic-hero-copy { width: 100%; }
+	.dematic-hero h1 { max-width: 760px; font-size: clamp(38px, 6vw, 50px); }
+	.dematic-hero-copy > p:not(.dematic-eyebrow) { font-size: 15px; }
+	.dematic-hero-mobile-visual {
+		display: block;
+		width: calc(100% + 64px);
+		margin: 36px -32px 0;
+		overflow: hidden;
+		border-top: 1px solid rgba(80, 200, 255, .26);
+		background: #08244a;
+	}
+	.dematic-hero-mobile-visual img { display: block; width: 100%; height: auto; }
+}
+
+@media (max-width: 600px) {
+	.dematic-hero-inner { padding: 112px 20px 0; }
+	.dematic-hero h1 { font-size: clamp(34px, 10vw, 44px); }
+	.dematic-hero-mobile-visual { width: calc(100% + 40px); margin-inline: -20px; }
+}
+
+/* ------------------------------------------------------------------ Facts */
+.dematic-facts {
+	position: relative;
+	z-index: 3;
+	padding: 36px 0 24px;
+	border-bottom: 1px solid #e0edf6;
+	background: linear-gradient(180deg, #eef8ff 0%, #fff 100%);
+}
+
+.dematic-facts-grid {
+	display: grid;
+	margin-top: 0;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 14px;
+}
+
+.dematic-facts article {
+	position: relative;
+	display: flex;
+	min-width: 0;
+	min-height: 0;
+	padding: 22px 20px 20px;
+	align-items: flex-start;
+	gap: 14px;
+	overflow: hidden;
+	border: 1px solid #d2e6f3;
+	border-radius: 14px;
+	background: rgba(255, 255, 255, .96);
+	box-shadow: 0 16px 38px rgba(13, 69, 108, .10), inset 0 1px 0 #fff;
+	transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+.dematic-facts article::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	height: 4px;
+	background: linear-gradient(90deg, #087cf0, #24c9f5);
+}
+.dematic-facts article:nth-child(2)::before { background: linear-gradient(90deg, #0ca4d8, #48d8d0); }
+.dematic-facts article:nth-child(3)::before { background: linear-gradient(90deg, #6459df, #179eea); }
+.dematic-facts article:nth-child(4)::before { background: linear-gradient(90deg, #087cf0, #ff912d); }
+.dematic-facts article:hover { transform: translateY(-4px); border-color: #9fd6f3; box-shadow: 0 22px 46px rgba(13, 69, 108, .14); }
+.dematic-facts .dematic-icon {
+	width: 46px;
+	height: 46px;
+	flex: 0 0 46px;
+	border: 1px solid #bde3f7;
+	border-radius: 13px;
+	color: #078fe6;
+	background: linear-gradient(145deg, #f2fbff, #dff4ff);
+	box-shadow: 0 10px 22px rgba(8, 124, 240, .11);
+}
+.dematic-facts .dematic-icon svg { width: 24px; height: 24px; }
+.dematic-facts p { display: grid; min-width: 0; margin: 0; color: #0b2852; font-size: 16px; line-height: 1.4; }
+.dematic-facts small { display: flex; min-height: 46px; align-items: center; color: #0b1f3a; font-family: "Roboto", "Open Sans", Arial, sans-serif; font-size: 18px; font-weight: 600; letter-spacing: -.005em; line-height: 1.2; text-transform: none; }
+.dematic-facts strong { margin-top: 2px; color: #1f3147; font-size: 14px; font-weight: 500; }
+
+/* ------------------------------------------------------------------ About + objective */
+.dematic-overview { padding: 40px 0 0; background: linear-gradient(180deg, #fff 0%, #f7fbff 100%); }
+
+.dematic-about-grid {
+	display: grid;
+	grid-template-columns: 1.05fr .95fr;
+	gap: 58px;
+	align-items: start;
+}
+
+.dematic-copy-block p { max-width: 690px; margin-bottom: 16px; color: var(--dematic-text); font-size: 18px; line-height: 1.65; }
+.dematic-copy-block h2 { margin-bottom: 22px; }
+
+.dematic-client-visual {
+	position: relative;
+	margin: 0;
+	overflow: hidden;
+	border: 1px solid #c7dfef;
+	border-radius: 14px;
+	background: #0a2d55;
+	box-shadow: 0 22px 52px rgba(9, 54, 94, .16);
+}
+.dematic-client-visual img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: 30% center; }
+.dematic-client-visual figcaption {
+	position: absolute;
+	top: 50%;
+	right: 0;
+	width: min(46%, 260px);
+	padding: 30px 26px 34px;
+	color: #fff;
+	background: linear-gradient(145deg, rgba(3, 31, 70, .95), rgba(3, 46, 91, .84));
+	font: 400 26px/1.22 "Roboto", "Open Sans", sans-serif;
+	transform: translateY(-50%);
+}
+.dematic-client-visual figcaption::after { content: ""; display: block; width: 46px; height: 3px; margin-top: 20px; background: var(--dematic-orange); }
+
+.dematic-objective-grid {
+	display: grid;
+	margin-top: 54px;
+	padding: 50px 0 62px;
+	grid-template-columns: 1fr 1fr;
+	gap: 52px;
+	align-items: center;
+	border-top: 1px solid #d8e9f5;
+}
+.dematic-objective-grid h2 { margin-bottom: 22px; }
+.dematic-objective-grid p { margin: 0; color: var(--dematic-text); font-size: 18px; line-height: 1.65; }
+
+.dematic-objective-flow {
+	display: grid;
+	min-height: 190px;
+	padding: 26px 30px;
+	grid-template-columns: 1fr 34px 1fr 34px 1fr;
+	align-items: center;
+	gap: 12px;
+	border: 1px solid #cfe5f4;
+	border-radius: 14px;
+	background: rgba(255, 255, 255, .9);
+	box-shadow: 0 15px 36px rgba(16, 75, 117, .08);
+}
+.dematic-objective-flow span { display: grid; justify-items: center; color: #0b1f3a; font-size: 14px; line-height: 1.35; text-align: center; }
+.dematic-objective-flow i { display: grid; width: 58px; height: 58px; margin-bottom: 13px; place-items: center; border-radius: 14px; color: #078ce8; background: #e6f6ff; }
+.dematic-objective-flow i svg { width: 31px; height: 31px; }
+.dematic-arrow { width: 24px; height: 24px; color: var(--dematic-sky); }
+
+/* ------------------------------------------------------------------ Challenges (dark) */
+.dematic-challenge {
+	padding: 64px 0 70px;
+	background: radial-gradient(circle at 92% 0, rgba(21, 116, 197, .24), transparent 30%), #02264f;
+}
+.dematic-challenge .dematic-section-heading h2 { color: #fff; }
+.dematic-challenge .dematic-section-heading p { color: #c4d5e8; }
+
+.dematic-card-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.dematic-card-grid article {
+	display: flex;
+	min-height: 145px;
+	padding: 23px;
+	gap: 16px;
+	border: 1px solid rgba(68, 162, 225, .35);
+	border-radius: 10px;
+	background: rgba(2, 35, 73, .72);
+}
+.dematic-card-grid .dematic-icon { width: 44px; height: 44px; flex: 0 0 44px; color: #ff8b21; }
+.dematic-card-grid .dematic-icon svg { width: 34px; height: 34px; }
+.dematic-card-grid h3 { margin: 0 0 8px; color: #fff; font-size: 18px; line-height: 1.3; }
+.dematic-card-grid p { margin: 0; color: #c2d1e1; font-size: 16px; line-height: 1.55; }
+
+/* ------------------------------------------------------------------ Architecture */
+/*
+ * Lifecycle diagram: a seven-stage gradient chevron bar (each stage with its
+ * icon), six tinted system cards with small illustrations, down arrows into the
+ * Informatica Cloud hub, then the warehouse feeding Tableau.
+ */
+.dematic-architecture { padding: 66px 0 74px; background: linear-gradient(180deg, #fff 0, #f4f9fe 100%); }
+
+.dmx-stages {
+	display: grid;
+	margin: 0 0 16px;
+	padding: 0;
+	grid-template-columns: repeat(7, minmax(0, 1fr));
+	gap: 0;
+	list-style: none;
+}
+.dmx-stages li {
+	display: flex;
+	min-height: 66px;
+	margin: 0 0 0 -6px;
+	padding: 8px 18px 8px 30px;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	color: #fff;
+	clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 0 100%, 20px 50%);
+	font-family: "Roboto", "Open Sans", Arial, sans-serif;
+	font-size: 15px;
+	font-weight: 700;
+	line-height: 1.2;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, .12);
+}
+.dmx-stages li:first-child { margin-left: 0; padding-left: 18px; border-radius: 10px 0 0 10px; clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 0 100%); }
+.dmx-stages li:last-child { border-radius: 0 10px 10px 0; clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 20px 50%); }
+.dmx-stages svg { flex: 0 0 auto; width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 1.7; }
+.dmx-stages li:nth-child(1) { background: linear-gradient(90deg, #1544c4, #1f6fe3); }
+.dmx-stages li:nth-child(2) { background: linear-gradient(90deg, #1f78e6, #22a6ef); }
+.dmx-stages li:nth-child(3) { background: linear-gradient(90deg, #1fb2ee, #1fcfd1); }
+.dmx-stages li:nth-child(4) { background: linear-gradient(90deg, #1ccbb0, #33c873); }
+.dmx-stages li:nth-child(5) { background: linear-gradient(90deg, #f2c12c, #f6a623); }
+.dmx-stages li:nth-child(6) { background: linear-gradient(90deg, #f69a26, #f2672b); }
+.dmx-stages li:nth-child(7) { background: linear-gradient(90deg, #ef4f3f, #e5265e); }
+
+.dmx-systems { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; }
+.dmx-card {
+	position: relative;
+	display: flex;
+	min-width: 0;
+	min-height: 0;
+	margin-bottom: 62px;
+	padding: 16px 14px 20px;
+	flex-direction: column;
+	align-items: center;
+	border: 1px solid #dbe8f5;
+	border-radius: 14px;
+	background: linear-gradient(180deg, var(--dmx-tint, #f1f7ff) 0%, #fff 78%);
+	box-shadow: 0 12px 30px rgba(14, 73, 115, .06);
+	text-align: center;
+}
+.dmx-card:nth-child(1) { --dmx-tint: #eef6ff; }
+.dmx-card:nth-child(2) { --dmx-tint: #fff0ec; }
+.dmx-card:nth-child(3) { --dmx-tint: #eef6ff; }
+.dmx-card:nth-child(4) { --dmx-tint: #edf9f1; }
+.dmx-card:nth-child(5) { --dmx-tint: #fff7e6; }
+.dmx-card:nth-child(6) { --dmx-tint: #f2f1ff; }
+.dmx-card::after,
+.dmx-edw::before {
+	content: "";
+	position: absolute;
+	left: 50%;
+	width: 18px;
+	height: 44px;
+	background: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 18 44%22%3E%3Cpath d=%22M9 1v32%22 stroke=%22%231f6fe3%22 stroke-width=%223%22 stroke-linecap=%22round%22/%3E%3Cpath d=%22M2 31l7 12 7-12z%22 fill=%22%231f6fe3%22/%3E%3C/svg%3E") center / 18px 44px no-repeat;
+	transform: translateX(-50%);
+}
+.dmx-card::after { bottom: -54px; }
+.dmx-edw::before { top: -54px; }
+.dmx-card h3 { margin: 0; color: #0b1f3a; font-family: "Roboto", "Open Sans", Arial, sans-serif; font-size: 18px; font-weight: 700; line-height: 1.25; letter-spacing: -.01em; }
+.dmx-card p { margin: 6px 0 0; color: #33465c; font-size: 15px; line-height: 1.4; }
+
+.dmx-art { position: relative; display: flex; width: 100%; height: 150px; margin-bottom: 12px; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
+.dmx-illus { width: 150px; height: 115px; }
+.dmx-panel { width: 118px; height: 90px; filter: drop-shadow(0 6px 10px rgba(30, 90, 170, .12)); }
+.dmx-panel-sm { width: 74px; height: 60px; }
+.dmx-panel-wide { width: 138px; height: 64px; }
+.dmx-art-row { display: flex; align-items: center; justify-content: center; gap: 8px; }
+.dmx-db { width: 54px; height: 66px; }
+.dmx-brand { display: grid; justify-items: center; gap: 2px; }
+.dmx-brand em { color: #33465c; font-size: 13px; font-style: normal; font-weight: 600; }
+.dmx-logo-oracle { width: auto; max-width: 132px; height: auto; max-height: 19px; }
+.dmx-art-crm .dmx-panel { margin: 22px -30px 0 0; }
+.dmx-logo-salesforce { position: absolute; top: 6px; left: calc(50% - 86px); width: auto; max-width: 104px; max-height: 74px; object-fit: contain; object-view-box: inset(14% 0 14% 0); filter: drop-shadow(0 6px 10px rgba(0, 120, 200, .18)); }
+.dmx-ms { width: 46px; height: 46px; }
+.dmx-sap { width: 92px; height: 46px; }
+
+.dmx-hub {
+	position: relative;
+	display: flex;
+	min-height: 104px;
+	margin: 0 0 58px;
+	padding: 20px 28px;
+	align-items: center;
+	justify-content: center;
+	gap: 18px;
+	flex-wrap: wrap;
+	border: 1px solid #c9def3;
+	border-radius: 18px;
+	background:
+		url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1200 104%22 preserveAspectRatio=%22none%22%3E%3Cpath d=%22M0 70C200 30 360 100 600 66S1000 20 1200 58V104H0Z%22 fill=%22%23dcebfb%22 opacity=%22.7%22/%3E%3Cpath d=%22M0 84C240 54 420 110 640 82S1010 48 1200 76V104H0Z%22 fill=%22%23cfe3f8%22 opacity=%22.6%22/%3E%3C/svg%3E") center bottom / 100% 100% no-repeat,
+		linear-gradient(180deg, #f6fbff, #eaf4fe);
+	box-shadow: 0 14px 34px rgba(14, 73, 115, .07);
+}
+.dmx-hub img { width: 46px; height: auto; }
+.dmx-hub b { color: #0b1f3a; font-family: "Roboto", "Open Sans", Arial, sans-serif; font-size: 34px; font-weight: 700; letter-spacing: -.02em; line-height: 1.1; }
+.dmx-hub i { width: 1px; height: 38px; background: #9fbfe0; }
+.dmx-hub span { color: #1f3147; font-size: 19px; font-weight: 500; }
+
+.dmx-bottom {
+	display: grid;
+	width: min(100%, 1200px);
+	margin: 0 auto;
+	grid-template-columns: minmax(0, 1fr) minmax(120px, .32fr) minmax(0, 1fr);
+	align-items: center;
+}
+.dmx-edw,
+.dmx-bi {
+	position: relative;
+	display: flex;
+	min-width: 0;
+	min-height: 168px;
+	padding: 14px 24px;
+	align-items: center;
+	justify-content: center;
+	gap: 18px;
+	border: 1px solid #cfe3f2;
+	border-radius: 16px;
+	background: linear-gradient(180deg, #fff, #f3f8fe);
+	box-shadow: 0 14px 34px rgba(14, 73, 115, .08);
+}
+.dmx-edw-art { flex: 0 1 250px; width: 250px; max-width: 48%; height: auto; }
+.dmx-edw b,
+.dmx-bi b { color: #0b1f3a; font-family: "Roboto", "Open Sans", Arial, sans-serif; font-size: 24px; font-weight: 700; line-height: 1.25; }
+.dmx-bi-copy { display: grid; justify-items: center; gap: 4px; text-align: center; }
+.dmx-bi-copy b { white-space: nowrap; }
+.dmx-bi-copy img { width: auto; max-width: 200px; max-height: 64px; }
+.dmx-bi-art { flex: 0 1 240px; width: 240px; max-width: 46%; height: auto; }
+.dmx-link {
+	position: relative;
+	height: 16px;
+	margin: 0 14px;
+	background: linear-gradient(#1f6fe3, #1f6fe3) left center / calc(100% - 6px) 3px no-repeat;
+}
+.dmx-link::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	right: 0;
+	border-top: 8px solid transparent;
+	border-bottom: 8px solid transparent;
+	border-left: 13px solid #1f6fe3;
+	transform: translateY(-50%);
+}
+
+@media (max-width: 1320px) {
+	.dmx-stages li { gap: 7px; padding-inline: 26px 14px; font-size: 13px; }
+	.dmx-stages li:first-child { padding-left: 14px; }
+	.dmx-stages svg { width: 22px; height: 22px; }
+	.dmx-card h3 { font-size: 16px; }
+	.dmx-card p { font-size: 14px; }
+	.dmx-hub b { font-size: 28px; }
+	.dmx-hub span { font-size: 17px; }
+	.dmx-edw b,
+	.dmx-bi b { font-size: 20px; }
+	.dmx-edw-art { flex-basis: 200px; width: 200px; }
+	.dmx-bi-art { flex-basis: 190px; width: 190px; }
+}
+
+@media (max-width: 1100px) {
+	.dmx-stages svg { display: none; }
+	.dmx-systems { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-bottom: 30px; }
+	.dmx-card { margin-bottom: 0; }
+	.dmx-card::after { display: none; }
+	.dmx-bottom { grid-template-columns: 1fr; width: min(100%, 560px); }
+	.dmx-link { width: 16px; height: 46px; margin: 0 auto; background: linear-gradient(#1f6fe3, #1f6fe3) center top / 3px calc(100% - 6px) no-repeat; }
+	.dmx-link::after { top: auto; right: auto; bottom: 0; left: 50%; border: 8px solid transparent; border-top: 13px solid #1f6fe3; border-bottom: 0; transform: translateX(-50%); }
+}
+
+@media (max-width: 960px) {
+	.dmx-stages { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+	.dmx-stages li,
+	.dmx-stages li:first-child,
+	.dmx-stages li:last-child { min-height: 52px; margin: 0; padding: 8px 14px; border-radius: 10px; clip-path: none; }
+	.dmx-stages svg { display: block; }
+	.dmx-stages li:last-child { grid-column: 1 / -1; }
+}
+
+@media (max-width: 720px) {
+	.dmx-stages { grid-template-columns: 1fr; }
+	.dmx-systems { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+	.dmx-card { min-height: 0; padding: 14px 10px 16px; }
+	.dmx-art { height: 120px; }
+	.dmx-logo-salesforce { left: 4px; max-width: 84px; }
+	.dmx-art-crm .dmx-panel { width: 100px; height: 76px; margin-right: -18px; }
+	.dmx-illus { width: 124px; height: 95px; }
+	.dmx-hub { gap: 10px 14px; padding: 18px; }
+	.dmx-hub b { font-size: 24px; }
+	.dmx-hub i { display: none; }
+	.dmx-hub span { flex-basis: 100%; font-size: 15px; text-align: center; }
+	.dmx-edw,
+	.dmx-bi { flex-direction: column; gap: 10px; text-align: center; }
+}
+
+@media (min-width: 1600px) {
+	.dmx-stages li { font-size: 16px; }
+	.dmx-card h3 { font-size: 19px; }
+	.dmx-card p { font-size: 16px; }
+	.dmx-hub span { font-size: 20px; }
+}
+
+@media (min-width: 1920px) {
+	.dmx-stages li { font-size: 17px; }
+	.dmx-card h3 { font-size: 20px; }
+	.dmx-card p { font-size: 17px; }
+	.dmx-hub b { font-size: 38px; }
+	.dmx-hub span { font-size: 21px; }
+	.dmx-edw b,
+	.dmx-bi b { font-size: 26px; }
+}
+
+/* ------------------------------------------------------------------ Solution steps */
+.dematic-solution { padding: 66px 0 40px; background: #fff; }
+.dematic-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.dematic-steps article {
+	padding: 24px 24px 26px;
+	border: 1px solid var(--dematic-line);
+	border-radius: 12px;
+	background: #fff;
+	box-shadow: 0 10px 25px rgba(23, 78, 118, .055);
+}
+.dematic-steps header { display: grid; margin-bottom: 14px; justify-items: start; gap: 14px; }
+.dematic-step-number {
+	display: grid;
+	width: 44px;
+	height: 44px;
+	flex: 0 0 44px;
+	place-items: center;
+	border-radius: 50%;
+	color: #fff;
+	background: var(--dematic-sky);
+	font: 700 20px/1 "Roboto", "Open Sans", sans-serif;
+}
+.dematic-steps h3 { min-height: 2.6em; margin: 0; font-size: 17px; line-height: 1.3; }
+.dematic-steps p { margin: 0; color: var(--dematic-muted); font-size: 16px; line-height: 1.6; }
+
+/* ------------------------------------------------------------------ Outcomes */
+.dematic-outcomes { padding: 30px 0 64px; background: #fff; }
+.dematic-outcome-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; }
+.dematic-outcome-grid article {
+	display: flex;
+	min-width: 0;
+	min-height: 196px;
+	padding: 22px 14px;
+	flex-direction: column;
+	align-items: center;
+	border: 1px solid var(--dematic-line);
+	border-radius: 12px;
+	background: #fff;
+	box-shadow: 0 10px 25px rgba(23, 78, 118, .055);
+	text-align: center;
+}
+.dematic-outcome-grid .dematic-icon { width: 46px; height: 46px; margin-bottom: 12px; color: var(--dematic-sky); }
+.dematic-outcome-grid .dematic-icon svg { width: 40px; height: 40px; }
+.dematic-outcome-grid strong { display: flex; min-height: 40px; align-items: center; justify-content: center; color: #f4700b; font: 800 30px/1.15 "Roboto", "Open Sans", sans-serif; }
+.dematic-outcome-grid article:nth-child(4) strong,
+.dematic-outcome-grid article:nth-child(5) strong { font-size: 20px; line-height: 1.2; }
+.dematic-outcome-grid p { margin: 8px 0 0; hyphens: manual; overflow-wrap: normal; color: var(--dematic-muted); font-size: 15px; line-height: 1.45; }
+
+/* ------------------------------------------------------------------ Testimonial */
+.dematic-testimonial { padding: 0 0 64px; background: #fff; }
+.dematic-quote {
+	display: grid;
+	margin: 0;
+	padding: 34px 40px;
+	grid-template-columns: minmax(0, 1fr) 280px;
+	gap: 40px;
+	align-items: center;
+	border: 1px solid #cfe5f4;
+	border-radius: 14px;
+	background: linear-gradient(135deg, #eef8ff, #e3f2fd);
+}
+.dematic-quote-body { position: relative; padding-left: 64px; }
+.dematic-quote h2 { margin-left: -64px; margin-bottom: 20px; }
+.dematic-quote-mark { position: absolute; top: 70px; left: 0; width: 44px; height: 44px; color: var(--dematic-blue); fill: currentColor; stroke: none; }
+.dematic-quote blockquote { margin: 0; padding: 0; border: 0; }
+.dematic-quote blockquote p { margin: 0; color: var(--dematic-text); font-size: 17px; font-style: normal; line-height: 1.7; }
+.dematic-quote figcaption { display: flex; padding-left: 32px; align-items: flex-start; gap: 14px; border-left: 1px solid #b9d7ee; }
+.dematic-quote figcaption::before { content: ""; position: absolute; width: 46px; height: 4px; margin-top: -22px; background: var(--dematic-orange); }
+.dematic-quote figcaption .dematic-icon { width: 42px; height: 42px; flex: 0 0 42px; border-radius: 50%; color: #fff; background: var(--dematic-navy); }
+.dematic-quote figcaption .dematic-icon svg { width: 24px; height: 24px; }
+.dematic-quote figcaption > span:last-child { display: grid; gap: 6px; color: #33465c; font-size: 14px; line-height: 1.45; }
+.dematic-quote figcaption b { color: #0b1f3a; font-size: 16px; }
+
+/* ------------------------------------------------------------------ Technologies */
+.dematic-tech { padding: 50px 0 56px; background: linear-gradient(180deg, #f4f9fe, #fff); }
+.dematic-tech-list { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; }
+.dematic-tech-list > span {
+	display: flex;
+	min-width: 0;
+	min-height: 120px;
+	padding: 16px 12px;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	border: 1px solid var(--dematic-line);
+	border-radius: 10px;
+	background: #fff;
+	box-shadow: 0 8px 20px rgba(20, 72, 108, .05);
+	text-align: center;
+}
+.dematic-tech-logo { display: grid; width: 100%; height: 56px; place-items: center; }
+.dematic-tech-logo img { display: block; width: auto; height: auto; object-fit: contain; }
+.dematic-tech-logo.salesforce img { max-width: 92px; max-height: 60px; object-view-box: inset(14% 0 14% 0); }
+.dematic-tech-logo.oracle img { max-width: 140px; max-height: 22px; }
+.dematic-tech-logo.informatica img { max-width: 150px; max-height: 40px; }
+.dematic-tech-logo.tableau img { max-width: 150px; max-height: 50px; }
+.dematic-tech-logo .dematic-ms { width: 40px; height: 40px; }
+.dematic-tech-logo .dematic-sap { width: 84px; height: 42px; }
+.dematic-tech-list small { color: var(--dematic-muted); font-size: 13px; line-height: 1.4; }
+
+/* ------------------------------------------------------------------ Final CTA */
+.dematic-final-cta {
+	position: relative;
+	margin: 0 0 28px;
+	padding: 62px 0 70px;
+	background:
+		linear-gradient(90deg, #021d40 0%, rgba(3, 39, 80, .97) 46%, rgba(2, 37, 76, .7) 68%, rgba(2, 28, 60, .25) 100%),
+		url(../images/case-studies/dematic/dematic-warehouse-automation.jpg) right center / max(50%, 620px) auto no-repeat,
+		#032750;
+}
+.dematic-final-inner { max-width: 720px; }
+.dematic-final-cta h2 { margin: 0 0 14px; color: #fff; font-size: clamp(32px, 3vw, 46px); font-weight: 700; line-height: 1.1; }
+.dematic-final-cta p { max-width: 680px; margin: 0 0 26px; color: #d3e2ef; font-size: 18px; line-height: 1.6; }
+.dematic-button {
+	display: inline-flex;
+	min-height: 52px;
+	padding: 0 24px;
+	align-items: center;
+	gap: 12px;
+	border-radius: 6px;
+	color: #fff !important;
+	background: var(--dematic-orange);
+	box-shadow: 0 12px 28px rgba(255, 108, 18, .25);
+	font-size: 16px;
+	font-weight: 700;
+	text-decoration: none !important;
+	transition: transform .2s ease, box-shadow .2s ease;
+}
+.dematic-button:hover { transform: translateY(-2px); box-shadow: 0 16px 34px rgba(255, 108, 18, .32); }
+.dematic-button svg { width: 18px; height: 18px; }
+
+/* ------------------------------------------------------------------ Shared footer */
+body.infometry-asana-fdp-page #Footer,
+body.infometry-asana-fdp-page #Footer_wrapper,
+body.infometry-asana-fdp-page .mfn-footer { display: none !important; }
+
+.infometry-custom-footer {
+	position: relative;
+	overflow: hidden;
+	margin: 0;
+	padding: 58px 0 22px;
+	color: #c6d2f5;
+	background:
+		radial-gradient(circle at 14% 0, rgba(80, 49, 255, .28), transparent 30%),
+		radial-gradient(circle at 88% 16%, rgba(12, 123, 255, .2), transparent 28%),
+		#020b2d;
+	font-family: "Open Sans", "Segoe UI", Arial, sans-serif;
+}
+.infometry-custom-footer::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	opacity: .12;
+	background-image: radial-gradient(circle, #58a4ff 1px, transparent 1.2px);
+	background-size: 10px 10px;
+	mask-image: linear-gradient(115deg, transparent 28%, #000 80%);
+	pointer-events: none;
+}
+.infometry-footer-shell { position: relative; z-index: 1; width: min(100% - 64px, 1440px); margin-inline: auto; }
+.infometry-footer-grid { display: grid; grid-template-columns: 1.35fr 1.35fr .8fr .8fr; gap: 54px; }
+.infometry-footer-connect h2,
+.infometry-footer-column h3 { margin: 0 0 18px; color: #fff; font-family: "Roboto", "Open Sans", Arial, sans-serif; font-size: 20px; line-height: 1.3; font-weight: 800; letter-spacing: 0; }
+.infometry-footer-logo { display: flex; width: 100%; min-height: 92px; margin: -5px 0 12px; align-items: center; justify-content: flex-start; }
+.infometry-custom-footer .infometry-footer-logo img { display: block; width: 320px; max-width: 100%; height: 86px; object-fit: contain; object-position: left center; transform: translateX(-3.8%); }
+.infometry-footer-connect > p { max-width: 370px; margin: 0 0 18px; color: #e2e8ff; font-size: 15px; line-height: 1.7; font-weight: 500; }
+.infometry-footer-social { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 19px; }
+.infometry-footer-social a { display: grid; width: 31px; height: 31px; padding: 2px; place-items: center; overflow: hidden; border: 1px solid rgba(139, 190, 255, .25); border-radius: 9px; background: rgba(255, 255, 255, .06); transition: transform .2s ease, border-color .2s ease, background .2s ease; }
+.infometry-footer-social img { display: block; width: 100%; height: 100%; border-radius: 7px; object-fit: contain; }
+.infometry-footer-social a:hover { transform: translateY(-2px); border-color: #54b8ff; background: linear-gradient(135deg, rgba(92, 57, 255, .8), rgba(0, 132, 255, .8)); }
+.infometry-footer-contact { display: inline-flex; padding: 11px 17px; align-items: center; gap: 10px; border-radius: 8px; color: #fff !important; background: linear-gradient(135deg, #6333ff, #087cff); font-size: 14px; font-weight: 800; text-decoration: none !important; box-shadow: 0 9px 22px rgba(34, 92, 255, .24); transition: transform .2s ease, box-shadow .2s ease; }
+.infometry-footer-contact:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(34, 92, 255, .32); }
+.infometry-footer-column { min-width: 0; }
+.infometry-footer-column a { display: block; margin: 0 0 11px; color: #edf2ff !important; font-size: 15px; line-height: 1.55; font-weight: 500; text-decoration: none !important; transition: color .2s ease, transform .2s ease; }
+.infometry-footer-column a:hover { color: #66c5ff !important; transform: translateX(3px); }
+.infometry-footer-bottom { display: flex; margin-top: 40px; padding-top: 21px; justify-content: space-between; gap: 20px; border-top: 1px solid rgba(255, 255, 255, .18); color: #cbd5f5; font-size: 14px; font-weight: 500; }
+
+/* ------------------------------------------------------------------ Reveal motion */
+.dematic-motion-ready .dematic-card-grid article,
+.dematic-motion-ready .dematic-steps article,
+.dematic-motion-ready .dematic-outcome-grid article,
+.dematic-motion-ready .dematic-tech-list > span,
+.dematic-motion-ready .dematic-final-inner,
+.infometry-custom-footer.dematic-motion-ready .infometry-footer-grid > * {
+	opacity: 0;
+	transform: translateY(24px);
+	transition: opacity .7s ease, transform .8s cubic-bezier(.2, .72, .2, 1);
+}
+.is-visible .dematic-card-grid article,
+.is-visible .dematic-steps article,
+.is-visible .dematic-outcome-grid article,
+.is-visible .dematic-tech-list > span,
+.is-visible .dematic-final-inner,
+.infometry-custom-footer.is-visible .infometry-footer-grid > * { opacity: 1; transform: none; }
+.dematic-case-study article:nth-child(2),
+.dematic-tech-list > span:nth-child(2) { transition-delay: .07s; }
+.dematic-case-study article:nth-child(3),
+.dematic-tech-list > span:nth-child(3) { transition-delay: .14s; }
+.dematic-case-study article:nth-child(4),
+.dematic-tech-list > span:nth-child(4) { transition-delay: .21s; }
+.dematic-case-study article:nth-child(5),
+.dematic-tech-list > span:nth-child(5) { transition-delay: .28s; }
+.dematic-case-study article:nth-child(6),
+.dematic-tech-list > span:nth-child(6) { transition-delay: .35s; }
+.dematic-facts article { transition-delay: 0s; }
+
+@media (prefers-reduced-motion: reduce) {
+	.dematic-case-study *,
+	.infometry-custom-footer * { transition: none !important; }
+}
+
+/* ------------------------------------------------------------------ Responsive */
+@media (max-width: 1200px) {
+	.dematic-outcome-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+	.dematic-tech-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 1100px) {
+	.dematic-facts-grid { grid-template-columns: repeat(2, 1fr); }
+	.dematic-about-grid,
+	.dematic-objective-grid { grid-template-columns: 1fr; }
+	.dematic-card-grid,
+	.dematic-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+	.dematic-steps article:last-child:nth-child(odd) { grid-column: 1 / -1; }
+	.dematic-client-visual { max-width: 760px; }
+	.dematic-quote { grid-template-columns: 1fr; gap: 28px; }
+	.dematic-quote figcaption { padding: 24px 0 0; border-top: 1px solid #b9d7ee; border-left: 0; }
+	.infometry-footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; }
+}
+
+@media (max-width: 720px) {
+	.dematic-case-study { font-size: 16px; }
+	.dematic-shell { width: min(100% - 40px, 1320px); }
+	.dematic-section-heading p,
+	.dematic-copy-block p,
+	.dematic-objective-grid p { font-size: 16px; }
+	.dematic-facts { padding: 24px 0 20px; }
+	.dematic-facts-grid { margin-top: 0; grid-template-columns: 1fr; gap: 10px; }
+	.dematic-facts article { padding: 16px 18px; }
+	.dematic-overview { padding-top: 32px; }
+	.dematic-about-grid { gap: 34px; }
+	.dematic-client-visual figcaption { width: 54%; padding: 20px 16px 24px; font-size: 19px; }
+	.dematic-objective-grid { margin-top: 38px; padding: 38px 0 50px; gap: 28px; }
+	.dematic-objective-flow { padding: 22px 14px; grid-template-columns: 1fr; gap: 16px; }
+	.dematic-objective-flow .dematic-arrow { transform: rotate(90deg); justify-self: center; }
+	.dematic-card-grid,
+	.dematic-steps { grid-template-columns: 1fr; }
+	.dematic-card-grid article { min-height: 0; }
+	.dematic-card-grid p,
+	.dematic-steps p { font-size: 15px; }
+	.dematic-steps h3 { min-height: 0; }
+	.dematic-outcome-grid,
+	.dematic-tech-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+	.dematic-outcome-grid strong { font-size: 26px; }
+	.dematic-quote { padding: 26px 20px; }
+	.dematic-quote-body { padding-left: 0; }
+	.dematic-quote h2 { margin-left: 0; }
+	.dematic-quote-mark { position: static; width: 34px; height: 34px; margin-bottom: 12px; }
+	.dematic-quote blockquote p { font-size: 16px; }
+	.dematic-final-cta { margin-bottom: 18px; padding: 50px 0 60px; background-size: auto, auto 100%, auto; }
+	.dematic-final-cta p { font-size: 16px; }
+	.infometry-footer-shell { width: min(100% - 32px, 1440px); }
+	.infometry-footer-grid { grid-template-columns: 1fr; gap: 32px; }
+	.infometry-footer-bottom { flex-direction: column; }
+}
+
+/* Big screens: body copy and card titles step up with the viewport (hero untouched). */
+@media (min-width: 1600px) {
+	.dematic-case-study > section:not(.dematic-hero) { font-size: 18px; }
+	.dematic-facts p { font-size: 17px; }
+	.dematic-facts small { font-size: 19px; }
+	.dematic-facts strong { font-size: 15px; }
+	.dematic-copy-block p,
+	.dematic-objective-grid p,
+	.dematic-section-heading p,
+	.dematic-final-cta p { font-size: 19px; }
+	.dematic-objective-flow span { font-size: 15px; }
+	.dematic-card-grid h3,
+	.dematic-steps h3 { font-size: 19px; }
+	.dematic-card-grid p,
+	.dematic-steps p,
+	.dematic-quote blockquote p { font-size: 17px; }
+	.dematic-outcome-grid p { font-size: 16px; }
+	.dematic-tech-list small { font-size: 14px; }
+}
+
+@media (min-width: 1920px) {
+	.dematic-facts p { font-size: 18px; }
+	.dematic-facts small { font-size: 20px; }
+	.dematic-facts strong { font-size: 16px; }
+	.dematic-copy-block p,
+	.dematic-objective-grid p,
+	.dematic-section-heading p,
+	.dematic-final-cta p { font-size: 20px; }
+	.dematic-objective-flow span { font-size: 16px; }
+	.dematic-card-grid h3,
+	.dematic-steps h3 { font-size: 20px; }
+	.dematic-card-grid p,
+	.dematic-steps p,
+	.dematic-quote blockquote p { font-size: 18px; }
+	.dematic-outcome-grid p { font-size: 17px; }
+	.dematic-tech-list small { font-size: 15px; }
+}
+
+/* ================================================================== Global Finance case study */
+.dgf-case-study .dgf-lead { margin-bottom: 12px; color: #0b1f3a; font-family: "Roboto", "Open Sans", Arial, sans-serif; font-size: 21px; font-weight: 700; line-height: 1.35; }
+
+/* Objective flow with a subtitle under each step. */
+.dgf-objective-flow span em { margin-top: 6px; color: #33465c; font-size: 13px; font-style: normal; line-height: 1.35; }
+
+/* Business challenges: four numbered cards. */
+.dgf-challenge-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.dgf-challenge-grid article {
+	min-width: 0;
+	padding: 24px 22px 26px;
+	border: 1px solid rgba(68, 162, 225, .35);
+	border-radius: 12px;
+	background: rgba(2, 35, 73, .72);
+}
+.dgf-challenge-grid header { display: flex; margin-bottom: 18px; align-items: center; gap: 14px; }
+.dgf-badge { display: grid; width: 42px; height: 42px; flex: 0 0 42px; place-items: center; border-radius: 50%; color: #fff; font: 700 16px/1 "Roboto", "Open Sans", sans-serif; }
+.dgf-challenge-grid article:nth-child(1) .dgf-badge { background: #f4a21c; }
+.dgf-challenge-grid article:nth-child(2) .dgf-badge { background: #1f6fe3; }
+.dgf-challenge-grid article:nth-child(3) .dgf-badge { background: #27a85f; }
+.dgf-challenge-grid article:nth-child(4) .dgf-badge { background: #e5394b; }
+.dgf-challenge-grid .dematic-icon { width: 38px; height: 38px; color: #ff8b21; }
+.dgf-challenge-grid .dematic-icon svg { width: 34px; height: 34px; }
+.dgf-challenge-grid h3 { margin: 0 0 10px; color: #fff; font-size: 18px; line-height: 1.3; }
+.dgf-challenge-grid p { margin: 0; color: #c2d1e1; font-size: 16px; line-height: 1.55; }
+
+/* Infometry approach: numbered chevrons over matching step cards. */
+.dgf-approach { padding-bottom: 66px; background: linear-gradient(180deg, #fff 0, #f4f9fe 100%); }
+.dgf-stages { display: grid; margin: 0 0 16px; padding: 0; grid-template-columns: repeat(5, minmax(0, 1fr)); list-style: none; }
+.dgf-stages li {
+	display: flex;
+	min-height: 64px;
+	margin: 0 0 0 -6px;
+	padding: 8px 18px 8px 32px;
+	align-items: center;
+	gap: 12px;
+	color: #fff;
+	clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 0 100%, 20px 50%);
+	font-family: "Roboto", "Open Sans", Arial, sans-serif;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 1.2;
+}
+.dgf-stages li:first-child { margin-left: 0; padding-left: 18px; border-radius: 10px 0 0 10px; clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 0 100%); }
+.dgf-stages li:last-child { border-radius: 0 10px 10px 0; clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 20px 50%); }
+.dgf-stages li:nth-child(1) { background: linear-gradient(90deg, #f7941d, #f37021); }
+.dgf-stages li:nth-child(2) { background: linear-gradient(90deg, #1f6fe3, #1f8cf0); }
+.dgf-stages li:nth-child(3) { background: linear-gradient(90deg, #1f9d55, #2fb36a); }
+.dgf-stages li:nth-child(4) { background: linear-gradient(90deg, #6a3fd0, #8754e0); }
+.dgf-stages li:nth-child(5) { background: linear-gradient(90deg, #f37021, #ef5a24); }
+.dgf-stage-num { display: grid; width: 32px; height: 32px; flex: 0 0 32px; place-items: center; border-radius: 50%; color: #0b1f3a; background: #fff; font-size: 16px; }
+.dgf-approach-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
+.dgf-approach-grid article {
+	display: flex;
+	min-width: 0;
+	padding: 26px 18px;
+	flex-direction: column;
+	align-items: center;
+	gap: 16px;
+	border: 1px solid var(--dematic-line);
+	border-radius: 12px;
+	background: #fff;
+	box-shadow: 0 10px 25px rgba(23, 78, 118, .055);
+	text-align: center;
+}
+.dgf-approach-grid .dematic-icon { width: 52px; height: 52px; }
+.dgf-approach-grid .dematic-icon svg { width: 46px; height: 46px; }
+.dgf-approach-grid article:nth-child(1) .dematic-icon { color: #f37021; }
+.dgf-approach-grid article:nth-child(2) .dematic-icon { color: #1f6fe3; }
+.dgf-approach-grid article:nth-child(3) .dematic-icon { color: #1f9d55; }
+.dgf-approach-grid article:nth-child(4) .dematic-icon { color: #6a3fd0; }
+.dgf-approach-grid article:nth-child(5) .dematic-icon { color: #f37021; }
+.dgf-approach-grid p { margin: 0; color: var(--dematic-text); font-size: 16px; line-height: 1.55; }
+
+/* Architecture: source systems -> financial data -> validation -> staging -> EPM. */
+.dgf-architecture { padding: 64px 0 70px; background: #fff; }
+.dgf-flow {
+	display: grid;
+	grid-template-columns: minmax(0, 1.5fr) 40px minmax(0, 1fr) 40px minmax(0, 1.1fr) 40px minmax(0, .85fr) 40px minmax(0, 1fr);
+	align-items: stretch;
+}
+.dgf-col {
+	display: flex;
+	min-width: 0;
+	padding: 20px 18px;
+	flex-direction: column;
+	border: 1px solid #dbe8f5;
+	border-radius: 14px;
+	background: linear-gradient(180deg, #fff, #f6faff);
+	box-shadow: 0 10px 28px rgba(14, 73, 115, .06);
+}
+.dgf-col h3 { margin: 0 0 16px; color: #0b1f3a; font-family: "Roboto", "Open Sans", Arial, sans-serif; font-size: 17px; font-weight: 700; line-height: 1.3; }
+.dgf-col h3 small { display: block; color: #33465c; font-size: 14px; font-weight: 600; }
+.dgf-source-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px 10px; }
+.dgf-source-grid span { display: grid; justify-items: center; align-content: start; gap: 8px; text-align: center; }
+.dgf-source-grid span > svg,
+.dgf-source-grid i { display: grid; width: auto; height: 34px; place-items: center; color: #1f6fe3; }
+.dgf-source-grid i svg { width: 32px; height: 32px; }
+.dgf-source-grid .dematic-sap { width: 68px; height: 34px; }
+.dgf-source-grid .dematic-ms { width: 32px; height: 32px; }
+.dgf-source-grid .dgf-excel-svg { width: 34px; height: 34px; }
+.dgf-source-grid b { color: #1f3147; font-size: 13px; font-weight: 600; line-height: 1.3; }
+.dgf-data ul,
+.dgf-validation ul { display: grid; margin: 0; padding: 0; gap: 14px; list-style: none; }
+.dgf-data li { display: flex; align-items: center; gap: 12px; color: #1f3147; font-size: 15px; font-weight: 600; }
+.dgf-data li i { display: grid; width: 34px; height: 34px; flex: 0 0 34px; place-items: center; border-radius: 9px; color: #1f6fe3; background: #eaf3ff; }
+.dgf-data li svg { width: 20px; height: 20px; }
+.dgf-validation { align-items: center; border-color: #cfc3f5; background: linear-gradient(180deg, #f7f3ff, #fff); text-align: center; }
+.dgf-validation ul { gap: 8px; text-align: left; }
+.dgf-validation li { position: relative; padding-left: 16px; color: #1f3147; font-size: 14px; line-height: 1.4; }
+.dgf-validation li::before { content: ""; position: absolute; top: .55em; left: 0; width: 6px; height: 6px; border-radius: 50%; background: #6a3fd0; }
+.dgf-col-icon { display: grid; width: 60px; height: 60px; margin: 4px auto 14px; place-items: center; border-radius: 16px; color: #6a3fd0; background: #efe9ff; }
+.dgf-col-icon svg { width: 34px; height: 34px; }
+.dgf-staging,
+.dgf-epm { align-items: center; justify-content: center; text-align: center; }
+.dgf-staging .dgf-col-icon { color: #1f6fe3; background: #e8f2ff; }
+.dgf-staging h3 { margin: 0; }
+.dgf-epm h3 { margin-bottom: 10px; }
+.dgf-epm b { color: #0b1f3a; font-family: "Roboto", "Open Sans", Arial, sans-serif; font-size: 18px; line-height: 1.3; }
+.dgf-bars { color: #f37021; }
+.dgf-epm .dgf-col-icon { width: 76px; height: 76px; background: #fff1e6; }
+.dgf-epm .dgf-col-icon svg { width: 46px; height: 46px; fill: currentColor; stroke: none; }
+.dgf-arrow { position: relative; align-self: center; height: 16px; margin: 0 6px; background: linear-gradient(#1f6fe3, #1f6fe3) left center / calc(100% - 6px) 3px no-repeat; }
+.dgf-arrow::after { content: ""; position: absolute; top: 50%; right: 0; border-top: 8px solid transparent; border-bottom: 8px solid transparent; border-left: 12px solid #1f6fe3; transform: translateY(-50%); }
+
+/* Outcomes: four tinted stat cards. */
+.dgf-outcome-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.dgf-outcome-grid article { display: flex; min-width: 0; padding: 24px 22px; align-items: flex-start; gap: 16px; border: 1px solid var(--dematic-line); border-radius: 14px; box-shadow: 0 10px 25px rgba(23, 78, 118, .055); }
+.dgf-outcome-grid article:nth-child(1) { background: #fff7ef; }
+.dgf-outcome-grid article:nth-child(2) { background: #f0f6ff; }
+.dgf-outcome-grid article:nth-child(3) { background: #effaf3; }
+.dgf-outcome-grid article:nth-child(4) { background: #f5f1ff; }
+.dgf-outcome-grid .dematic-icon { width: 48px; height: 48px; flex: 0 0 48px; }
+.dgf-outcome-grid .dematic-icon svg { width: 42px; height: 42px; }
+.dgf-outcome-grid article:nth-child(1) .dematic-icon,
+.dgf-outcome-grid article:nth-child(1) strong { color: #f37021; }
+.dgf-outcome-grid article:nth-child(2) .dematic-icon,
+.dgf-outcome-grid article:nth-child(2) strong { color: #1f6fe3; }
+.dgf-outcome-grid article:nth-child(3) .dematic-icon,
+.dgf-outcome-grid article:nth-child(3) strong { color: #1f9d55; }
+.dgf-outcome-grid article:nth-child(4) .dematic-icon,
+.dgf-outcome-grid article:nth-child(4) strong { color: #6a3fd0; }
+.dgf-outcome-grid strong { display: block; margin-bottom: 6px; font: 800 30px/1.1 "Roboto", "Open Sans", sans-serif; }
+.dgf-outcome-grid p { margin: 0; color: var(--dematic-text); font-size: 15px; line-height: 1.5; }
+
+/* Technologies without an image logo. */
+.dematic-tech-logo.dgf-wordmark { color: #0b1f3a; font: 700 24px/1 "Roboto", "Open Sans", sans-serif; letter-spacing: -.01em; }
+.dematic-tech-logo.dgf-icon-logo svg { width: 46px; height: 46px; color: #0b1f3a; }
+.dematic-tech-logo.dgf-bars svg { color: #f37021; fill: currentColor; stroke: none; }
+.dematic-tech-logo .dgf-excel-svg { width: 46px; height: 46px; }
+.dgf-case-study svg.dgf-excel-svg { stroke: none; }
+
+@media (max-width: 1200px) {
+	.dgf-challenge-grid,
+	.dgf-outcome-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+	.dgf-stages li { gap: 8px; padding-inline: 28px 12px; font-size: 14px; }
+	.dgf-stages li:first-child { padding-left: 12px; }
+	.dgf-stage-num { width: 26px; height: 26px; flex-basis: 26px; font-size: 14px; }
+	.dgf-flow { grid-template-columns: minmax(0, 1fr); gap: 0; width: min(100%, 620px); margin-inline: auto; }
+	.dgf-arrow { width: 16px; height: 40px; margin: 0 auto; background: linear-gradient(#1f6fe3, #1f6fe3) center top / 3px calc(100% - 6px) no-repeat; }
+	.dgf-arrow::after { top: auto; right: auto; bottom: 0; left: 50%; border: 8px solid transparent; border-top: 12px solid #1f6fe3; border-bottom: 0; transform: translateX(-50%); }
+}
+
+@media (max-width: 960px) {
+	.dgf-stages { grid-template-columns: 1fr; gap: 8px; }
+	.dgf-stages li,
+	.dgf-stages li:first-child,
+	.dgf-stages li:last-child { min-height: 52px; margin: 0; padding: 8px 14px; border-radius: 10px; clip-path: none; }
+	.dgf-approach-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+	.dgf-approach-grid article:last-child { grid-column: 1 / -1; }
+}
+
+@media (max-width: 720px) {
+	.dgf-case-study .dgf-lead { font-size: 18px; }
+	.dgf-challenge-grid,
+	.dgf-outcome-grid,
+	.dgf-approach-grid { grid-template-columns: 1fr; }
+	.dgf-challenge-grid p { font-size: 15px; }
+	.dgf-objective-flow span em { font-size: 12px; }
+}
+
+@media (min-width: 1600px) {
+	.dgf-case-study .dgf-lead { font-size: 22px; }
+	.dgf-challenge-grid h3 { font-size: 19px; }
+	.dgf-challenge-grid p,
+	.dgf-approach-grid p { font-size: 17px; }
+	.dgf-col h3 { font-size: 18px; }
+	.dgf-data li { font-size: 16px; }
+	.dgf-validation li { font-size: 15px; }
+	.dgf-outcome-grid p { font-size: 16px; }
+	.dgf-objective-flow span em { font-size: 14px; }
+}
+
+@media (min-width: 1920px) {
+	.dgf-case-study .dgf-lead { font-size: 23px; }
+	.dgf-challenge-grid h3 { font-size: 20px; }
+	.dgf-challenge-grid p,
+	.dgf-approach-grid p { font-size: 18px; }
+	.dgf-stages li { font-size: 17px; }
+	.dgf-outcome-grid p { font-size: 17px; }
+}
+
+/* This title's third line is longer than Sunrun/Dematic's; keep it on one line on desktop. */
+@media (min-width: 1025px) {
+	.dgf-case-study .dematic-hero h1 .dematic-title-tail { font-size: .76em; white-space: nowrap; }
+}
+
+/* ------------------------------------------------------------------ Reference alignment */
+/* Summary strip: one row, vertical dividers, large coloured icons, no boxes. */
+.dgf-case-study .dematic-facts { padding: 30px 0 30px; background: #fff; }
+.dgf-case-study .dematic-facts-grid { gap: 0; }
+.dgf-case-study .dematic-facts article {
+	padding: 6px 26px;
+	align-items: center;
+	gap: 18px;
+	border: 0;
+	border-left: 1px solid #d9e4ef;
+	border-radius: 0;
+	background: transparent;
+	box-shadow: none;
+}
+.dgf-case-study .dematic-facts article:first-child { padding-left: 0; border-left: 0; }
+.dgf-case-study .dematic-facts article::before { display: none; }
+.dgf-case-study .dematic-facts article:hover { transform: none; box-shadow: none; }
+.dgf-case-study .dematic-facts .dematic-icon { width: 60px; height: 60px; flex: 0 0 60px; border: 0; border-radius: 0; background: none; box-shadow: none; }
+.dgf-case-study .dematic-facts .dematic-icon svg { width: 56px; height: 56px; stroke-width: 1.7; }
+.dgf-case-study .dematic-facts article:nth-child(1) .dematic-icon { color: #f37021; }
+.dgf-case-study .dematic-facts article:nth-child(2) .dematic-icon { color: #1f6fe3; }
+.dgf-case-study .dematic-facts article:nth-child(3) .dematic-icon { color: #17703f; }
+.dgf-case-study .dematic-facts article:nth-child(4) .dematic-icon { color: #6a3fd0; }
+.dgf-case-study .dematic-facts small { min-height: 0; margin-bottom: 4px; font-size: 24px; font-weight: 800; letter-spacing: -.01em; }
+.dgf-case-study .dematic-facts article:nth-child(1) small { color: #f37021; }
+.dgf-case-study .dematic-facts small em { margin-left: .25em; color: #6a3fd0; font-style: normal; }
+.dgf-case-study .dematic-facts strong { margin-top: 0; font-size: 15px; font-weight: 500; }
+
+/* Business objective: warm card, coloured step icons. */
+.dgf-objective-flow { border-color: #f6dcc4; background: linear-gradient(180deg, #fff8f1, #fffdfb); }
+.dgf-objective-flow i { background: none; }
+.dgf-objective-flow i svg { width: 46px; height: 46px; }
+.dgf-objective-flow span:nth-of-type(1) i { color: #f37021; }
+.dgf-objective-flow span:nth-of-type(2) i { color: #1f6fe3; }
+.dgf-objective-flow span:nth-of-type(3) i { color: #17703f; }
+.dgf-objective-flow span:nth-of-type(3) i svg { fill: currentColor; stroke: none; }
+
+/* Challenges: icon colour follows its number badge. */
+.dgf-challenge-grid article:nth-child(1) .dematic-icon { color: #f4a21c; }
+.dgf-challenge-grid article:nth-child(2) .dematic-icon { color: #3d8bf0; }
+.dgf-challenge-grid article:nth-child(3) .dematic-icon { color: #3cc070; }
+.dgf-challenge-grid article:nth-child(4) .dematic-icon { color: #f0505f; }
+
+/* Outcomes: larger filled icons. */
+.dgf-outcome-grid .dematic-icon { width: 56px; height: 56px; flex-basis: 56px; }
+.dgf-outcome-grid .dematic-icon svg { width: 52px; height: 52px; }
+.dgf-outcome-grid article:nth-child(4) .dematic-icon svg { width: 44px; height: 44px; }
+
+@media (max-width: 1100px) {
+	.dgf-case-study .dematic-facts article:nth-child(3) { padding-left: 0; border-left: 0; }
+	.dgf-case-study .dematic-facts-grid { row-gap: 22px; }
+}
+@media (max-width: 720px) {
+	.dgf-case-study .dematic-facts article { padding: 0; border-left: 0; }
+	.dgf-case-study .dematic-facts .dematic-icon { width: 48px; height: 48px; flex-basis: 48px; }
+	.dgf-case-study .dematic-facts .dematic-icon svg { width: 44px; height: 44px; }
+}
+@media (min-width: 1600px) {
+	.dgf-case-study .dematic-facts small { font-size: 26px; }
+	.dgf-case-study .dematic-facts strong { font-size: 16px; }
+}
+@media (min-width: 1920px) {
+	.dgf-case-study .dematic-facts small { font-size: 28px; }
+	.dgf-case-study .dematic-facts strong { font-size: 17px; }
+}
+
+/* About the client: landscape building photo, no overlay. */
+.dgf-client-visual img { aspect-ratio: 1752 / 897; object-position: center; }
+
+/* Architecture, matched to the reference: compact cards, content centred,
+   filled coloured icons without tiles, slim arrows. */
+.dgf-flow { grid-template-columns: minmax(0, 1.45fr) 34px minmax(0, 1.05fr) 34px minmax(0, 1.1fr) 34px minmax(0, .9fr) 34px minmax(0, .95fr); }
+.dgf-col { padding: 18px 16px; justify-content: center; border-color: #e1ebf5; background: linear-gradient(180deg, #fbfdff, #f3f8fd); }
+.dgf-col h3 { margin-bottom: 14px; font-size: 16px; text-align: center; }
+.dgf-sources h3 { text-align: left; }
+.dgf-sources { justify-content: flex-start; }
+.dgf-source-grid { gap: 20px 10px; align-items: end; }
+.dgf-source-grid .dematic-sap { width: 82px; height: 41px; }
+.dgf-source-grid .dematic-ms { width: 38px; height: 38px; }
+.dgf-source-grid .dgf-excel-svg { width: 40px; height: 40px; }
+.dgf-source-grid span > svg,
+.dgf-source-grid i { height: 42px; }
+.dgf-source-grid i svg { width: 38px; height: 38px; }
+.dgf-source-grid span:nth-child(3) i { color: #1b2a44; }
+.dgf-source-grid b { font-size: 13px; font-weight: 500; }
+.dgf-data { align-items: center; }
+.dgf-data ul { gap: 18px; }
+.dgf-data li { gap: 12px; font-size: 14px; font-weight: 500; }
+.dgf-data li i { width: 26px; height: 26px; flex-basis: 26px; border-radius: 0; color: #1f6fe3; background: none; }
+.dgf-data li svg { width: 24px; height: 24px; stroke-width: 2.2; }
+.dgf-validation { border-color: #ddd2f7; background: linear-gradient(180deg, #f6f1ff, #fbf9ff); }
+.dgf-validation .dgf-col-icon,
+.dgf-staging .dgf-col-icon,
+.dgf-epm .dgf-col-icon { width: auto; height: auto; margin: 0 auto 10px; border-radius: 0; background: none; }
+.dgf-validation .dgf-col-icon { color: #6a3fd0; }
+.dgf-validation .dgf-col-icon svg { width: 64px; height: 64px; }
+.dgf-validation h3 { margin-bottom: 10px; font-size: 17px; }
+.dgf-validation ul { gap: 4px; }
+.dgf-validation li { font-size: 13px; }
+.dgf-staging { align-self: center; min-height: 72%; }
+.dgf-staging .dgf-col-icon { color: #1f6fe3; }
+.dgf-staging .dgf-col-icon svg { width: 56px; height: 56px; }
+.dgf-staging h3 { margin: 0; font-size: 15px; }
+.dgf-epm { justify-content: flex-start; }
+.dgf-epm h3 { margin-bottom: 18px; font-size: 15px; }
+.dgf-epm .dgf-col-icon svg { width: 70px; height: 70px; }
+.dgf-epm b { font-size: 17px; }
+.dgf-arrow { height: 14px; margin: 0 4px; background-size: calc(100% - 6px) 2px; }
+.dgf-arrow::after { border-top-width: 6px; border-bottom-width: 6px; border-left-width: 9px; }
+
+/* Partner CTA: the laptop artwork is height-fitted and pinned right so the whole
+   laptop shows; its dark navy left side blends into a base gradient sampled from that edge. */
+.dgf-cta.dematic-final-cta {
+	--dgf-cta-h: clamp(300px, 24vw, 420px);
+	display: flex;
+	height: var(--dgf-cta-h);
+	min-height: 0;
+	padding: 0;
+	align-items: center;
+	background:
+		url(../images/case-studies/dematic-finance/dematic-finance-cta.jpg) right center / auto 100% no-repeat,
+		linear-gradient(180deg, #021e44 0%, #011e43 10%, #00193a 20%, #001533 30%, #00132d 40%, #00132d 50%, #00193f 60%, #001738 70%, #001636 80%, #00142f 90%, #00122d 100%);
+}
+
+@media (max-width: 1200px) {
+	.dgf-staging { align-self: stretch; min-height: 0; }
+	.dgf-col h3,
+	.dgf-sources h3 { text-align: center; }
+}
+@media (max-width: 720px) {
+	.dgf-cta.dematic-final-cta { height: auto; padding: 50px 0 60px; background: linear-gradient(180deg, rgba(2, 22, 52, .85), rgba(2, 22, 52, .6)), url(../images/case-studies/dematic-finance/dematic-finance-cta.jpg) 72% center / cover no-repeat, #06193f; }
+}
+@media (min-width: 1600px) {
+	.dgf-col h3 { font-size: 17px; }
+	.dgf-data li { font-size: 15px; }
+	.dgf-validation li { font-size: 14px; }
+}
+
+/* ================================================================== Consistency layer
+ * One rhythm for the whole page: every section has the same 44px top/bottom
+ * (36px on mobile); a section on the same background as the one above starts
+ * flush so the gap never doubles. One type scale:
+ *   lead copy  17 / 18 / 19px  (default / 1600+ / 1920+), regular
+ *   box title  17 / 18 / 19px, bold 700
+ *   box text   15 / 16 / 17px, regular 400
+ *   caption    14 / 14 / 15px, medium 500
+ */
+body .dematic-case-study .dematic-challenge,
+body .dematic-case-study .dgf-approach,
+body .dematic-case-study .dematic-tech { padding-top: 44px !important; padding-bottom: 44px !important; }
+body .dematic-case-study .dgf-architecture,
+body .dematic-case-study .dematic-outcomes { padding-top: 0 !important; padding-bottom: 44px !important; }
+body .dematic-case-study .dematic-section-heading { margin-bottom: 28px; }
+
+body .dematic-case-study .dematic-section-heading p,
+body .dematic-case-study .dematic-copy-block p,
+body .dematic-case-study .dematic-objective-grid p,
+body .dematic-case-study .dematic-final-cta p,
+body .dematic-case-study .dematic-quote blockquote p { font-size: 17px; font-weight: 400; line-height: 1.65; }
+body .dematic-case-study .dematic-card-grid h3,
+body .dematic-case-study .dematic-steps h3,
+body .dematic-case-study .dmx-card h3,
+body .dematic-case-study .dgf-challenge-grid h3,
+body .dematic-case-study .dgf-col h3 { font-size: 17px; font-weight: 700; line-height: 1.3; }
+body .dematic-case-study .dematic-facts strong,
+body .dematic-case-study .dematic-card-grid p,
+body .dematic-case-study .dematic-steps p,
+body .dematic-case-study .dematic-outcome-grid p,
+body .dematic-case-study .dmx-card p,
+body .dematic-case-study .dematic-objective-flow span,
+body .dematic-case-study .dgf-challenge-grid p,
+body .dematic-case-study .dgf-approach-grid p,
+body .dematic-case-study .dgf-outcome-grid p,
+body .dematic-case-study .dgf-data li,
+body .dematic-case-study .dgf-validation li { font-size: 15px; font-weight: 400; line-height: 1.55; }
+body .dematic-case-study .dematic-tech-list small,
+body .dematic-case-study .dmx-brand em,
+body .dematic-case-study .dematic-quote figcaption > span:last-child,
+body .dematic-case-study .dgf-objective-flow span em,
+body .dematic-case-study .dgf-source-grid b { font-size: 14px; font-weight: 500; line-height: 1.4; }
+body .dematic-case-study .dematic-overview { padding-top: 28px !important; }
+body .dematic-case-study .dematic-objective-grid { margin-top: 32px; padding: 32px 0 44px; }
+body .dematic-case-study .dgf-approach { background: #fff; }
+body .dematic-case-study .dgf-case-study .dgf-lead, body .dematic-case-study.dgf-case-study .dgf-lead { font-size: 19px; }
+
+@media (min-width: 1600px) {
+body .dematic-case-study .dematic-section-heading p,
+body .dematic-case-study .dematic-copy-block p,
+body .dematic-case-study .dematic-objective-grid p,
+body .dematic-case-study .dematic-final-cta p,
+body .dematic-case-study .dematic-quote blockquote p { font-size: 18px; }
+body .dematic-case-study .dematic-card-grid h3,
+body .dematic-case-study .dematic-steps h3,
+body .dematic-case-study .dmx-card h3,
+body .dematic-case-study .dgf-challenge-grid h3,
+body .dematic-case-study .dgf-col h3 { font-size: 18px; }
+body .dematic-case-study .dematic-facts strong,
+body .dematic-case-study .dematic-card-grid p,
+body .dematic-case-study .dematic-steps p,
+body .dematic-case-study .dematic-outcome-grid p,
+body .dematic-case-study .dmx-card p,
+body .dematic-case-study .dematic-objective-flow span,
+body .dematic-case-study .dgf-challenge-grid p,
+body .dematic-case-study .dgf-approach-grid p,
+body .dematic-case-study .dgf-outcome-grid p,
+body .dematic-case-study .dgf-data li,
+body .dematic-case-study .dgf-validation li { font-size: 16px; }
+}
+
+@media (min-width: 1920px) {
+body .dematic-case-study .dematic-section-heading p,
+body .dematic-case-study .dematic-copy-block p,
+body .dematic-case-study .dematic-objective-grid p,
+body .dematic-case-study .dematic-final-cta p,
+body .dematic-case-study .dematic-quote blockquote p { font-size: 19px; }
+body .dematic-case-study .dematic-card-grid h3,
+body .dematic-case-study .dematic-steps h3,
+body .dematic-case-study .dmx-card h3,
+body .dematic-case-study .dgf-challenge-grid h3,
+body .dematic-case-study .dgf-col h3 { font-size: 19px; }
+body .dematic-case-study .dematic-facts strong,
+body .dematic-case-study .dematic-card-grid p,
+body .dematic-case-study .dematic-steps p,
+body .dematic-case-study .dematic-outcome-grid p,
+body .dematic-case-study .dmx-card p,
+body .dematic-case-study .dematic-objective-flow span,
+body .dematic-case-study .dgf-challenge-grid p,
+body .dematic-case-study .dgf-approach-grid p,
+body .dematic-case-study .dgf-outcome-grid p,
+body .dematic-case-study .dgf-data li,
+body .dematic-case-study .dgf-validation li { font-size: 17px; }
+body .dematic-case-study .dematic-tech-list small,
+body .dematic-case-study .dmx-brand em,
+body .dematic-case-study .dematic-quote figcaption > span:last-child,
+body .dematic-case-study .dgf-objective-flow span em,
+body .dematic-case-study .dgf-source-grid b { font-size: 15px; }
+}
+
+@media (max-width: 720px) {
+body .dematic-case-study .dematic-challenge,
+body .dematic-case-study .dgf-approach,
+body .dematic-case-study .dematic-tech { padding-top: 36px !important; padding-bottom: 36px !important; }
+body .dematic-case-study .dgf-architecture,
+body .dematic-case-study .dematic-outcomes { padding-bottom: 36px !important; }
+body .dematic-case-study .dematic-section-heading p,
+body .dematic-case-study .dematic-copy-block p,
+body .dematic-case-study .dematic-objective-grid p,
+body .dematic-case-study .dematic-final-cta p,
+body .dematic-case-study .dematic-quote blockquote p { font-size: 16px; }
+body .dematic-case-study .dematic-card-grid h3,
+body .dematic-case-study .dematic-steps h3,
+body .dematic-case-study .dmx-card h3,
+body .dematic-case-study .dgf-challenge-grid h3,
+body .dematic-case-study .dgf-col h3 { font-size: 17px; }
+body .dematic-case-study .dematic-facts strong,
+body .dematic-case-study .dematic-card-grid p,
+body .dematic-case-study .dematic-steps p,
+body .dematic-case-study .dematic-outcome-grid p,
+body .dematic-case-study .dmx-card p,
+body .dematic-case-study .dematic-objective-flow span,
+body .dematic-case-study .dgf-challenge-grid p,
+body .dematic-case-study .dgf-approach-grid p,
+body .dematic-case-study .dgf-outcome-grid p,
+body .dematic-case-study .dgf-data li,
+body .dematic-case-study .dgf-validation li { font-size: 15px; }
+}
+
+/* Cards sit close under the banner and the About section follows tightly. */
+body .dematic-case-study .dematic-facts { padding-bottom: 12px; border-bottom: 0; }
+
+/* ================================================================== Design review fixes
+ * 1. Box headings 16px / 800, box body text 500, the same in every box.
+ * 2. Section headings 800, section body copy 500.
+ * 3. Tighter spacing, matched to the Snowflake case study (44px rhythm,
+ *    16px under section headings, no extra gap inside the fact cards).
+ */
+body .dematic-case-study .dematic-card-grid h3,
+body .dematic-case-study .dematic-steps h3,
+body .dematic-case-study .dmx-card h3,
+body .dematic-case-study .dgf-challenge-grid h3,
+body .dematic-case-study .dgf-col h3 { font-size: 16px; font-weight: 800; }
+body .dematic-case-study .dematic-facts strong,
+body .dematic-case-study .dematic-card-grid p,
+body .dematic-case-study .dematic-steps p,
+body .dematic-case-study .dematic-outcome-grid p,
+body .dematic-case-study .dmx-card p,
+body .dematic-case-study .dgf-challenge-grid p,
+body .dematic-case-study .dgf-approach-grid p,
+body .dematic-case-study .dgf-outcome-grid p,
+body .dematic-case-study .dgf-data li,
+body .dematic-case-study .dgf-validation li { font-weight: 500; }
+body .dematic-case-study .dematic-section-heading h2,
+body .dematic-case-study .dematic-copy-block h2,
+body .dematic-case-study .dematic-objective-grid h2,
+body .dematic-case-study .dematic-quote h2,
+body .dematic-case-study .dematic-final-cta h2 { font-weight: 800; margin-bottom: 16px; }
+body .dematic-case-study .dematic-section-heading p,
+body .dematic-case-study .dematic-copy-block p,
+body .dematic-case-study .dematic-objective-grid p,
+body .dematic-case-study .dematic-final-cta p,
+body .dematic-case-study .dematic-quote blockquote p { font-weight: 500; }
+body .dematic-case-study .dematic-section-heading { margin-bottom: 24px; }
+body .dematic-case-study .dematic-section-heading h2 { margin-bottom: 12px; }
+body .dematic-case-study .dematic-about-grid { gap: 44px; }
+body .dematic-case-study .dematic-objective-grid { margin-top: 22px; padding: 22px 0 44px; }
+body .dematic-case-study .dematic-facts small { min-height: 0; }
+body .dematic-case-study .dematic-facts strong { margin-top: 4px; }
+
+@media (min-width: 1600px) {
+body .dematic-case-study .dematic-card-grid h3,
+body .dematic-case-study .dematic-steps h3,
+body .dematic-case-study .dmx-card h3,
+body .dematic-case-study .dgf-challenge-grid h3,
+body .dematic-case-study .dgf-col h3 { font-size: 17px; }
+}
+
+@media (min-width: 1920px) {
+body .dematic-case-study .dematic-card-grid h3,
+body .dematic-case-study .dematic-steps h3,
+body .dematic-case-study .dmx-card h3,
+body .dematic-case-study .dgf-challenge-grid h3,
+body .dematic-case-study .dgf-col h3 { font-size: 18px; }
+}
+
+@media (max-width: 720px) {
+body .dematic-case-study .dematic-card-grid h3,
+body .dematic-case-study .dematic-steps h3,
+body .dematic-case-study .dmx-card h3,
+body .dematic-case-study .dgf-challenge-grid h3,
+body .dematic-case-study .dgf-col h3 { font-size: 16px; }
+body .dematic-case-study .dematic-objective-grid { margin-top: 18px; padding: 18px 0 36px; }
+body .dematic-case-study .dematic-about-grid { gap: 28px; }
+}
+
+/* One section-heading style on every case study: same size, weight and gap below. */
+body .dematic-case-study .dematic-section-heading h2,
+body .dematic-case-study .dematic-copy-block h2,
+body .dematic-case-study .dematic-objective-grid h2,
+body .dematic-case-study .dematic-final-cta h2 { font-size: clamp(28px, 2.35vw, 40px); font-weight: 800; line-height: 1.1; letter-spacing: -.02em; margin-bottom: 16px; }
+
+/* ================================================================== Typography system
+ * One style per role, on every case study:
+ *   section heading  Roboto 800, clamp(28px, 2.35vw, 40px)   navy #071f49 / white on dark
+ *   sub-heading      Roboto 800, 20px                         #0b1f3a
+ *   paragraph        Open Sans 500, 17 / 18 / 19px            #1f3147 / #d3e2ef on dark
+ *   box heading      Roboto 800, 16 / 17 / 18px               #0b1f3a / white on dark
+ *   box text         Open Sans 500, 15 / 16 / 17px            #1f3147 / #c2d1e1 on dark
+ *   caption          Open Sans 500, 14 / 14 / 15px            #33465c
+ *   button           Open Sans 700, 16px                      white
+ */
+body .dematic-case-study.dgf-case-study p.dgf-lead { font-family: "Roboto", "Open Sans", Arial, sans-serif; font-size: 20px; font-weight: 800; line-height: 1.35; color: #0b1f3a; }
+body .dematic-case-study .dematic-section-heading p,
+body .dematic-case-study .dematic-copy-block p:not(.dgf-lead),
+body .dematic-case-study .dematic-objective-grid p:not(.dgf-lead),
+body .dematic-case-study .dematic-final-cta p,
+body .dematic-case-study .dematic-quote blockquote p { font-family: "Open Sans", Arial, sans-serif; font-size: 17px; font-weight: 500; line-height: 1.65; color: #1f3147; }
+body .dematic-case-study .dematic-card-grid h3,
+body .dematic-case-study .dematic-steps h3,
+body .dematic-case-study .dematic-objective-flow b,
+body .dematic-case-study .dgf-challenge-grid h3,
+body .dematic-case-study .dgf-col h3,
+body .dematic-case-study .dgf-epm b { font-family: "Roboto", "Open Sans", Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 1.3; letter-spacing: 0; color: #0b1f3a; }
+body .dematic-case-study .dematic-facts strong,
+body .dematic-case-study .dematic-card-grid p,
+body .dematic-case-study .dematic-steps p,
+body .dematic-case-study .dematic-outcome-grid p,
+body .dematic-case-study .dgf-challenge-grid p,
+body .dematic-case-study .dgf-approach-grid p,
+body .dematic-case-study .dgf-outcome-grid p,
+body .dematic-case-study .dgf-data li,
+body .dematic-case-study .dgf-validation li,
+body .dematic-case-study .dgf-source-grid b { font-family: "Open Sans", Arial, sans-serif; font-size: 15px; font-weight: 500; line-height: 1.55; font-style: normal; color: #1f3147; }
+body .dematic-case-study .dematic-tech-list small,
+body .dematic-case-study .dgf-objective-flow span em { font-family: "Open Sans", Arial, sans-serif; font-size: 14px; font-weight: 500; line-height: 1.4; font-style: normal; color: #33465c; }
+body .dematic-case-study .dematic-button { font-family: "Open Sans", Arial, sans-serif; font-size: 16px; font-weight: 700; }
+
+body .dematic-case-study .dematic-challenge .dematic-section-heading p,
+body .dematic-case-study .dematic-challenge .dematic-copy-block p:not(.dgf-lead),
+body .dematic-case-study .dematic-challenge .dematic-objective-grid p:not(.dgf-lead),
+body .dematic-case-study .dematic-challenge .dematic-quote blockquote p,
+body .dematic-case-study .dematic-final-cta .dematic-section-heading p,
+body .dematic-case-study .dematic-final-cta .dematic-copy-block p:not(.dgf-lead),
+body .dematic-case-study .dematic-final-cta .dematic-objective-grid p:not(.dgf-lead),
+body .dematic-case-study .dematic-final-cta p,
+body .dematic-case-study .dematic-final-cta .dematic-quote blockquote p { color: #d3e2ef; }
+body .dematic-case-study .dematic-challenge .dematic-card-grid h3,
+body .dematic-case-study .dematic-challenge .dematic-steps h3,
+body .dematic-case-study .dematic-challenge .dematic-objective-flow b,
+body .dematic-case-study .dematic-challenge .dgf-challenge-grid h3,
+body .dematic-case-study .dematic-challenge .dgf-col h3,
+body .dematic-case-study .dematic-challenge .dgf-epm b,
+body .dematic-case-study .dematic-final-cta .dematic-card-grid h3,
+body .dematic-case-study .dematic-final-cta .dematic-steps h3,
+body .dematic-case-study .dematic-final-cta .dematic-objective-flow b,
+body .dematic-case-study .dematic-final-cta .dgf-challenge-grid h3,
+body .dematic-case-study .dematic-final-cta .dgf-col h3,
+body .dematic-case-study .dematic-final-cta .dgf-epm b { color: #fff; }
+body .dematic-case-study .dematic-challenge .dematic-facts strong,
+body .dematic-case-study .dematic-challenge .dematic-card-grid p,
+body .dematic-case-study .dematic-challenge .dematic-steps p,
+body .dematic-case-study .dematic-challenge .dematic-outcome-grid p,
+body .dematic-case-study .dematic-challenge .dgf-challenge-grid p,
+body .dematic-case-study .dematic-challenge .dgf-approach-grid p,
+body .dematic-case-study .dematic-challenge .dgf-outcome-grid p,
+body .dematic-case-study .dematic-challenge .dgf-data li,
+body .dematic-case-study .dematic-challenge .dgf-validation li,
+body .dematic-case-study .dematic-challenge .dgf-source-grid b,
+body .dematic-case-study .dematic-final-cta .dematic-facts strong,
+body .dematic-case-study .dematic-final-cta .dematic-card-grid p,
+body .dematic-case-study .dematic-final-cta .dematic-steps p,
+body .dematic-case-study .dematic-final-cta .dematic-outcome-grid p,
+body .dematic-case-study .dematic-final-cta .dgf-challenge-grid p,
+body .dematic-case-study .dematic-final-cta .dgf-approach-grid p,
+body .dematic-case-study .dematic-final-cta .dgf-outcome-grid p,
+body .dematic-case-study .dematic-final-cta .dgf-data li,
+body .dematic-case-study .dematic-final-cta .dgf-validation li,
+body .dematic-case-study .dematic-final-cta .dgf-source-grid b { color: #c2d1e1; }
+
+@media (min-width: 1600px) {
+body .dematic-case-study .dematic-section-heading p,
+body .dematic-case-study .dematic-copy-block p:not(.dgf-lead),
+body .dematic-case-study .dematic-objective-grid p:not(.dgf-lead),
+body .dematic-case-study .dematic-final-cta p,
+body .dematic-case-study .dematic-quote blockquote p { font-size: 18px; }
+body .dematic-case-study .dematic-card-grid h3,
+body .dematic-case-study .dematic-steps h3,
+body .dematic-case-study .dematic-objective-flow b,
+body .dematic-case-study .dgf-challenge-grid h3,
+body .dematic-case-study .dgf-col h3,
+body .dematic-case-study .dgf-epm b { font-size: 17px; }
+body .dematic-case-study .dematic-facts strong,
+body .dematic-case-study .dematic-card-grid p,
+body .dematic-case-study .dematic-steps p,
+body .dematic-case-study .dematic-outcome-grid p,
+body .dematic-case-study .dgf-challenge-grid p,
+body .dematic-case-study .dgf-approach-grid p,
+body .dematic-case-study .dgf-outcome-grid p,
+body .dematic-case-study .dgf-data li,
+body .dematic-case-study .dgf-validation li,
+body .dematic-case-study .dgf-source-grid b { font-size: 16px; }
+}
+
+@media (min-width: 1920px) {
+body .dematic-case-study.dgf-case-study p.dgf-lead { font-size: 22px; }
+body .dematic-case-study .dematic-section-heading p,
+body .dematic-case-study .dematic-copy-block p:not(.dgf-lead),
+body .dematic-case-study .dematic-objective-grid p:not(.dgf-lead),
+body .dematic-case-study .dematic-final-cta p,
+body .dematic-case-study .dematic-quote blockquote p { font-size: 19px; }
+body .dematic-case-study .dematic-card-grid h3,
+body .dematic-case-study .dematic-steps h3,
+body .dematic-case-study .dematic-objective-flow b,
+body .dematic-case-study .dgf-challenge-grid h3,
+body .dematic-case-study .dgf-col h3,
+body .dematic-case-study .dgf-epm b { font-size: 18px; }
+body .dematic-case-study .dematic-facts strong,
+body .dematic-case-study .dematic-card-grid p,
+body .dematic-case-study .dematic-steps p,
+body .dematic-case-study .dematic-outcome-grid p,
+body .dematic-case-study .dgf-challenge-grid p,
+body .dematic-case-study .dgf-approach-grid p,
+body .dematic-case-study .dgf-outcome-grid p,
+body .dematic-case-study .dgf-data li,
+body .dematic-case-study .dgf-validation li,
+body .dematic-case-study .dgf-source-grid b { font-size: 17px; }
+body .dematic-case-study .dematic-tech-list small,
+body .dematic-case-study .dgf-objective-flow span em { font-size: 15px; }
+}
+
+@media (max-width: 720px) {
+body .dematic-case-study.dgf-case-study p.dgf-lead { font-size: 18px; }
+body .dematic-case-study .dematic-section-heading p,
+body .dematic-case-study .dematic-copy-block p:not(.dgf-lead),
+body .dematic-case-study .dematic-objective-grid p:not(.dgf-lead),
+body .dematic-case-study .dematic-final-cta p,
+body .dematic-case-study .dematic-quote blockquote p { font-size: 16px; }
+}
+
+/* Summary strip: top-align every item so the four headings sit on one line,
+   with each icon aligned to its heading. */
+body .dematic-case-study.dgf-case-study .dematic-facts article { align-items: flex-start; }
+body .dematic-case-study.dgf-case-study .dematic-facts .dematic-icon { margin-top: 2px; }
+body .dematic-case-study.dgf-case-study .dematic-facts p { align-content: start; }
+
+/* Summary strip headings: all four the same navy colour and size. */
+body .dematic-case-study.dgf-case-study .dematic-facts article small,
+body .dematic-case-study.dgf-case-study .dematic-facts article:nth-child(1) small { color: #0b1f3a; font-size: 24px; }
+@media (min-width: 1600px) {
+	body .dematic-case-study.dgf-case-study .dematic-facts article small,
+	body .dematic-case-study.dgf-case-study .dematic-facts article:nth-child(1) small { font-size: 26px; }
+}
+@media (min-width: 1920px) {
+	body .dematic-case-study.dgf-case-study .dematic-facts article small,
+	body .dematic-case-study.dgf-case-study .dematic-facts article:nth-child(1) small { font-size: 28px; }
+}
+
+/* Key Business Outcomes: card headings (32+, Global, Governed, Daily +) at 28px. */
+body .dematic-case-study.dgf-case-study .dgf-outcome-grid strong { font-size: 28px; }
+
+/* Technologies & Platforms: one consistent tile per technology. Every tile shows
+   the product's icon (no wordmarks) in a tinted 76px box, the name right below. */
+/* Flex rows, centred, so a short last row never leaves an empty slot: 9 per row from 1500px,
+   5 + 4 below that, 3 + 3 + 3 on mobile. Names reserve two lines so every tile is equal height. */
+body .dematic-case-study .dgf-tech-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
+body .dematic-case-study .dgf-tech { flex: 0 0 calc((100% - 8 * 14px) / 9); }
+body .dematic-case-study .dgf-tech {
+	position: relative;
+	display: flex;
+	min-width: 0;
+	padding: 22px 12px 20px;
+	flex-direction: column;
+	align-items: center;
+	gap: 14px;
+	overflow: hidden;
+	border: 1px solid #dfe9f3;
+	border-radius: 16px;
+	background: linear-gradient(180deg, #fff 0%, #fbfdff 100%);
+	box-shadow: 0 10px 26px rgba(14, 73, 115, .06);
+	text-align: center;
+	transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+body .dematic-case-study .dgf-tech::before { content: ""; position: absolute; top: 0; right: 0; left: 0; height: 3px; background: linear-gradient(90deg, #22c8f6, #6a5bff); opacity: 0; transition: opacity .25s ease; }
+body .dematic-case-study .dgf-tech:hover { transform: translateY(-4px); border-color: #bcdcf4; box-shadow: 0 18px 38px rgba(14, 73, 115, .12); }
+body .dematic-case-study .dgf-tech:hover::before { opacity: 1; }
+body .dematic-case-study .dgf-tech-icon-box { display: grid; width: 76px; height: 76px; place-items: center; border-radius: 20px; background: var(--tint, #eef4fb); }
+body .dematic-case-study .dgf-tech-icon-box img { display: block; width: auto; height: auto; max-width: 46px; max-height: 46px; object-fit: contain; }
+body .dematic-case-study .dgf-tech-icon-box img[alt="SAP"] { max-width: 56px; }
+body .dematic-case-study .dgf-tech-icon-box img[alt="Microsoft"] { max-width: 40px; max-height: 40px; }
+body .dematic-case-study .dgf-svg-icon { width: 44px; height: 44px; color: #0b1f3a; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linejoin: round; }
+body .dematic-case-study .dgf-bars-icon { color: #f37021; fill: currentColor; stroke: none; }
+body .dematic-case-study .dgf-monogram { display: grid; width: 46px; height: 46px; place-items: center; border-radius: 12px; color: #fff; background: linear-gradient(135deg, #0b1f3a, #1f4f8f); font: 800 26px/1 "Roboto", "Open Sans", Arial, sans-serif; }
+body .dematic-case-study .dgf-tech-name { display: flex; min-height: 2.6em; align-items: flex-start; justify-content: center; color: #0b1f3a; font-family: "Roboto", "Open Sans", Arial, sans-serif; font-size: 15px; font-weight: 700; line-height: 1.3; }
+@media (max-width: 1499px) {
+	body .dematic-case-study .dgf-tech { flex-basis: calc((100% - 4 * 14px) / 5); }
+}
+@media (max-width: 720px) {
+	body .dematic-case-study .dgf-tech-grid { gap: 10px; }
+	body .dematic-case-study .dgf-tech { flex-basis: calc((100% - 2 * 10px) / 3); }
+	body .dematic-case-study .dgf-tech { padding: 16px 8px; gap: 10px; }
+	body .dematic-case-study .dgf-tech-icon-box { width: 60px; height: 60px; border-radius: 16px; }
+	body .dematic-case-study .dgf-tech-icon-box img { max-width: 36px; max-height: 36px; }
+	body .dematic-case-study .dgf-svg-icon,
+	body .dematic-case-study .dgf-monogram { width: 36px; height: 36px; }
+	body .dematic-case-study .dgf-monogram { font-size: 20px; }
+	body .dematic-case-study .dgf-tech-name { font-size: 13px; }
+}
+@media (min-width: 1920px) {
+	body .dematic-case-study .dgf-tech-name { font-size: 16px; }
+}
+
+/* Architecture on tablet/mobile: the desktop column template set above must not
+   win, so restate the stacked layout last. Boxes stack with down arrows. */
+@media (max-width: 1200px) {
+	body .dematic-case-study .dgf-flow { grid-template-columns: minmax(0, 1fr); width: min(100%, 620px); margin-inline: auto; }
+	body .dematic-case-study .dgf-col { padding: 22px 20px; }
+	body .dematic-case-study .dgf-col h3,
+	body .dematic-case-study .dgf-sources h3 { text-align: center; }
+	body .dematic-case-study .dgf-staging { align-self: stretch; min-height: 0; }
+	body .dematic-case-study .dgf-epm { justify-content: center; }
+	body .dematic-case-study .dgf-data ul { width: fit-content; margin-inline: auto; }
+	body .dematic-case-study .dgf-validation ul { width: fit-content; margin-inline: auto; }
+	body .dematic-case-study .dgf-arrow { width: 16px; height: 40px; margin: 0 auto; background: linear-gradient(#1f6fe3, #1f6fe3) center top / 2px calc(100% - 6px) no-repeat; }
+	body .dematic-case-study .dgf-arrow::after { top: auto; right: auto; bottom: 0; left: 50%; border: 7px solid transparent; border-top: 11px solid #1f6fe3; border-bottom: 0; transform: translateX(-50%); }
+}
+@media (max-width: 720px) {
+	body .dematic-case-study .dgf-source-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px 8px; }
+	body .dematic-case-study .dgf-source-grid b { font-size: 12px; }
+}
+
+/* ================================================================== Asana FDP additions */
+/* About: Asana wordmark above the copy. */
+.fdp-client-logo { display: inline-block; margin: 4px 0 18px; }
+.fdp-client-logo img { display: block; width: auto; height: 54px; }
+.dgf-case-study.fdp-case-study .dgf-client-visual img { aspect-ratio: 16 / 9; object-position: center 55%; }
+
+/* Business objective: blue check list. */
+.fdp-goals { display: grid; margin: 0; padding: 24px 28px; gap: 16px; list-style: none; border: 1px solid #d6e6f6; border-radius: 16px; background: linear-gradient(180deg, #f3f8ff, #fdfeff); box-shadow: 0 15px 36px rgba(16, 75, 117, .08); }
+.fdp-goals li { display: flex; margin: 0; padding: 0; align-items: center; gap: 14px; color: #1f3147; font-size: 17px; font-weight: 500; line-height: 1.4; }
+.fdp-goals li::before { display: none; }
+.fdp-goals i { display: grid; flex: 0 0 26px; height: 26px; place-items: center; color: #1f6fe3; }
+.fdp-goals i svg { width: 26px; height: 26px; }
+.is-green { color: #1f9d55; } .is-red { color: #e5394b; } .is-blue { color: #1f6fe3; } .is-purple { color: #6a3fd0; } .is-orange { color: #f37021; } .is-sky { color: #0798ee; }
+
+/* Challenges: six cards, three per row, badge colours continue. */
+@media (min-width: 1201px) {
+	.dgf-challenge-grid.fdp-challenges { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+.dgf-challenge-grid article:nth-child(5) .dgf-badge { background: #6a3fd0; }
+.dgf-challenge-grid article:nth-child(6) .dgf-badge { background: #0798ee; }
+.dgf-challenge-grid article:nth-child(5) .dematic-icon { color: #9b7bf0; }
+.dgf-challenge-grid article:nth-child(6) .dematic-icon { color: #3fc4f5; }
+
+
+/* Architecture: four equal columns with coloured header bars (white text over the shared navy h3). */
+@media (min-width: 1201px) {
+	body .dematic-case-study .fdp-flow { grid-template-columns: minmax(0, 1fr) 34px minmax(0, 1fr) 34px minmax(0, 1.12fr) 34px minmax(0, 1fr); }
+}
+body .dematic-case-study .fdp-col { padding: 0 0 20px; overflow: hidden; justify-content: flex-start; }
+body .dematic-case-study .dgf-col h3.fdp-col-head { margin: 0 0 18px; padding: 12px 14px; color: #fff; font-size: 15px; text-align: center; }
+.fdp-col-head.is-blue { background: linear-gradient(90deg, #1f6fe3, #1f8cf0); }
+.fdp-col-head.is-orange { background: linear-gradient(90deg, #f37021, #f7941d); }
+.fdp-col-head.is-sky { background: linear-gradient(90deg, #0798ee, #22c8f6); }
+.fdp-col-head.is-purple { background: linear-gradient(90deg, #6a3fd0, #8754e0); }
+.fdp-list, .fdp-logos, .fdp-layers { display: grid; margin: 0; padding: 0 18px; gap: 16px; list-style: none; }
+.fdp-list li, .fdp-logos li, .fdp-layers li { margin: 0; padding: 0; }
+.fdp-list li::before, .fdp-logos li::before, .fdp-layers li::before { display: none; }
+.fdp-list li, .fdp-logos li { display: flex; align-items: center; gap: 12px; color: #1f3147; font-size: 15px; font-weight: 500; line-height: 1.35; }
+.fdp-list b { font-weight: 700; }
+.fdp-list i, .fdp-logos i, .fdp-layers i { display: grid; width: 30px; height: 30px; flex: 0 0 30px; place-items: center; color: #f37021; }
+.fdp-list i svg, .fdp-logos i svg { width: 24px; height: 24px; }
+.fdp-list i img { width: 28px; height: 28px; object-fit: contain; }
+.fdp-list.is-purple-list i { color: #6a3fd0; }
+.fdp-list.is-compact { gap: 12px; }
+.fdp-logos img { width: 30px; height: 30px; flex: 0 0 30px; object-fit: contain; }
+.fdp-zuora-mark { color: #17a2b8; }
+.fdp-events-mark { color: #1f6fe3; }
+.fdp-zuora-mark svg { stroke-width: 2.4; }
+.fdp-mark { display: block; width: 54px; height: 54px; margin: 0 auto 14px; object-fit: contain; }
+.fdp-layers { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; text-align: center; }
+.fdp-layers li { display: grid; justify-items: center; gap: 2px; color: #1f3147; }
+.fdp-layers i { width: 44px; height: 44px; flex: none; }
+.fdp-layers i svg { width: 42px; height: 42px; }
+.fdp-layers i.is-blue { color: #1f6fe3; } .fdp-layers i.is-orange { color: #f37021; } .fdp-layers i.is-green { color: #1f9d55; }
+.fdp-layers b { margin-top: 4px; color: #0b1f3a; font-family: "Roboto", "Open Sans", Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 1.1; }
+.fdp-layers small { font-size: 12.5px; line-height: 1.3; }
+.fdp-governance { margin: 16px 14px 0; padding: 8px 6px; border: 1px solid #cfe6f7; border-radius: 8px; color: #0b5fa8; background: #eef8ff; font-size: 12px; font-weight: 600; line-height: 1.45; text-align: center; }
+.fdp-governance span { color: #8bb8dc; }
+
+/* Outcomes: word headings. */
+body .dematic-case-study.fdp-case-study .fdp-outcomes strong { font-size: 20px; line-height: 1.25; }
+
+/* Six technologies: one row on desktop, 3 + 3 below, 2 per row on phones. */
+body .dematic-case-study .fdp-tech .dgf-tech { flex-basis: calc((100% - 5 * 14px) / 6); }
+body .dematic-case-study .fdp-tech .dgf-tech-icon-box svg { width: 40px; height: 40px; }
+@media (max-width: 1024px) {
+	body .dematic-case-study .fdp-tech .dgf-tech { flex-basis: calc((100% - 2 * 14px) / 3); }
+}
+@media (max-width: 720px) {
+	body .dematic-case-study .fdp-tech .dgf-tech { flex-basis: calc((100% - 1 * 10px) / 2); }
+	body .dematic-case-study .fdp-tech .dgf-tech-icon-box svg { width: 32px; height: 32px; }
+	.fdp-goals { padding: 20px; gap: 14px; }
+	.fdp-goals li { font-size: 16px; }
+	.fdp-client-logo img { height: 44px; }
+}
+
+/* CTA: second line in the brand orange, as in the mockup. */
+.dgf-cta .fdp-cta-accent { display: block; color: #ff9a2e; }
+
+/* Hero: three equal-size lines; "Snowflake" in the warm accent. */
+body .dematic-case-study.fdp-case-study .dematic-hero h1 .fdp-title-tail { margin-top: 7px; font-size: 1em; letter-spacing: -.045em; white-space: nowrap; }
+body .dematic-case-study.fdp-case-study .dematic-hero h1 em { font-style: normal; }
+body .dematic-case-study.fdp-case-study .dematic-hero h1 .fdp-brand { color: #ffc72c; }
+body .dematic-case-study.fdp-case-study .dematic-hero h1 strong { white-space: nowrap; }
+@media (min-width: 1025px) {
+	body .dematic-case-study.fdp-case-study .dematic-hero h1 { font-size: clamp(30px, 2.9vw, 46px); }
+}
+@media (max-width: 1024px) {
+	body .dematic-case-study.fdp-case-study .dematic-hero h1 strong,
+	body .dematic-case-study.fdp-case-study .dematic-hero h1 .fdp-title-tail { white-space: normal; }
+}
+
+/* Summary strip: blue gauge, orange data, green shield, Snowflake blue; headings navy, 60% blue. */
+.dgf-case-study.fdp-case-study .dematic-facts article:nth-child(1) .dematic-icon { color: #1f6fe3; }
+.dgf-case-study.fdp-case-study .dematic-facts article:nth-child(2) .dematic-icon { color: #f7941d; }
+.dgf-case-study.fdp-case-study .dematic-facts article:nth-child(3) .dematic-icon { color: #16a34a; }
+.dgf-case-study.fdp-case-study .dematic-facts article:nth-child(4) .dematic-icon { color: #29b5e8; }
+.dgf-case-study.fdp-case-study .dematic-facts article small { color: #0b1f3a; }
+.dgf-case-study.fdp-case-study .dematic-facts article:nth-child(1) small { color: #1f6fe3; }
+.dgf-case-study.fdp-case-study .dematic-facts strong { color: #1f3147; }
+@media (min-width: 1101px) {
+	body .dematic-case-study.dgf-case-study.fdp-case-study .dematic-facts article small { font-size: clamp(18px, 1.55vw, 26px); white-space: nowrap; }
+	body .dematic-case-study.dgf-case-study.fdp-case-study .dematic-facts article { padding-inline: clamp(14px, 1.6vw, 26px); gap: clamp(10px, 1vw, 18px); }
+	body .dematic-case-study.dgf-case-study.fdp-case-study .dematic-facts .dematic-icon { width: clamp(44px, 3.6vw, 60px); height: clamp(44px, 3.6vw, 60px); flex-basis: clamp(44px, 3.6vw, 60px); }
+	body .dematic-case-study.dgf-case-study.fdp-case-study .dematic-facts .dematic-icon svg { width: 100%; height: 100%; }
+	body .dematic-case-study.dgf-case-study.fdp-case-study .dematic-facts article:first-child { padding-left: 0; }
+}
+
+/* ================================================================== Asana FDP: mockup layout */
+/* Summary strip: one light-blue rounded card; 60% big and blue, the others two-line bold labels. */
+.dgf-case-study.fdp-case-study .dematic-facts { padding: 26px 0 14px; }
+.dgf-case-study.fdp-case-study .dematic-facts-grid { padding: 22px 28px; border: 1px solid #d6e6f6; border-radius: 16px; background: linear-gradient(180deg, #eef6ff, #f7fbff); box-shadow: 0 12px 30px rgba(16, 75, 117, .07); }
+.dgf-case-study.fdp-case-study .dematic-facts article { align-items: center; }
+.dgf-case-study.fdp-case-study .dematic-facts article:nth-child(n+2) small { margin-bottom: 0; font-size: 18px; font-weight: 700; line-height: 1.25; }
+.dgf-case-study.fdp-case-study .dematic-facts article:nth-child(n+2) strong { color: #0b1f3a; font-size: 18px; font-weight: 700; line-height: 1.25; }
+@media (min-width: 1101px) {
+	body .dematic-case-study.dgf-case-study.fdp-case-study .dematic-facts article:nth-child(1) small { font-size: clamp(28px, 2.3vw, 38px); }
+	body .dematic-case-study.dgf-case-study.fdp-case-study .dematic-facts article:nth-child(n+2) small { font-size: clamp(16px, 1.25vw, 20px); }
+	body .dematic-case-study.dgf-case-study.fdp-case-study .dematic-facts article:nth-child(n+2) strong { font-size: clamp(16px, 1.25vw, 20px); }
+}
+@media (max-width: 720px) {
+	.dgf-case-study.fdp-case-study .dematic-facts-grid { padding: 18px; }
+}
+
+/* About: larger Asana wordmark. */
+.fdp-client-logo img { height: 64px; }
+
+/* Challenges: coloured circle icon on the left, title and text on the right. */
+.fdp-challenges article { display: flex; align-items: flex-start; gap: 18px; }
+.fdp-ch-icon { display: grid; width: 58px; height: 58px; flex: 0 0 58px; place-items: center; border-radius: 50%; color: #fff; box-shadow: 0 10px 22px rgba(0, 0, 0, .25); }
+.fdp-ch-icon svg { width: 28px; height: 28px; stroke-width: 2; }
+.fdp-challenges article:nth-child(1) .fdp-ch-icon { background: linear-gradient(135deg, #2f8cff, #1f5fd6); }
+.fdp-challenges article:nth-child(2) .fdp-ch-icon { background: linear-gradient(135deg, #f7a531, #e07b10); }
+.fdp-challenges article:nth-child(3) .fdp-ch-icon { background: linear-gradient(135deg, #8b5cf6, #6a3fd0); }
+.fdp-challenges article:nth-child(4) .fdp-ch-icon { background: linear-gradient(135deg, #2fbf71, #179452); }
+.fdp-challenges article:nth-child(5) .fdp-ch-icon { background: linear-gradient(135deg, #f25f8b, #d93b6a); }
+.fdp-challenges article:nth-child(6) .fdp-ch-icon { background: linear-gradient(135deg, #2f8cff, #1f5fd6); }
+.fdp-challenges h3 { margin-top: 2px; }
+
+/* Approach: number-only chevrons (blue, orange, green, purple, blue); title inside each card. */
+.fdp-stages li { justify-content: flex-start; }
+.fdp-stages li:nth-child(1), .fdp-stages li:nth-child(5) { background: linear-gradient(90deg, #1f6fe3, #2f8cff); }
+.fdp-stages li:nth-child(2) { background: linear-gradient(90deg, #f37021, #f7941d); }
+.fdp-stages li:nth-child(3) { background: linear-gradient(90deg, #1f9d55, #2fb36a); }
+.fdp-stages li:nth-child(4) { background: linear-gradient(90deg, #6a3fd0, #8754e0); }
+.fdp-approach { margin: 0; padding: 0; list-style: none; counter-reset: fdp-step; }
+.fdp-approach li { display: flex; min-width: 0; margin: 0; padding: 24px 18px; flex-direction: column; align-items: center; gap: 12px; border: 1px solid var(--dematic-line); border-radius: 12px; background: #fff; box-shadow: 0 10px 25px rgba(23, 78, 118, .055); text-align: center; counter-increment: fdp-step; }
+.fdp-approach li::before { display: none; }
+.dgf-approach-grid.fdp-approach li:nth-child(1) .dematic-icon, .dgf-approach-grid.fdp-approach li:nth-child(5) .dematic-icon { color: #1f6fe3; }
+.dgf-approach-grid.fdp-approach li:nth-child(2) .dematic-icon { color: #f37021; }
+.dgf-approach-grid.fdp-approach li:nth-child(3) .dematic-icon { color: #1f9d55; }
+.dgf-approach-grid.fdp-approach li:nth-child(4) .dematic-icon { color: #6a3fd0; }
+body .dematic-case-study .fdp-approach h3 { margin: 0; color: #0b1f3a; font-family: "Roboto", "Open Sans", Arial, sans-serif; font-size: 17px; font-weight: 700; line-height: 1.3; }
+@media (max-width: 960px) {
+	.fdp-stages { display: none; }
+	.fdp-approach li:last-child { grid-column: 1 / -1; }
+	.fdp-approach li::before { content: counter(fdp-step); display: grid; width: 30px; height: 30px; place-items: center; border-radius: 50%; color: #fff; background: #1f6fe3; font: 700 15px/1 "Roboto", "Open Sans", sans-serif; }
+	.fdp-approach li:nth-child(2)::before { background: #f37021; }
+	.fdp-approach li:nth-child(3)::before { background: #1f9d55; }
+	.fdp-approach li:nth-child(4)::before { background: #6a3fd0; }
+}
+
+/* Architecture: uppercase header bars; arrows between the EDL, ESL and EDW layers. */
+body .dematic-case-study .dgf-col h3.fdp-col-head { font-size: 13px; letter-spacing: .05em; text-transform: uppercase; }
+.fdp-layers li { position: relative; }
+.fdp-layers li:not(:last-child)::after { content: "\2192"; position: absolute; top: 10px; right: -10px; color: #1f6fe3; font-size: 18px; font-weight: 700; line-height: 1; }
+
+/* Outcomes: blue, orange, green, purple tints; 60% as a big figure, the rest as a bold lead-in. */
+.dgf-outcome-grid.fdp-outcomes article { align-items: center; }
+.dgf-outcome-grid.fdp-outcomes article:nth-child(1) { background: #eef5ff; }
+.dgf-outcome-grid.fdp-outcomes article:nth-child(2) { background: #fff5ec; }
+.dgf-outcome-grid.fdp-outcomes article:nth-child(3) { background: #eefaf2; }
+.dgf-outcome-grid.fdp-outcomes article:nth-child(4) { background: #f4efff; }
+.dgf-outcome-grid.fdp-outcomes article:nth-child(1) .dematic-icon, .dgf-outcome-grid.fdp-outcomes article:nth-child(1) strong { color: #1f6fe3; }
+.dgf-outcome-grid.fdp-outcomes article:nth-child(2) .dematic-icon { color: #f37021; }
+.dgf-outcome-grid.fdp-outcomes article:nth-child(3) .dematic-icon { color: #16a34a; }
+.dgf-outcome-grid.fdp-outcomes article:nth-child(4) .dematic-icon { color: #6a3fd0; }
+body .dematic-case-study.fdp-case-study .fdp-outcomes strong { font-size: 40px; line-height: 1; letter-spacing: -.02em; }
+body .dematic-case-study.fdp-case-study .fdp-outcomes .fdp-outcome-text { margin: 0; color: #1f3147; font-size: 17px; line-height: 1.45; }
+.fdp-outcome-text b { color: #0b1f3a; font-weight: 700; }
+
+/* Technologies: logo and name side by side, like a wordmark tile. */
+body .dematic-case-study .fdp-tech .dgf-tech { flex-direction: row; justify-content: center; align-items: center; gap: 10px; padding: 18px 12px; }
+body .dematic-case-study .fdp-tech .dgf-tech-icon-box { width: auto; height: auto; border-radius: 0; background: none; }
+body .dematic-case-study .fdp-tech .dgf-tech-icon-box img { max-width: 40px; max-height: 40px; }
+body .dematic-case-study .fdp-tech .dgf-tech-icon-box svg { width: 34px; height: 34px; }
+body .dematic-case-study .fdp-tech .dgf-tech-name { min-height: 0; align-items: center; font-size: 16px; font-weight: 800; text-align: left; }
+
+/* CTA: short orange rule above the heading. */
+.dgf-cta.dematic-final-cta .dematic-final-inner h2::before { content: ""; display: block; width: 54px; height: 4px; margin-bottom: 18px; border-radius: 2px; background: #f7941d; }
+
+/* About and Objective: client facts tiles and paragraph spacing. */
+.fdp-client-facts { display: grid; margin: 22px 0 0; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.fdp-client-facts div { padding: 12px 16px; border: 1px solid #d8e7f1; border-left: 3px solid #f37021; border-radius: 10px; background: #fff; }
+.fdp-client-facts dt { margin: 0 0 2px; color: #4a5b70; font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.fdp-client-facts dd { margin: 0; color: #0b1f3a; font-size: 16px; font-weight: 600; line-height: 1.35; }
+body .dematic-case-study.fdp-case-study .dematic-copy-block p + p,
+body .dematic-case-study.fdp-case-study .dematic-objective-grid p + p { margin-top: 14px; }
+@media (max-width: 720px) {
+	.fdp-client-facts { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* About: image back to its own 3:2 ratio, centred against the longer copy. */
+.dgf-case-study.fdp-case-study .dgf-client-visual img { aspect-ratio: 1536 / 1024; }
+.dgf-case-study.fdp-case-study .dematic-about-grid { align-items: center; }
+
+/* Original banner: sits under the theme menu like the other case-study heroes. */
+.ics.fdp-banner { background: #00294c; }
+
+/* Snowflake brand: official mark and wordmark in Snowflake blue, never recoloured or
+   stretched, with clear space around them. */
+.dgf-case-study.fdp-case-study .dematic-facts .fdp-sf-mark img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.fdp-sf-wordmark { display: block; width: auto; height: 34px; max-width: calc(100% - 36px); margin: 4px auto 18px; object-fit: contain; }
+body .dematic-case-study .fdp-tech .fdp-tech-snowflake { flex-direction: column; gap: 6px; }
+body .dematic-case-study .fdp-tech .fdp-tech-snowflake .dgf-tech-icon-box img { width: auto; height: 30px; max-width: 150px; max-height: none; }
+body .dematic-case-study .fdp-tech .fdp-tech-snowflake .dgf-tech-name { color: #29b5e8; font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+
+/* Architecture wordmark: fixed height over the shared .dgf-col image sizing. */
+body .dematic-case-study .dgf-col img.fdp-sf-wordmark { display: block; width: auto; height: 34px; max-width: calc(100% - 36px); max-height: none; margin: 4px auto 18px; object-fit: contain; }
+
+/* About: laptop dashboard image at its own ratio, centred against the copy. */
+.dgf-case-study.fdp-case-study .dgf-client-visual img { aspect-ratio: 1710 / 920; object-position: center; }
+.dgf-case-study.fdp-case-study .dematic-about-grid { align-items: center; }
+
+/* Summary strip, as in the mockup: big blue 60% over a regular two-line caption;
+   the other three are two equal semibold navy lines; large icons; Snowflake mark
+   with its registered sign. */
+body .dematic-case-study.fdp-case-study .dematic-facts article { align-items: center; gap: 18px; }
+body .dematic-case-study.fdp-case-study .dematic-facts .dematic-icon { width: 56px; height: 56px; flex: 0 0 56px; }
+body .dematic-case-study.fdp-case-study .dematic-facts .fdp-gauge-icon { width: 62px; flex-basis: 62px; }
+body .dematic-case-study.fdp-case-study .dematic-facts .fdp-gauge-icon svg { width: 62px; height: 44px; stroke: none; }
+body .dematic-case-study.fdp-case-study .dematic-facts article:nth-child(1) small { margin: 0 0 4px; color: #1f6fe3; font-family: "Roboto", "Open Sans", Arial, sans-serif; font-size: 38px; font-weight: 800; letter-spacing: -.01em; line-height: 1; }
+body .dematic-case-study.fdp-case-study .dematic-facts article:nth-child(1) strong { color: #24364d; font-size: 15px; font-weight: 500; line-height: 1.35; }
+body .dematic-case-study.fdp-case-study .dematic-facts article:nth-child(n+2) small,
+body .dematic-case-study.fdp-case-study .dematic-facts article:nth-child(n+2) strong { margin: 0; color: #0b1f3a; font-family: "Roboto", "Open Sans", Arial, sans-serif; font-size: 16px; font-weight: 700; letter-spacing: 0; line-height: 1.35; white-space: nowrap; }
+.fdp-sf-mark { position: relative; }
+.fdp-reg { position: absolute; top: -4px; right: -10px; color: #29b5e8; font: 700 11px/1 Arial, sans-serif; }
+@media (min-width: 1101px) {
+	body .dematic-case-study.dgf-case-study.fdp-case-study .dematic-facts article:nth-child(1) small { font-size: clamp(32px, 2.6vw, 42px); }
+	body .dematic-case-study.dgf-case-study.fdp-case-study .dematic-facts article:nth-child(1) strong { font-size: clamp(14px, 1.05vw, 17px); }
+	body .dematic-case-study.dgf-case-study.fdp-case-study .dematic-facts article:nth-child(n+2) small,
+	body .dematic-case-study.dgf-case-study.fdp-case-study .dematic-facts article:nth-child(n+2) strong { font-size: clamp(15px, 1.15vw, 18px); }
+	body .dematic-case-study.dgf-case-study.fdp-case-study .dematic-facts .dematic-icon { width: clamp(46px, 3.8vw, 60px); height: clamp(46px, 3.8vw, 60px); flex-basis: clamp(46px, 3.8vw, 60px); }
+	body .dematic-case-study.dgf-case-study.fdp-case-study .dematic-facts .fdp-gauge-icon { width: clamp(52px, 4.3vw, 68px); flex-basis: clamp(52px, 4.3vw, 68px); }
+	body .dematic-case-study.dgf-case-study.fdp-case-study .dematic-facts .fdp-gauge-icon svg { width: 100%; height: auto; }
+}
+
+/* ================================================================== Asana FDP banner */
+/* Original FDP 2.0 artwork (cards, Snowflake cloud, Asana building) on the shared
+   case-study hero: copy on the body's left edge at every width, fixed height on
+   big screens. Artwork 1360x802, left edge already feathered into #01213e; the
+   first card starts 27.18% of the artwork height from its left edge.
+   --fdp-l is where the artwork starts: pinned right, but never so far left that
+   it reaches the copy column. */
+@media (min-width: 1025px) {
+	body .dematic-case-study.fdp-case-study .dematic-hero.fdp-hero {
+		--fdp-h: clamp(500px, 40vw, 640px);
+		--fdp-w: calc(var(--fdp-h) * 1.6958);
+		--fdp-cw: clamp(380px, 40vw, 560px);
+		--fdp-cl: 50px;
+		--fdp-l: max(calc(100vw - var(--fdp-w)), calc(var(--fdp-cl) + var(--fdp-cw) + 30px - var(--fdp-h) * .2718));
+		height: var(--fdp-h);
+		background: #01213e;
+	}
+	body .dematic-case-study.fdp-case-study .fdp-hero .dematic-hero-inner::before {
+		background:
+			linear-gradient(180deg, rgba(0, 18, 40, .72) 0, rgba(0, 18, 40, 0) 130px),
+			linear-gradient(90deg, #01213e 0, #01213e var(--fdp-l), rgba(1, 33, 62, 0) calc(var(--fdp-l) + 2px)),
+			url(../images/case-studies/asana-fdp-banner-art-v2.jpg) var(--fdp-l) center / auto 100% no-repeat,
+			#01213e;
+	}
+	body .dematic-case-study.fdp-case-study .fdp-hero .dematic-hero-copy { width: var(--fdp-cw); max-width: none; }
+}
+@media (min-width: 1441px) {
+	body .dematic-case-study.fdp-case-study .dematic-hero.fdp-hero { --fdp-cl: calc(50vw - 670px); }
+}
+
+/* Title as in the original banner: bold line, cyan (FDP 2.0), two lighter lines. */
+body .dematic-case-study.fdp-case-study .fdp-hero h1 span:first-child { white-space: nowrap; }
+body .dematic-case-study.fdp-case-study .fdp-hero h1 strong { color: #2bbcff; white-space: nowrap; }
+body .dematic-case-study.fdp-case-study .fdp-hero h1 .fdp-title-light { display: block; margin-top: 4px; font-size: .78em; font-weight: 500; letter-spacing: -.025em; line-height: 1.12; }
+body .dematic-case-study.fdp-case-study .fdp-hero h1 .fdp-title-light + .fdp-title-light { margin-top: 0; }
+@media (min-width: 1025px) {
+	body .dematic-case-study.fdp-case-study .fdp-hero h1 { font-size: clamp(34px, 3vw, 50px); }
+	body .dematic-case-study.fdp-case-study .fdp-hero .dematic-hero-copy > p:not(.dematic-eyebrow) { font-size: clamp(14px, 1.1vw, 18px); }
+}
+
+/* Highlights row under the copy (from the original banner). */
+.fdp-hero-points { display: flex; margin: 26px 0 0; padding: 0; gap: 0; list-style: none; }
+.fdp-hero-points li { display: flex; margin: 0; padding: 0 18px; align-items: center; gap: 10px; border-left: 1px solid rgba(255, 255, 255, .22); color: #fff; font-size: 12px; font-weight: 700; line-height: 1.25; }
+.fdp-hero-points li:first-child { padding-left: 0; border-left: 0; }
+.fdp-hero-points li::before { display: none; }
+.fdp-hero-points i { display: grid; width: 40px; height: 40px; flex: 0 0 40px; place-items: center; border: 1px solid rgba(255, 255, 255, .6); border-radius: 50%; }
+.fdp-hero-points svg { width: 20px; height: 20px; }
+@media (min-width: 1600px) {
+	.fdp-hero-points li { font-size: 13px; }
+	.fdp-hero-points i { width: 44px; height: 44px; flex-basis: 44px; }
+}
+@media (max-width: 1024px) {
+	.fdp-hero-points { flex-wrap: wrap; row-gap: 14px; }
+	.fdp-hero-points li { flex: 0 0 50%; padding: 0; border-left: 0; }
+}
+
+/* Highlights: one row of four from 1440px, 2 x 2 below so they never reach the artwork. */
+.fdp-hero-points li { white-space: nowrap; padding-inline: 14px; }
+.fdp-hero-points i { width: 36px; height: 36px; flex-basis: 36px; }
+.fdp-hero-points svg { width: 18px; height: 18px; }
+@media (min-width: 1025px) and (max-width: 1439px) {
+	.fdp-hero-points { display: grid; grid-template-columns: repeat(2, max-content); gap: 12px 28px; margin-top: 20px; }
+	.fdp-hero-points li, .fdp-hero-points li:first-child { padding: 0; border-left: 0; }
+}
+
+/* Very wide screens: the banner grows with the viewport so the artwork keeps its
+   size next to the copy instead of leaving a wide empty band. */
+@media (min-width: 1921px) {
+	body .dematic-case-study.fdp-case-study .dematic-hero.fdp-hero { --fdp-h: max(640px, 26vw); --fdp-cw: 600px; }
+	body .dematic-case-study.fdp-case-study .fdp-hero h1 { font-size: clamp(50px, 2.2vw, 64px); }
+	body .dematic-case-study.fdp-case-study .fdp-hero .dematic-hero-copy > p:not(.dematic-eyebrow) { font-size: clamp(18px, .8vw, 22px); }
+	.fdp-hero-points li { font-size: 14px; }
+}
+
+/* Enough banner height for the four-line title on laptop screens; title lines never wrap on desktop. */
+@media (min-width: 1025px) {
+	body .dematic-case-study.fdp-case-study .dematic-hero.fdp-hero { --fdp-h: clamp(570px, 42vw, 640px); }
+	body .dematic-case-study.fdp-case-study .fdp-hero h1 .fdp-title-light { white-space: nowrap; }
+}
+@media (min-width: 1921px) {
+	body .dematic-case-study.fdp-case-study .dematic-hero.fdp-hero { --fdp-h: max(640px, 26vw); --fdp-cw: 700px; }
+}
+@media (min-width: 1025px) and (max-width: 1279px) {
+	/* Narrow desktops: slimmer copy column so the Asana sign on the building stays in view. */
+	body .dematic-case-study.fdp-case-study .dematic-hero.fdp-hero { --fdp-cw: 400px; }
+}
+@media (max-width: 1024px) {
+	/* Tablet and phone: title lines wrap naturally. */
+	body .dematic-case-study.fdp-case-study .fdp-hero h1 span:first-child,
+	body .dematic-case-study.fdp-case-study .fdp-hero h1 strong { white-space: normal; }
+}
+@media (max-width: 1024px) {
+	.fdp-hero-points li, .fdp-hero-points li:first-child { padding-inline: 0; }
+}
+
+/* Banner: the artwork always starts right after the copy (no empty navy band on big
+   screens); it widens to the right edge and keeps its top (cards) in view. */
+@media (min-width: 1025px) {
+	body .dematic-case-study.fdp-case-study .dematic-hero.fdp-hero { --fdp-l: calc(var(--fdp-cl) + var(--fdp-cw) + 30px - var(--fdp-h) * .2718); }
+	body .dematic-case-study.fdp-case-study .fdp-hero .dematic-hero-inner::before {
+		background:
+			linear-gradient(180deg, rgba(0, 18, 40, .72) 0, rgba(0, 18, 40, 0) 130px),
+			linear-gradient(90deg, #01213e 0, #01213e var(--fdp-l), rgba(1, 33, 62, 0) calc(var(--fdp-l) + 2px)),
+			url(../images/case-studies/asana-fdp-banner-art-v2.jpg) var(--fdp-l) top / max(var(--fdp-w), calc(100vw - var(--fdp-l))) auto no-repeat,
+			#01213e;
+	}
+}
+
+/* Summary strip: the 60% card uses the same two-line semibold text as the other cards. */
+body .dematic-case-study.fdp-case-study .dematic-facts article:nth-child(1) small,
+body .dematic-case-study.fdp-case-study .dematic-facts article:nth-child(1) strong { margin: 0; color: #0b1f3a; font-family: "Roboto", "Open Sans", Arial, sans-serif; font-size: 16px; font-weight: 700; letter-spacing: 0; line-height: 1.35; white-space: nowrap; }
+@media (min-width: 1101px) {
+	body .dematic-case-study.dgf-case-study.fdp-case-study .dematic-facts article:nth-child(1) small,
+	body .dematic-case-study.dgf-case-study.fdp-case-study .dematic-facts article:nth-child(1) strong { font-size: clamp(15px, 1.15vw, 18px); }
+}
+
+/* Snowflake FDP 2.0 column: more air between the wordmark, the three layers and the controls. */
+body .dematic-case-study .dgf-col img.fdp-sf-wordmark { height: 30px; margin: 6px auto 22px; }
+.fdp-layers { padding: 0 14px; gap: 4px; }
+.fdp-layers li { gap: 4px; }
+.fdp-layers i { width: 38px; height: 38px; }
+.fdp-layers i svg { width: 34px; height: 34px; }
+.fdp-layers b { margin-top: 6px; font-size: 15px; }
+.fdp-layers small { max-width: 92px; color: #4a5b70; font-size: 12px; line-height: 1.35; }
+.fdp-layers li:not(:last-child)::after { top: 12px; right: -8px; font-size: 15px; color: #8bb8dc; }
+ul.fdp-governance { display: flex; margin: 22px 14px 0; padding: 0; flex-wrap: wrap; justify-content: center; gap: 6px; border: 0; background: none; list-style: none; }
+ul.fdp-governance li { margin: 0; padding: 4px 10px; border: 1px solid #cfe6f7; border-radius: 999px; color: #0b5fa8; background: #eef8ff; font-size: 12px; font-weight: 600; line-height: 1.3; }
+ul.fdp-governance li::before { display: none; }
+
+/* Snowflake technology tile: wordmark with its registered sign, no caption. */
+body .dematic-case-study .fdp-tech .fdp-tech-snowflake .dgf-tech-icon-box { position: relative; }
+body .dematic-case-study .fdp-tech .fdp-tech-snowflake .dgf-tech-icon-box img { height: 34px; max-width: 160px; }
+body .dematic-case-study .fdp-tech .fdp-tech-snowflake .fdp-reg { top: -6px; right: -12px; }
+
+/* Shared case-study type steps for this page's own elements, so big screens read
+   the same as the other case studies (1600 / 1920 / 2400). */
+body .dematic-case-study.fdp-case-study .dematic-copy-block p { font-size: 18px; }
+@media (min-width: 1600px) {
+	body .dematic-case-study.fdp-case-study .dematic-copy-block p { font-size: 20px; }
+	body .dematic-case-study .dgf-col h3.fdp-col-head { font-size: 14px; }
+	.fdp-list li, .fdp-logos li { font-size: 16px; }
+	.fdp-layers b { font-size: 16px; }
+	.fdp-layers small { font-size: 13px; max-width: 110px; }
+	ul.fdp-governance li { font-size: 13px; }
+	body .dematic-case-study .fdp-tech .dgf-tech-name { font-size: 17px; }
+	body .dematic-case-study .fdp-approach h3 { font-size: 18px; }
+	body .dematic-case-study.fdp-case-study .fdp-outcomes .fdp-outcome-text { font-size: 18px; }
+	.fdp-goals li { font-size: 18px; }
+	.fdp-hero-points li { font-size: 14px; }
+}
+@media (min-width: 1920px) {
+	body .dematic-case-study.fdp-case-study .dematic-copy-block p { font-size: 21px; }
+	body .dematic-case-study.dgf-case-study.fdp-case-study .dematic-facts article small,
+	body .dematic-case-study.dgf-case-study.fdp-case-study .dematic-facts article strong { font-size: 20px; }
+	body .dematic-case-study .dgf-col h3.fdp-col-head { font-size: 15px; }
+	.fdp-list li, .fdp-logos li { font-size: 17px; }
+	.fdp-layers b { font-size: 17px; }
+	.fdp-layers small { font-size: 14px; }
+	ul.fdp-governance li { font-size: 14px; }
+	body .dematic-case-study .fdp-tech .dgf-tech-name { font-size: 18px; }
+	body .dematic-case-study .fdp-approach h3 { font-size: 19px; }
+	body .dematic-case-study.fdp-case-study .fdp-outcomes .fdp-outcome-text { font-size: 19px; }
+	body .dematic-case-study.fdp-case-study .fdp-outcomes strong { font-size: 44px; }
+	.fdp-goals li { font-size: 19px; }
+	.fdp-hero-points li { font-size: 15px; }
+}
+@media (min-width: 2400px) {
+	body .dematic-case-study.fdp-case-study .dematic-copy-block p { font-size: 22px; }
+	body .dematic-case-study.dgf-case-study.fdp-case-study .dematic-facts article small,
+	body .dematic-case-study.dgf-case-study.fdp-case-study .dematic-facts article strong { font-size: 21px; }
+	body .dematic-case-study .dgf-col h3.fdp-col-head { font-size: 16px; }
+	.fdp-list li, .fdp-logos li { font-size: 18px; }
+	.fdp-layers small { font-size: 15px; max-width: 124px; }
+	ul.fdp-governance li { font-size: 15px; }
+	body .dematic-case-study .fdp-approach h3 { font-size: 20px; }
+	body .dematic-case-study.fdp-case-study .fdp-outcomes .fdp-outcome-text { font-size: 20px; }
+	.fdp-goals li { font-size: 20px; }
+	.fdp-hero-points li { font-size: 16px; }
+}
+/* Objective copy matches the About copy; layer captions use the full column width. */
+body .dematic-case-study.fdp-case-study .dematic-objective-grid p:not(.dgf-lead) { font-size: 18px; }
+.fdp-layers small { max-width: none; }
+@media (min-width: 1600px) { body .dematic-case-study.fdp-case-study .dematic-objective-grid p:not(.dgf-lead) { font-size: 20px; } }
+@media (min-width: 1920px) { body .dematic-case-study.fdp-case-study .dematic-objective-grid p:not(.dgf-lead) { font-size: 21px; } }
+@media (min-width: 2400px) { body .dematic-case-study.fdp-case-study .dematic-objective-grid p:not(.dgf-lead) { font-size: 22px; } }

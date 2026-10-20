@@ -1088,13 +1088,18 @@ function infometry_ct_enqueue_assets() {
 	}
 
 	if ( $use_asana_case_study ) {
+		$css_path    = INFOMETRY_CT_PATH . 'assets/css/asana-fdp-v2-case-study.css';
+		$js_path     = INFOMETRY_CT_PATH . 'assets/js/dematic-case-study.js';
+		$css_version = is_readable( $css_path ) ? (string) filemtime( $css_path ) : INFOMETRY_CT_ASANA_FDP_ASSET_VERSION;
+		$js_version  = is_readable( $js_path ) ? (string) filemtime( $js_path ) : INFOMETRY_CT_VERSION;
 		wp_enqueue_style(
 			'infometry-asana-fdp-fonts',
-			'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Roboto:wght@500;600;700;800;900&display=swap',
+			'https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Open+Sans:wght@400;500;600;700;800&family=Roboto:wght@500;600;700;800;900&display=swap',
 			array(),
 			null
 		);
-		wp_enqueue_style( 'infometry-asana-fdp-case-study', INFOMETRY_CT_URL . 'assets/css/asana-fdp-case-study.css', array( 'infometry-asana-fdp-fonts' ), INFOMETRY_CT_ASANA_FDP_ASSET_VERSION );
+		wp_enqueue_style( 'infometry-asana-fdp-case-study', INFOMETRY_CT_URL . 'assets/css/asana-fdp-v2-case-study.css', array( 'infometry-asana-fdp-fonts' ), $css_version );
+		wp_enqueue_script( 'infometry-asana-fdp-case-study', INFOMETRY_CT_URL . 'assets/js/dematic-case-study.js', array(), $js_version, true );
 	}
 
 	if ( $use_insurance_snowflake ) {
