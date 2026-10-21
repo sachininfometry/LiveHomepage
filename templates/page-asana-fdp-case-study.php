@@ -192,7 +192,7 @@ $outcomes = array(
 				<article class="dgf-col fdp-col">
 					<h3 class="fdp-col-head is-blue">Source Applications</h3>
 					<ul class="fdp-logos">
-						<li><i class="fdp-zuora-mark"><svg aria-hidden="true"><use href="#fdp-zuora"/></svg></i><span>Zuora</span></li>
+						<li><img src="<?php echo esc_url( $img_url . 'tech-logos/zuora-mark.png' ); ?>" alt="" width="123" height="122" loading="lazy"><span>Zuora</span></li>
 						<li><img src="<?php echo esc_url( $img_url . 'brand-salesforce.png' ); ?>" alt="" width="267" height="188" loading="lazy"><span>Salesforce</span></li>
 						<li><img src="<?php echo esc_url( $img_url . 'netsuite-mark.png' ); ?>" alt="" width="248" height="244" loading="lazy"><span>NetSuite</span></li>
 						<li><i class="fdp-events-mark"><svg aria-hidden="true"><use href="#dematic-document"/></svg></i><span>Product Events</span></li>
@@ -250,7 +250,7 @@ $outcomes = array(
 			<div class="dgf-tech-grid fdp-tech">
 				<div class="dgf-tech fdp-tech-snowflake"><span class="dgf-tech-icon-box"><img src="<?php echo esc_url( $img_url . 'tech-logos/snowflake-wordmark.png' ); ?>" alt="Snowflake" width="640" height="152" loading="lazy"><sup class="fdp-reg" aria-hidden="true">&reg;</sup></span></div>
 				<div class="dgf-tech" style="--tint:#eef6ff"><span class="dgf-tech-icon-box"><img src="<?php echo esc_url( $img_url . 'tech-logos/airflow-mark.png' ); ?>" alt="Apache Airflow" width="192" height="192" loading="lazy"></span><span class="dgf-tech-name">Apache Airflow</span></div>
-				<div class="dgf-tech" style="--tint:#e6f6f7"><span class="dgf-tech-icon-box fdp-zuora-mark"><svg aria-hidden="true"><use href="#fdp-zuora"/></svg></span><span class="dgf-tech-name">Zuora</span></div>
+				<div class="dgf-tech fdp-tech-wordmark"><span class="dgf-tech-icon-box"><img src="<?php echo esc_url( $img_url . 'tech-logos/zuora-logo.png' ); ?>" alt="Zuora" width="575" height="118" loading="lazy"></span></div>
 				<div class="dgf-tech" style="--tint:#e8f4fd"><span class="dgf-tech-icon-box"><img src="<?php echo esc_url( $img_url . 'brand-salesforce.png' ); ?>" alt="Salesforce" width="267" height="188" loading="lazy"></span><span class="dgf-tech-name">Salesforce</span></div>
 				<div class="dgf-tech" style="--tint:#eef1f6"><span class="dgf-tech-icon-box"><img src="<?php echo esc_url( $img_url . 'netsuite-mark.png' ); ?>" alt="NetSuite" width="248" height="244" loading="lazy"></span><span class="dgf-tech-name">NetSuite</span></div>
 				<div class="dgf-tech" style="--tint:#eef4fb"><span class="dgf-tech-icon-box fdp-events-mark"><svg aria-hidden="true"><use href="#dematic-document"/></svg></span><span class="dgf-tech-name">Product Events</span></div>

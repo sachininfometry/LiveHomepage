@@ -2187,3 +2187,7 @@ body .dematic-case-study.fdp-case-study .dematic-objective-grid p:not(.dgf-lead)
 @media (min-width: 1600px) { body .dematic-case-study.fdp-case-study .dematic-objective-grid p:not(.dgf-lead) { font-size: 20px; } }
 @media (min-width: 1920px) { body .dematic-case-study.fdp-case-study .dematic-objective-grid p:not(.dgf-lead) { font-size: 21px; } }
 @media (min-width: 2400px) { body .dematic-case-study.fdp-case-study .dematic-objective-grid p:not(.dgf-lead) { font-size: 22px; } }
+
+/* Zuora: official logo (teal mark + black wordmark) in the technology tile. */
+body .dematic-case-study .fdp-tech .fdp-tech-wordmark .dgf-tech-icon-box img { width: auto; height: 26px; max-width: 130px; max-height: none; }
+@media (min-width: 1920px) { body .dematic-case-study .fdp-tech .fdp-tech-wordmark .dgf-tech-icon-box img { height: 30px; max-width: 150px; } }
