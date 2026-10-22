@@ -210,7 +210,7 @@ $outcomes = array(
 				<span class="dgf-arrow" aria-hidden="true"></span>
 				<article class="dgf-col fdp-col">
 					<h3 class="fdp-col-head is-sky">Snowflake FDP 2.0 Layers</h3>
-					<img class="fdp-sf-wordmark" src="<?php echo esc_url( $img_url . 'tech-logos/snowflake-wordmark.png' ); ?>" alt="Snowflake" width="640" height="152" loading="lazy">
+					<span class="fdp-sf-wordmark-wrap"><img class="fdp-sf-wordmark" src="<?php echo esc_url( $img_url . 'tech-logos/snowflake-wordmark.png' ); ?>" alt="Snowflake" width="640" height="152" loading="lazy"><sup class="fdp-reg" aria-hidden="true">&reg;</sup></span>
 					<ol class="fdp-layers" aria-label="FDP 2.0 data layers">
 						<li><i class="is-blue"><svg aria-hidden="true"><use href="#dgf-db-fill"/></svg></i><b>EDL</b><small>Extract, Detailed Load</small></li>
 						<li><i class="is-orange"><svg aria-hidden="true"><use href="#dgf-db-fill"/></svg></i><b>ESL</b><small>Enterprise Staging Layer</small></li>

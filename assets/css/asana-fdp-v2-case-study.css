@@ -2191,3 +2191,9 @@ body .dematic-case-study.fdp-case-study .dematic-objective-grid p:not(.dgf-lead)
 /* Zuora: official logo (teal mark + black wordmark) in the technology tile. */
 body .dematic-case-study .fdp-tech .fdp-tech-wordmark .dgf-tech-icon-box img { width: auto; height: 26px; max-width: 130px; max-height: none; }
 @media (min-width: 1920px) { body .dematic-case-study .fdp-tech .fdp-tech-wordmark .dgf-tech-icon-box img { height: 30px; max-width: 150px; } }
+
+/* Architecture Snowflake wordmark with its registered sign. */
+.fdp-sf-wordmark-wrap { position: relative; display: table; margin: 6px auto 22px; }
+body .dematic-case-study .dgf-col .fdp-sf-wordmark-wrap img.fdp-sf-wordmark { margin: 0; max-width: 100%; }
+.fdp-sf-wordmark-wrap { display: flex; width: max-content; }
+.fdp-sf-wordmark-wrap .fdp-reg { top: -5px; right: -9px; }
