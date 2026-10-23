@@ -34,6 +34,9 @@ define( 'INFOMETRY_CT_GOOGLE_FORM_ID', 351429 );
 define( 'INFOMETRY_CT_HOME_META_TITLE', 'Enterprise Data Analytics & AI Solutions | Infometry' );
 define( 'INFOMETRY_CT_HOME_META_DESCRIPTION', 'Explore Infometry’s data analytics, AI, cloud data, integration, Snowflake, Databricks, and pre-built solutions designed to accelerate enterprise transformation.' );
 
+/** Lean output (no hidden theme slider/footer, no unused builder assets) on custom-design pages. */
+require_once INFOMETRY_CT_PATH . 'includes/lean-pages.php';
+
 /**
  * Keep the live homepage SEO metadata aligned across WordPress and common SEO plugins.
  */
