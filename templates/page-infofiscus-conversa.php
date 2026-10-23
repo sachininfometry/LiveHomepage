@@ -676,16 +676,6 @@ $other_products = array(
 			<p>Enabling AI for Every Enterprise</p>
 		</div>
 	</section>
-
-	<section class="icp-product-footer-legacy" aria-hidden="true">
-		<div class="icp-shell icp-footer-grid">
-			<div><strong>Infometry.</strong><p>Infometry helps enterprises transform data into decisions with AI-powered analytics platforms.</p></div>
-			<div><h3>Platform</h3><a href="#icp-capabilities">Overview</a><a href="#icp-capabilities">Capabilities</a><a href="#icp-workflow">Security</a></div>
-			<div><h3>Solutions</h3><a href="#icp-use-cases">By Function</a><a href="#icp-use-cases">By Industry</a><a href="#icp-personas">Use Cases</a></div>
-			<div><h3>Resources</h3><a href="#">Docs & Guides</a><a href="#">Blog</a><a href="#">Webinars</a></div>
-			<div><h3>Stay updated</h3><p>Get the latest product updates and insights.</p><form><input type="email" placeholder="Enter your email" aria-label="Email address"><button type="button">→</button></form></div>
-		</div>
-	</section>
 </main>
 
 <?php
