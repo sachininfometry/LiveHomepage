@@ -27,6 +27,7 @@ define( 'INFOMETRY_CT_DEMATIC_CASE_STUDY_TEMPLATE', 'templates/page-dematic-case
 define( 'INFOMETRY_CT_CONNS_TEMPLATE', 'templates/page-conns-case-study.php' );
 define( 'INFOMETRY_CT_EXPEDIA_TEMPLATE', 'templates/page-expedia-case-study.php' );
 define( 'INFOMETRY_CT_BELK_TEMPLATE', 'templates/page-belk-case-study.php' );
+define( 'INFOMETRY_CT_TELLUS_TEMPLATE', 'templates/page-tellus-case-study.php' );
 define( 'INFOMETRY_CT_DEMATIC_FINANCE_TEMPLATE', 'templates/page-dematic-global-finance-case-study.php' );
 define( 'INFOMETRY_CT_CONVERSA_FORM_ID', 379751 );
 define( 'INFOMETRY_CT_GOOGLE_FORM_ID', 351429 );
@@ -113,6 +114,7 @@ function infometry_ct_register_page_template( $templates ) {
 	$templates[ INFOMETRY_CT_CONNS_TEMPLATE ] = __( 'Conn&#8217;s HomePlus Snowflake Case Study', 'infometry-custom-templates' );
 	$templates[ INFOMETRY_CT_EXPEDIA_TEMPLATE ] = __( 'Expedia Hadoop Case Study', 'infometry-custom-templates' );
 	$templates[ INFOMETRY_CT_BELK_TEMPLATE ] = __( 'Belk MuleSoft Case Study', 'infometry-custom-templates' );
+	$templates[ INFOMETRY_CT_TELLUS_TEMPLATE ] = __( 'Tellus Mobile Analytics Case Study', 'infometry-custom-templates' );
 	$templates[ INFOMETRY_CT_DEMATIC_FINANCE_TEMPLATE ] = __( 'Dematic Global Finance Case Study', 'infometry-custom-templates' );
 
 	return $templates;
@@ -443,6 +445,42 @@ function infometry_ct_render_belk_route() {
 }
 add_action( 'template_redirect', 'infometry_ct_render_belk_route', 0 );
 
+/** Use the Tellus mobile analytics case study when selected or on its URL. */
+function infometry_ct_should_use_tellus_template() {
+	return infometry_ct_should_use_template( INFOMETRY_CT_TELLUS_TEMPLATE )
+		|| infometry_ct_is_tellus_route();
+}
+
+/** Match the production Tellus mobile analytics case-study URL. */
+function infometry_ct_is_tellus_route() {
+	$host = isset( $_SERVER['HTTP_HOST'] ) ? strtolower( sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ) ) ) : '';
+	$host = preg_replace( '/:\d+$/', '', $host );
+	if ( ! in_array( $host, array( 'infometry.net', 'www.infometry.net' ), true ) || empty( $_SERVER['REQUEST_URI'] ) ) {
+		return false;
+	}
+
+	$path = wp_parse_url( wp_unslash( $_SERVER['REQUEST_URI'] ), PHP_URL_PATH );
+	return '/resources/infometry-case-studies/mobile-analytics-for-service-provider' === untrailingslashit( $path );
+}
+
+/** Serve the Tellus mobile analytics case study at its exact URL. */
+function infometry_ct_render_tellus_route() {
+	if ( ! infometry_ct_is_tellus_route() ) {
+		return;
+	}
+
+	$plugin_template = INFOMETRY_CT_PATH . INFOMETRY_CT_TELLUS_TEMPLATE;
+	if ( ! is_readable( $plugin_template ) ) {
+		return;
+	}
+
+	status_header( 200 );
+	nocache_headers();
+	include $plugin_template;
+	exit;
+}
+add_action( 'template_redirect', 'infometry_ct_render_tellus_route', 0 );
+
 /** Use the Dematic global finance case study when selected or on its URL. */
 function infometry_ct_should_use_dematic_finance_template() {
 	return infometry_ct_should_use_template( INFOMETRY_CT_DEMATIC_FINANCE_TEMPLATE )
@@ -575,6 +613,13 @@ function infometry_ct_load_page_template( $template ) {
 		}
 	}
 
+	if ( infometry_ct_should_use_tellus_template() ) {
+		$plugin_template = INFOMETRY_CT_PATH . INFOMETRY_CT_TELLUS_TEMPLATE;
+		if ( is_readable( $plugin_template ) ) {
+			return $plugin_template;
+		}
+	}
+
 	if ( infometry_ct_should_use_dematic_finance_template() ) {
 		$plugin_template = INFOMETRY_CT_PATH . INFOMETRY_CT_DEMATIC_FINANCE_TEMPLATE;
 		if ( is_readable( $plugin_template ) ) {
@@ -641,6 +686,11 @@ function infometry_ct_body_classes( $classes ) {
 	if ( infometry_ct_should_use_belk_template() ) {
 		$classes = array_values( array_diff( $classes, array( 'header-transparent', 'template-slider' ) ) );
 		$classes[] = 'infometry-belk-case-study-page';
+	}
+
+	if ( infometry_ct_should_use_tellus_template() ) {
+		$classes = array_values( array_diff( $classes, array( 'header-transparent', 'template-slider' ) ) );
+		$classes[] = 'infometry-tellus-case-study-page';
 	}
 
 	if ( infometry_ct_should_use_dematic_finance_template() ) {
@@ -1042,9 +1092,10 @@ function infometry_ct_enqueue_assets() {
 	$use_conns    = infometry_ct_should_use_conns_template();
 	$use_expedia  = infometry_ct_should_use_expedia_template();
 	$use_belk     = infometry_ct_should_use_belk_template();
+	$use_tellus   = infometry_ct_should_use_tellus_template();
 	$use_dematic_finance    = infometry_ct_should_use_dematic_finance_template();
 
-	if ( ! $use_home && ! $use_conversa && ! $use_informatica && ! $use_google_connectors && ! $use_asana_case_study && ! $use_insurance_snowflake && ! $use_asana_architecture && ! $use_sunrise_case_study && ! $use_dematic_case_study && ! $use_dematic_finance && ! $use_conns && ! $use_expedia && ! $use_belk ) {
+	if ( ! $use_home && ! $use_conversa && ! $use_informatica && ! $use_google_connectors && ! $use_asana_case_study && ! $use_insurance_snowflake && ! $use_asana_architecture && ! $use_sunrise_case_study && ! $use_dematic_case_study && ! $use_dematic_finance && ! $use_conns && ! $use_expedia && ! $use_belk && ! $use_tellus ) {
 		return;
 	}
 
@@ -1240,6 +1291,21 @@ function infometry_ct_enqueue_assets() {
 		wp_enqueue_script( 'infometry-belk-case-study', INFOMETRY_CT_URL . 'assets/js/dematic-case-study.js', array(), $js_version, true );
 	}
 
+	if ( $use_tellus ) {
+		$css_path    = INFOMETRY_CT_PATH . 'assets/css/tellus-case-study.css';
+		$js_path     = INFOMETRY_CT_PATH . 'assets/js/dematic-case-study.js';
+		$css_version = is_readable( $css_path ) ? (string) filemtime( $css_path ) : INFOMETRY_CT_VERSION;
+		$js_version  = is_readable( $js_path ) ? (string) filemtime( $js_path ) : INFOMETRY_CT_VERSION;
+		wp_enqueue_style(
+			'infometry-tellus-fonts',
+			'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Roboto:wght@500;600;700;800;900&display=swap',
+			array(),
+			null
+		);
+		wp_enqueue_style( 'infometry-tellus-case-study', INFOMETRY_CT_URL . 'assets/css/tellus-case-study.css', array( 'infometry-tellus-fonts' ), $css_version );
+		wp_enqueue_script( 'infometry-tellus-case-study', INFOMETRY_CT_URL . 'assets/js/dematic-case-study.js', array(), $js_version, true );
+	}
+
 	if ( $use_dematic_finance ) {
 		$css_path    = INFOMETRY_CT_PATH . 'assets/css/dematic-global-finance-case-study.css';
 		$js_path     = INFOMETRY_CT_PATH . 'assets/js/dematic-case-study.js';
@@ -1278,6 +1344,7 @@ function infometry_ct_font_resource_hints( $urls, $relation_type ) {
 			&& ! infometry_ct_should_use_conns_template()
 			&& ! infometry_ct_should_use_expedia_template()
 			&& ! infometry_ct_should_use_belk_template()
+			&& ! infometry_ct_should_use_tellus_template()
 			&& ! infometry_ct_should_use_dematic_finance_template()
 		)
 	) {
