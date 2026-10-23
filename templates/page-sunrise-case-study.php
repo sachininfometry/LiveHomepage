@@ -84,7 +84,7 @@ $solutions = array(
 		<div class="sunrise-shell sunrise-hero-inner">
 			<div class="sunrise-hero-copy">
 				<p class="sunrise-eyebrow">Case Study</p>
-				<h1 id="sunrise-title"><span>Powering Enterprise-Wide</span><strong>Data &amp; Analytics</strong><span class="sunrise-title-tail">for Sunrun</span></h1>
+				<h1 id="sunrise-title"><span>Powering Enterprise-Wide</span> <strong>Data &amp; Analytics</strong> <span class="sunrise-title-tail">for Sunrun</span></h1>
 				<p>How Infometry built an integrated data warehouse, orchestration, and analytics foundation across customer, operational, production, and financial systems.</p>
 			</div>
 			<figure class="sunrise-hero-mobile-visual">

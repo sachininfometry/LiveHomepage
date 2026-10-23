@@ -84,7 +84,7 @@ $outcomes = array(
 		<div class="dematic-shell dematic-hero-inner">
 			<div class="dematic-hero-copy">
 				<p class="dematic-eyebrow">Case Study</p>
-				<h1 id="dematic-title"><span>Snowflake Enterprise Data</span><strong>Warehouse &amp; Credit</strong><span class="dematic-title-tail cns-title-tail"><em class="cns-accent">Data Mart</em> for <em class="cns-brand">Conn&rsquo;s HomePlus</em></span></h1>
+				<h1 id="dematic-title"><span>Snowflake Enterprise Data</span> <strong>Warehouse &amp; Credit</strong> <span class="dematic-title-tail cns-title-tail"><em class="cns-accent">Data Mart</em> for <em class="cns-brand">Conn&rsquo;s HomePlus</em></span></h1>
 				<p>Building a modern, scalable data platform to unify enterprise data and enable credit analytics, reporting, and self-service insights.</p>
 			</div>
 			<figure class="dematic-hero-mobile-visual">

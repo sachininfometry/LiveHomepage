@@ -75,7 +75,7 @@ $outcomes = array(
 		<div class="ics-shell ics-hero-inner">
 			<div class="ics-hero-copy">
 				<p class="ics-kicker">Case Study</p>
-				<h1 id="ics-title">Financial Data Platform <em>(FDP 2.0)</em><br>Modernization on<br>Snowflake AI Data Cloud</h1>
+				<h1 id="ics-title">Financial Data Platform <em>(FDP 2.0)</em> <br>Modernization on <br>Snowflake AI Data Cloud</h1>
 				<p>How Infometry helped Asana modernize its financial data platform to drive faster insights, greater scalability and smarter decision-making with Snowflake.</p>
 				<a class="ics-button ics-button-light" href="#ics-client">Read the Case Study <span>→</span></a>
 			</div>

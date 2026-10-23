@@ -90,7 +90,7 @@ $outcomes = array(
 		<div class="dematic-shell dematic-hero-inner">
 			<div class="dematic-hero-copy">
 				<p class="dematic-eyebrow">Case Study</p>
-				<h1 id="dematic-title"><span>Modernizing Expedia&rsquo;s</span><strong>Enterprise Data Platform</strong><span class="dematic-title-tail exp-title-tail">with <em class="exp-brand">Hadoop</em></span></h1>
+				<h1 id="dematic-title"><span>Modernizing Expedia&rsquo;s</span> <strong>Enterprise Data Platform</strong> <span class="dematic-title-tail exp-title-tail">with <em class="exp-brand">Hadoop</em></span></h1>
 				<p class="exp-hero-lead">Scalable Big-Data Processing, Platform Optimization &amp; Analytics Modernization</p>
 				<p>How Infometry extended Expedia&rsquo;s DB2-based EDW with a scalable Hadoop platform for high-volume clickstream and enterprise analytics.</p>
 			</div>

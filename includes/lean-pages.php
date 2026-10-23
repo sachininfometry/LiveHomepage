@@ -67,10 +67,10 @@ add_filter( 'pre_do_shortcode_tag', 'infometry_ct_lean_skip_rev_slider', 10, 2 )
 
 /** Remove an element and everything nested in it, matching its own closing tag. */
 function infometry_ct_lean_drop_element( $html, $opening, $tag ) {
-	$start = strpos( $html, $opening );
-	if ( false === $start ) {
+	if ( ! preg_match( $opening, $html, $match, PREG_OFFSET_CAPTURE ) ) {
 		return $html;
 	}
+	$start = $match[0][1];
 
 	if ( ! preg_match_all( '#<' . $tag . '\b|</' . $tag . '\s*>#i', $html, $tags, PREG_OFFSET_CAPTURE, $start ) ) {
 		return $html;
@@ -94,18 +94,24 @@ function infometry_ct_lean_filter_html( $html ) {
 		return $html;
 	}
 
-	$html = infometry_ct_lean_drop_element( $html, '<div class="mfn-main-slider mfn-rev-slider"', 'div' );
-	$html = infometry_ct_lean_drop_element( $html, '<footer id="Footer"', 'footer' );
+	// Match the opening tags whatever their attribute order or spacing (cache and
+	// optimisation plugins may rewrite them).
+	$html = infometry_ct_lean_drop_element( $html, '#<div\s[^>]*class="mfn-main-slider mfn-rev-slider"#i', 'div' );
+	$html = infometry_ct_lean_drop_element( $html, '#<footer\s[^>]*id="Footer"#i', 'footer' );
 	return $html;
 }
 
-/** Buffer the page on lean requests (before the plugin's own route renderers at priority 0). */
+/**
+ * Buffer the page on lean requests. Priority 50: after WP Rocket starts its own
+ * optimisation buffer (so this filter sees the theme's original markup) and before
+ * the plugin's route renderers (priority 99).
+ */
 function infometry_ct_lean_start_buffer() {
 	if ( '' !== infometry_ct_lean_mode() ) {
 		ob_start( 'infometry_ct_lean_filter_html' );
 	}
 }
-add_action( 'template_redirect', 'infometry_ct_lean_start_buffer', -10 );
+add_action( 'template_redirect', 'infometry_ct_lean_start_buffer', 50 );
 
 /** Stop loading assets that nothing on these pages uses. */
 function infometry_ct_lean_dequeue_assets() {

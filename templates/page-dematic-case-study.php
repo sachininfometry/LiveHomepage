@@ -72,7 +72,7 @@ $outcomes = array(
 		<div class="dematic-shell dematic-hero-inner">
 			<div class="dematic-hero-copy">
 				<p class="dematic-eyebrow">Case Study</p>
-				<h1 id="dematic-title"><span>Creating End-to-End</span><strong>Supply Chain and Project</strong><span class="dematic-title-tail">Delivery Visibility</span></h1>
+				<h1 id="dematic-title"><span>Creating End-to-End</span> <strong>Supply Chain and Project</strong> <span class="dematic-title-tail">Delivery Visibility</span></h1>
 				<p>How Infometry connected sales, engineering, project planning, materials, manufacturing, and delivery data for a global warehouse automation leader.</p>
 			</div>
 			<figure class="dematic-hero-mobile-visual">

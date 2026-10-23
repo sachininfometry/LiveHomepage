@@ -84,7 +84,7 @@ $excel_logo = '<svg class="dgf-excel-svg" viewBox="0 0 32 32" role="img" aria-la
 		<div class="dematic-shell dematic-hero-inner">
 			<div class="dematic-hero-copy">
 				<p class="dematic-eyebrow">Case Study</p>
-				<h1 id="dematic-title"><span>Creating a Unified Global</span><strong>Finance Reporting</strong><span class="dematic-title-tail">Foundation Across 32+ Companies</span></h1>
+				<h1 id="dematic-title"><span>Creating a Unified Global</span> <strong>Finance Reporting</strong> <span class="dematic-title-tail">Foundation Across 32+ Companies</span></h1>
 				<p>How Infometry standardized, validated, and integrated financial data across regions and ERP platforms to power trusted global P&amp;L and Balance Sheet reporting.</p>
 			</div>
 			<figure class="dematic-hero-mobile-visual">

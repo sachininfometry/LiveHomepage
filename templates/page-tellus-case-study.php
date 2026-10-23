@@ -117,7 +117,7 @@ $outcomes = array(
 		<div class="dematic-shell dematic-hero-inner">
 			<div class="dematic-hero-copy">
 				<p class="dematic-eyebrow">Case Study</p>
-				<h1 id="dematic-title"><span>Powering Real-Time</span><strong>Mobile Analytics</strong><span class="dematic-title-tail tls-title-tail">for <em class="tls-brand">TELUS</em></span></h1>
+				<h1 id="dematic-title"><span>Powering Real-Time</span> <strong>Mobile Analytics</strong> <span class="dematic-title-tail tls-title-tail">for <em class="tls-brand">TELUS</em></span></h1>
 				<p>A scalable hybrid analytics platform for clickstream insights, location-based recommendations, and high-volume mobile data.</p>
 			</div>
 			<figure class="dematic-hero-mobile-visual">

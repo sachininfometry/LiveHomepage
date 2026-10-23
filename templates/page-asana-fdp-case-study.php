@@ -106,7 +106,7 @@ $outcomes = array(
 		<div class="dematic-shell dematic-hero-inner">
 			<div class="dematic-hero-copy">
 				<p class="dematic-eyebrow">Case Study</p>
-				<h1 id="dematic-title"><span>Financial Data Platform</span><strong>(FDP 2.0)</strong><span class="fdp-title-light">Modernization on</span><span class="fdp-title-light">the Snowflake AI Data Cloud</span></h1>
+				<h1 id="dematic-title"><span>Financial Data Platform</span> <strong>(FDP 2.0)</strong> <span class="fdp-title-light">Modernization on</span> <span class="fdp-title-light">the Snowflake AI Data Cloud</span></h1>
 				<p>How Infometry helped Asana modernize its financial data platform to drive faster insights, greater scalability and smarter decision-making with Snowflake's AI Data Cloud.</p>
 				<ul class="fdp-hero-points" aria-label="Highlights">
 					<li><i><svg aria-hidden="true"><use href="#dematic-chart"/></svg></i>Unified<br>Financial Data</li>

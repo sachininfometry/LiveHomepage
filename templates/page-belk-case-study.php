@@ -111,7 +111,7 @@ $outcomes = array(
 		<div class="dematic-shell dematic-hero-inner">
 			<div class="dematic-hero-copy">
 				<p class="dematic-eyebrow">Case Study</p>
-				<h1 id="dematic-title"><span>Connecting Belk&rsquo;s</span><strong>Retail Ecosystem</strong><span class="dematic-title-tail blk-title-tail">with <em class="blk-brand">MuleSoft</em></span></h1>
+				<h1 id="dematic-title"><span>Connecting Belk&rsquo;s</span> <strong>Retail Ecosystem</strong> <span class="dematic-title-tail blk-title-tail">with <em class="blk-brand">MuleSoft</em></span></h1>
 				<p>Reusable integration microservices for secure e-commerce, order, logistics, returns, payments, and vendor data exchange.</p>
 			</div>
 			<figure class="dematic-hero-mobile-visual">
