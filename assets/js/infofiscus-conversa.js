@@ -542,8 +542,18 @@
     carousel.setAttribute('tabindex', '0');
     carousel.setAttribute('aria-label', 'Platform capabilities. Drag or swipe horizontally to browse.');
 
+    // Width is measured on resize only (not every frame), and the auto-scroll
+    // loop runs only while the carousel is on screen.
+    var maximumCache = 0;
+    var inView = true;
+    var running = false;
+
     function maximumScroll() {
-      return Math.max(0, carousel.scrollWidth - carousel.clientWidth);
+      return maximumCache;
+    }
+
+    function measureMaximum() {
+      maximumCache = Math.max(0, carousel.scrollWidth - carousel.clientWidth);
     }
 
     carousel.addEventListener('pointerdown', function (event) {
@@ -618,6 +628,10 @@
     }, { passive: true });
 
     function autoScroll(now) {
+      if (!inView) {
+        running = false;
+        return;
+      }
       var elapsed = Math.min(now - previousFrame, 40);
       var maximum = maximumScroll();
       previousFrame = now;
@@ -631,7 +645,30 @@
       window.requestAnimationFrame(autoScroll);
     }
 
-    window.requestAnimationFrame(autoScroll);
+    function startAutoScroll() {
+      if (!running) {
+        running = true;
+        previousFrame = performance.now();
+        window.requestAnimationFrame(autoScroll);
+      }
+    }
+
+    measureMaximum();
+    window.addEventListener('resize', measureMaximum, { passive: true });
+    window.addEventListener('load', measureMaximum, { once: true });
+    if ('ResizeObserver' in window) {
+      new ResizeObserver(measureMaximum).observe(track);
+    }
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        inView = entries[0].isIntersecting;
+        if (inView) {
+          measureMaximum();
+          startAutoScroll();
+        }
+      }).observe(carousel);
+    }
+    startAutoScroll();
   });
 
   function animateCounter(el) {

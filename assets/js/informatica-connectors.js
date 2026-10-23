@@ -105,6 +105,22 @@
     orbitLines.forEach(function (line) { line.style.removeProperty('width'); line.style.removeProperty('transform'); });
   }
 
+  // Sizes are measured once and on resize, not every frame; the loop pauses off screen.
+  var orbitBox = null;
+  var orbitNodeWidth = 174;
+  var orbitNodeHeight = 62;
+  var orbitInView = true;
+
+  function measureOrbit() {
+    if (!network || !orbitNodes.length) {
+      return;
+    }
+    orbitBox = network.getBoundingClientRect();
+    var nodeBox = orbitNodes[0].getBoundingClientRect();
+    orbitNodeWidth = nodeBox.width || 174;
+    orbitNodeHeight = nodeBox.height || 62;
+  }
+
   function positionOrbit(timestamp) {
     if (!network || !orbitNodes.length || !desktopOrbit.matches) {
       clearOrbitLayout();
@@ -112,9 +128,17 @@
       return;
     }
 
-    var box = network.getBoundingClientRect();
-    var nodeWidth = orbitNodes[0].getBoundingClientRect().width || 174;
-    var nodeHeight = orbitNodes[0].getBoundingClientRect().height || 62;
+    if (!orbitInView) {
+      orbitFrame = 0;
+      return;
+    }
+
+    if (!orbitBox) {
+      measureOrbit();
+    }
+    var box = orbitBox;
+    var nodeWidth = orbitNodeWidth;
+    var nodeHeight = orbitNodeHeight;
     var radiusX = Math.max(230, Math.min(292, box.width / 2 - nodeWidth / 2 - 8));
     var radiusY = Math.max(180, Math.min(210, box.height / 2 - nodeHeight / 2 - 16));
     var orbitNow = orbitPauseStarted || timestamp;
@@ -139,6 +163,7 @@
   }
 
   function startOrbit() {
+    orbitBox = null;
     if (orbitFrame) window.cancelAnimationFrame(orbitFrame);
     orbitFrame = window.requestAnimationFrame(positionOrbit);
   }
@@ -152,6 +177,14 @@
     desktopOrbit.addEventListener('change', startOrbit);
     reduceMotion.addEventListener('change', startOrbit);
     window.addEventListener('resize', startOrbit, { passive: true });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        orbitInView = entries[0].isIntersecting;
+        if (orbitInView && !orbitFrame) {
+          startOrbit();
+        }
+      }).observe(network);
+    }
     startOrbit();
   }
 }());

@@ -151,6 +151,40 @@ function infometry_ct_lean_dequeue_assets() {
 		}
 	}
 }
+/**
+ * Case-study banners paint their artwork as a CSS background on desktop, so the
+ * browser only discovers the image after the stylesheet is parsed. Preloading it
+ * (desktop widths only, where it is used) lets the banner paint sooner.
+ */
+function infometry_ct_lean_preload_hero() {
+	if ( 'template' !== infometry_ct_lean_mode() ) {
+		return;
+	}
+
+	$heroes = array(
+		'asana_fdp'          => 'case-studies/asana-fdp-banner-art-v2.jpg',
+		'asana_case_study'   => 'case-studies/asana-fdp-banner-art-v2.jpg',
+		'belk'               => 'case-studies/belk/belk-hero.jpg',
+		'codexis'            => 'case-studies/codexis/codexis-hero.jpg',
+		'conns'              => 'case-studies/conns/conns-hero.jpg',
+		'dematic_case_study' => 'case-studies/dematic/dematic-hero-v3.jpg',
+		'dematic_finance'    => 'case-studies/dematic-finance/dematic-finance-hero-v5.jpg',
+		'expedia'            => 'case-studies/expedia/expedia-hero.jpg',
+		'tellus'             => 'case-studies/tellus/tellus-hero.jpg',
+	);
+	foreach ( $heroes as $check => $image ) {
+		$function = 'infometry_ct_should_use_' . $check . '_template';
+		if ( function_exists( $function ) && call_user_func( $function ) && is_readable( INFOMETRY_CT_PATH . 'assets/images/' . $image ) ) {
+			printf(
+				'<link rel="preload" as="image" href="%s" media="(min-width: 1025px)" fetchpriority="high">' . "\n",
+				esc_url( INFOMETRY_CT_URL . 'assets/images/' . $image )
+			);
+			return;
+		}
+	}
+}
+add_action( 'wp_head', 'infometry_ct_lean_preload_hero', 1 );
+
 add_action( 'wp_enqueue_scripts', 'infometry_ct_lean_dequeue_assets', 9999 );
 add_action( 'wp_print_styles', 'infometry_ct_lean_dequeue_assets', 9999 );
 add_action( 'wp_print_scripts', 'infometry_ct_lean_dequeue_assets', 9999 );

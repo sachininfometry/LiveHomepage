@@ -262,7 +262,6 @@ function infometry_ct_render_live_asana_fdp_route() {
 	}
 
 	status_header( 200 );
-	nocache_headers();
 	include $plugin_template;
 	exit;
 }
@@ -298,7 +297,6 @@ function infometry_ct_render_live_sunrise_case_study_route() {
 	}
 
 	status_header( 200 );
-	nocache_headers();
 	include $plugin_template;
 	exit;
 }
@@ -334,7 +332,6 @@ function infometry_ct_render_live_dematic_case_study_route() {
 	}
 
 	status_header( 200 );
-	nocache_headers();
 	include $plugin_template;
 	exit;
 }
@@ -370,7 +367,6 @@ function infometry_ct_render_conns_route() {
 	}
 
 	status_header( 200 );
-	nocache_headers();
 	include $plugin_template;
 	exit;
 }
@@ -406,7 +402,6 @@ function infometry_ct_render_expedia_route() {
 	}
 
 	status_header( 200 );
-	nocache_headers();
 	include $plugin_template;
 	exit;
 }
@@ -442,7 +437,6 @@ function infometry_ct_render_belk_route() {
 	}
 
 	status_header( 200 );
-	nocache_headers();
 	include $plugin_template;
 	exit;
 }
@@ -478,7 +472,6 @@ function infometry_ct_render_tellus_route() {
 	}
 
 	status_header( 200 );
-	nocache_headers();
 	include $plugin_template;
 	exit;
 }
@@ -514,7 +507,6 @@ function infometry_ct_render_dematic_finance_route() {
 	}
 
 	status_header( 200 );
-	nocache_headers();
 	include $plugin_template;
 	exit;
 }

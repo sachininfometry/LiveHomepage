@@ -34,7 +34,10 @@
       return;
     }
 
-    var bounds = orbit.getBoundingClientRect();
+    if (!orbitBounds) {
+      orbitBounds = orbit.getBoundingClientRect();
+    }
+    var bounds = orbitBounds;
     var radius = Math.max(175, Math.min(220, (bounds.width / 2) - 104, (bounds.height / 2) - 84));
     var radiusX = radius;
     var radiusY = radius;
@@ -55,7 +58,16 @@
     });
   }
 
+  // Size is measured once and on resize, not every frame; the loop pauses off screen.
+  var orbitBounds = null;
+  var orbitInView = true;
+
   function tick(time) {
+    if (!orbitInView) {
+      frame = 0;
+      lastTime = 0;
+      return;
+    }
     if (!lastTime) {
       lastTime = time;
     }
@@ -85,7 +97,18 @@
       setPaused(false);
     }
   });
-  window.addEventListener('resize', positionOrbit, { passive: true });
+  window.addEventListener('resize', function () {
+    orbitBounds = null;
+    positionOrbit();
+  }, { passive: true });
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      orbitInView = entries[0].isIntersecting;
+      if (orbitInView && !frame) {
+        frame = window.requestAnimationFrame(tick);
+      }
+    }).observe(orbit);
+  }
   desktop.addEventListener('change', positionOrbit);
   reducedMotion.addEventListener('change', positionOrbit);
 
