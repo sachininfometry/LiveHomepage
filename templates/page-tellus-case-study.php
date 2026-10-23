@@ -117,7 +117,7 @@ $outcomes = array(
 		<div class="dematic-shell dematic-hero-inner">
 			<div class="dematic-hero-copy">
 				<p class="dematic-eyebrow">Case Study</p>
-				<h1 id="dematic-title"><span>Powering Real-Time</span><strong>Mobile Analytics</strong><span class="dematic-title-tail tls-title-tail">for <em class="tls-brand">Tellus</em></span></h1>
+				<h1 id="dematic-title"><span>Powering Real-Time</span><strong>Mobile Analytics</strong><span class="dematic-title-tail tls-title-tail">for <em class="tls-brand">TELUS</em></span></h1>
 				<p>A scalable hybrid analytics platform for clickstream insights, location-based recommendations, and high-volume mobile data.</p>
 			</div>
 			<figure class="dematic-hero-mobile-visual">
@@ -140,7 +140,7 @@ $outcomes = array(
 			<div class="dematic-copy-block">
 				<h2>About the Client</h2>
 				<p class="tls-wordmark"><img src="<?php echo esc_url( $tls_img_url . 'telus-logo.png' ); ?>" alt="TELUS" width="640" height="122" loading="lazy" decoding="async"></p>
-				<p>Tellus is a leading mobile service provider serving millions of customers. With the rapid adoption of smart devices and data services, the company generates massive volumes of network, device, location, and user behavior data every day.</p>
+				<p>TELUS is a leading mobile service provider serving millions of customers. With the rapid adoption of smart devices and data services, the company generates massive volumes of network, device, location, and user behavior data every day.</p>
 			</div>
 			<figure class="dematic-client-visual dgf-client-visual">
 				<img src="<?php echo esc_url( $tls_img_url . 'tellus-mobile.jpg' ); ?>" width="1796" height="876" alt="Hands using a smartphone map with location, network and analytics icons over a city skyline" loading="lazy" decoding="async">
@@ -238,7 +238,7 @@ $outcomes = array(
 
 	<section class="dematic-section dematic-tech" id="technologies">
 		<div class="dematic-shell">
-			<div class="dematic-section-heading"><h2>Technologies &amp; Platforms</h2><p>Key technologies used in Tellus&rsquo;s mobile analytics platform.</p></div>
+			<div class="dematic-section-heading"><h2>Technologies &amp; Platforms</h2><p>Key technologies used in TELUS&rsquo;s mobile analytics platform.</p></div>
 			<div class="dgf-tech-grid tls-tech">
 				<div class="dgf-tech tls-tech-wordmark"><span class="dgf-tech-icon-box"><img src="<?php echo esc_url( $img_url . 'tech-logos/hadoop-logo.png' ); ?>" alt="Apache Hadoop" width="640" height="152" loading="lazy"></span></div>
 				<div class="dgf-tech"><span class="dgf-tech-icon-box"><img src="<?php echo esc_url( $img_url . 'tech-logos/hive-mark.png' ); ?>" alt="" width="192" height="173" loading="lazy"></span><span class="dgf-tech-name">Apache Hive</span></div>
