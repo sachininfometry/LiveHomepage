@@ -40,6 +40,9 @@ require_once INFOMETRY_CT_PATH . 'includes/premium-blog.php';
 /** Lean output (no hidden theme slider/footer, no unused builder assets) on custom-design pages. */
 require_once INFOMETRY_CT_PATH . 'includes/lean-pages.php';
 
+/** Small SEO fixes with no visible effect (home schema, retired duplicate URLs). */
+require_once INFOMETRY_CT_PATH . 'includes/seo-fixes.php';
+
 /**
  * Keep the live homepage SEO metadata aligned across WordPress and common SEO plugins.
  */
