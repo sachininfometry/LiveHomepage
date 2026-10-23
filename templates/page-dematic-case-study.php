@@ -14,7 +14,7 @@ get_header();
 
 $home_url         = home_url( '/' );
 $contact_url      = home_url( '/contact-us/' );
-$conversa_url     = home_url( '/product/infofiscus-conversa/' );
+$conversa_url     = home_url( '/product/infofiscus-conversa-decision-intelligence/' );
 $accelerators_url = home_url( '/accelerators/' );
 $customers_url    = home_url( '/company/customers-partners/' );
 $img_url          = INFOMETRY_CT_URL . 'assets/images/';

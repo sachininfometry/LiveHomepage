@@ -14,7 +14,7 @@ get_header();
 
 $demo_url          = apply_filters( 'infometry_home_demo_url', home_url( '/contact-us/' ) );
 $contact_url       = apply_filters( 'infometry_home_contact_url', home_url( '/contact-us/' ) );
-$conversa_url      = home_url( '/product/conversational-analytics/' );
+$conversa_url      = home_url( '/product/infofiscus-conversa-decision-intelligence/' );
 $snowflake_url     = home_url( '/product/snowflake-native-apps/' );
 $informatica_url   = home_url( '/product/informatica-connectors/' );
 $netsuite_url      = home_url( '/product/netsuite-to-snowflake-connector/' );

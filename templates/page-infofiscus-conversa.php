@@ -647,7 +647,7 @@ $other_products = array(
 			</div>
 			<div class="icp-footer-links">
 				<h3>Products</h3>
-				<a href="<?php echo esc_url( home_url( '/product/conversational-analytics/' ) ); ?>">INFOFISCUS Conversa</a>
+				<a href="<?php echo esc_url( home_url( '/product/infofiscus-conversa-decision-intelligence/' ) ); ?>">INFOFISCUS Conversa</a>
 				<a href="<?php echo esc_url( home_url( '/product/informatica-connectors/' ) ); ?>">Informatica Connectors</a>
 				<a href="<?php echo esc_url( home_url( '/product/#infofiscus-snowflake-native-apps' ) ); ?>">INFOFISCUS Snowflake Native Apps</a>
 				<a href="<?php echo esc_url( home_url( '/product/#pre-built-apps' ) ); ?>">Pre-Built Apps For IDMC and Matillion</a>
