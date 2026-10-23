@@ -739,4 +739,18 @@
   } else {
     counters.forEach(animateCounter);
   }
+
+  // Decorative CSS animations (glows, pulses, colour shifts) repaint every frame.
+  // Pause them while their section is off screen; they resume when it scrolls back.
+  if ('IntersectionObserver' in window) {
+    var sectionObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        entry.target.classList.toggle('icp-offscreen', !entry.isIntersecting);
+      });
+    }, { rootMargin: '200px 0px' });
+
+    Array.prototype.slice.call(root.children).forEach(function (section) {
+      sectionObserver.observe(section);
+    });
+  }
 }());

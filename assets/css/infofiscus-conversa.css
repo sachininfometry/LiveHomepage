@@ -15009,3 +15009,11 @@ body .infometry-conversa-product .icp-capabilities .icp-feature-tags span {
     min-height: 44px !important;
   }
 }
+
+/* Off-screen sections pause their decorative animations (set by infofiscus-conversa.js). */
+.infometry-conversa-product .icp-offscreen,
+.infometry-conversa-product .icp-offscreen *,
+.infometry-conversa-product .icp-offscreen *::before,
+.infometry-conversa-product .icp-offscreen *::after {
+  animation-play-state: paused !important;
+}
