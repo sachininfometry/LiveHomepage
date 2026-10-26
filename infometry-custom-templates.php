@@ -29,6 +29,7 @@ define( 'INFOMETRY_CT_EXPEDIA_TEMPLATE', 'templates/page-expedia-case-study.php'
 define( 'INFOMETRY_CT_BELK_TEMPLATE', 'templates/page-belk-case-study.php' );
 define( 'INFOMETRY_CT_TELLUS_TEMPLATE', 'templates/page-tellus-case-study.php' );
 define( 'INFOMETRY_CT_CODEXIS_TEMPLATE', 'templates/page-codexis-case-study.php' );
+define( 'INFOMETRY_CT_NAVIS_TEMPLATE', 'templates/page-navis-case-study.php' );
 define( 'INFOMETRY_CT_DEMATIC_FINANCE_TEMPLATE', 'templates/page-dematic-global-finance-case-study.php' );
 define( 'INFOMETRY_CT_CONVERSA_FORM_ID', 379751 );
 define( 'INFOMETRY_CT_GOOGLE_FORM_ID', 351429 );
@@ -126,6 +127,7 @@ function infometry_ct_register_page_template( $templates ) {
 	$templates[ INFOMETRY_CT_BELK_TEMPLATE ] = __( 'Belk MuleSoft Case Study', 'infometry-custom-templates' );
 	$templates[ INFOMETRY_CT_TELLUS_TEMPLATE ] = __( 'Tellus Mobile Analytics Case Study', 'infometry-custom-templates' );
 	$templates[ INFOMETRY_CT_CODEXIS_TEMPLATE ] = __( 'Codexis Enterprise Data Warehouse Case Study', 'infometry-custom-templates' );
+	$templates[ INFOMETRY_CT_NAVIS_TEMPLATE ] = __( 'Navis Post-Contract Project Delivery Case Study', 'infometry-custom-templates' );
 	$templates[ INFOMETRY_CT_DEMATIC_FINANCE_TEMPLATE ] = __( 'Dematic Global Finance Case Study', 'infometry-custom-templates' );
 
 	return $templates;
@@ -520,6 +522,41 @@ function infometry_ct_render_codexis_route() {
 }
 add_action( 'template_redirect', 'infometry_ct_render_codexis_route', 99 );
 
+/** Use the Navis post-contract project delivery case study when selected or on its URL. */
+function infometry_ct_should_use_navis_template() {
+	return infometry_ct_should_use_template( INFOMETRY_CT_NAVIS_TEMPLATE )
+		|| infometry_ct_is_navis_route();
+}
+
+/** Match the production Navis post-contract project delivery case-study URL. */
+function infometry_ct_is_navis_route() {
+	$host = isset( $_SERVER['HTTP_HOST'] ) ? strtolower( sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ) ) ) : '';
+	$host = preg_replace( '/:\d+$/', '', $host );
+	if ( ! in_array( $host, array( 'infometry.net', 'www.infometry.net' ), true ) || empty( $_SERVER['REQUEST_URI'] ) ) {
+		return false;
+	}
+
+	$path = wp_parse_url( wp_unslash( $_SERVER['REQUEST_URI'] ), PHP_URL_PATH );
+	return '/resources/infometry-case-studies/pcip-post-contract-implementation-performance' === untrailingslashit( $path );
+}
+
+/** Serve the Navis post-contract project delivery case study at its exact URL. */
+function infometry_ct_render_navis_route() {
+	if ( ! infometry_ct_is_navis_route() ) {
+		return;
+	}
+
+	$plugin_template = INFOMETRY_CT_PATH . INFOMETRY_CT_NAVIS_TEMPLATE;
+	if ( ! is_readable( $plugin_template ) ) {
+		return;
+	}
+
+	status_header( 200 );
+	include $plugin_template;
+	exit;
+}
+add_action( 'template_redirect', 'infometry_ct_render_navis_route', 99 );
+
 /** Use the Dematic global finance case study when selected or on its URL. */
 function infometry_ct_should_use_dematic_finance_template() {
 	return infometry_ct_should_use_template( INFOMETRY_CT_DEMATIC_FINANCE_TEMPLATE )
@@ -665,6 +702,13 @@ function infometry_ct_load_page_template( $template ) {
 		}
 	}
 
+	if ( infometry_ct_should_use_navis_template() ) {
+		$plugin_template = INFOMETRY_CT_PATH . INFOMETRY_CT_NAVIS_TEMPLATE;
+		if ( is_readable( $plugin_template ) ) {
+			return $plugin_template;
+		}
+	}
+
 	if ( infometry_ct_should_use_dematic_finance_template() ) {
 		$plugin_template = INFOMETRY_CT_PATH . INFOMETRY_CT_DEMATIC_FINANCE_TEMPLATE;
 		if ( is_readable( $plugin_template ) ) {
@@ -741,6 +785,11 @@ function infometry_ct_body_classes( $classes ) {
 	if ( infometry_ct_should_use_codexis_template() ) {
 		$classes = array_values( array_diff( $classes, array( 'header-transparent', 'template-slider' ) ) );
 		$classes[] = 'infometry-codexis-case-study-page';
+	}
+
+	if ( infometry_ct_should_use_navis_template() ) {
+		$classes = array_values( array_diff( $classes, array( 'header-transparent', 'template-slider' ) ) );
+		$classes[] = 'infometry-navis-case-study-page';
 	}
 
 	if ( infometry_ct_should_use_dematic_finance_template() ) {
@@ -1144,9 +1193,10 @@ function infometry_ct_enqueue_assets() {
 	$use_belk     = infometry_ct_should_use_belk_template();
 	$use_tellus   = infometry_ct_should_use_tellus_template();
 	$use_codexis  = infometry_ct_should_use_codexis_template();
+	$use_navis    = infometry_ct_should_use_navis_template();
 	$use_dematic_finance    = infometry_ct_should_use_dematic_finance_template();
 
-	if ( ! $use_home && ! $use_conversa && ! $use_informatica && ! $use_google_connectors && ! $use_asana_case_study && ! $use_insurance_snowflake && ! $use_asana_architecture && ! $use_sunrise_case_study && ! $use_dematic_case_study && ! $use_dematic_finance && ! $use_conns && ! $use_expedia && ! $use_belk && ! $use_tellus && ! $use_codexis ) {
+	if ( ! $use_home && ! $use_conversa && ! $use_informatica && ! $use_google_connectors && ! $use_asana_case_study && ! $use_insurance_snowflake && ! $use_asana_architecture && ! $use_sunrise_case_study && ! $use_dematic_case_study && ! $use_dematic_finance && ! $use_conns && ! $use_expedia && ! $use_belk && ! $use_tellus && ! $use_codexis && ! $use_navis ) {
 		return;
 	}
 
@@ -1372,6 +1422,21 @@ function infometry_ct_enqueue_assets() {
 		wp_enqueue_script( 'infometry-codexis-case-study', INFOMETRY_CT_URL . 'assets/js/dematic-case-study.js', array(), $js_version, true );
 	}
 
+	if ( $use_navis ) {
+		$css_path    = INFOMETRY_CT_PATH . 'assets/css/navis-case-study.css';
+		$js_path     = INFOMETRY_CT_PATH . 'assets/js/dematic-case-study.js';
+		$css_version = is_readable( $css_path ) ? (string) filemtime( $css_path ) : INFOMETRY_CT_VERSION;
+		$js_version  = is_readable( $js_path ) ? (string) filemtime( $js_path ) : INFOMETRY_CT_VERSION;
+		wp_enqueue_style(
+			'infometry-navis-fonts',
+			'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Roboto:wght@500;600;700;800;900&display=swap',
+			array(),
+			null
+		);
+		wp_enqueue_style( 'infometry-navis-case-study', INFOMETRY_CT_URL . 'assets/css/navis-case-study.css', array( 'infometry-navis-fonts' ), $css_version );
+		wp_enqueue_script( 'infometry-navis-case-study', INFOMETRY_CT_URL . 'assets/js/dematic-case-study.js', array(), $js_version, true );
+	}
+
 	if ( $use_dematic_finance ) {
 		$css_path    = INFOMETRY_CT_PATH . 'assets/css/dematic-global-finance-case-study.css';
 		$js_path     = INFOMETRY_CT_PATH . 'assets/js/dematic-case-study.js';
@@ -1412,6 +1477,7 @@ function infometry_ct_font_resource_hints( $urls, $relation_type ) {
 			&& ! infometry_ct_should_use_belk_template()
 			&& ! infometry_ct_should_use_tellus_template()
 			&& ! infometry_ct_should_use_codexis_template()
+		&& ! infometry_ct_should_use_navis_template()
 			&& ! infometry_ct_should_use_dematic_finance_template()
 		)
 	) {

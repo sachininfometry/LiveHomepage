@@ -39,7 +39,7 @@ function infometry_ct_lean_mode() {
 	$checks = array(
 		'home', 'conversa', 'informatica', 'google_connectors', 'google_drive', 'snowflake_native_apps',
 		'asana_fdp', 'asana_case_study', 'asana_architecture', 'insurance_snowflake', 'sunrise_case_study',
-		'dematic_case_study', 'dematic_finance', 'conns', 'expedia', 'belk', 'tellus', 'codexis',
+		'dematic_case_study', 'dematic_finance', 'conns', 'expedia', 'belk', 'tellus', 'codexis', 'navis',
 	);
 	foreach ( $checks as $check ) {
 		$function = 'infometry_ct_should_use_' . $check . '_template';
@@ -173,6 +173,7 @@ function infometry_ct_lean_preload_hero() {
 		'belk'               => 'case-studies/belk/belk-hero.jpg',
 		'codexis'            => 'case-studies/codexis/codexis-hero-v2.jpg',
 		'conns'              => 'case-studies/conns/conns-hero.jpg',
+		'navis'              => 'case-studies/navis/navis-hero.jpg',
 		'dematic_case_study' => 'case-studies/dematic/dematic-hero-v3.jpg',
 		'dematic_finance'    => 'case-studies/dematic-finance/dematic-finance-hero-v5.jpg',
 		'expedia'            => 'case-studies/expedia/expedia-hero.jpg',
