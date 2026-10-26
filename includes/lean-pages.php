@@ -171,7 +171,7 @@ function infometry_ct_lean_preload_hero() {
 		'asana_fdp'          => 'case-studies/asana-fdp-banner-art-v2.jpg',
 		'asana_case_study'   => 'case-studies/asana-fdp-banner-art-v2.jpg',
 		'belk'               => 'case-studies/belk/belk-hero.jpg',
-		'codexis'            => 'case-studies/codexis/codexis-hero.jpg',
+		'codexis'            => 'case-studies/codexis/codexis-hero-v2.jpg',
 		'conns'              => 'case-studies/conns/conns-hero.jpg',
 		'dematic_case_study' => 'case-studies/dematic/dematic-hero-v3.jpg',
 		'dematic_finance'    => 'case-studies/dematic-finance/dematic-finance-hero-v5.jpg',
