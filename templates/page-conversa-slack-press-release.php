@@ -105,7 +105,7 @@ if ( function_exists( 'infometry_ct_print_press_release_schema' ) ) {
 	<section class="spr-hero" aria-labelledby="spr-title">
 		<div class="spr-shell spr-hero-grid">
 			<div class="spr-hero-copy">
-				<p class="spr-kicker is-cyan">For Immediate Release</p>
+				<p class="spr-kicker is-cyan">Press Release</p>
 				<h1 id="spr-title">Infometry Introduces Slack Integration for <span class="spr-brand-cyan">INFOFISCUS Conversa</span></h1>
 				<p class="spr-subhead">Bringing Enterprise Decision Intelligence Into the Flow of Work</p>
 				<p class="spr-lead">New plugin framework enables teams to explore enterprise data directly in Slack with executive summaries, interactive visualizations, key metrics, and auditable SQL.</p>
