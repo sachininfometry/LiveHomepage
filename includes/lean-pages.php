@@ -37,7 +37,7 @@ function infometry_ct_lean_mode() {
 	}
 
 	$checks = array(
-		'home', 'conversa', 'informatica', 'google_connectors', 'google_drive', 'snowflake_native_apps',
+		'home', 'conversa', 'informatica', 'google_connectors', 'google_drive', 'google_sheets', 'snowflake_native_apps',
 		'asana_fdp', 'asana_case_study', 'asana_architecture', 'insurance_snowflake', 'sunrise_case_study',
 		'dematic_case_study', 'dematic_finance', 'conns', 'expedia', 'belk', 'tellus', 'codexis', 'navis', 'dematic_pm', 'conversa_slack_pr',
 	);

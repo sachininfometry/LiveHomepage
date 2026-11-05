@@ -141,11 +141,7 @@ $other_products = array(
 					<div class="icp-hero-business-signals"><span><svg><use href="#icp-i-chat"></use></svg><b>Trusted<br>Answers</b></span><span><svg><use href="#icp-i-chart"></use></svg><b>Deeper<br>Analysis</b></span><span><svg><use href="#icp-i-path"></use></svg><b>Actionable<br>Insights</b></span><span><svg><use href="#icp-i-shield"></use></svg><b>Enterprise-<br>Grade Security</b></span></div>
 				</div>
 
-				<div class="icp-hero-slider" data-icp-hero-slider aria-label="INFOFISCUS Conversa product preview carousel">
-					<figure class="icp-hero-slide is-active"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/conversa-welcome-home-v2.jpg' ); ?>" width="1672" height="941" fetchpriority="high" loading="eager" decoding="async" alt="INFOFISCUS Conversa home screen: Bring data intelligence into every decision"></figure>
-					<figure class="icp-hero-slide"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/conversa-executive-insights-v2.jpg' ); ?>" width="1672" height="941" loading="lazy" decoding="async" alt="INFOFISCUS Conversa executive revenue insights dashboard"></figure>
-					<figure class="icp-hero-slide"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/conversa-apac-revenue-v3.jpg' ); ?>" width="1672" height="941" loading="lazy" decoding="async" alt="INFOFISCUS Conversa APAC revenue decline dashboard"></figure>
-				</div>
+				<?php include INFOMETRY_CT_PATH . 'templates/partials/conversa-live-dashboard.php'; ?>
 
 				<div class="icp-dashboard icp-dashboard-legacy" aria-hidden="true">
 					<aside class="icp-dashboard-rail" aria-hidden="true">
@@ -263,29 +259,8 @@ $other_products = array(
 				<h2 id="icp-intro-title">Meet INFOFISCUS Conversa™: An Enterprise Decision Intelligence Platform</h2>
 				<p>Conversa is an <strong>enterprise decision intelligence platform</strong> that helps teams investigate complex business questions, uncover key drivers, and turn governed enterprise data into trusted, decision-ready insights. Its cross-platform intelligence and analytical reasoning capabilities help organizations move from understanding what happened to why it happened—and make better, faster business decisions.</p>
 			</div>
-			<div class="icp-intro-video-frame icp-architecture-frame">
-				<div class="icp-intro-video-bar"><span><i></i><i></i><i></i></span><strong>Business Decision Journey</strong><small>From question to action</small></div>
-				<div class="icp-architecture" aria-label="INFOFISCUS Conversa business journey from question to decision-ready insight">
-					<div class="icp-architecture-query"><span class="icp-query-brand-mark"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/infometry-mark-white.png' ); ?>" width="77" height="101" loading="lazy" decoding="async" alt="" aria-hidden="true"></span><span>Why did customer engagement drop last week?</span></div>
-					<div class="icp-architecture-grid">
-						<div class="icp-architecture-sources">
-							<small>Business context</small>
-							<span>Customer segments</span><span>Campaign reach</span><span>Engagement KPIs</span><span>Channel trends</span><span>Prior-week baseline</span><span>Engagement target</span>
-						</div>
-						<div class="icp-architecture-engine">
-							<div class="icp-engine-orb"><svg><use href="#icp-i-nodes"></use></svg></div>
-							<strong>Conversa Decision Intelligence</strong>
-							<small>KPIs + Business Context + Key Drivers + Recommendations = Action</small>
-						</div>
-						<div class="icp-architecture-flow">
-							<article><b>1</b><span>Compare engagement with the prior week</span></article>
-							<article><b>2</b><span>Break down the decline by channel and segment</span></article>
-							<article><b>3</b><span>Identify the biggest drop in email engagement</span></article>
-							<article><b>4</b><span>Find the key driver: lower click-through rate</span></article>
-							<article class="is-answer"><b>5</b><span>Decision-ready outputs</span><div class="icp-answer-outputs"><span><em>Executive Summary</em><small>Engagement down 18%</small></span><span><em>Visualization</em><small>Weekly trend by channel</small></span><span><em>Recommended Action</em><small>Optimize email timing</small></span></div></article>
-						</div>
-					</div>
-				</div>
+			<div class="icp-intro-video-frame icp-architecture-frame icp-jr-frame">
+				<?php include INFOMETRY_CT_PATH . 'templates/partials/conversa-journey.php'; ?>
 			</div>
 			<div class="icp-intro-value-row"><article><span><svg><use href="#icp-i-chat"></use></svg></span><div><strong>Ask Naturally</strong><small>Turn complex business questions into guided investigations using natural language and business context.</small></div></article><article><span><svg><use href="#icp-i-trust"></use></svg></span><div><strong>Understand Context</strong><small>Apply governed semantics and business definitions to connect enterprise data with the meaning behind the numbers.</small></div></article><article><span><svg><use href="#icp-i-trend"></use></svg></span><div><strong>Make Decisions</strong><small>Move from what happened to why it happened, uncover drivers and risks, and turn analysis into trusted business decisions.</small></div></article></div>
 			<div class="icp-intro-action"><a class="icp-button icp-button-primary" href="https://app.supademo.com/demo/cmrpbnvrk00aozw0jd3ao0z6v?utm_source=link" target="_blank" rel="noopener noreferrer">See Conversa in Action <span aria-hidden="true">→</span></a></div>
