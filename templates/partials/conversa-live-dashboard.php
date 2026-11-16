@@ -18,6 +18,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $lv_img = INFOMETRY_CT_URL . 'assets/images/';
 
+// Home screen copy. A page that includes this tour may set these first.
+if ( ! isset( $lv_home_title ) ) {
+	$lv_home_title = 'Bring data intelligence into <span>every decision with INFOFISCUS</span>';
+}
+if ( ! isset( $lv_home_copy ) ) {
+	$lv_home_copy = 'The enterprise conversational AI platform that lets analysts and decision-makers chat with their data warehouses and semantic models.';
+}
+
 if ( ! function_exists( 'infometry_ct_lv_line_chart' ) ) {
 	/**
 	 * Area + line chart in a 320x150 view box.
@@ -285,8 +293,8 @@ $lv_agents = array(
 			<div class="lv-views">
 				<section class="lv-view lv-home" data-lv-view="home" aria-label="Home" hidden>
 					<p class="lv-pill" data-in><i></i>INFOFISCUS Conversa 2.0 is live</p>
-					<p class="lv-home-title" data-in>Bring data intelligence into <span>every decision with INFOFISCUS</span></p>
-					<p class="lv-home-copy" data-in>The enterprise conversational AI platform that lets analysts and decision-makers chat with their data warehouses and semantic models.</p>
+					<p class="lv-home-title" data-in><?php echo wp_kses( $lv_home_title, array( 'span' => array() ) ); ?></p>
+					<p class="lv-home-copy" data-in><?php echo esc_html( $lv_home_copy ); ?></p>
 					<div class="lv-home-actions" data-in><span class="lv-btn is-primary" data-lv-target="start">Start Chatting</span><span class="lv-btn">Connections</span></div>
 					<div class="lv-home-cards">
 						<article data-in><span class="lv-icon"><svg aria-hidden="true"><use href="#lv-bolt"/></svg></span><b>Instant Insights</b><small>Query millions of rows in natural language.</small></article>
@@ -502,6 +510,19 @@ $lv_agents = array(
 		</div>
 
 		<span class="lv-cursor" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 3l14 8.2-6.2 1.5L9.6 19z"/></svg></span>
+
+		<?php if ( ! empty( $lv_show_demo_cta ) ) : // The ads landing page opts in; the product page does not. ?>
+		<!-- Always-on request-demo CTA, pinned inside the demo. -->
+		<a class="lv-cta" href="#icl-demo" data-icl-demo data-lv-cta aria-label="Request a live Conversa demo"><svg aria-hidden="true"><use href="#lv-spark"/></svg><span>Request demo</span></a>
+
+		<!-- Prompt shown when the visitor opens a second chat or switches tabs. -->
+		<div class="lv-nudge" data-lv-nudge hidden role="dialog" aria-label="Request a Conversa demo">
+			<button type="button" class="lv-nudge-x" data-lv-nudge-close aria-label="Dismiss">&times;</button>
+			<b>Like what you see?</b>
+			<p>Run Conversa on your own business questions and data.</p>
+			<a class="lv-btn is-primary" href="#icl-demo" data-icl-demo data-lv-nudge-go>Request now</a>
+		</div>
+		<?php endif; ?>
 	</div>
 
 	<div class="lv-pipe">

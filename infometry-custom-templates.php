@@ -34,6 +34,7 @@ define( 'INFOMETRY_CT_NAVIS_TEMPLATE', 'templates/page-navis-case-study.php' );
 define( 'INFOMETRY_CT_CONVERSA_SLACK_PR_TEMPLATE', 'templates/page-conversa-slack-press-release.php' );
 define( 'INFOMETRY_CT_DEMATIC_PM_TEMPLATE', 'templates/page-dematic-pm-case-study.php' );
 define( 'INFOMETRY_CT_DEMATIC_FINANCE_TEMPLATE', 'templates/page-dematic-global-finance-case-study.php' );
+define( 'INFOMETRY_CT_CONVERSA_LANDING_TEMPLATE', 'templates/page-conversa-landing.php' );
 define( 'INFOMETRY_CT_CONVERSA_FORM_ID', 379751 );
 define( 'INFOMETRY_CT_GOOGLE_FORM_ID', 351429 );
 define( 'INFOMETRY_CT_HOME_META_TITLE', 'Enterprise Data Analytics & AI Solutions | Infometry' );
@@ -47,6 +48,9 @@ require_once INFOMETRY_CT_PATH . 'includes/lean-pages.php';
 
 /** Small SEO fixes with no visible effect (home schema, retired duplicate URLs). */
 require_once INFOMETRY_CT_PATH . 'includes/seo-fixes.php';
+
+/** Standalone lead form for the Conversa ads landing page (does not use WPForms). */
+require_once INFOMETRY_CT_PATH . 'includes/conversa-landing-form.php';
 
 /**
  * Keep the live homepage SEO metadata aligned across WordPress and common SEO plugins.
@@ -135,6 +139,7 @@ function infometry_ct_register_page_template( $templates ) {
 	$templates[ INFOMETRY_CT_CONVERSA_SLACK_PR_TEMPLATE ] = __( 'Conversa Slack Integration Press Release', 'infometry-custom-templates' );
 	$templates[ INFOMETRY_CT_DEMATIC_PM_TEMPLATE ] = __( 'Dematic Project Schedule Milestone Reporting Case Study', 'infometry-custom-templates' );
 	$templates[ INFOMETRY_CT_DEMATIC_FINANCE_TEMPLATE ] = __( 'Dematic Global Finance Case Study', 'infometry-custom-templates' );
+	$templates[ INFOMETRY_CT_CONVERSA_LANDING_TEMPLATE ] = __( 'INFOFISCUS Conversa Ads Landing Page', 'infometry-custom-templates' );
 
 	return $templates;
 }
@@ -686,6 +691,60 @@ function infometry_ct_render_dematic_finance_route() {
 }
 add_action( 'template_redirect', 'infometry_ct_render_dematic_finance_route', 99 );
 
+/** Use the Conversa ads landing page (no site menu) when selected or on its URL. */
+function infometry_ct_should_use_conversa_landing_template() {
+	return infometry_ct_should_use_template( INFOMETRY_CT_CONVERSA_LANDING_TEMPLATE )
+		|| infometry_ct_is_conversa_landing_route();
+}
+
+/** Match the production Conversa ads landing-page URL. */
+function infometry_ct_is_conversa_landing_route() {
+	$host = isset( $_SERVER['HTTP_HOST'] ) ? strtolower( sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ) ) ) : '';
+	$host = preg_replace( '/:\d+$/', '', $host );
+	if ( ! in_array( $host, array( 'infometry.net', 'www.infometry.net' ), true ) || empty( $_SERVER['REQUEST_URI'] ) ) {
+		return false;
+	}
+
+	$path = wp_parse_url( wp_unslash( $_SERVER['REQUEST_URI'] ), PHP_URL_PATH );
+	return '/infofiscus-conversa-decision-intelligence-campaign' === untrailingslashit( $path );
+}
+
+/**
+ * Serve the Conversa ads landing page. The template prints its own document
+ * (no theme header, menu or footer), so it is rendered here both for the URL
+ * route and for a page that selected the template.
+ */
+function infometry_ct_render_conversa_landing() {
+	if ( ! infometry_ct_should_use_conversa_landing_template() ) {
+		return;
+	}
+
+	$plugin_template = INFOMETRY_CT_PATH . INFOMETRY_CT_CONVERSA_LANDING_TEMPLATE;
+	if ( ! is_readable( $plugin_template ) ) {
+		return;
+	}
+
+	status_header( 200 );
+	include $plugin_template;
+	exit;
+}
+add_action( 'template_redirect', 'infometry_ct_render_conversa_landing', 99 );
+
+/** Title and description for the Conversa ads landing page. */
+function infometry_ct_conversa_landing_title( $title ) {
+	return infometry_ct_should_use_conversa_landing_template() ? 'INFOFISCUS Conversa: Trusted Decision Intelligence Platform | Infometry' : $title;
+}
+add_filter( 'pre_get_document_title', 'infometry_ct_conversa_landing_title', 99 );
+add_filter( 'wpseo_title', 'infometry_ct_conversa_landing_title', 99 );
+add_filter( 'wpseo_opengraph_title', 'infometry_ct_conversa_landing_title', 99 );
+
+/** Meta description for the Conversa ads landing page. */
+function infometry_ct_conversa_landing_description( $description ) {
+	return infometry_ct_should_use_conversa_landing_template() ? 'Ask business questions in plain English. INFOFISCUS Conversa investigates your governed enterprise data, finds the key drivers and hands your leaders decision-ready answers.' : $description;
+}
+add_filter( 'wpseo_metadesc', 'infometry_ct_conversa_landing_description', 99 );
+add_filter( 'wpseo_opengraph_desc', 'infometry_ct_conversa_landing_description', 99 );
+
 /** Match only the production Google Cloud Connectors URL. */
 function infometry_ct_is_live_google_connectors_route() {
 	$host = isset( $_SERVER['HTTP_HOST'] ) ? strtolower( sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ) ) ) : '';
@@ -924,6 +983,11 @@ function infometry_ct_body_classes( $classes ) {
 	if ( infometry_ct_should_use_dematic_finance_template() ) {
 		$classes = array_values( array_diff( $classes, array( 'header-transparent', 'template-slider' ) ) );
 		$classes[] = 'infometry-dematic-finance-case-study-page';
+	}
+
+	if ( infometry_ct_should_use_conversa_landing_template() ) {
+		$classes = array_values( array_diff( $classes, array( 'header-transparent', 'template-slider' ) ) );
+		$classes[] = 'infometry-conversa-landing-page';
 	}
 
 	return array_unique( $classes );
@@ -1327,8 +1391,9 @@ function infometry_ct_enqueue_assets() {
 	$use_conversa_slack_pr = infometry_ct_should_use_conversa_slack_pr_template();
 	$use_dematic_pm = infometry_ct_should_use_dematic_pm_template();
 	$use_dematic_finance    = infometry_ct_should_use_dematic_finance_template();
+	$use_conversa_landing   = infometry_ct_should_use_conversa_landing_template();
 
-	if ( ! $use_home && ! $use_conversa && ! $use_informatica && ! $use_google_connectors && ! $use_google_sheets && ! $use_asana_case_study && ! $use_insurance_snowflake && ! $use_asana_architecture && ! $use_sunrise_case_study && ! $use_dematic_case_study && ! $use_dematic_finance && ! $use_conns && ! $use_expedia && ! $use_belk && ! $use_tellus && ! $use_codexis && ! $use_navis && ! $use_conversa_slack_pr && ! $use_dematic_pm ) {
+	if ( ! $use_home && ! $use_conversa && ! $use_informatica && ! $use_google_connectors && ! $use_google_sheets && ! $use_asana_case_study && ! $use_insurance_snowflake && ! $use_asana_architecture && ! $use_sunrise_case_study && ! $use_dematic_case_study && ! $use_dematic_finance && ! $use_conns && ! $use_expedia && ! $use_belk && ! $use_tellus && ! $use_codexis && ! $use_navis && ! $use_conversa_slack_pr && ! $use_dematic_pm && ! $use_conversa_landing ) {
 		return;
 	}
 
@@ -1623,8 +1688,102 @@ function infometry_ct_enqueue_assets() {
 		wp_enqueue_style( 'infometry-dematic-finance-case-study', INFOMETRY_CT_URL . 'assets/css/dematic-global-finance-case-study.css', array( 'infometry-dematic-finance-fonts' ), $css_version );
 		wp_enqueue_script( 'infometry-dematic-finance-case-study', INFOMETRY_CT_URL . 'assets/js/dematic-case-study.js', array(), $js_version, true );
 	}
+
+	if ( $use_conversa_landing ) {
+		// The hero reuses the Conversa product tour, so the Conversa CSS/JS load first.
+		$lv = static function ( $file ) {
+			$path = INFOMETRY_CT_PATH . $file;
+			return is_readable( $path ) ? (string) filemtime( $path ) : INFOMETRY_CT_VERSION;
+		};
+		wp_enqueue_style(
+			'infometry-conversa-landing-fonts',
+			'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Roboto:wght@500;600;700;800;900&display=swap',
+			array(),
+			null
+		);
+		wp_enqueue_style( 'infometry-infofiscus-conversa', INFOMETRY_CT_URL . 'assets/css/infofiscus-conversa.css', array(), $lv( 'assets/css/infofiscus-conversa.css' ) );
+		wp_enqueue_style( 'infometry-conversa-landing', INFOMETRY_CT_URL . 'assets/css/conversa-landing.css', array( 'infometry-conversa-landing-fonts', 'infometry-infofiscus-conversa' ), $lv( 'assets/css/conversa-landing.css' ) );
+		wp_enqueue_script( 'infometry-infofiscus-conversa', INFOMETRY_CT_URL . 'assets/js/infofiscus-conversa.js', array(), $lv( 'assets/js/infofiscus-conversa.js' ), true );
+		wp_enqueue_script( 'infometry-conversa-landing', INFOMETRY_CT_URL . 'assets/js/conversa-landing.js', array(), $lv( 'assets/js/conversa-landing.js' ), true );
+	}
 }
 add_action( 'wp_enqueue_scripts', 'infometry_ct_enqueue_assets', 20 );
+
+/**
+ * The Conversa ads landing page prints its own standalone document (no theme
+ * header, menu, footer, Elementor widgets or tables), so the theme and plugin
+ * front-end assets that WordPress enqueues globally are dead weight here. Drop
+ * them on this template only, to cut unused CSS/JS and speed up the paid page.
+ * Runs late (priority 100) so everything is registered before we dequeue it.
+ */
+function infometry_ct_trim_conversa_landing_assets() {
+	if ( ! infometry_ct_should_use_conversa_landing_template() ) {
+		return;
+	}
+
+	$drop_styles = array(
+		'wp-block-library',
+		'wp-block-library-theme',
+		'global-styles',
+		'classic-theme-styles',
+		'wp-job-manager-job-listings',
+		'tablepress-default',
+		'mfn-be',
+		'mfn-animations',
+		'mfn-font-awesome',
+		'mfn-responsive',
+		'ekit-widget-common',
+		'ekit-nav-menu',
+		'ekit-header-search',
+		'ekit-header-offcanvas',
+		'ekit-header-info',
+		'elementor-frontend',
+		'elementor-icons',
+		'elementor-common',
+		'swiper',
+	);
+
+	// Dashicons is only dead weight for logged-out visitors; the logged-in admin
+	// bar needs it, so keep it whenever the admin bar is shown.
+	if ( ! is_admin_bar_showing() ) {
+		$drop_styles[] = 'dashicons';
+	}
+
+	$drop_scripts = array(
+		'jquery-migrate',
+		'essential-blocks-blocks-localize',
+		'jquery-ui-core',
+		'jquery-ui-tabs',
+		'mfn-debouncedresize',
+		'mfn-magnificpopup',
+		'mfn-menu',
+		'mfn-visible',
+		'mfn-animations',
+		'mfn-stickysidebar',
+		'mfn-enllax',
+		'mfn-parallax',
+		'mfn-scripts',
+		'elementor-webpack-runtime',
+		'elementor-frontend-modules',
+		'elementor-frontend',
+		'ekit-core',
+		'ekit-nav-menu',
+		'ekit-menu',
+		'ekit-header-search',
+		'ekit-header-offcanvas',
+		'magnific-popup',
+	);
+
+	foreach ( $drop_styles as $handle ) {
+		wp_dequeue_style( $handle );
+		wp_deregister_style( $handle );
+	}
+	foreach ( $drop_scripts as $handle ) {
+		wp_dequeue_script( $handle );
+		wp_deregister_script( $handle );
+	}
+}
+add_action( 'wp_enqueue_scripts', 'infometry_ct_trim_conversa_landing_assets', 100 );
 
 /**
  * Preconnect only on pages that request the custom Google Fonts stylesheets.
@@ -1654,6 +1813,7 @@ function infometry_ct_font_resource_hints( $urls, $relation_type ) {
 			&& ! infometry_ct_should_use_conversa_slack_pr_template()
 			&& ! infometry_ct_should_use_dematic_pm_template()
 			&& ! infometry_ct_should_use_dematic_finance_template()
+			&& ! infometry_ct_should_use_conversa_landing_template()
 		)
 	) {
 		return $urls;

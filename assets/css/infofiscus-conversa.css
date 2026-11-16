@@ -15094,6 +15094,108 @@ body .infometry-conversa-product .icp-live .lv-app {
   line-height: 1.4;
 }
 
+/* Always-on "Request demo" CTA pinned inside the demo. */
+body .infometry-conversa-product .icp-live .lv-cta {
+  position: absolute;
+  right: .85em;
+  bottom: .85em;
+  z-index: 8;
+  display: inline-flex;
+  align-items: center;
+  gap: .5em;
+  padding: .62em 1em;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(100deg, #6b3cff 0%, #2f6bf2 100%);
+  color: #fff;
+  font-size: 1em;
+  font-weight: 800;
+  line-height: 1;
+  text-decoration: none;
+  box-shadow: 0 .5em 1.1em rgba(16, 10, 70, .5);
+  cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+body .infometry-conversa-product .icp-live .lv-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 .75em 1.5em rgba(91, 60, 255, .55);
+  color: #fff;
+}
+
+body .infometry-conversa-product .icp-live .lv-cta svg {
+  width: 1.1em;
+  height: 1.1em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+
+/* Request-demo nudge shown on a second chat / tab switch. */
+body .infometry-conversa-product .icp-live .lv-nudge {
+  position: absolute;
+  right: .85em;
+  bottom: 4.1em;
+  z-index: 9;
+  width: min(17.5em, 72%);
+  padding: 1em 1.1em .95em;
+  border: 1px solid rgba(166, 190, 235, .4);
+  border-radius: .7em;
+  background: linear-gradient(150deg, #141a36 0%, #1c2350 100%);
+  color: #eef2ff;
+  box-shadow: 0 1em 2.2em rgba(0, 5, 35, .55);
+  opacity: 0;
+  transform: translateY(.6em);
+  transition: opacity .3s ease, transform .3s ease;
+}
+
+body .infometry-conversa-product .icp-live .lv-nudge.is-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+body .infometry-conversa-product .icp-live .lv-nudge b {
+  display: block;
+  font-size: 1.08em;
+  font-weight: 800;
+}
+
+body .infometry-conversa-product .icp-live .lv-nudge p {
+  margin: .3em 0 .85em;
+  color: #c3cdf0;
+  font-size: .96em;
+  line-height: 1.45;
+}
+
+body .infometry-conversa-product .icp-live .lv-nudge .lv-btn.is-primary {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+body .infometry-conversa-product .icp-live .lv-nudge-x {
+  position: absolute;
+  top: .35em;
+  right: .5em;
+  padding: 0;
+  width: 1.6em;
+  height: 1.6em;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: #9fb0d8;
+  font-size: 1.3em;
+  line-height: 1;
+  cursor: pointer;
+  transition: color .2s ease, background-color .2s ease;
+}
+
+body .infometry-conversa-product .icp-live .lv-nudge-x:hover {
+  background: rgba(255, 255, 255, .1);
+  color: #fff;
+}
+
 /* Sidebar */
 body .infometry-conversa-product .icp-live .lv-side {
   display: flex;
